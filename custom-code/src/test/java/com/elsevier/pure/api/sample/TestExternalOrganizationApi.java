@@ -14,7 +14,7 @@ public class TestExternalOrganizationApi extends TestCase {
      * @throws ApiException
      */
     public void testFetch() throws ApiException {
-        final ExternalOrganizationListResult response = pureApi.listExternalOrganizations(10, 0, "name");
+        final ExternalOrganizationListResult response = pureApi.externalOrganizationList(10, 0, "name");
         System.out.println("Count: " + response.getCount());
 
         if (response.getItems() != null) {

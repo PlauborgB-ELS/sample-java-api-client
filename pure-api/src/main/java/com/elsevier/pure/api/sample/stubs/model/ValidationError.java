@@ -23,12 +23,15 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Validation error
  */
 @ApiModel(description = "Validation error")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T14:48:58.242158+01:00[Europe/Copenhagen]")
 public class ValidationError {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
@@ -40,7 +43,7 @@ public class ValidationError {
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  private Object title;
+  private Map<String, String> title = null;
 
 
   public ValidationError path(String path) {
@@ -89,9 +92,17 @@ public class ValidationError {
   }
 
 
-  public ValidationError title(Object title) {
+  public ValidationError title(Map<String, String> title) {
     
     this.title = title;
+    return this;
+  }
+
+  public ValidationError putTitleItem(String key, String titleItem) {
+    if (this.title == null) {
+      this.title = new HashMap<String, String>();
+    }
+    this.title.put(key, titleItem);
     return this;
   }
 
@@ -100,14 +111,14 @@ public class ValidationError {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Container for a set of string values each localized for a specific locale")
+  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "Container for a set of string values each localized for a specific locale")
 
-  public Object getTitle() {
+  public Map<String, String> getTitle() {
     return title;
   }
 
 
-  public void setTitle(Object title) {
+  public void setTitle(Map<String, String> title) {
     this.title = title;
   }
 

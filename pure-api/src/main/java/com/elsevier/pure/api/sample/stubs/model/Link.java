@@ -26,13 +26,15 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A hyperlink
  */
 @ApiModel(description = "A hyperlink")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T14:48:58.242158+01:00[Europe/Copenhagen]")
 public class Link {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -52,7 +54,7 @@ public class Link {
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private Object description;
+  private Map<String, String> description = null;
 
   public static final String SERIALIZED_NAME_LINK_TYPE = "linkType";
   @SerializedName(SERIALIZED_NAME_LINK_TYPE)
@@ -150,9 +152,17 @@ public class Link {
   }
 
 
-  public Link description(Object description) {
+  public Link description(Map<String, String> description) {
     
     this.description = description;
+    return this;
+  }
+
+  public Link putDescriptionItem(String key, String descriptionItem) {
+    if (this.description == null) {
+      this.description = new HashMap<String, String>();
+    }
+    this.description.put(key, descriptionItem);
     return this;
   }
 
@@ -161,14 +171,14 @@ public class Link {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Container for a set of string values each localized for a specific locale")
+  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "Container for a set of string values each localized for a specific locale")
 
-  public Object getDescription() {
+  public Map<String, String> getDescription() {
     return description;
   }
 
 
-  public void setDescription(Object description) {
+  public void setDescription(Map<String, String> description) {
     this.description = description;
   }
 

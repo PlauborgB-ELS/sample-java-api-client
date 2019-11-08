@@ -26,13 +26,15 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A way to annotate another object with a type/role/etc.
  */
 @ApiModel(description = "A way to annotate another object with a type/role/etc.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T14:48:58.242158+01:00[Europe/Copenhagen]")
 public class Classification {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -52,7 +54,7 @@ public class Classification {
 
   public static final String SERIALIZED_NAME_TERM = "term";
   @SerializedName(SERIALIZED_NAME_TERM)
-  private Object term;
+  private Map<String, String> term = null;
 
   public static final String SERIALIZED_NAME_DISABLED = "disabled";
   @SerializedName(SERIALIZED_NAME_DISABLED)
@@ -60,7 +62,7 @@ public class Classification {
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private Object description;
+  private Map<String, String> description = null;
 
   public static final String SERIALIZED_NAME_CLASSIFICATION_RELATIONS = "classificationRelations";
   @SerializedName(SERIALIZED_NAME_CLASSIFICATION_RELATIONS)
@@ -158,9 +160,17 @@ public class Classification {
   }
 
 
-  public Classification term(Object term) {
+  public Classification term(Map<String, String> term) {
     
     this.term = term;
+    return this;
+  }
+
+  public Classification putTermItem(String key, String termItem) {
+    if (this.term == null) {
+      this.term = new HashMap<String, String>();
+    }
+    this.term.put(key, termItem);
     return this;
   }
 
@@ -169,14 +179,14 @@ public class Classification {
    * @return term
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Container for a set of string values each localized for a specific locale")
+  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "Container for a set of string values each localized for a specific locale")
 
-  public Object getTerm() {
+  public Map<String, String> getTerm() {
     return term;
   }
 
 
-  public void setTerm(Object term) {
+  public void setTerm(Map<String, String> term) {
     this.term = term;
   }
 
@@ -204,9 +214,17 @@ public class Classification {
   }
 
 
-  public Classification description(Object description) {
+  public Classification description(Map<String, String> description) {
     
     this.description = description;
+    return this;
+  }
+
+  public Classification putDescriptionItem(String key, String descriptionItem) {
+    if (this.description == null) {
+      this.description = new HashMap<String, String>();
+    }
+    this.description.put(key, descriptionItem);
     return this;
   }
 
@@ -215,14 +233,14 @@ public class Classification {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Container for a set of string values each localized for a specific locale")
+  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "Container for a set of string values each localized for a specific locale")
 
-  public Object getDescription() {
+  public Map<String, String> getDescription() {
     return description;
   }
 
 
-  public void setDescription(Object description) {
+  public void setDescription(Map<String, String> description) {
     this.description = description;
   }
 

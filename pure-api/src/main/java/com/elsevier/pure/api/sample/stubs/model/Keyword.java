@@ -30,7 +30,7 @@ import java.util.List;
  * List of free keywords
  */
 @ApiModel(description = "List of free keywords")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T14:48:58.242158+01:00[Europe/Copenhagen]")
 public class Keyword {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)

@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost/ws/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getExternalOrganization**](ExternalOrganizationApi.md#getExternalOrganization) | **GET** /external-organizations/{id} | Get external organization
-[**getExternalOrganizationOrderings**](ExternalOrganizationApi.md#getExternalOrganizationOrderings) | **GET** /external-organizations/orderings | Lists available orderings
-[**listExternalOrganizations**](ExternalOrganizationApi.md#listExternalOrganizations) | **GET** /external-organizations | Lists all external organizations
-[**listExternalOrganizationsUsingQuery**](ExternalOrganizationApi.md#listExternalOrganizationsUsingQuery) | **POST** /external-organizations | Complex operation for external organizations
-[**updateExternalOrganizations**](ExternalOrganizationApi.md#updateExternalOrganizations) | **PUT** /external-organizations/{id} | Put external organization
+[**externalOrganizationGet**](ExternalOrganizationApi.md#externalOrganizationGet) | **GET** /external-organizations/{id} | Get external organization
+[**externalOrganizationGetOrderings**](ExternalOrganizationApi.md#externalOrganizationGetOrderings) | **GET** /external-organizations/orderings | Lists available orderings
+[**externalOrganizationList**](ExternalOrganizationApi.md#externalOrganizationList) | **GET** /external-organizations | Lists all external organizations
+[**externalOrganizationQuery**](ExternalOrganizationApi.md#externalOrganizationQuery) | **POST** /external-organizations | Complex operation for external organizations
+[**externalOrganizationUpdate**](ExternalOrganizationApi.md#externalOrganizationUpdate) | **PUT** /external-organizations/{id} | Put external organization
 
 
-<a name="getExternalOrganization"></a>
-# **getExternalOrganization**
-> ExternalOrganization getExternalOrganization(id)
+<a name="externalOrganizationGet"></a>
+# **externalOrganizationGet**
+> ExternalOrganization externalOrganizationGet(id)
 
 Get external organization
 
@@ -43,10 +43,10 @@ public class Example {
     ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
     String id = "id_example"; // String | ID of the desired external organization
     try {
-      ExternalOrganization result = apiInstance.getExternalOrganization(id);
+      ExternalOrganization result = apiInstance.externalOrganizationGet(id);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ExternalOrganizationApi#getExternalOrganization");
+      System.err.println("Exception when calling ExternalOrganizationApi#externalOrganizationGet");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -81,9 +81,9 @@ Name | Type | Description  | Notes
 **200** | Successful operation |  -  |
 **404** | Resource not found |  -  |
 
-<a name="getExternalOrganizationOrderings"></a>
-# **getExternalOrganizationOrderings**
-> OrderingsList getExternalOrganizationOrderings()
+<a name="externalOrganizationGetOrderings"></a>
+# **externalOrganizationGetOrderings**
+> OrderingsList externalOrganizationGetOrderings()
 
 Lists available orderings
 
@@ -112,10 +112,10 @@ public class Example {
 
     ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
     try {
-      OrderingsList result = apiInstance.getExternalOrganizationOrderings();
+      OrderingsList result = apiInstance.externalOrganizationGetOrderings();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ExternalOrganizationApi#getExternalOrganizationOrderings");
+      System.err.println("Exception when calling ExternalOrganizationApi#externalOrganizationGetOrderings");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -146,9 +146,9 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 
-<a name="listExternalOrganizations"></a>
-# **listExternalOrganizations**
-> ExternalOrganizationListResult listExternalOrganizations(size, offset, order)
+<a name="externalOrganizationList"></a>
+# **externalOrganizationList**
+> ExternalOrganizationListResult externalOrganizationList(size, offset, order)
 
 Lists all external organizations
 
@@ -180,10 +180,10 @@ public class Example {
     Integer offset = 0; // Integer | The offset for the returned list. 0 or null value is from the start
     String order = "order_example"; // String | The order of the list, must be a value from getExternalOrganizationOrderings
     try {
-      ExternalOrganizationListResult result = apiInstance.listExternalOrganizations(size, offset, order);
+      ExternalOrganizationListResult result = apiInstance.externalOrganizationList(size, offset, order);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ExternalOrganizationApi#listExternalOrganizations");
+      System.err.println("Exception when calling ExternalOrganizationApi#externalOrganizationList");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -219,9 +219,9 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 
-<a name="listExternalOrganizationsUsingQuery"></a>
-# **listExternalOrganizationsUsingQuery**
-> ExternalOrganizationListResult listExternalOrganizationsUsingQuery(externalOrganizationsQuery)
+<a name="externalOrganizationQuery"></a>
+# **externalOrganizationQuery**
+> ExternalOrganizationListResult externalOrganizationQuery(externalOrganizationsQuery)
 
 Complex operation for external organizations
 
@@ -251,10 +251,10 @@ public class Example {
     ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
     ExternalOrganizationsQuery externalOrganizationsQuery = new ExternalOrganizationsQuery(); // ExternalOrganizationsQuery | 
     try {
-      ExternalOrganizationListResult result = apiInstance.listExternalOrganizationsUsingQuery(externalOrganizationsQuery);
+      ExternalOrganizationListResult result = apiInstance.externalOrganizationQuery(externalOrganizationsQuery);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ExternalOrganizationApi#listExternalOrganizationsUsingQuery");
+      System.err.println("Exception when calling ExternalOrganizationApi#externalOrganizationQuery");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -288,9 +288,9 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 
-<a name="updateExternalOrganizations"></a>
-# **updateExternalOrganizations**
-> ExternalOrganization updateExternalOrganizations(id, body)
+<a name="externalOrganizationUpdate"></a>
+# **externalOrganizationUpdate**
+> ExternalOrganization externalOrganizationUpdate(id, body)
 
 Put external organization
 
@@ -321,10 +321,10 @@ public class Example {
     String id = "id_example"; // String | ID of the desired external organization
     Object body = null; // Object | 
     try {
-      ExternalOrganization result = apiInstance.updateExternalOrganizations(id, body);
+      ExternalOrganization result = apiInstance.externalOrganizationUpdate(id, body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ExternalOrganizationApi#updateExternalOrganizations");
+      System.err.println("Exception when calling ExternalOrganizationApi#externalOrganizationUpdate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

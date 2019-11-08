@@ -24,12 +24,15 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A reference to a classification value
  */
 @ApiModel(description = "A reference to a classification value")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T14:48:58.242158+01:00[Europe/Copenhagen]")
 public class ClassificationRef {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -41,7 +44,7 @@ public class ClassificationRef {
 
   public static final String SERIALIZED_NAME_TERM = "term";
   @SerializedName(SERIALIZED_NAME_TERM)
-  private Object term;
+  private Map<String, String> term = null;
 
 
    /**
@@ -81,9 +84,17 @@ public class ClassificationRef {
   }
 
 
-  public ClassificationRef term(Object term) {
+  public ClassificationRef term(Map<String, String> term) {
     
     this.term = term;
+    return this;
+  }
+
+  public ClassificationRef putTermItem(String key, String termItem) {
+    if (this.term == null) {
+      this.term = new HashMap<String, String>();
+    }
+    this.term.put(key, termItem);
     return this;
   }
 
@@ -92,14 +103,14 @@ public class ClassificationRef {
    * @return term
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Container for a set of string values each localized for a specific locale")
+  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "Container for a set of string values each localized for a specific locale")
 
-  public Object getTerm() {
+  public Map<String, String> getTerm() {
     return term;
   }
 
 
-  public void setTerm(Object term) {
+  public void setTerm(Map<String, String> term) {
     this.term = term;
   }
 

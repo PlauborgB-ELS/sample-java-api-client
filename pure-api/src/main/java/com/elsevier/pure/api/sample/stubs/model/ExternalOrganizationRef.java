@@ -24,12 +24,15 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A reference to an organization external to the institution
  */
 @ApiModel(description = "A reference to an organization external to the institution")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T14:48:58.242158+01:00[Europe/Copenhagen]")
 public class ExternalOrganizationRef {
   public static final String SERIALIZED_NAME_UUID = "uuid";
   @SerializedName(SERIALIZED_NAME_UUID)
@@ -41,7 +44,7 @@ public class ExternalOrganizationRef {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  private Object name;
+  private Map<String, String> name = null;
 
 
    /**
@@ -81,9 +84,17 @@ public class ExternalOrganizationRef {
   }
 
 
-  public ExternalOrganizationRef name(Object name) {
+  public ExternalOrganizationRef name(Map<String, String> name) {
     
     this.name = name;
+    return this;
+  }
+
+  public ExternalOrganizationRef putNameItem(String key, String nameItem) {
+    if (this.name == null) {
+      this.name = new HashMap<String, String>();
+    }
+    this.name.put(key, nameItem);
     return this;
   }
 
@@ -92,14 +103,14 @@ public class ExternalOrganizationRef {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Container for a set of string values each localized for a specific locale")
+  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "Container for a set of string values each localized for a specific locale")
 
-  public Object getName() {
+  public Map<String, String> getName() {
     return name;
   }
 
 
-  public void setName(Object name) {
+  public void setName(Map<String, String> name) {
     this.name = name;
   }
 

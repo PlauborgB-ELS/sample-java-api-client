@@ -8,7 +8,7 @@ Visibility of an object
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **key** | [**KeyEnum**](#KeyEnum) | Visibility value |  [optional]
-**description** | [**Object**](.md) | Container for a set of string values each localized for a specific locale |  [optional]
+**description** | **Map&lt;String, String&gt;** | Container for a set of string values each localized for a specific locale |  [optional]
 
 
 

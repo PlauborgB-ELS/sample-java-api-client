@@ -23,12 +23,15 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Information about workflow
  */
 @ApiModel(description = "Information about workflow")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T14:48:58.242158+01:00[Europe/Copenhagen]")
 public class Workflow {
   public static final String SERIALIZED_NAME_WORKFLOW_STEP = "workflowStep";
   @SerializedName(SERIALIZED_NAME_WORKFLOW_STEP)
@@ -36,7 +39,7 @@ public class Workflow {
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private Object description;
+  private Map<String, String> description = null;
 
 
   public Workflow workflowStep(String workflowStep) {
@@ -62,9 +65,17 @@ public class Workflow {
   }
 
 
-  public Workflow description(Object description) {
+  public Workflow description(Map<String, String> description) {
     
     this.description = description;
+    return this;
+  }
+
+  public Workflow putDescriptionItem(String key, String descriptionItem) {
+    if (this.description == null) {
+      this.description = new HashMap<String, String>();
+    }
+    this.description.put(key, descriptionItem);
     return this;
   }
 
@@ -73,14 +84,14 @@ public class Workflow {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Container for a set of string values each localized for a specific locale")
+  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "Container for a set of string values each localized for a specific locale")
 
-  public Object getDescription() {
+  public Map<String, String> getDescription() {
     return description;
   }
 
 
-  public void setDescription(Object description) {
+  public void setDescription(Map<String, String> description) {
     this.description = description;
   }
 

@@ -45,9 +45,9 @@ public class ExternalOrganizationApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getExternalOrganizationTest() throws ApiException {
+    public void externalOrganizationGetTest() throws ApiException {
         String id = null;
-        ExternalOrganization response = api.getExternalOrganization(id);
+        ExternalOrganization response = api.externalOrganizationGet(id);
 
         // TODO: test validations
     }
@@ -61,8 +61,8 @@ public class ExternalOrganizationApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getExternalOrganizationOrderingsTest() throws ApiException {
-        OrderingsList response = api.getExternalOrganizationOrderings();
+    public void externalOrganizationGetOrderingsTest() throws ApiException {
+        OrderingsList response = api.externalOrganizationGetOrderings();
 
         // TODO: test validations
     }
@@ -76,11 +76,11 @@ public class ExternalOrganizationApiTest {
      *          if the Api call fails
      */
     @Test
-    public void listExternalOrganizationsTest() throws ApiException {
+    public void externalOrganizationListTest() throws ApiException {
         Integer size = null;
         Integer offset = null;
         String order = null;
-        ExternalOrganizationListResult response = api.listExternalOrganizations(size, offset, order);
+        ExternalOrganizationListResult response = api.externalOrganizationList(size, offset, order);
 
         // TODO: test validations
     }
@@ -94,9 +94,9 @@ public class ExternalOrganizationApiTest {
      *          if the Api call fails
      */
     @Test
-    public void listExternalOrganizationsUsingQueryTest() throws ApiException {
+    public void externalOrganizationQueryTest() throws ApiException {
         ExternalOrganizationsQuery externalOrganizationsQuery = null;
-        ExternalOrganizationListResult response = api.listExternalOrganizationsUsingQuery(externalOrganizationsQuery);
+        ExternalOrganizationListResult response = api.externalOrganizationQuery(externalOrganizationsQuery);
 
         // TODO: test validations
     }
@@ -110,10 +110,10 @@ public class ExternalOrganizationApiTest {
      *          if the Api call fails
      */
     @Test
-    public void updateExternalOrganizationsTest() throws ApiException {
+    public void externalOrganizationUpdateTest() throws ApiException {
         String id = null;
         Object body = null;
-        ExternalOrganization response = api.updateExternalOrganizations(id, body);
+        ExternalOrganization response = api.externalOrganizationUpdate(id, body);
 
         // TODO: test validations
     }

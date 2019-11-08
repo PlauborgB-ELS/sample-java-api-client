@@ -35,14 +35,16 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
  * An organization external to the institution
  */
 @ApiModel(description = "An organization external to the institution")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T14:48:58.242158+01:00[Europe/Copenhagen]")
 public class ExternalOrganization {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -62,7 +64,7 @@ public class ExternalOrganization {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  private Object name;
+  private Map<String, String> name = null;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -227,9 +229,17 @@ public class ExternalOrganization {
 
 
 
-  public ExternalOrganization name(Object name) {
+  public ExternalOrganization name(Map<String, String> name) {
     
     this.name = name;
+    return this;
+  }
+
+  public ExternalOrganization putNameItem(String key, String nameItem) {
+    if (this.name == null) {
+      this.name = new HashMap<String, String>();
+    }
+    this.name.put(key, nameItem);
     return this;
   }
 
@@ -238,14 +248,14 @@ public class ExternalOrganization {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Container for a set of string values each localized for a specific locale")
+  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "Container for a set of string values each localized for a specific locale")
 
-  public Object getName() {
+  public Map<String, String> getName() {
     return name;
   }
 
 
-  public void setName(Object name) {
+  public void setName(Map<String, String> name) {
     this.name = name;
   }
 

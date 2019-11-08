@@ -2,7 +2,7 @@
 
 Pure API
 - API version: 0.1-Alpha
-  - Build date: 2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]
+  - Build date: 2019-11-08T14:48:58.242158+01:00[Europe/Copenhagen]
 
 Description text
 
@@ -95,10 +95,10 @@ public class Example {
     ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
     String id = "id_example"; // String | ID of the desired external organization
     try {
-      ExternalOrganization result = apiInstance.getExternalOrganization(id);
+      ExternalOrganization result = apiInstance.externalOrganizationGet(id);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ExternalOrganizationApi#getExternalOrganization");
+      System.err.println("Exception when calling ExternalOrganizationApi#externalOrganizationGet");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -115,11 +115,11 @@ All URIs are relative to *http://localhost/ws/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ExternalOrganizationApi* | [**getExternalOrganization**](docs/ExternalOrganizationApi.md#getExternalOrganization) | **GET** /external-organizations/{id} | Get external organization
-*ExternalOrganizationApi* | [**getExternalOrganizationOrderings**](docs/ExternalOrganizationApi.md#getExternalOrganizationOrderings) | **GET** /external-organizations/orderings | Lists available orderings
-*ExternalOrganizationApi* | [**listExternalOrganizations**](docs/ExternalOrganizationApi.md#listExternalOrganizations) | **GET** /external-organizations | Lists all external organizations
-*ExternalOrganizationApi* | [**listExternalOrganizationsUsingQuery**](docs/ExternalOrganizationApi.md#listExternalOrganizationsUsingQuery) | **POST** /external-organizations | Complex operation for external organizations
-*ExternalOrganizationApi* | [**updateExternalOrganizations**](docs/ExternalOrganizationApi.md#updateExternalOrganizations) | **PUT** /external-organizations/{id} | Put external organization
+*ExternalOrganizationApi* | [**externalOrganizationGet**](docs/ExternalOrganizationApi.md#externalOrganizationGet) | **GET** /external-organizations/{id} | Get external organization
+*ExternalOrganizationApi* | [**externalOrganizationGetOrderings**](docs/ExternalOrganizationApi.md#externalOrganizationGetOrderings) | **GET** /external-organizations/orderings | Lists available orderings
+*ExternalOrganizationApi* | [**externalOrganizationList**](docs/ExternalOrganizationApi.md#externalOrganizationList) | **GET** /external-organizations | Lists all external organizations
+*ExternalOrganizationApi* | [**externalOrganizationQuery**](docs/ExternalOrganizationApi.md#externalOrganizationQuery) | **POST** /external-organizations | Complex operation for external organizations
+*ExternalOrganizationApi* | [**externalOrganizationUpdate**](docs/ExternalOrganizationApi.md#externalOrganizationUpdate) | **PUT** /external-organizations/{id} | Put external organization
 
 
 ## Documentation for Models

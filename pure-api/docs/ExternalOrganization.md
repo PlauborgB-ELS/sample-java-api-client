@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **freeFormExternalIds** | [**List&lt;Id&gt;**](Id.md) | IDs from the external sources (part of) the object was imported from |  [optional]
 **externallyManaged** | **Boolean** | Signals that the information is maintained by synchronization from an external system |  [optional]
 **uuid** | [**UUID**](UUID.md) | UUID |  [optional] [readonly]
-**name** | [**Object**](.md) | Container for a set of string values each localized for a specific locale |  [optional]
+**name** | **Map&lt;String, String&gt;** | Container for a set of string values each localized for a specific locale |  [optional]
 **type** | [**ClassificationRef**](ClassificationRef.md) |  |  [optional]
 **natureTypes** | [**List&lt;ClassificationRef&gt;**](ClassificationRef.md) | Nature of the organizations work |  [optional]
 **parent** | [**ExternalOrganizationRef**](ExternalOrganizationRef.md) |  |  [optional]
