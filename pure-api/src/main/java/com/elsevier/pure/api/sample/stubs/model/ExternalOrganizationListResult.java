@@ -33,8 +33,8 @@ import java.util.List;
  * List of organizations external to the institution. Can contain a subset of all items along with the full count
  */
 @ApiModel(description = "List of organizations external to the institution. Can contain a subset of all items along with the full count")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-06T09:45:25.329746+01:00[Europe/Copenhagen]")
-public class ExternalOrganisationListResult {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
+public class ExternalOrganizationListResult {
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
   private Integer count;
@@ -52,7 +52,7 @@ public class ExternalOrganisationListResult {
   private List<ExternalOrganization> items = null;
 
 
-  public ExternalOrganisationListResult count(Integer count) {
+  public ExternalOrganizationListResult count(Integer count) {
     
     this.count = count;
     return this;
@@ -75,7 +75,7 @@ public class ExternalOrganisationListResult {
   }
 
 
-  public ExternalOrganisationListResult pageInformation(PageInformation pageInformation) {
+  public ExternalOrganizationListResult pageInformation(PageInformation pageInformation) {
     
     this.pageInformation = pageInformation;
     return this;
@@ -98,13 +98,13 @@ public class ExternalOrganisationListResult {
   }
 
 
-  public ExternalOrganisationListResult navigationLinks(List<NavigationLink> navigationLinks) {
+  public ExternalOrganizationListResult navigationLinks(List<NavigationLink> navigationLinks) {
     
     this.navigationLinks = navigationLinks;
     return this;
   }
 
-  public ExternalOrganisationListResult addNavigationLinksItem(NavigationLink navigationLinksItem) {
+  public ExternalOrganizationListResult addNavigationLinksItem(NavigationLink navigationLinksItem) {
     if (this.navigationLinks == null) {
       this.navigationLinks = new ArrayList<NavigationLink>();
     }
@@ -129,13 +129,13 @@ public class ExternalOrganisationListResult {
   }
 
 
-  public ExternalOrganisationListResult items(List<ExternalOrganization> items) {
+  public ExternalOrganizationListResult items(List<ExternalOrganization> items) {
     
     this.items = items;
     return this;
   }
 
-  public ExternalOrganisationListResult addItemsItem(ExternalOrganization itemsItem) {
+  public ExternalOrganizationListResult addItemsItem(ExternalOrganization itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<ExternalOrganization>();
     }
@@ -144,11 +144,11 @@ public class ExternalOrganisationListResult {
   }
 
    /**
-   * External organisations
+   * External organizations
    * @return items
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "External organisations")
+  @ApiModelProperty(value = "External organizations")
 
   public List<ExternalOrganization> getItems() {
     return items;
@@ -168,11 +168,11 @@ public class ExternalOrganisationListResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExternalOrganisationListResult externalOrganisationListResult = (ExternalOrganisationListResult) o;
-    return Objects.equals(this.count, externalOrganisationListResult.count) &&
-        Objects.equals(this.pageInformation, externalOrganisationListResult.pageInformation) &&
-        Objects.equals(this.navigationLinks, externalOrganisationListResult.navigationLinks) &&
-        Objects.equals(this.items, externalOrganisationListResult.items);
+    ExternalOrganizationListResult externalOrganizationListResult = (ExternalOrganizationListResult) o;
+    return Objects.equals(this.count, externalOrganizationListResult.count) &&
+        Objects.equals(this.pageInformation, externalOrganizationListResult.pageInformation) &&
+        Objects.equals(this.navigationLinks, externalOrganizationListResult.navigationLinks) &&
+        Objects.equals(this.items, externalOrganizationListResult.items);
   }
 
   @Override
@@ -184,7 +184,7 @@ public class ExternalOrganisationListResult {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExternalOrganisationListResult {\n");
+    sb.append("class ExternalOrganizationListResult {\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    pageInformation: ").append(toIndentedString(pageInformation)).append("\n");
     sb.append("    navigationLinks: ").append(toIndentedString(navigationLinks)).append("\n");

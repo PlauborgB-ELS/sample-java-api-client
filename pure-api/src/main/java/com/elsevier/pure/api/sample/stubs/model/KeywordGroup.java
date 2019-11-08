@@ -33,7 +33,7 @@ import java.util.List;
  * Keywords of a specific type. A type of keyword can be configured to solely support free keywords, to solely support structured keywords, or to both support structured keywords supplemented by optional free keywords
  */
 @ApiModel(description = "Keywords of a specific type. A type of keyword can be configured to solely support free keywords, to solely support structured keywords, or to both support structured keywords supplemented by optional free keywords")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-06T09:45:25.329746+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
 public class KeywordGroup {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)

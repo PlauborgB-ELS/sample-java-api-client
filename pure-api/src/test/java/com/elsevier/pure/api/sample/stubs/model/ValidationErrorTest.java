@@ -21,34 +21,47 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for LocalizedString
+ * Model tests for ValidationError
  */
-public class LocalizedStringTest {
-    private final LocalizedString model = new LocalizedString();
+public class ValidationErrorTest {
+    private final ValidationError model = new ValidationError();
 
     /**
-     * Model tests for LocalizedString
+     * Model tests for ValidationError
      */
     @Test
-    public void testLocalizedString() {
-        // TODO: test LocalizedString
+    public void testValidationError() {
+        // TODO: test ValidationError
     }
 
     /**
-     * Test the property 'text'
+     * Test the property 'path'
      */
     @Test
-    public void textTest() {
-        // TODO: test text
+    public void pathTest() {
+        // TODO: test path
+    }
+
+    /**
+     * Test the property 'code'
+     */
+    @Test
+    public void codeTest() {
+        // TODO: test code
+    }
+
+    /**
+     * Test the property 'title'
+     */
+    @Test
+    public void titleTest() {
+        // TODO: test title
     }
 
 }

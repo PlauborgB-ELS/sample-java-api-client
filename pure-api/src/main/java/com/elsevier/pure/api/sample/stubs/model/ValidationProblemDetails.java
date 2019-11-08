@@ -15,6 +15,9 @@ package com.elsevier.pure.api.sample.stubs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.elsevier.pure.api.sample.stubs.model.ProblemDetails;
+import com.elsevier.pure.api.sample.stubs.model.ValidationError;
+import com.elsevier.pure.api.sample.stubs.model.ValidationProblemDetailsAllOf;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,44 +30,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * List of available orderings
+ * Problem details for validation failures
  */
-@ApiModel(description = "List of available orderings")
+@ApiModel(description = "Problem details for validation failures")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
-public class OrderingsList {
-  public static final String SERIALIZED_NAME_ORDERINGS = "orderings";
-  @SerializedName(SERIALIZED_NAME_ORDERINGS)
-  private List<String> orderings = null;
+public class ValidationProblemDetails extends ProblemDetails {
+  public static final String SERIALIZED_NAME_ERRORS = "errors";
+  @SerializedName(SERIALIZED_NAME_ERRORS)
+  private List<ValidationError> errors = null;
 
 
-  public OrderingsList orderings(List<String> orderings) {
+  public ValidationProblemDetails errors(List<ValidationError> errors) {
     
-    this.orderings = orderings;
+    this.errors = errors;
     return this;
   }
 
-  public OrderingsList addOrderingsItem(String orderingsItem) {
-    if (this.orderings == null) {
-      this.orderings = new ArrayList<String>();
+  public ValidationProblemDetails addErrorsItem(ValidationError errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<ValidationError>();
     }
-    this.orderings.add(orderingsItem);
+    this.errors.add(errorsItem);
     return this;
   }
 
    /**
-   * IDs of ways content can be ordered
-   * @return orderings
+   * Get errors
+   * @return errors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "IDs of ways content can be ordered")
+  @ApiModelProperty(value = "")
 
-  public List<String> getOrderings() {
-    return orderings;
+  public List<ValidationError> getErrors() {
+    return errors;
   }
 
 
-  public void setOrderings(List<String> orderings) {
-    this.orderings = orderings;
+  public void setErrors(List<ValidationError> errors) {
+    this.errors = errors;
   }
 
 
@@ -76,21 +79,23 @@ public class OrderingsList {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrderingsList orderingsList = (OrderingsList) o;
-    return Objects.equals(this.orderings, orderingsList.orderings);
+    ValidationProblemDetails validationProblemDetails = (ValidationProblemDetails) o;
+    return Objects.equals(this.errors, validationProblemDetails.errors) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orderings);
+    return Objects.hash(errors, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrderingsList {\n");
-    sb.append("    orderings: ").append(toIndentedString(orderings)).append("\n");
+    sb.append("class ValidationProblemDetails {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
   }

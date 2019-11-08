@@ -24,7 +24,6 @@ import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationRef;
 import com.elsevier.pure.api.sample.stubs.model.Id;
 import com.elsevier.pure.api.sample.stubs.model.KeywordGroup;
 import com.elsevier.pure.api.sample.stubs.model.Link;
-import com.elsevier.pure.api.sample.stubs.model.LocalizedString;
 import com.elsevier.pure.api.sample.stubs.model.Visibility;
 import com.elsevier.pure.api.sample.stubs.model.Workflow;
 import com.google.gson.TypeAdapter;
@@ -37,12 +36,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * An organization external to the institution
  */
 @ApiModel(description = "An organization external to the institution")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-06T09:45:25.329746+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
 public class ExternalOrganization {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -58,11 +58,11 @@ public class ExternalOrganization {
 
   public static final String SERIALIZED_NAME_UUID = "uuid";
   @SerializedName(SERIALIZED_NAME_UUID)
-  private String uuid;
+  private UUID uuid;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  private LocalizedString name;
+  private Object name;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -220,32 +220,32 @@ public class ExternalOrganization {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "UUID")
 
-  public String getUuid() {
+  public UUID getUuid() {
     return uuid;
   }
 
 
 
 
-  public ExternalOrganization name(LocalizedString name) {
+  public ExternalOrganization name(Object name) {
     
     this.name = name;
     return this;
   }
 
    /**
-   * Get name
+   * Container for a set of string values each localized for a specific locale
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Container for a set of string values each localized for a specific locale")
 
-  public LocalizedString getName() {
+  public Object getName() {
     return name;
   }
 
 
-  public void setName(LocalizedString name) {
+  public void setName(Object name) {
     this.name = name;
   }
 

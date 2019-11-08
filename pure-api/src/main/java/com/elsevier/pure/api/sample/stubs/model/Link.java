@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
 import com.elsevier.pure.api.sample.stubs.model.Id;
-import com.elsevier.pure.api.sample.stubs.model.LocalizedString;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -33,7 +32,7 @@ import java.util.List;
  * A hyperlink
  */
 @ApiModel(description = "A hyperlink")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-06T09:45:25.329746+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
 public class Link {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -53,7 +52,7 @@ public class Link {
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private LocalizedString description;
+  private Object description;
 
   public static final String SERIALIZED_NAME_LINK_TYPE = "linkType";
   @SerializedName(SERIALIZED_NAME_LINK_TYPE)
@@ -151,25 +150,25 @@ public class Link {
   }
 
 
-  public Link description(LocalizedString description) {
+  public Link description(Object description) {
     
     this.description = description;
     return this;
   }
 
    /**
-   * Get description
+   * Container for a set of string values each localized for a specific locale
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Container for a set of string values each localized for a specific locale")
 
-  public LocalizedString getDescription() {
+  public Object getDescription() {
     return description;
   }
 
 
-  public void setDescription(LocalizedString description) {
+  public void setDescription(Object description) {
     this.description = description;
   }
 

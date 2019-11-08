@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
  * Document
  */
 @ApiModel(description = "Document")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-06T09:45:25.329746+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
 public class Document {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)

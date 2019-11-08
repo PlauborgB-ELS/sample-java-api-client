@@ -14,11 +14,11 @@
 package com.elsevier.pure.api.sample.stubs.api;
 
 import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
-import com.elsevier.pure.api.sample.stubs.model.ErrorResult;
-import com.elsevier.pure.api.sample.stubs.model.ExternalOrganisationListResult;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganization;
+import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationListResult;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationsQuery;
 import com.elsevier.pure.api.sample.stubs.model.OrderingsList;
+import com.elsevier.pure.api.sample.stubs.model.ProblemDetails;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -45,9 +45,9 @@ public class ExternalOrganizationApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getExternalOrganisationTest() throws ApiException {
+    public void getExternalOrganizationTest() throws ApiException {
         String id = null;
-        ExternalOrganization response = api.getExternalOrganisation(id);
+        ExternalOrganization response = api.getExternalOrganization(id);
 
         // TODO: test validations
     }
@@ -61,8 +61,8 @@ public class ExternalOrganizationApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getExternalOrganisationOrderingsTest() throws ApiException {
-        OrderingsList response = api.getExternalOrganisationOrderings();
+    public void getExternalOrganizationOrderingsTest() throws ApiException {
+        OrderingsList response = api.getExternalOrganizationOrderings();
 
         // TODO: test validations
     }
@@ -77,7 +77,10 @@ public class ExternalOrganizationApiTest {
      */
     @Test
     public void listExternalOrganizationsTest() throws ApiException {
-        ExternalOrganisationListResult response = api.listExternalOrganizations();
+        Integer size = null;
+        Integer offset = null;
+        String order = null;
+        ExternalOrganizationListResult response = api.listExternalOrganizations(size, offset, order);
 
         // TODO: test validations
     }
@@ -93,7 +96,24 @@ public class ExternalOrganizationApiTest {
     @Test
     public void listExternalOrganizationsUsingQueryTest() throws ApiException {
         ExternalOrganizationsQuery externalOrganizationsQuery = null;
-        ExternalOrganisationListResult response = api.listExternalOrganizationsUsingQuery(externalOrganizationsQuery);
+        ExternalOrganizationListResult response = api.listExternalOrganizationsUsingQuery(externalOrganizationsQuery);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Put external organization
+     *
+     * Put external organization with specific ID (path parameter).
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateExternalOrganizationsTest() throws ApiException {
+        String id = null;
+        Object body = null;
+        ExternalOrganization response = api.updateExternalOrganizations(id, body);
 
         // TODO: test validations
     }

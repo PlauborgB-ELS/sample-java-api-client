@@ -25,63 +25,90 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Information about workflow
+ * Validation error
  */
-@ApiModel(description = "Information about workflow")
+@ApiModel(description = "Validation error")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
-public class Workflow {
-  public static final String SERIALIZED_NAME_WORKFLOW_STEP = "workflowStep";
-  @SerializedName(SERIALIZED_NAME_WORKFLOW_STEP)
-  private String workflowStep;
+public class ValidationError {
+  public static final String SERIALIZED_NAME_PATH = "path";
+  @SerializedName(SERIALIZED_NAME_PATH)
+  private String path;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private Object description;
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
+
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private Object title;
 
 
-  public Workflow workflowStep(String workflowStep) {
+  public ValidationError path(String path) {
     
-    this.workflowStep = workflowStep;
+    this.path = path;
     return this;
   }
 
    /**
-   * Current workflow step
-   * @return workflowStep
+   * Get path
+   * @return path
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Current workflow step")
+  @ApiModelProperty(value = "")
 
-  public String getWorkflowStep() {
-    return workflowStep;
+  public String getPath() {
+    return path;
   }
 
 
-  public void setWorkflowStep(String workflowStep) {
-    this.workflowStep = workflowStep;
+  public void setPath(String path) {
+    this.path = path;
   }
 
 
-  public Workflow description(Object description) {
+  public ValidationError code(String code) {
     
-    this.description = description;
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Get code
+   * @return code
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCode() {
+    return code;
+  }
+
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+
+  public ValidationError title(Object title) {
+    
+    this.title = title;
     return this;
   }
 
    /**
    * Container for a set of string values each localized for a specific locale
-   * @return description
+   * @return title
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Container for a set of string values each localized for a specific locale")
 
-  public Object getDescription() {
-    return description;
+  public Object getTitle() {
+    return title;
   }
 
 
-  public void setDescription(Object description) {
-    this.description = description;
+  public void setTitle(Object title) {
+    this.title = title;
   }
 
 
@@ -93,23 +120,25 @@ public class Workflow {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Workflow workflow = (Workflow) o;
-    return Objects.equals(this.workflowStep, workflow.workflowStep) &&
-        Objects.equals(this.description, workflow.description);
+    ValidationError validationError = (ValidationError) o;
+    return Objects.equals(this.path, validationError.path) &&
+        Objects.equals(this.code, validationError.code) &&
+        Objects.equals(this.title, validationError.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(workflowStep, description);
+    return Objects.hash(path, code, title);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Workflow {\n");
-    sb.append("    workflowStep: ").append(toIndentedString(workflowStep)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("class ValidationError {\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();
   }

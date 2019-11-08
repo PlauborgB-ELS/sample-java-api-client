@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRelation;
 import com.elsevier.pure.api.sample.stubs.model.Id;
-import com.elsevier.pure.api.sample.stubs.model.LocalizedString;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -33,7 +32,7 @@ import java.util.List;
  * A way to annotate another object with a type/role/etc.
  */
 @ApiModel(description = "A way to annotate another object with a type/role/etc.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-06T09:45:25.329746+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
 public class Classification {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -53,7 +52,7 @@ public class Classification {
 
   public static final String SERIALIZED_NAME_TERM = "term";
   @SerializedName(SERIALIZED_NAME_TERM)
-  private LocalizedString term;
+  private Object term;
 
   public static final String SERIALIZED_NAME_DISABLED = "disabled";
   @SerializedName(SERIALIZED_NAME_DISABLED)
@@ -61,7 +60,7 @@ public class Classification {
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private LocalizedString description;
+  private Object description;
 
   public static final String SERIALIZED_NAME_CLASSIFICATION_RELATIONS = "classificationRelations";
   @SerializedName(SERIALIZED_NAME_CLASSIFICATION_RELATIONS)
@@ -159,25 +158,25 @@ public class Classification {
   }
 
 
-  public Classification term(LocalizedString term) {
+  public Classification term(Object term) {
     
     this.term = term;
     return this;
   }
 
    /**
-   * Get term
+   * Container for a set of string values each localized for a specific locale
    * @return term
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Container for a set of string values each localized for a specific locale")
 
-  public LocalizedString getTerm() {
+  public Object getTerm() {
     return term;
   }
 
 
-  public void setTerm(LocalizedString term) {
+  public void setTerm(Object term) {
     this.term = term;
   }
 
@@ -205,25 +204,25 @@ public class Classification {
   }
 
 
-  public Classification description(LocalizedString description) {
+  public Classification description(Object description) {
     
     this.description = description;
     return this;
   }
 
    /**
-   * Get description
+   * Container for a set of string values each localized for a specific locale
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Container for a set of string values each localized for a specific locale")
 
-  public LocalizedString getDescription() {
+  public Object getDescription() {
     return description;
   }
 
 
-  public void setDescription(LocalizedString description) {
+  public void setDescription(Object description) {
     this.description = description;
   }
 

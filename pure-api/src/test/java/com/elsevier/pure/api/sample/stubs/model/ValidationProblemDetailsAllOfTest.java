@@ -13,6 +13,7 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
+import com.elsevier.pure.api.sample.stubs.model.ValidationError;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,55 +22,33 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for ErrorResult
+ * Model tests for ValidationProblemDetailsAllOf
  */
-public class ErrorResultTest {
-    private final ErrorResult model = new ErrorResult();
+public class ValidationProblemDetailsAllOfTest {
+    private final ValidationProblemDetailsAllOf model = new ValidationProblemDetailsAllOf();
 
     /**
-     * Model tests for ErrorResult
+     * Model tests for ValidationProblemDetailsAllOf
      */
     @Test
-    public void testErrorResult() {
-        // TODO: test ErrorResult
+    public void testValidationProblemDetailsAllOf() {
+        // TODO: test ValidationProblemDetailsAllOf
     }
 
     /**
-     * Test the property 'code'
+     * Test the property 'errors'
      */
     @Test
-    public void codeTest() {
-        // TODO: test code
-    }
-
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        // TODO: test type
-    }
-
-    /**
-     * Test the property 'title'
-     */
-    @Test
-    public void titleTest() {
-        // TODO: test title
-    }
-
-    /**
-     * Test the property 'description'
-     */
-    @Test
-    public void descriptionTest() {
-        // TODO: test description
+    public void errorsTest() {
+        // TODO: test errors
     }
 
 }

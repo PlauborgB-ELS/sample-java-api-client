@@ -15,7 +15,6 @@ package com.elsevier.pure.api.sample.stubs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.elsevier.pure.api.sample.stubs.model.LocalizedString;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +28,7 @@ import java.io.IOException;
  * Visibility of an object
  */
 @ApiModel(description = "Visibility of an object")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-06T09:45:25.329746+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
 public class Visibility {
   /**
    * Visibility value
@@ -86,7 +85,7 @@ public class Visibility {
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private LocalizedString description;
+  private Object description;
 
 
   public Visibility key(KeyEnum key) {
@@ -112,25 +111,25 @@ public class Visibility {
   }
 
 
-  public Visibility description(LocalizedString description) {
+  public Visibility description(Object description) {
     
     this.description = description;
     return this;
   }
 
    /**
-   * Get description
+   * Container for a set of string values each localized for a specific locale
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Container for a set of string values each localized for a specific locale")
 
-  public LocalizedString getDescription() {
+  public Object getDescription() {
     return description;
   }
 
 
-  public void setDescription(LocalizedString description) {
+  public void setDescription(Object description) {
     this.description = description;
   }
 

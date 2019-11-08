@@ -31,7 +31,7 @@ import org.threeten.bp.OffsetDateTime;
  * Create a query for external organizations
  */
 @ApiModel(description = "Create a query for external organizations")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-06T09:45:25.329746+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
 public class ExternalOrganizationsQuery {
   public static final String SERIALIZED_NAME_UUIDS = "uuids";
   @SerializedName(SERIALIZED_NAME_UUIDS)

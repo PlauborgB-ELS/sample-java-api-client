@@ -15,7 +15,6 @@ package com.elsevier.pure.api.sample.stubs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.elsevier.pure.api.sample.stubs.model.LocalizedString;
 import com.elsevier.pure.api.sample.stubs.model.NavigationLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -30,7 +29,7 @@ import java.io.IOException;
  * A reference to a classification value
  */
 @ApiModel(description = "A reference to a classification value")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-06T09:45:25.329746+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
 public class ClassificationRef {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -42,7 +41,7 @@ public class ClassificationRef {
 
   public static final String SERIALIZED_NAME_TERM = "term";
   @SerializedName(SERIALIZED_NAME_TERM)
-  private LocalizedString term;
+  private Object term;
 
 
    /**
@@ -82,25 +81,25 @@ public class ClassificationRef {
   }
 
 
-  public ClassificationRef term(LocalizedString term) {
+  public ClassificationRef term(Object term) {
     
     this.term = term;
     return this;
   }
 
    /**
-   * Get term
+   * Container for a set of string values each localized for a specific locale
    * @return term
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Container for a set of string values each localized for a specific locale")
 
-  public LocalizedString getTerm() {
+  public Object getTerm() {
     return term;
   }
 
 
-  public void setTerm(LocalizedString term) {
+  public void setTerm(Object term) {
     this.term = term;
   }
 

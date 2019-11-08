@@ -3,7 +3,7 @@ package com.elsevier.pure.api.sample;
 import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
 import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
 import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
-import com.elsevier.pure.api.sample.stubs.model.ExternalOrganisationListResult;
+import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationListResult;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganization;
 import junit.framework.TestCase;
 
@@ -14,7 +14,7 @@ public class TestExternalOrganizationApi extends TestCase {
      * @throws ApiException
      */
     public void testFetch() throws ApiException {
-        final ExternalOrganisationListResult response = pureApi.listExternalOrganizations();
+        final ExternalOrganizationListResult response = pureApi.listExternalOrganizations(10, 0, "name");
         System.out.println("Count: " + response.getCount());
 
         if (response.getItems() != null) {

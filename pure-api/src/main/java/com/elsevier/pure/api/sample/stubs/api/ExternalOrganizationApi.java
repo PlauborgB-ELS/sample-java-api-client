@@ -27,11 +27,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.elsevier.pure.api.sample.stubs.model.ErrorResult;
-import com.elsevier.pure.api.sample.stubs.model.ExternalOrganisationListResult;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganization;
+import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationListResult;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationsQuery;
 import com.elsevier.pure.api.sample.stubs.model.OrderingsList;
+import com.elsevier.pure.api.sample.stubs.model.ProblemDetails;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -59,7 +59,7 @@ public class ExternalOrganizationApi {
     }
 
     /**
-     * Build call for getExternalOrganisation
+     * Build call for getExternalOrganization
      * @param id ID of the desired external organization (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -71,7 +71,7 @@ public class ExternalOrganizationApi {
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExternalOrganisationCall(String id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExternalOrganizationCall(String id, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -102,15 +102,15 @@ public class ExternalOrganizationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExternalOrganisationValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getExternalOrganizationValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling getExternalOrganisation(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling getExternalOrganization(Async)");
         }
         
 
-        okhttp3.Call localVarCall = getExternalOrganisationCall(id, _callback);
+        okhttp3.Call localVarCall = getExternalOrganizationCall(id, _callback);
         return localVarCall;
 
     }
@@ -128,8 +128,8 @@ public class ExternalOrganizationApi {
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
-    public ExternalOrganization getExternalOrganisation(String id) throws ApiException {
-        ApiResponse<ExternalOrganization> localVarResp = getExternalOrganisationWithHttpInfo(id);
+    public ExternalOrganization getExternalOrganization(String id) throws ApiException {
+        ApiResponse<ExternalOrganization> localVarResp = getExternalOrganizationWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -146,8 +146,8 @@ public class ExternalOrganizationApi {
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ExternalOrganization> getExternalOrganisationWithHttpInfo(String id) throws ApiException {
-        okhttp3.Call localVarCall = getExternalOrganisationValidateBeforeCall(id, null);
+    public ApiResponse<ExternalOrganization> getExternalOrganizationWithHttpInfo(String id) throws ApiException {
+        okhttp3.Call localVarCall = getExternalOrganizationValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<ExternalOrganization>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -166,15 +166,15 @@ public class ExternalOrganizationApi {
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExternalOrganisationAsync(String id, final ApiCallback<ExternalOrganization> _callback) throws ApiException {
+    public okhttp3.Call getExternalOrganizationAsync(String id, final ApiCallback<ExternalOrganization> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExternalOrganisationValidateBeforeCall(id, _callback);
+        okhttp3.Call localVarCall = getExternalOrganizationValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<ExternalOrganization>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for getExternalOrganisationOrderings
+     * Build call for getExternalOrganizationOrderings
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -184,7 +184,7 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExternalOrganisationOrderingsCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExternalOrganizationOrderingsCall(final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -214,10 +214,10 @@ public class ExternalOrganizationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExternalOrganisationOrderingsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getExternalOrganizationOrderingsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = getExternalOrganisationOrderingsCall(_callback);
+        okhttp3.Call localVarCall = getExternalOrganizationOrderingsCall(_callback);
         return localVarCall;
 
     }
@@ -233,8 +233,8 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrderingsList getExternalOrganisationOrderings() throws ApiException {
-        ApiResponse<OrderingsList> localVarResp = getExternalOrganisationOrderingsWithHttpInfo();
+    public OrderingsList getExternalOrganizationOrderings() throws ApiException {
+        ApiResponse<OrderingsList> localVarResp = getExternalOrganizationOrderingsWithHttpInfo();
         return localVarResp.getData();
     }
 
@@ -249,8 +249,8 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrderingsList> getExternalOrganisationOrderingsWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getExternalOrganisationOrderingsValidateBeforeCall(null);
+    public ApiResponse<OrderingsList> getExternalOrganizationOrderingsWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getExternalOrganizationOrderingsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<OrderingsList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -267,15 +267,18 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExternalOrganisationOrderingsAsync(final ApiCallback<OrderingsList> _callback) throws ApiException {
+    public okhttp3.Call getExternalOrganizationOrderingsAsync(final ApiCallback<OrderingsList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExternalOrganisationOrderingsValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = getExternalOrganizationOrderingsValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<OrderingsList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for listExternalOrganizations
+     * @param size Number of returned external organizations per request. (optional, default to 10)
+     * @param offset The offset for the returned list. 0 or null value is from the start (optional, default to 0)
+     * @param order The order of the list, must be a value from getExternalOrganizationOrderings (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -285,7 +288,7 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listExternalOrganizationsCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listExternalOrganizationsCall(Integer size, Integer offset, String order, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -293,6 +296,18 @@ public class ExternalOrganizationApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (size != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -315,10 +330,10 @@ public class ExternalOrganizationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listExternalOrganizationsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listExternalOrganizationsValidateBeforeCall(Integer size, Integer offset, String order, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = listExternalOrganizationsCall(_callback);
+        okhttp3.Call localVarCall = listExternalOrganizationsCall(size, offset, order, _callback);
         return localVarCall;
 
     }
@@ -326,7 +341,10 @@ public class ExternalOrganizationApi {
     /**
      * Lists all external organizations
      * Lists all external organizations in the Pure instance. If you need to filter the external organizations returned, see the POST version which supports additional filtering.
-     * @return ExternalOrganisationListResult
+     * @param size Number of returned external organizations per request. (optional, default to 10)
+     * @param offset The offset for the returned list. 0 or null value is from the start (optional, default to 0)
+     * @param order The order of the list, must be a value from getExternalOrganizationOrderings (optional)
+     * @return ExternalOrganizationListResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -334,15 +352,18 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ExternalOrganisationListResult listExternalOrganizations() throws ApiException {
-        ApiResponse<ExternalOrganisationListResult> localVarResp = listExternalOrganizationsWithHttpInfo();
+    public ExternalOrganizationListResult listExternalOrganizations(Integer size, Integer offset, String order) throws ApiException {
+        ApiResponse<ExternalOrganizationListResult> localVarResp = listExternalOrganizationsWithHttpInfo(size, offset, order);
         return localVarResp.getData();
     }
 
     /**
      * Lists all external organizations
      * Lists all external organizations in the Pure instance. If you need to filter the external organizations returned, see the POST version which supports additional filtering.
-     * @return ApiResponse&lt;ExternalOrganisationListResult&gt;
+     * @param size Number of returned external organizations per request. (optional, default to 10)
+     * @param offset The offset for the returned list. 0 or null value is from the start (optional, default to 0)
+     * @param order The order of the list, must be a value from getExternalOrganizationOrderings (optional)
+     * @return ApiResponse&lt;ExternalOrganizationListResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -350,15 +371,18 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ExternalOrganisationListResult> listExternalOrganizationsWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = listExternalOrganizationsValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<ExternalOrganisationListResult>(){}.getType();
+    public ApiResponse<ExternalOrganizationListResult> listExternalOrganizationsWithHttpInfo(Integer size, Integer offset, String order) throws ApiException {
+        okhttp3.Call localVarCall = listExternalOrganizationsValidateBeforeCall(size, offset, order, null);
+        Type localVarReturnType = new TypeToken<ExternalOrganizationListResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Lists all external organizations (asynchronously)
      * Lists all external organizations in the Pure instance. If you need to filter the external organizations returned, see the POST version which supports additional filtering.
+     * @param size Number of returned external organizations per request. (optional, default to 10)
+     * @param offset The offset for the returned list. 0 or null value is from the start (optional, default to 0)
+     * @param order The order of the list, must be a value from getExternalOrganizationOrderings (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -368,10 +392,10 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listExternalOrganizationsAsync(final ApiCallback<ExternalOrganisationListResult> _callback) throws ApiException {
+    public okhttp3.Call listExternalOrganizationsAsync(Integer size, Integer offset, String order, final ApiCallback<ExternalOrganizationListResult> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listExternalOrganizationsValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<ExternalOrganisationListResult>(){}.getType();
+        okhttp3.Call localVarCall = listExternalOrganizationsValidateBeforeCall(size, offset, order, _callback);
+        Type localVarReturnType = new TypeToken<ExternalOrganizationListResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -429,7 +453,7 @@ public class ExternalOrganizationApi {
      * Complex operation for external organizations
      * Lists external organizations in the Pure instance, similar to the GET version, instead of using parameters to alter the response, an XML document is posted with the request. The XML document contains fields for all the parameters available for the GET version, but also additional filtering options. For documentation of the XML format see &lt;a href&#x3D;\&quot;documentation/Content/Topics/WebService/CT_ExternalOrganisation.htm#post_xml\&quot;&gt;External Organization documentation&lt;/a&gt;.
      * @param externalOrganizationsQuery  (optional)
-     * @return ExternalOrganisationListResult
+     * @return ExternalOrganizationListResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -437,8 +461,8 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ExternalOrganisationListResult listExternalOrganizationsUsingQuery(ExternalOrganizationsQuery externalOrganizationsQuery) throws ApiException {
-        ApiResponse<ExternalOrganisationListResult> localVarResp = listExternalOrganizationsUsingQueryWithHttpInfo(externalOrganizationsQuery);
+    public ExternalOrganizationListResult listExternalOrganizationsUsingQuery(ExternalOrganizationsQuery externalOrganizationsQuery) throws ApiException {
+        ApiResponse<ExternalOrganizationListResult> localVarResp = listExternalOrganizationsUsingQueryWithHttpInfo(externalOrganizationsQuery);
         return localVarResp.getData();
     }
 
@@ -446,7 +470,7 @@ public class ExternalOrganizationApi {
      * Complex operation for external organizations
      * Lists external organizations in the Pure instance, similar to the GET version, instead of using parameters to alter the response, an XML document is posted with the request. The XML document contains fields for all the parameters available for the GET version, but also additional filtering options. For documentation of the XML format see &lt;a href&#x3D;\&quot;documentation/Content/Topics/WebService/CT_ExternalOrganisation.htm#post_xml\&quot;&gt;External Organization documentation&lt;/a&gt;.
      * @param externalOrganizationsQuery  (optional)
-     * @return ApiResponse&lt;ExternalOrganisationListResult&gt;
+     * @return ApiResponse&lt;ExternalOrganizationListResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -454,9 +478,9 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ExternalOrganisationListResult> listExternalOrganizationsUsingQueryWithHttpInfo(ExternalOrganizationsQuery externalOrganizationsQuery) throws ApiException {
+    public ApiResponse<ExternalOrganizationListResult> listExternalOrganizationsUsingQueryWithHttpInfo(ExternalOrganizationsQuery externalOrganizationsQuery) throws ApiException {
         okhttp3.Call localVarCall = listExternalOrganizationsUsingQueryValidateBeforeCall(externalOrganizationsQuery, null);
-        Type localVarReturnType = new TypeToken<ExternalOrganisationListResult>(){}.getType();
+        Type localVarReturnType = new TypeToken<ExternalOrganizationListResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -473,10 +497,129 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listExternalOrganizationsUsingQueryAsync(ExternalOrganizationsQuery externalOrganizationsQuery, final ApiCallback<ExternalOrganisationListResult> _callback) throws ApiException {
+    public okhttp3.Call listExternalOrganizationsUsingQueryAsync(ExternalOrganizationsQuery externalOrganizationsQuery, final ApiCallback<ExternalOrganizationListResult> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listExternalOrganizationsUsingQueryValidateBeforeCall(externalOrganizationsQuery, _callback);
-        Type localVarReturnType = new TypeToken<ExternalOrganisationListResult>(){}.getType();
+        Type localVarReturnType = new TypeToken<ExternalOrganizationListResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateExternalOrganizations
+     * @param id ID of the desired external organization (required)
+     * @param body  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateExternalOrganizationsCall(String id, Object body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/external-organizations/{id}"
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json", "application/problem+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json", "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateExternalOrganizationsValidateBeforeCall(String id, Object body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling updateExternalOrganizations(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateExternalOrganizationsCall(id, body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Put external organization
+     * Put external organization with specific ID (path parameter).
+     * @param id ID of the desired external organization (required)
+     * @param body  (optional)
+     * @return ExternalOrganization
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ExternalOrganization updateExternalOrganizations(String id, Object body) throws ApiException {
+        ApiResponse<ExternalOrganization> localVarResp = updateExternalOrganizationsWithHttpInfo(id, body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Put external organization
+     * Put external organization with specific ID (path parameter).
+     * @param id ID of the desired external organization (required)
+     * @param body  (optional)
+     * @return ApiResponse&lt;ExternalOrganization&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ExternalOrganization> updateExternalOrganizationsWithHttpInfo(String id, Object body) throws ApiException {
+        okhttp3.Call localVarCall = updateExternalOrganizationsValidateBeforeCall(id, body, null);
+        Type localVarReturnType = new TypeToken<ExternalOrganization>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Put external organization (asynchronously)
+     * Put external organization with specific ID (path parameter).
+     * @param id ID of the desired external organization (required)
+     * @param body  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateExternalOrganizationsAsync(String id, Object body, final ApiCallback<ExternalOrganization> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateExternalOrganizationsValidateBeforeCall(id, body, _callback);
+        Type localVarReturnType = new TypeToken<ExternalOrganization>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -32,17 +32,17 @@ import org.junit.Test;
 
 
 /**
- * Model tests for ExternalOrganisationListResult
+ * Model tests for ExternalOrganizationListResult
  */
-public class ExternalOrganisationListResultTest {
-    private final ExternalOrganisationListResult model = new ExternalOrganisationListResult();
+public class ExternalOrganizationListResultTest {
+    private final ExternalOrganizationListResult model = new ExternalOrganizationListResult();
 
     /**
-     * Model tests for ExternalOrganisationListResult
+     * Model tests for ExternalOrganizationListResult
      */
     @Test
-    public void testExternalOrganisationListResult() {
-        // TODO: test ExternalOrganisationListResult
+    public void testExternalOrganizationListResult() {
+        // TODO: test ExternalOrganizationListResult
     }
 
     /**

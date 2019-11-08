@@ -13,7 +13,7 @@
 
 package com.elsevier.pure.api.sample.stubs.invoker;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-06T09:45:25.329746+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).

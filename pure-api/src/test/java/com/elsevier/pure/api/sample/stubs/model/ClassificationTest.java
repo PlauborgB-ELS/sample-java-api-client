@@ -15,7 +15,6 @@ package com.elsevier.pure.api.sample.stubs.model;
 
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRelation;
 import com.elsevier.pure.api.sample.stubs.model.Id;
-import com.elsevier.pure.api.sample.stubs.model.LocalizedString;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

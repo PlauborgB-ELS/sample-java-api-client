@@ -15,6 +15,7 @@ package com.elsevier.pure.api.sample.stubs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.elsevier.pure.api.sample.stubs.model.ValidationError;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,49 +24,47 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
- * Container for a set of string values each localized for a specific locale
+ * ValidationProblemDetailsAllOf
  */
-@ApiModel(description = "Container for a set of string values each localized for a specific locale")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-06T09:45:25.329746+01:00[Europe/Copenhagen]")
-public class LocalizedString {
-  public static final String SERIALIZED_NAME_TEXT = "text";
-  @SerializedName(SERIALIZED_NAME_TEXT)
-  private Map<String, String> text = null;
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
+public class ValidationProblemDetailsAllOf {
+  public static final String SERIALIZED_NAME_ERRORS = "errors";
+  @SerializedName(SERIALIZED_NAME_ERRORS)
+  private List<ValidationError> errors = null;
 
 
-  public LocalizedString text(Map<String, String> text) {
+  public ValidationProblemDetailsAllOf errors(List<ValidationError> errors) {
     
-    this.text = text;
+    this.errors = errors;
     return this;
   }
 
-  public LocalizedString putTextItem(String key, String textItem) {
-    if (this.text == null) {
-      this.text = new HashMap<String, String>();
+  public ValidationProblemDetailsAllOf addErrorsItem(ValidationError errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<ValidationError>();
     }
-    this.text.put(key, textItem);
+    this.errors.add(errorsItem);
     return this;
   }
 
    /**
-   * Get text
-   * @return text
+   * Get errors
+   * @return errors
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Map<String, String> getText() {
-    return text;
+  public List<ValidationError> getErrors() {
+    return errors;
   }
 
 
-  public void setText(Map<String, String> text) {
-    this.text = text;
+  public void setErrors(List<ValidationError> errors) {
+    this.errors = errors;
   }
 
 
@@ -77,21 +76,21 @@ public class LocalizedString {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LocalizedString localizedString = (LocalizedString) o;
-    return Objects.equals(this.text, localizedString.text);
+    ValidationProblemDetailsAllOf validationProblemDetailsAllOf = (ValidationProblemDetailsAllOf) o;
+    return Objects.equals(this.errors, validationProblemDetailsAllOf.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text);
+    return Objects.hash(errors);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LocalizedString {\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("class ValidationProblemDetailsAllOf {\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
   }

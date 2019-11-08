@@ -28,7 +28,7 @@ import java.io.IOException;
  * An external ID
  */
 @ApiModel(description = "An external ID")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-06T09:45:25.329746+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
 public class Id {
   public static final String SERIALIZED_NAME_ID_SOURCE = "idSource";
   @SerializedName(SERIALIZED_NAME_ID_SOURCE)

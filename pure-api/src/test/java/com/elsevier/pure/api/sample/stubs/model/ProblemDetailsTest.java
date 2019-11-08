@@ -27,33 +27,57 @@ import org.junit.Test;
 
 
 /**
- * Model tests for Workflow
+ * Model tests for ProblemDetails
  */
-public class WorkflowTest {
-    private final Workflow model = new Workflow();
+public class ProblemDetailsTest {
+    private final ProblemDetails model = new ProblemDetails();
 
     /**
-     * Model tests for Workflow
+     * Model tests for ProblemDetails
      */
     @Test
-    public void testWorkflow() {
-        // TODO: test Workflow
+    public void testProblemDetails() {
+        // TODO: test ProblemDetails
     }
 
     /**
-     * Test the property 'workflowStep'
+     * Test the property 'type'
      */
     @Test
-    public void workflowStepTest() {
-        // TODO: test workflowStep
+    public void typeTest() {
+        // TODO: test type
     }
 
     /**
-     * Test the property 'description'
+     * Test the property 'title'
      */
     @Test
-    public void descriptionTest() {
-        // TODO: test description
+    public void titleTest() {
+        // TODO: test title
+    }
+
+    /**
+     * Test the property 'status'
+     */
+    @Test
+    public void statusTest() {
+        // TODO: test status
+    }
+
+    /**
+     * Test the property 'detail'
+     */
+    @Test
+    public void detailTest() {
+        // TODO: test detail
+    }
+
+    /**
+     * Test the property 'instance'
+     */
+    @Test
+    public void instanceTest() {
+        // TODO: test instance
     }
 
 }

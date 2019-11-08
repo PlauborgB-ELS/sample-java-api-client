@@ -15,7 +15,6 @@ package com.elsevier.pure.api.sample.stubs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.elsevier.pure.api.sample.stubs.model.LocalizedString;
 import com.elsevier.pure.api.sample.stubs.model.NavigationLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -30,7 +29,7 @@ import java.io.IOException;
  * A reference to an organization external to the institution
  */
 @ApiModel(description = "A reference to an organization external to the institution")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-06T09:45:25.329746+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-08T10:51:00.709711+01:00[Europe/Copenhagen]")
 public class ExternalOrganizationRef {
   public static final String SERIALIZED_NAME_UUID = "uuid";
   @SerializedName(SERIALIZED_NAME_UUID)
@@ -42,7 +41,7 @@ public class ExternalOrganizationRef {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  private LocalizedString name;
+  private Object name;
 
 
    /**
@@ -82,25 +81,25 @@ public class ExternalOrganizationRef {
   }
 
 
-  public ExternalOrganizationRef name(LocalizedString name) {
+  public ExternalOrganizationRef name(Object name) {
     
     this.name = name;
     return this;
   }
 
    /**
-   * Get name
+   * Container for a set of string values each localized for a specific locale
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Container for a set of string values each localized for a specific locale")
 
-  public LocalizedString getName() {
+  public Object getName() {
     return name;
   }
 
 
-  public void setName(LocalizedString name) {
+  public void setName(Object name) {
     this.name = name;
   }
 
