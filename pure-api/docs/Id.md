@@ -7,8 +7,9 @@ An external ID
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**idSource** | **String** | Name of the external source |  [optional]
-**value** | **String** | External ID |  [optional]
+**pureId** | **Long** | Pure database ID of the object |  [optional] [readonly]
+**idSource** | **String** | Name of the external source | 
+**value** | **String** | External ID | 
 
 
 

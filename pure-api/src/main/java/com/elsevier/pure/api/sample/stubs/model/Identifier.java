@@ -14,50 +14,46 @@
 package com.elsevier.pure.api.sample.stubs.model;
 
 import com.google.gson.annotations.SerializedName;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 /**
- * ValidationProblemDetailsAllOf
+ * IDs that this object corresponds to in external systems. Such as a Scopus ID. Used by Pure where it is necessary to identify objects to specific external systems
  */
+@ApiModel(description = "IDs that this object corresponds to in external systems. Such as a Scopus ID. Used by Pure where it is necessary to identify objects to specific external systems")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
-public class ValidationProblemDetailsAllOf {
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<ValidationError> errors = null;
 
+public class Identifier {
+  public static final String SERIALIZED_NAME_ID_TYPE = "idType";
+  @SerializedName(SERIALIZED_NAME_ID_TYPE)
+  private String idType;
 
-  public ValidationProblemDetailsAllOf errors(List<ValidationError> errors) {
-    
-    this.errors = errors;
-    return this;
+  public Identifier() {
+    this.idType = this.getClass().getSimpleName();
   }
 
-  public ValidationProblemDetailsAllOf addErrorsItem(ValidationError errorsItem) {
-    if (this.errors == null) {
-      this.errors = new ArrayList<ValidationError>();
-    }
-    this.errors.add(errorsItem);
+  public Identifier idType(String idType) {
+    
+    this.idType = idType;
     return this;
   }
 
    /**
-   * Get errors
-   * @return errors
+   * A Identifier type discriminator property so we can differentiate between the different sub-types
+   * @return idType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A Identifier type discriminator property so we can differentiate between the different sub-types")
 
-  public List<ValidationError> getErrors() {
-    return errors;
+  public String getIdType() {
+    return idType;
   }
 
 
-  public void setErrors(List<ValidationError> errors) {
-    this.errors = errors;
+  public void setIdType(String idType) {
+    this.idType = idType;
   }
 
 
@@ -69,21 +65,21 @@ public class ValidationProblemDetailsAllOf {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ValidationProblemDetailsAllOf validationProblemDetailsAllOf = (ValidationProblemDetailsAllOf) o;
-    return Objects.equals(this.errors, validationProblemDetailsAllOf.errors);
+    Identifier identifier = (Identifier) o;
+    return Objects.equals(this.idType, identifier.idType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors);
+    return Objects.hash(idType);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ValidationProblemDetailsAllOf {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("class Identifier {\n");
+    sb.append("    idType: ").append(toIndentedString(idType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

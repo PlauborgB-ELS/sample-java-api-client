@@ -14,17 +14,15 @@
 package com.elsevier.pure.api.sample.stubs.model;
 
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Objects;
 
 /**
- * A classified ID
+ * ClassifiedIdAllOf
  */
-@ApiModel(description = "A classified ID")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
-public class ClassifiedId extends Identifier {
+public class ClassifiedIdAllOf {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
   private Long pureId;
@@ -52,7 +50,7 @@ public class ClassifiedId extends Identifier {
 
 
 
-  public ClassifiedId id(String id) {
+  public ClassifiedIdAllOf id(String id) {
     
     this.id = id;
     return this;
@@ -75,7 +73,7 @@ public class ClassifiedId extends Identifier {
   }
 
 
-  public ClassifiedId type(ClassificationRef type) {
+  public ClassifiedIdAllOf type(ClassificationRef type) {
     
     this.type = type;
     return this;
@@ -106,24 +104,22 @@ public class ClassifiedId extends Identifier {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ClassifiedId classifiedId = (ClassifiedId) o;
-    return Objects.equals(this.pureId, classifiedId.pureId) &&
-        Objects.equals(this.id, classifiedId.id) &&
-        Objects.equals(this.type, classifiedId.type) &&
-        super.equals(o);
+    ClassifiedIdAllOf classifiedIdAllOf = (ClassifiedIdAllOf) o;
+    return Objects.equals(this.pureId, classifiedIdAllOf.pureId) &&
+        Objects.equals(this.id, classifiedIdAllOf.id) &&
+        Objects.equals(this.type, classifiedIdAllOf.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pureId, id, type, super.hashCode());
+    return Objects.hash(pureId, id, type);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ClassifiedId {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("class ClassifiedIdAllOf {\n");
     sb.append("    pureId: ").append(toIndentedString(pureId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

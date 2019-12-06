@@ -21,43 +21,43 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * ValidationProblemDetailsAllOf
+ * KeywordGroupFreeKeywordsAllOf
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
-public class ValidationProblemDetailsAllOf {
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<ValidationError> errors = null;
+public class KeywordGroupFreeKeywordsAllOf {
+  public static final String SERIALIZED_NAME_KEYWORDS = "keywords";
+  @SerializedName(SERIALIZED_NAME_KEYWORDS)
+  private List<Keyword> keywords = null;
 
 
-  public ValidationProblemDetailsAllOf errors(List<ValidationError> errors) {
+  public KeywordGroupFreeKeywordsAllOf keywords(List<Keyword> keywords) {
     
-    this.errors = errors;
+    this.keywords = keywords;
     return this;
   }
 
-  public ValidationProblemDetailsAllOf addErrorsItem(ValidationError errorsItem) {
-    if (this.errors == null) {
-      this.errors = new ArrayList<ValidationError>();
+  public KeywordGroupFreeKeywordsAllOf addKeywordsItem(Keyword keywordsItem) {
+    if (this.keywords == null) {
+      this.keywords = new ArrayList<Keyword>();
     }
-    this.errors.add(errorsItem);
+    this.keywords.add(keywordsItem);
     return this;
   }
 
    /**
-   * Get errors
-   * @return errors
+   * Free keywords
+   * @return keywords
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Free keywords")
 
-  public List<ValidationError> getErrors() {
-    return errors;
+  public List<Keyword> getKeywords() {
+    return keywords;
   }
 
 
-  public void setErrors(List<ValidationError> errors) {
-    this.errors = errors;
+  public void setKeywords(List<Keyword> keywords) {
+    this.keywords = keywords;
   }
 
 
@@ -69,21 +69,21 @@ public class ValidationProblemDetailsAllOf {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ValidationProblemDetailsAllOf validationProblemDetailsAllOf = (ValidationProblemDetailsAllOf) o;
-    return Objects.equals(this.errors, validationProblemDetailsAllOf.errors);
+    KeywordGroupFreeKeywordsAllOf keywordGroupFreeKeywordsAllOf = (KeywordGroupFreeKeywordsAllOf) o;
+    return Objects.equals(this.keywords, keywordGroupFreeKeywordsAllOf.keywords);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors);
+    return Objects.hash(keywords);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ValidationProblemDetailsAllOf {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("class KeywordGroupFreeKeywordsAllOf {\n");
+    sb.append("    keywords: ").append(toIndentedString(keywords)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -16,48 +16,38 @@ package com.elsevier.pure.api.sample.stubs.model;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModelProperty;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 /**
- * ValidationProblemDetailsAllOf
+ * PureIdAllOf
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
-public class ValidationProblemDetailsAllOf {
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<ValidationError> errors = null;
+public class PureIdAllOf {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Long id;
 
 
-  public ValidationProblemDetailsAllOf errors(List<ValidationError> errors) {
+  public PureIdAllOf id(Long id) {
     
-    this.errors = errors;
-    return this;
-  }
-
-  public ValidationProblemDetailsAllOf addErrorsItem(ValidationError errorsItem) {
-    if (this.errors == null) {
-      this.errors = new ArrayList<ValidationError>();
-    }
-    this.errors.add(errorsItem);
+    this.id = id;
     return this;
   }
 
    /**
-   * Get errors
-   * @return errors
+   * External ID
+   * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "External ID")
 
-  public List<ValidationError> getErrors() {
-    return errors;
+  public Long getId() {
+    return id;
   }
 
 
-  public void setErrors(List<ValidationError> errors) {
-    this.errors = errors;
+  public void setId(Long id) {
+    this.id = id;
   }
 
 
@@ -69,21 +59,21 @@ public class ValidationProblemDetailsAllOf {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ValidationProblemDetailsAllOf validationProblemDetailsAllOf = (ValidationProblemDetailsAllOf) o;
-    return Objects.equals(this.errors, validationProblemDetailsAllOf.errors);
+    PureIdAllOf pureIdAllOf = (PureIdAllOf) o;
+    return Objects.equals(this.id, pureIdAllOf.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors);
+    return Objects.hash(id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ValidationProblemDetailsAllOf {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("class PureIdAllOf {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -22,44 +22,44 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Problem details for validation failures
+ * De-normalized version of the full keyword group representation for instances where only free keywords can be selected
  */
-@ApiModel(description = "Problem details for validation failures")
+@ApiModel(description = "De-normalized version of the full keyword group representation for instances where only free keywords can be selected")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
-public class ValidationProblemDetails extends ProblemDetails {
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<ValidationError> errors = null;
+public class KeywordGroupFreeKeywords extends KeywordGroup {
+  public static final String SERIALIZED_NAME_KEYWORDS = "keywords";
+  @SerializedName(SERIALIZED_NAME_KEYWORDS)
+  private List<Keyword> keywords = null;
 
 
-  public ValidationProblemDetails errors(List<ValidationError> errors) {
+  public KeywordGroupFreeKeywords keywords(List<Keyword> keywords) {
     
-    this.errors = errors;
+    this.keywords = keywords;
     return this;
   }
 
-  public ValidationProblemDetails addErrorsItem(ValidationError errorsItem) {
-    if (this.errors == null) {
-      this.errors = new ArrayList<ValidationError>();
+  public KeywordGroupFreeKeywords addKeywordsItem(Keyword keywordsItem) {
+    if (this.keywords == null) {
+      this.keywords = new ArrayList<Keyword>();
     }
-    this.errors.add(errorsItem);
+    this.keywords.add(keywordsItem);
     return this;
   }
 
    /**
-   * Get errors
-   * @return errors
+   * Free keywords
+   * @return keywords
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Free keywords")
 
-  public List<ValidationError> getErrors() {
-    return errors;
+  public List<Keyword> getKeywords() {
+    return keywords;
   }
 
 
-  public void setErrors(List<ValidationError> errors) {
-    this.errors = errors;
+  public void setKeywords(List<Keyword> keywords) {
+    this.keywords = keywords;
   }
 
 
@@ -71,23 +71,23 @@ public class ValidationProblemDetails extends ProblemDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ValidationProblemDetails validationProblemDetails = (ValidationProblemDetails) o;
-    return Objects.equals(this.errors, validationProblemDetails.errors) &&
+    KeywordGroupFreeKeywords keywordGroupFreeKeywords = (KeywordGroupFreeKeywords) o;
+    return Objects.equals(this.keywords, keywordGroupFreeKeywords.keywords) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors, super.hashCode());
+    return Objects.hash(keywords, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ValidationProblemDetails {\n");
+    sb.append("class KeywordGroupFreeKeywords {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    keywords: ").append(toIndentedString(keywords)).append("\n");
     sb.append("}");
     return sb.toString();
   }

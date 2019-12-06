@@ -8,10 +8,8 @@ A hyperlink
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pureId** | **Long** | Pure database ID of the object |  [optional] [readonly]
-**freeFormExternalIds** | [**List&lt;Id&gt;**](Id.md) | IDs from the external sources (part of) the object was imported from |  [optional]
-**externallyManaged** | **Boolean** | Signals that the information is maintained by synchronization from an external system |  [optional]
-**url** | **String** | URL |  [optional]
-**description** | **Map&lt;String, String&gt;** | Container for a set of string values each localized for a specific locale |  [optional]
+**url** | **String** | URL | 
+**description** | **Map&lt;String, String&gt;** | A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored. |  [optional]
 **linkType** | [**ClassificationRef**](ClassificationRef.md) |  |  [optional]
 
 

@@ -14,28 +14,26 @@
 package com.elsevier.pure.api.sample.stubs.model;
 
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Objects;
 
 /**
- * A classified ID
+ * IdAllOf
  */
-@ApiModel(description = "A classified ID")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
-public class ClassifiedId extends Identifier {
+public class IdAllOf {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
   private Long pureId;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
+  public static final String SERIALIZED_NAME_ID_SOURCE = "idSource";
+  @SerializedName(SERIALIZED_NAME_ID_SOURCE)
+  private String idSource;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private ClassificationRef type;
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
+  private String value;
 
 
    /**
@@ -52,49 +50,49 @@ public class ClassifiedId extends Identifier {
 
 
 
-  public ClassifiedId id(String id) {
+  public IdAllOf idSource(String idSource) {
     
-    this.id = id;
+    this.idSource = idSource;
     return this;
   }
 
    /**
-   * Classified ID
-   * @return id
+   * Name of the external source
+   * @return idSource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Classified ID")
+  @ApiModelProperty(value = "Name of the external source")
 
-  public String getId() {
-    return id;
+  public String getIdSource() {
+    return idSource;
   }
 
 
-  public void setId(String id) {
-    this.id = id;
+  public void setIdSource(String idSource) {
+    this.idSource = idSource;
   }
 
 
-  public ClassifiedId type(ClassificationRef type) {
+  public IdAllOf value(String value) {
     
-    this.type = type;
+    this.value = value;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * External ID
+   * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "External ID")
 
-  public ClassificationRef getType() {
-    return type;
+  public String getValue() {
+    return value;
   }
 
 
-  public void setType(ClassificationRef type) {
-    this.type = type;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -106,27 +104,25 @@ public class ClassifiedId extends Identifier {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ClassifiedId classifiedId = (ClassifiedId) o;
-    return Objects.equals(this.pureId, classifiedId.pureId) &&
-        Objects.equals(this.id, classifiedId.id) &&
-        Objects.equals(this.type, classifiedId.type) &&
-        super.equals(o);
+    IdAllOf idAllOf = (IdAllOf) o;
+    return Objects.equals(this.pureId, idAllOf.pureId) &&
+        Objects.equals(this.idSource, idAllOf.idSource) &&
+        Objects.equals(this.value, idAllOf.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pureId, id, type, super.hashCode());
+    return Objects.hash(pureId, idSource, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ClassifiedId {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("class IdAllOf {\n");
     sb.append("    pureId: ").append(toIndentedString(pureId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    idSource: ").append(toIndentedString(idSource)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

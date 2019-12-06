@@ -21,43 +21,43 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * ValidationProblemDetailsAllOf
+ * KeywordGroupFullAllOf
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
-public class ValidationProblemDetailsAllOf {
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<ValidationError> errors = null;
+public class KeywordGroupFullAllOf {
+  public static final String SERIALIZED_NAME_KEYWORD_CONTAINERS = "keywordContainers";
+  @SerializedName(SERIALIZED_NAME_KEYWORD_CONTAINERS)
+  private List<KeywordContainer> keywordContainers = null;
 
 
-  public ValidationProblemDetailsAllOf errors(List<ValidationError> errors) {
+  public KeywordGroupFullAllOf keywordContainers(List<KeywordContainer> keywordContainers) {
     
-    this.errors = errors;
+    this.keywordContainers = keywordContainers;
     return this;
   }
 
-  public ValidationProblemDetailsAllOf addErrorsItem(ValidationError errorsItem) {
-    if (this.errors == null) {
-      this.errors = new ArrayList<ValidationError>();
+  public KeywordGroupFullAllOf addKeywordContainersItem(KeywordContainer keywordContainersItem) {
+    if (this.keywordContainers == null) {
+      this.keywordContainers = new ArrayList<KeywordContainer>();
     }
-    this.errors.add(errorsItem);
+    this.keywordContainers.add(keywordContainersItem);
     return this;
   }
 
    /**
-   * Get errors
-   * @return errors
+   * Containers with structured keywords and/or free keywords
+   * @return keywordContainers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Containers with structured keywords and/or free keywords")
 
-  public List<ValidationError> getErrors() {
-    return errors;
+  public List<KeywordContainer> getKeywordContainers() {
+    return keywordContainers;
   }
 
 
-  public void setErrors(List<ValidationError> errors) {
-    this.errors = errors;
+  public void setKeywordContainers(List<KeywordContainer> keywordContainers) {
+    this.keywordContainers = keywordContainers;
   }
 
 
@@ -69,21 +69,21 @@ public class ValidationProblemDetailsAllOf {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ValidationProblemDetailsAllOf validationProblemDetailsAllOf = (ValidationProblemDetailsAllOf) o;
-    return Objects.equals(this.errors, validationProblemDetailsAllOf.errors);
+    KeywordGroupFullAllOf keywordGroupFullAllOf = (KeywordGroupFullAllOf) o;
+    return Objects.equals(this.keywordContainers, keywordGroupFullAllOf.keywordContainers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors);
+    return Objects.hash(keywordContainers);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ValidationProblemDetailsAllOf {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("class KeywordGroupFullAllOf {\n");
+    sb.append("    keywordContainers: ").append(toIndentedString(keywordContainers)).append("\n");
     sb.append("}");
     return sb.toString();
   }

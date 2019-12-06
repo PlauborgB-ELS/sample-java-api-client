@@ -20,81 +20,36 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
- * A classified ID
+ * Pure database ID of the content
  */
-@ApiModel(description = "A classified ID")
+@ApiModel(description = "Pure database ID of the content")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
-public class ClassifiedId extends Identifier {
-  public static final String SERIALIZED_NAME_PURE_ID = "pureId";
-  @SerializedName(SERIALIZED_NAME_PURE_ID)
-  private Long pureId;
-
+public class PureId extends Identifier {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private ClassificationRef type;
+  private Long id;
 
 
-   /**
-   * Pure database ID of the object
-   * @return pureId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pure database ID of the object")
-
-  public Long getPureId() {
-    return pureId;
-  }
-
-
-
-
-  public ClassifiedId id(String id) {
+  public PureId id(Long id) {
     
     this.id = id;
     return this;
   }
 
    /**
-   * Classified ID
+   * External ID
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Classified ID")
+  @ApiModelProperty(value = "External ID")
 
-  public String getId() {
+  public Long getId() {
     return id;
   }
 
 
-  public void setId(String id) {
+  public void setId(Long id) {
     this.id = id;
-  }
-
-
-  public ClassifiedId type(ClassificationRef type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ClassificationRef getType() {
-    return type;
-  }
-
-
-  public void setType(ClassificationRef type) {
-    this.type = type;
   }
 
 
@@ -106,27 +61,23 @@ public class ClassifiedId extends Identifier {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ClassifiedId classifiedId = (ClassifiedId) o;
-    return Objects.equals(this.pureId, classifiedId.pureId) &&
-        Objects.equals(this.id, classifiedId.id) &&
-        Objects.equals(this.type, classifiedId.type) &&
+    PureId pureId = (PureId) o;
+    return Objects.equals(this.id, pureId.id) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pureId, id, type, super.hashCode());
+    return Objects.hash(id, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ClassifiedId {\n");
+    sb.append("class PureId {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    pureId: ").append(toIndentedString(pureId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

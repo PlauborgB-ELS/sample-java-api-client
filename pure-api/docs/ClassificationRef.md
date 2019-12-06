@@ -7,9 +7,9 @@ A reference to a classification value
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uri** | **String** | Classification URI of the referred classification |  [optional] [readonly]
+**uri** | **String** | Classification URI of the referred classification | 
 **link** | [**NavigationLink**](NavigationLink.md) |  |  [optional]
-**term** | **Map&lt;String, String&gt;** | Container for a set of string values each localized for a specific locale |  [optional]
+**term** | **Map&lt;String, String&gt;** | A set of localized string values each for a specific UI locale. |  [optional] [readonly]
 
 
 

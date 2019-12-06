@@ -3,23 +3,28 @@ package com.elsevier.pure.api.sample;
 import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
 import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
 import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
-import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationListResult;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganization;
+import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationListResult;
 import junit.framework.TestCase;
 
 public class TestExternalOrganizationApi extends TestCase {
     private ExternalOrganizationApi pureApi;
+
+    public TestExternalOrganizationApi() {
+        System.setProperty("pure-api-base-path", "https://api.elsevierpure.com/ws/api");
+        System.setProperty("pure-api-key", "622d9790-65f1-4769-a81b-b8d2967ef063");
+    }
+
     /**
      * Test case that fetches all external organizations from Pure
-     * @throws ApiException
      */
     public void testFetch() throws ApiException {
-        final ExternalOrganizationListResult response = pureApi.externalOrganizationList(10, 0, "name");
+        final ExternalOrganizationListResult response = pureApi.list(10, 0, "name");
         System.out.println("Count: " + response.getCount());
 
         if (response.getItems() != null) {
             for (ExternalOrganization externalOrganization : response.getItems()) {
-                System.out.println(externalOrganization);
+                System.out.println(externalOrganization.getName());
             }
         }
     }

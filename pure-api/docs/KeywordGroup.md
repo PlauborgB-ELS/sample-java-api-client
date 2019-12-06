@@ -2,17 +2,15 @@
 
 # KeywordGroup
 
-Keywords of a specific type. A type of keyword can be configured to solely support free keywords, to solely support structured keywords, or to both support structured keywords supplemented by optional free keywords
+A group for each type of keyword present
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pureId** | **Long** | Pure database ID of the object |  [optional] [readonly]
-**freeFormExternalIds** | [**List&lt;Id&gt;**](Id.md) | IDs from the external sources (part of) the object was imported from |  [optional]
-**externallyManaged** | **Boolean** | Signals that the information is maintained by synchronization from an external system |  [optional]
-**logicalName** | **String** | Unique name of the configuration that makes it possible to have this kind of keywords |  [optional]
-**type** | [**Classification**](Classification.md) |  |  [optional]
-**keywordContainers** | [**List&lt;KeywordContainer&gt;**](KeywordContainer.md) | Containers with structured keywords and/or free keywords |  [optional]
+**kgType** | **String** | A KeywordGroup type discriminator property so we can differentiate between the different sub-types |  [optional]
+**logicalName** | **String** | Unique name of the configuration that specifies this keyword group |  [optional]
+**name** | **Map&lt;String, String&gt;** | A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored. |  [optional]
 
 
 
