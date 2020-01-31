@@ -13,30 +13,37 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.elsevier.pure.api.sample.stubs.model.Keyword;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * KeywordGroupFreeKeywordsAllOf
+ * FreeKeywordsKeywordGroupAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
-public class KeywordGroupFreeKeywordsAllOf {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
+public class FreeKeywordsKeywordGroupAllOf {
   public static final String SERIALIZED_NAME_KEYWORDS = "keywords";
   @SerializedName(SERIALIZED_NAME_KEYWORDS)
   private List<Keyword> keywords = null;
 
 
-  public KeywordGroupFreeKeywordsAllOf keywords(List<Keyword> keywords) {
+  public FreeKeywordsKeywordGroupAllOf keywords(List<Keyword> keywords) {
     
     this.keywords = keywords;
     return this;
   }
 
-  public KeywordGroupFreeKeywordsAllOf addKeywordsItem(Keyword keywordsItem) {
+  public FreeKeywordsKeywordGroupAllOf addKeywordsItem(Keyword keywordsItem) {
     if (this.keywords == null) {
       this.keywords = new ArrayList<Keyword>();
     }
@@ -69,8 +76,8 @@ public class KeywordGroupFreeKeywordsAllOf {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    KeywordGroupFreeKeywordsAllOf keywordGroupFreeKeywordsAllOf = (KeywordGroupFreeKeywordsAllOf) o;
-    return Objects.equals(this.keywords, keywordGroupFreeKeywordsAllOf.keywords);
+    FreeKeywordsKeywordGroupAllOf freeKeywordsKeywordGroupAllOf = (FreeKeywordsKeywordGroupAllOf) o;
+    return Objects.equals(this.keywords, freeKeywordsKeywordGroupAllOf.keywords);
   }
 
   @Override
@@ -82,7 +89,7 @@ public class KeywordGroupFreeKeywordsAllOf {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class KeywordGroupFreeKeywordsAllOf {\n");
+    sb.append("class FreeKeywordsKeywordGroupAllOf {\n");
     sb.append("    keywords: ").append(toIndentedString(keywords)).append("\n");
     sb.append("}");
     return sb.toString();

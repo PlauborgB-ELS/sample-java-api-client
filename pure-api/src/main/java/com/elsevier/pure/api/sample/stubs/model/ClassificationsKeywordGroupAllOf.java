@@ -13,30 +13,37 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * KeywordGroupClassificationsAllOf
+ * ClassificationsKeywordGroupAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
-public class KeywordGroupClassificationsAllOf {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
+public class ClassificationsKeywordGroupAllOf {
   public static final String SERIALIZED_NAME_CLASSIFICATIONS = "classifications";
   @SerializedName(SERIALIZED_NAME_CLASSIFICATIONS)
   private List<ClassificationRef> classifications = null;
 
 
-  public KeywordGroupClassificationsAllOf classifications(List<ClassificationRef> classifications) {
+  public ClassificationsKeywordGroupAllOf classifications(List<ClassificationRef> classifications) {
     
     this.classifications = classifications;
     return this;
   }
 
-  public KeywordGroupClassificationsAllOf addClassificationsItem(ClassificationRef classificationsItem) {
+  public ClassificationsKeywordGroupAllOf addClassificationsItem(ClassificationRef classificationsItem) {
     if (this.classifications == null) {
       this.classifications = new ArrayList<ClassificationRef>();
     }
@@ -69,8 +76,8 @@ public class KeywordGroupClassificationsAllOf {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    KeywordGroupClassificationsAllOf keywordGroupClassificationsAllOf = (KeywordGroupClassificationsAllOf) o;
-    return Objects.equals(this.classifications, keywordGroupClassificationsAllOf.classifications);
+    ClassificationsKeywordGroupAllOf classificationsKeywordGroupAllOf = (ClassificationsKeywordGroupAllOf) o;
+    return Objects.equals(this.classifications, classificationsKeywordGroupAllOf.classifications);
   }
 
   @Override
@@ -82,7 +89,7 @@ public class KeywordGroupClassificationsAllOf {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class KeywordGroupClassificationsAllOf {\n");
+    sb.append("class ClassificationsKeywordGroupAllOf {\n");
     sb.append("    classifications: ").append(toIndentedString(classifications)).append("\n");
     sb.append("}");
     return sb.toString();

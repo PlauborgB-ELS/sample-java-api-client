@@ -13,17 +13,22 @@
 
 package com.elsevier.pure.api.sample.stubs.invoker;
 
-import com.elsevier.pure.api.sample.stubs.model.*;
-import com.google.gson.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.google.gson.JsonElement;
 import io.gsonfire.GsonFireBuilder;
 import io.gsonfire.TypeSelector;
-import okio.ByteString;
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 import org.threeten.bp.format.DateTimeFormatter;
+
+import com.elsevier.pure.api.sample.stubs.model.*;
+import okio.ByteString;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -32,9 +37,9 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.HashMap;
 
 public class JSON {
     private Gson gson;
@@ -47,6 +52,20 @@ public class JSON {
 
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder()
+                .registerTypeSelector(ContentRef.class, new TypeSelector() {
+                    @Override
+                    public Class getClassForElement(JsonElement readElement) {
+                        Map classByDiscriminatorValue = new HashMap();
+                        classByDiscriminatorValue.put("ClassificationScheme".toUpperCase(Locale.ROOT), ClassificationSchemeRef.class);
+                        classByDiscriminatorValue.put("ExternalOrganisation".toUpperCase(Locale.ROOT), ExternalOrganizationRef.class);
+                        classByDiscriminatorValue.put("ExternalPerson".toUpperCase(Locale.ROOT), ExternalPersonRef.class);
+                        classByDiscriminatorValue.put("ResearchOutput".toUpperCase(Locale.ROOT), ResearchOutputRef.class);
+                        classByDiscriminatorValue.put("Content".toUpperCase(Locale.ROOT), ContentRef.class);
+                        classByDiscriminatorValue.put("ContentRef".toUpperCase(Locale.ROOT), ContentRef.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "systemName"));
+                    }
+          })
                 .registerTypeSelector(Identifier.class, new TypeSelector() {
                     @Override
                     public Class getClassForElement(JsonElement readElement) {
@@ -56,27 +75,28 @@ public class JSON {
                         classByDiscriminatorValue.put("Id".toUpperCase(Locale.ROOT), Id.class);
                         classByDiscriminatorValue.put("Identifier".toUpperCase(Locale.ROOT), Identifier.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
-                                getDiscriminatorValue(readElement, "idType"));
+                                getDiscriminatorValue(readElement, "typeDiscriminator"));
                     }
           })
                 .registerTypeSelector(KeywordGroup.class, new TypeSelector() {
                     @Override
                     public Class getClassForElement(JsonElement readElement) {
                         Map classByDiscriminatorValue = new HashMap();
-                        classByDiscriminatorValue.put("freeKeywords".toUpperCase(Locale.ROOT), KeywordGroupFreeKeywords.class);
-                        classByDiscriminatorValue.put("classifications".toUpperCase(Locale.ROOT), KeywordGroupClassifications.class);
-                        classByDiscriminatorValue.put("full".toUpperCase(Locale.ROOT), KeywordGroupFull.class);
+                        classByDiscriminatorValue.put("ClassificationsKeywordGroup".toUpperCase(Locale.ROOT), ClassificationsKeywordGroup.class);
+                        classByDiscriminatorValue.put("FreeKeywordsKeywordGroup".toUpperCase(Locale.ROOT), FreeKeywordsKeywordGroup.class);
+                        classByDiscriminatorValue.put("FullKeywordGroup".toUpperCase(Locale.ROOT), FullKeywordGroup.class);
                         classByDiscriminatorValue.put("KeywordGroup".toUpperCase(Locale.ROOT), KeywordGroup.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
-                                getDiscriminatorValue(readElement, "kgType"));
+                                getDiscriminatorValue(readElement, "typeDiscriminator"));
                     }
           })
                 .registerTypeSelector(ProblemDetails.class, new TypeSelector() {
                     @Override
                     public Class getClassForElement(JsonElement readElement) {
                         Map classByDiscriminatorValue = new HashMap();
-                        classByDiscriminatorValue.put("/error".toUpperCase(Locale.ROOT), ProblemDetails.class);
+                        classByDiscriminatorValue.put("/error".toUpperCase(Locale.ROOT), GenericProblemDetails.class);
                         classByDiscriminatorValue.put("/validation-error".toUpperCase(Locale.ROOT), ValidationProblemDetails.class);
+                        classByDiscriminatorValue.put("/dependency-violation-error".toUpperCase(Locale.ROOT), DependencyViolationProblemDetails.class);
                         classByDiscriminatorValue.put("ProblemDetails".toUpperCase(Locale.ROOT), ProblemDetails.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));

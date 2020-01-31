@@ -13,6 +13,30 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
+import com.elsevier.pure.api.sample.stubs.model.Address;
+import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
+import com.elsevier.pure.api.sample.stubs.model.Document;
+import com.elsevier.pure.api.sample.stubs.model.Identifier;
+import com.elsevier.pure.api.sample.stubs.model.KeywordGroup;
+import com.elsevier.pure.api.sample.stubs.model.Link;
+import com.elsevier.pure.api.sample.stubs.model.Visibility;
+import com.elsevier.pure.api.sample.stubs.model.Workflow;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import org.threeten.bp.OffsetDateTime;
+import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 

@@ -15,8 +15,8 @@ package com.elsevier.pure.api.sample.stubs.invoker.auth;
 
 import com.elsevier.pure.api.sample.stubs.invoker.Pair;
 
-import java.util.List;
 import java.util.Map;
+import java.util.List;
 
 public interface Authentication {
     /**

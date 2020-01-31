@@ -9,6 +9,12 @@ Method | HTTP request | Description
 [**get**](ExternalOrganizationApi.md#get) | **GET** /external-organizations/{uuid} | Get external organization
 [**getAllowedAddressCountries**](ExternalOrganizationApi.md#getAllowedAddressCountries) | **GET** /external-organizations/allowed-address-countries | A list of allowed address countries
 [**getAllowedAddressSubdivisions**](ExternalOrganizationApi.md#getAllowedAddressSubdivisions) | **GET** /external-organizations/allowed-address-subdivision | A list of allowed address subdivisions
+[**getAllowedDocumentLicenses**](ExternalOrganizationApi.md#getAllowedDocumentLicenses) | **GET** /external-organizations/allowed-document-licenses | A list of allowed document licenses
+[**getAllowedDocumentTypes**](ExternalOrganizationApi.md#getAllowedDocumentTypes) | **GET** /external-organizations/allowed-document-types | A list of allowed document types
+[**getAllowedKeywordGroupConfigurationClassifications**](ExternalOrganizationApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /external-organizations/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
+[**getAllowedKeywordGroupConfigurations**](ExternalOrganizationApi.md#getAllowedKeywordGroupConfigurations) | **GET** /external-organizations/allowed-keyword-group-configurations | A list of keyword group configurations
+[**getAllowedLinkTypes**](ExternalOrganizationApi.md#getAllowedLinkTypes) | **GET** /external-organizations/allowed-link-types | A list of allowed link types
+[**getAllowedLocales**](ExternalOrganizationApi.md#getAllowedLocales) | **GET** /external-organizations/allowed-locales | A list of allowed locales
 [**getAllowedNatureTypes**](ExternalOrganizationApi.md#getAllowedNatureTypes) | **GET** /external-organizations/allowed-nature-types | A list of allowed nature types
 [**getAllowedTypes**](ExternalOrganizationApi.md#getAllowedTypes) | **GET** /external-organizations/allowed-types | A list of allowed external organization types
 [**getAllowedWorkflowSteps**](ExternalOrganizationApi.md#getAllowedWorkflowSteps) | **GET** /external-organizations/allowed-workflow-steps | A list of allowed workflow steps
@@ -230,7 +236,7 @@ Name | Type | Description  | Notes
 
 <a name="getAllowedAddressCountries"></a>
 # **getAllowedAddressCountries**
-> List&lt;ClassificationRef&gt; getAllowedAddressCountries()
+> ClassificationRefList getAllowedAddressCountries()
 
 A list of allowed address countries
 
@@ -259,7 +265,7 @@ public class Example {
 
     ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
     try {
-      List<ClassificationRef> result = apiInstance.getAllowedAddressCountries();
+      ClassificationRefList result = apiInstance.getAllowedAddressCountries();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalOrganizationApi#getAllowedAddressCountries");
@@ -277,7 +283,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;ClassificationRef&gt;**](ClassificationRef.md)
+[**ClassificationRefList**](ClassificationRefList.md)
 
 ### Authorization
 
@@ -295,7 +301,7 @@ This endpoint does not need any parameter.
 
 <a name="getAllowedAddressSubdivisions"></a>
 # **getAllowedAddressSubdivisions**
-> List&lt;ClassificationRef&gt; getAllowedAddressSubdivisions()
+> ClassificationRefList getAllowedAddressSubdivisions()
 
 A list of allowed address subdivisions
 
@@ -324,7 +330,7 @@ public class Example {
 
     ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
     try {
-      List<ClassificationRef> result = apiInstance.getAllowedAddressSubdivisions();
+      ClassificationRefList result = apiInstance.getAllowedAddressSubdivisions();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalOrganizationApi#getAllowedAddressSubdivisions");
@@ -342,7 +348,401 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;ClassificationRef&gt;**](ClassificationRef.md)
+[**ClassificationRefList**](ClassificationRefList.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
+<a name="getAllowedDocumentLicenses"></a>
+# **getAllowedDocumentLicenses**
+> ClassificationRefList getAllowedDocumentLicenses()
+
+A list of allowed document licenses
+
+Get a list of allowed document licenses that can be used for the &#39;documents.documentLicense&#39; attribute of external organizations
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    try {
+      ClassificationRefList result = apiInstance.getAllowedDocumentLicenses();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#getAllowedDocumentLicenses");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ClassificationRefList**](ClassificationRefList.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
+<a name="getAllowedDocumentTypes"></a>
+# **getAllowedDocumentTypes**
+> ClassificationRefList getAllowedDocumentTypes()
+
+A list of allowed document types
+
+Get a list of allowed document types that can be used for the &#39;documents.documentType&#39; attribute of external organizations
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    try {
+      ClassificationRefList result = apiInstance.getAllowedDocumentTypes();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#getAllowedDocumentTypes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ClassificationRefList**](ClassificationRefList.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
+<a name="getAllowedKeywordGroupConfigurationClassifications"></a>
+# **getAllowedKeywordGroupConfigurationClassifications**
+> ClassificationRefList getAllowedKeywordGroupConfigurationClassifications(id)
+
+A list of allowed classifications for the specified keyword group
+
+Get a list of allowed classifications that can be used when submitting a specified keyword group.
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    Long id = 56L; // Long | Pure id of the keyword group configuration
+    try {
+      ClassificationRefList result = apiInstance.getAllowedKeywordGroupConfigurationClassifications(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#getAllowedKeywordGroupConfigurationClassifications");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Long**| Pure id of the keyword group configuration |
+
+### Return type
+
+[**ClassificationRefList**](ClassificationRefList.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
+<a name="getAllowedKeywordGroupConfigurations"></a>
+# **getAllowedKeywordGroupConfigurations**
+> KeywordGroupConfigurationList getAllowedKeywordGroupConfigurations()
+
+A list of keyword group configurations
+
+Get a list of allowed keyword group configurations that can be used when submitting keyword groups.
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    try {
+      KeywordGroupConfigurationList result = apiInstance.getAllowedKeywordGroupConfigurations();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#getAllowedKeywordGroupConfigurations");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**KeywordGroupConfigurationList**](KeywordGroupConfigurationList.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
+<a name="getAllowedLinkTypes"></a>
+# **getAllowedLinkTypes**
+> ClassificationRefList getAllowedLinkTypes()
+
+A list of allowed link types
+
+Get a list of allowed link types that can be used for the &#39;links.linkType&#39; attribute of external organizations
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    try {
+      ClassificationRefList result = apiInstance.getAllowedLinkTypes();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#getAllowedLinkTypes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ClassificationRefList**](ClassificationRefList.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
+<a name="getAllowedLocales"></a>
+# **getAllowedLocales**
+> LocalesList getAllowedLocales()
+
+A list of allowed locales
+
+Get a list of allowed locales that can be used when submitting localized string entities.
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    try {
+      LocalesList result = apiInstance.getAllowedLocales();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#getAllowedLocales");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**LocalesList**](LocalesList.md)
 
 ### Authorization
 
@@ -360,7 +760,7 @@ This endpoint does not need any parameter.
 
 <a name="getAllowedNatureTypes"></a>
 # **getAllowedNatureTypes**
-> List&lt;ClassificationRef&gt; getAllowedNatureTypes()
+> ClassificationRefList getAllowedNatureTypes()
 
 A list of allowed nature types
 
@@ -389,7 +789,7 @@ public class Example {
 
     ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
     try {
-      List<ClassificationRef> result = apiInstance.getAllowedNatureTypes();
+      ClassificationRefList result = apiInstance.getAllowedNatureTypes();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalOrganizationApi#getAllowedNatureTypes");
@@ -407,7 +807,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;ClassificationRef&gt;**](ClassificationRef.md)
+[**ClassificationRefList**](ClassificationRefList.md)
 
 ### Authorization
 
@@ -425,7 +825,7 @@ This endpoint does not need any parameter.
 
 <a name="getAllowedTypes"></a>
 # **getAllowedTypes**
-> List&lt;ClassificationRef&gt; getAllowedTypes()
+> ClassificationRefList getAllowedTypes()
 
 A list of allowed external organization types
 
@@ -454,7 +854,7 @@ public class Example {
 
     ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
     try {
-      List<ClassificationRef> result = apiInstance.getAllowedTypes();
+      ClassificationRefList result = apiInstance.getAllowedTypes();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalOrganizationApi#getAllowedTypes");
@@ -472,7 +872,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;ClassificationRef&gt;**](ClassificationRef.md)
+[**ClassificationRefList**](ClassificationRefList.md)
 
 ### Authorization
 
@@ -490,7 +890,7 @@ This endpoint does not need any parameter.
 
 <a name="getAllowedWorkflowSteps"></a>
 # **getAllowedWorkflowSteps**
-> List&lt;Workflow&gt; getAllowedWorkflowSteps()
+> WorkflowListResult getAllowedWorkflowSteps()
 
 A list of allowed workflow steps
 
@@ -519,7 +919,7 @@ public class Example {
 
     ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
     try {
-      List<Workflow> result = apiInstance.getAllowedWorkflowSteps();
+      WorkflowListResult result = apiInstance.getAllowedWorkflowSteps();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalOrganizationApi#getAllowedWorkflowSteps");
@@ -537,7 +937,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;Workflow&gt;**](Workflow.md)
+[**WorkflowListResult**](WorkflowListResult.md)
 
 ### Authorization
 

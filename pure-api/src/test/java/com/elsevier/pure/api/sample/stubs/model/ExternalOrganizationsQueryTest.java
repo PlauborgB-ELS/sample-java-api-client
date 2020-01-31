@@ -13,6 +13,18 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 
@@ -55,30 +67,6 @@ public class ExternalOrganizationsQueryTest {
     }
 
     /**
-     * Test the property 'locales'
-     */
-    @Test
-    public void localesTest() {
-        // TODO: test locales
-    }
-
-    /**
-     * Test the property 'fallbackLocales'
-     */
-    @Test
-    public void fallbackLocalesTest() {
-        // TODO: test fallbackLocales
-    }
-
-    /**
-     * Test the property 'fields'
-     */
-    @Test
-    public void fieldsTest() {
-        // TODO: test fields
-    }
-
-    /**
      * Test the property 'orderings'
      */
     @Test
@@ -87,83 +75,11 @@ public class ExternalOrganizationsQueryTest {
     }
 
     /**
-     * Test the property 'navigationLink'
+     * Test the property 'keywordURIs'
      */
     @Test
-    public void navigationLinkTest() {
-        // TODO: test navigationLink
-    }
-
-    /**
-     * Test the property 'ids'
-     */
-    @Test
-    public void idsTest() {
-        // TODO: test ids
-    }
-
-    /**
-     * Test the property 'idClassification'
-     */
-    @Test
-    public void idClassificationTest() {
-        // TODO: test idClassification
-    }
-
-    /**
-     * Test the property 'idClassificationType'
-     */
-    @Test
-    public void idClassificationTypeTest() {
-        // TODO: test idClassificationType
-    }
-
-    /**
-     * Test the property 'modifiedAfter'
-     */
-    @Test
-    public void modifiedAfterTest() {
-        // TODO: test modifiedAfter
-    }
-
-    /**
-     * Test the property 'modifiedBefore'
-     */
-    @Test
-    public void modifiedBeforeTest() {
-        // TODO: test modifiedBefore
-    }
-
-    /**
-     * Test the property 'createdAfter'
-     */
-    @Test
-    public void createdAfterTest() {
-        // TODO: test createdAfter
-    }
-
-    /**
-     * Test the property 'createdBefore'
-     */
-    @Test
-    public void createdBeforeTest() {
-        // TODO: test createdBefore
-    }
-
-    /**
-     * Test the property 'freeKeywords'
-     */
-    @Test
-    public void freeKeywordsTest() {
-        // TODO: test freeKeywords
-    }
-
-    /**
-     * Test the property 'typeUris'
-     */
-    @Test
-    public void typeUrisTest() {
-        // TODO: test typeUris
+    public void keywordURIsTest() {
+        // TODO: test keywordURIs
     }
 
     /**
@@ -180,14 +96,6 @@ public class ExternalOrganizationsQueryTest {
     @Test
     public void orderByTest() {
         // TODO: test orderBy
-    }
-
-    /**
-     * Test the property 'keywordUris'
-     */
-    @Test
-    public void keywordUrisTest() {
-        // TODO: test keywordUris
     }
 
 }

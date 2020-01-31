@@ -13,32 +13,41 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.elsevier.pure.api.sample.stubs.model.FullKeywordGroupAllOf;
+import com.elsevier.pure.api.sample.stubs.model.KeywordContainer;
+import com.elsevier.pure.api.sample.stubs.model.KeywordGroup;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import java.util.Map;
 
 /**
- * Keywords of a specific type. A type of keyword can be configured to solely support free keywords (represented as the KeywordGroupFreeKeywords type), to solely support structured keywords (represented as the KeywordGroupClassifications type), or to both support structured keywords supplemented by optional free keywords (this type)
+ * Keywords of a specific type. A type of keyword can be configured to solely support free keywords (represented as the FreeKeywordsKeywordGroup type), to solely support structured keywords (represented as the ClassificationsKeywordGroup type), or to both support structured keywords supplemented by optional free keywords (this type)
  */
-@ApiModel(description = "Keywords of a specific type. A type of keyword can be configured to solely support free keywords (represented as the KeywordGroupFreeKeywords type), to solely support structured keywords (represented as the KeywordGroupClassifications type), or to both support structured keywords supplemented by optional free keywords (this type)")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
-public class KeywordGroupFull extends KeywordGroup {
+@ApiModel(description = "Keywords of a specific type. A type of keyword can be configured to solely support free keywords (represented as the FreeKeywordsKeywordGroup type), to solely support structured keywords (represented as the ClassificationsKeywordGroup type), or to both support structured keywords supplemented by optional free keywords (this type)")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
+public class FullKeywordGroup extends KeywordGroup {
   public static final String SERIALIZED_NAME_KEYWORD_CONTAINERS = "keywordContainers";
   @SerializedName(SERIALIZED_NAME_KEYWORD_CONTAINERS)
   private List<KeywordContainer> keywordContainers = null;
 
 
-  public KeywordGroupFull keywordContainers(List<KeywordContainer> keywordContainers) {
+  public FullKeywordGroup keywordContainers(List<KeywordContainer> keywordContainers) {
     
     this.keywordContainers = keywordContainers;
     return this;
   }
 
-  public KeywordGroupFull addKeywordContainersItem(KeywordContainer keywordContainersItem) {
+  public FullKeywordGroup addKeywordContainersItem(KeywordContainer keywordContainersItem) {
     if (this.keywordContainers == null) {
       this.keywordContainers = new ArrayList<KeywordContainer>();
     }
@@ -71,8 +80,8 @@ public class KeywordGroupFull extends KeywordGroup {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    KeywordGroupFull keywordGroupFull = (KeywordGroupFull) o;
-    return Objects.equals(this.keywordContainers, keywordGroupFull.keywordContainers) &&
+    FullKeywordGroup fullKeywordGroup = (FullKeywordGroup) o;
+    return Objects.equals(this.keywordContainers, fullKeywordGroup.keywordContainers) &&
         super.equals(o);
   }
 
@@ -85,7 +94,7 @@ public class KeywordGroupFull extends KeywordGroup {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class KeywordGroupFull {\n");
+    sb.append("class FullKeywordGroup {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    keywordContainers: ").append(toIndentedString(keywordContainers)).append("\n");
     sb.append("}");

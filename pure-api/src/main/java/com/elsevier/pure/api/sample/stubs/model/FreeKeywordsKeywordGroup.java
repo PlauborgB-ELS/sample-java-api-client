@@ -13,32 +13,41 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.elsevier.pure.api.sample.stubs.model.FreeKeywordsKeywordGroupAllOf;
+import com.elsevier.pure.api.sample.stubs.model.Keyword;
+import com.elsevier.pure.api.sample.stubs.model.KeywordGroup;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import java.util.Map;
 
 /**
  * De-normalized version of the full keyword group representation for instances where only free keywords can be selected
  */
 @ApiModel(description = "De-normalized version of the full keyword group representation for instances where only free keywords can be selected")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
-public class KeywordGroupFreeKeywords extends KeywordGroup {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
+public class FreeKeywordsKeywordGroup extends KeywordGroup {
   public static final String SERIALIZED_NAME_KEYWORDS = "keywords";
   @SerializedName(SERIALIZED_NAME_KEYWORDS)
   private List<Keyword> keywords = null;
 
 
-  public KeywordGroupFreeKeywords keywords(List<Keyword> keywords) {
+  public FreeKeywordsKeywordGroup keywords(List<Keyword> keywords) {
     
     this.keywords = keywords;
     return this;
   }
 
-  public KeywordGroupFreeKeywords addKeywordsItem(Keyword keywordsItem) {
+  public FreeKeywordsKeywordGroup addKeywordsItem(Keyword keywordsItem) {
     if (this.keywords == null) {
       this.keywords = new ArrayList<Keyword>();
     }
@@ -71,8 +80,8 @@ public class KeywordGroupFreeKeywords extends KeywordGroup {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    KeywordGroupFreeKeywords keywordGroupFreeKeywords = (KeywordGroupFreeKeywords) o;
-    return Objects.equals(this.keywords, keywordGroupFreeKeywords.keywords) &&
+    FreeKeywordsKeywordGroup freeKeywordsKeywordGroup = (FreeKeywordsKeywordGroup) o;
+    return Objects.equals(this.keywords, freeKeywordsKeywordGroup.keywords) &&
         super.equals(o);
   }
 
@@ -85,7 +94,7 @@ public class KeywordGroupFreeKeywords extends KeywordGroup {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class KeywordGroupFreeKeywords {\n");
+    sb.append("class FreeKeywordsKeywordGroup {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    keywords: ").append(toIndentedString(keywords)).append("\n");
     sb.append("}");

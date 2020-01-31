@@ -13,9 +13,29 @@
 
 package com.elsevier.pure.api.sample.stubs.api;
 
-import com.elsevier.pure.api.sample.stubs.invoker.*;
-import com.elsevier.pure.api.sample.stubs.model.*;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiCallback;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiResponse;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.Pair;
+import com.elsevier.pure.api.sample.stubs.invoker.ProgressRequestBody;
+import com.elsevier.pure.api.sample.stubs.invoker.ProgressResponseBody;
+
 import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+
+
+import com.elsevier.pure.api.sample.stubs.model.ClassificationRefList;
+import com.elsevier.pure.api.sample.stubs.model.ExternalOrganization;
+import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationListResult;
+import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationsQuery;
+import com.elsevier.pure.api.sample.stubs.model.KeywordGroupConfigurationList;
+import com.elsevier.pure.api.sample.stubs.model.LocalesList;
+import com.elsevier.pure.api.sample.stubs.model.OrderingsList;
+import com.elsevier.pure.api.sample.stubs.model.ProblemDetails;
+import com.elsevier.pure.api.sample.stubs.model.WorkflowListResult;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -438,7 +458,7 @@ public class ExternalOrganizationApi {
     /**
      * A list of allowed address countries
      * Get a list of allowed countries that can be used for the &#39;address.country&#39; attribute of external organizations
-     * @return List&lt;ClassificationRef&gt;
+     * @return ClassificationRefList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -446,15 +466,15 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ClassificationRef> getAllowedAddressCountries() throws ApiException {
-        ApiResponse<List<ClassificationRef>> localVarResp = getAllowedAddressCountriesWithHttpInfo();
+    public ClassificationRefList getAllowedAddressCountries() throws ApiException {
+        ApiResponse<ClassificationRefList> localVarResp = getAllowedAddressCountriesWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * A list of allowed address countries
      * Get a list of allowed countries that can be used for the &#39;address.country&#39; attribute of external organizations
-     * @return ApiResponse&lt;List&lt;ClassificationRef&gt;&gt;
+     * @return ApiResponse&lt;ClassificationRefList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -462,9 +482,9 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ClassificationRef>> getAllowedAddressCountriesWithHttpInfo() throws ApiException {
+    public ApiResponse<ClassificationRefList> getAllowedAddressCountriesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getAllowedAddressCountriesValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<List<ClassificationRef>>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -480,10 +500,10 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllowedAddressCountriesAsync(final ApiCallback<List<ClassificationRef>> _callback) throws ApiException {
+    public okhttp3.Call getAllowedAddressCountriesAsync(final ApiCallback<ClassificationRefList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAllowedAddressCountriesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<List<ClassificationRef>>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -539,7 +559,7 @@ public class ExternalOrganizationApi {
     /**
      * A list of allowed address subdivisions
      * Get a list of allowed subdivisions that can be used for the &#39;address.subdivisions&#39; attribute of external organizations
-     * @return List&lt;ClassificationRef&gt;
+     * @return ClassificationRefList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -547,15 +567,15 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ClassificationRef> getAllowedAddressSubdivisions() throws ApiException {
-        ApiResponse<List<ClassificationRef>> localVarResp = getAllowedAddressSubdivisionsWithHttpInfo();
+    public ClassificationRefList getAllowedAddressSubdivisions() throws ApiException {
+        ApiResponse<ClassificationRefList> localVarResp = getAllowedAddressSubdivisionsWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * A list of allowed address subdivisions
      * Get a list of allowed subdivisions that can be used for the &#39;address.subdivisions&#39; attribute of external organizations
-     * @return ApiResponse&lt;List&lt;ClassificationRef&gt;&gt;
+     * @return ApiResponse&lt;ClassificationRefList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -563,9 +583,9 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ClassificationRef>> getAllowedAddressSubdivisionsWithHttpInfo() throws ApiException {
+    public ApiResponse<ClassificationRefList> getAllowedAddressSubdivisionsWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getAllowedAddressSubdivisionsValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<List<ClassificationRef>>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -581,10 +601,626 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllowedAddressSubdivisionsAsync(final ApiCallback<List<ClassificationRef>> _callback) throws ApiException {
+    public okhttp3.Call getAllowedAddressSubdivisionsAsync(final ApiCallback<ClassificationRefList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAllowedAddressSubdivisionsValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<List<ClassificationRef>>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getAllowedDocumentLicenses
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedDocumentLicensesCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/external-organizations/allowed-document-licenses";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAllowedDocumentLicensesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = getAllowedDocumentLicensesCall(_callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * A list of allowed document licenses
+     * Get a list of allowed document licenses that can be used for the &#39;documents.documentLicense&#39; attribute of external organizations
+     * @return ClassificationRefList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ClassificationRefList getAllowedDocumentLicenses() throws ApiException {
+        ApiResponse<ClassificationRefList> localVarResp = getAllowedDocumentLicensesWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * A list of allowed document licenses
+     * Get a list of allowed document licenses that can be used for the &#39;documents.documentLicense&#39; attribute of external organizations
+     * @return ApiResponse&lt;ClassificationRefList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ClassificationRefList> getAllowedDocumentLicensesWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getAllowedDocumentLicensesValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * A list of allowed document licenses (asynchronously)
+     * Get a list of allowed document licenses that can be used for the &#39;documents.documentLicense&#39; attribute of external organizations
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedDocumentLicensesAsync(final ApiCallback<ClassificationRefList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAllowedDocumentLicensesValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getAllowedDocumentTypes
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedDocumentTypesCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/external-organizations/allowed-document-types";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAllowedDocumentTypesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = getAllowedDocumentTypesCall(_callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * A list of allowed document types
+     * Get a list of allowed document types that can be used for the &#39;documents.documentType&#39; attribute of external organizations
+     * @return ClassificationRefList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ClassificationRefList getAllowedDocumentTypes() throws ApiException {
+        ApiResponse<ClassificationRefList> localVarResp = getAllowedDocumentTypesWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * A list of allowed document types
+     * Get a list of allowed document types that can be used for the &#39;documents.documentType&#39; attribute of external organizations
+     * @return ApiResponse&lt;ClassificationRefList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ClassificationRefList> getAllowedDocumentTypesWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getAllowedDocumentTypesValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * A list of allowed document types (asynchronously)
+     * Get a list of allowed document types that can be used for the &#39;documents.documentType&#39; attribute of external organizations
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedDocumentTypesAsync(final ApiCallback<ClassificationRefList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAllowedDocumentTypesValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getAllowedKeywordGroupConfigurationClassifications
+     * @param id Pure id of the keyword group configuration (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedKeywordGroupConfigurationClassificationsCall(Long id, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/external-organizations/allowed-keyword-group-configurations/{id}/classifications"
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAllowedKeywordGroupConfigurationClassificationsValidateBeforeCall(Long id, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getAllowedKeywordGroupConfigurationClassifications(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getAllowedKeywordGroupConfigurationClassificationsCall(id, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * A list of allowed classifications for the specified keyword group
+     * Get a list of allowed classifications that can be used when submitting a specified keyword group.
+     * @param id Pure id of the keyword group configuration (required)
+     * @return ClassificationRefList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ClassificationRefList getAllowedKeywordGroupConfigurationClassifications(Long id) throws ApiException {
+        ApiResponse<ClassificationRefList> localVarResp = getAllowedKeywordGroupConfigurationClassificationsWithHttpInfo(id);
+        return localVarResp.getData();
+    }
+
+    /**
+     * A list of allowed classifications for the specified keyword group
+     * Get a list of allowed classifications that can be used when submitting a specified keyword group.
+     * @param id Pure id of the keyword group configuration (required)
+     * @return ApiResponse&lt;ClassificationRefList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ClassificationRefList> getAllowedKeywordGroupConfigurationClassificationsWithHttpInfo(Long id) throws ApiException {
+        okhttp3.Call localVarCall = getAllowedKeywordGroupConfigurationClassificationsValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * A list of allowed classifications for the specified keyword group (asynchronously)
+     * Get a list of allowed classifications that can be used when submitting a specified keyword group.
+     * @param id Pure id of the keyword group configuration (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedKeywordGroupConfigurationClassificationsAsync(Long id, final ApiCallback<ClassificationRefList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAllowedKeywordGroupConfigurationClassificationsValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getAllowedKeywordGroupConfigurations
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedKeywordGroupConfigurationsCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/external-organizations/allowed-keyword-group-configurations";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAllowedKeywordGroupConfigurationsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = getAllowedKeywordGroupConfigurationsCall(_callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * A list of keyword group configurations
+     * Get a list of allowed keyword group configurations that can be used when submitting keyword groups.
+     * @return KeywordGroupConfigurationList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public KeywordGroupConfigurationList getAllowedKeywordGroupConfigurations() throws ApiException {
+        ApiResponse<KeywordGroupConfigurationList> localVarResp = getAllowedKeywordGroupConfigurationsWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * A list of keyword group configurations
+     * Get a list of allowed keyword group configurations that can be used when submitting keyword groups.
+     * @return ApiResponse&lt;KeywordGroupConfigurationList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<KeywordGroupConfigurationList> getAllowedKeywordGroupConfigurationsWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getAllowedKeywordGroupConfigurationsValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<KeywordGroupConfigurationList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * A list of keyword group configurations (asynchronously)
+     * Get a list of allowed keyword group configurations that can be used when submitting keyword groups.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedKeywordGroupConfigurationsAsync(final ApiCallback<KeywordGroupConfigurationList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAllowedKeywordGroupConfigurationsValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<KeywordGroupConfigurationList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getAllowedLinkTypes
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedLinkTypesCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/external-organizations/allowed-link-types";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAllowedLinkTypesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = getAllowedLinkTypesCall(_callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * A list of allowed link types
+     * Get a list of allowed link types that can be used for the &#39;links.linkType&#39; attribute of external organizations
+     * @return ClassificationRefList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ClassificationRefList getAllowedLinkTypes() throws ApiException {
+        ApiResponse<ClassificationRefList> localVarResp = getAllowedLinkTypesWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * A list of allowed link types
+     * Get a list of allowed link types that can be used for the &#39;links.linkType&#39; attribute of external organizations
+     * @return ApiResponse&lt;ClassificationRefList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ClassificationRefList> getAllowedLinkTypesWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getAllowedLinkTypesValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * A list of allowed link types (asynchronously)
+     * Get a list of allowed link types that can be used for the &#39;links.linkType&#39; attribute of external organizations
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedLinkTypesAsync(final ApiCallback<ClassificationRefList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAllowedLinkTypesValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getAllowedLocales
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedLocalesCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/external-organizations/allowed-locales";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAllowedLocalesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = getAllowedLocalesCall(_callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * A list of allowed locales
+     * Get a list of allowed locales that can be used when submitting localized string entities.
+     * @return LocalesList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public LocalesList getAllowedLocales() throws ApiException {
+        ApiResponse<LocalesList> localVarResp = getAllowedLocalesWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * A list of allowed locales
+     * Get a list of allowed locales that can be used when submitting localized string entities.
+     * @return ApiResponse&lt;LocalesList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<LocalesList> getAllowedLocalesWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getAllowedLocalesValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<LocalesList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * A list of allowed locales (asynchronously)
+     * Get a list of allowed locales that can be used when submitting localized string entities.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedLocalesAsync(final ApiCallback<LocalesList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAllowedLocalesValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<LocalesList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -640,7 +1276,7 @@ public class ExternalOrganizationApi {
     /**
      * A list of allowed nature types
      * Get a list of allowed nature types that can be used for the &#39;natureTypes&#39; attribute of external organizations
-     * @return List&lt;ClassificationRef&gt;
+     * @return ClassificationRefList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -648,15 +1284,15 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ClassificationRef> getAllowedNatureTypes() throws ApiException {
-        ApiResponse<List<ClassificationRef>> localVarResp = getAllowedNatureTypesWithHttpInfo();
+    public ClassificationRefList getAllowedNatureTypes() throws ApiException {
+        ApiResponse<ClassificationRefList> localVarResp = getAllowedNatureTypesWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * A list of allowed nature types
      * Get a list of allowed nature types that can be used for the &#39;natureTypes&#39; attribute of external organizations
-     * @return ApiResponse&lt;List&lt;ClassificationRef&gt;&gt;
+     * @return ApiResponse&lt;ClassificationRefList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -664,9 +1300,9 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ClassificationRef>> getAllowedNatureTypesWithHttpInfo() throws ApiException {
+    public ApiResponse<ClassificationRefList> getAllowedNatureTypesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getAllowedNatureTypesValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<List<ClassificationRef>>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -682,10 +1318,10 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllowedNatureTypesAsync(final ApiCallback<List<ClassificationRef>> _callback) throws ApiException {
+    public okhttp3.Call getAllowedNatureTypesAsync(final ApiCallback<ClassificationRefList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAllowedNatureTypesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<List<ClassificationRef>>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -741,7 +1377,7 @@ public class ExternalOrganizationApi {
     /**
      * A list of allowed external organization types
      * Get a list of allowed types that can be used for the &#39;type&#39; attribute of external organizations
-     * @return List&lt;ClassificationRef&gt;
+     * @return ClassificationRefList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -749,15 +1385,15 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ClassificationRef> getAllowedTypes() throws ApiException {
-        ApiResponse<List<ClassificationRef>> localVarResp = getAllowedTypesWithHttpInfo();
+    public ClassificationRefList getAllowedTypes() throws ApiException {
+        ApiResponse<ClassificationRefList> localVarResp = getAllowedTypesWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * A list of allowed external organization types
      * Get a list of allowed types that can be used for the &#39;type&#39; attribute of external organizations
-     * @return ApiResponse&lt;List&lt;ClassificationRef&gt;&gt;
+     * @return ApiResponse&lt;ClassificationRefList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -765,9 +1401,9 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ClassificationRef>> getAllowedTypesWithHttpInfo() throws ApiException {
+    public ApiResponse<ClassificationRefList> getAllowedTypesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getAllowedTypesValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<List<ClassificationRef>>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -783,10 +1419,10 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllowedTypesAsync(final ApiCallback<List<ClassificationRef>> _callback) throws ApiException {
+    public okhttp3.Call getAllowedTypesAsync(final ApiCallback<ClassificationRefList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAllowedTypesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<List<ClassificationRef>>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -842,7 +1478,7 @@ public class ExternalOrganizationApi {
     /**
      * A list of allowed workflow steps
      * Get a list of allowed workflow steps that can be used for the &#39;workflow&#39; attribute of external organizations
-     * @return List&lt;Workflow&gt;
+     * @return WorkflowListResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -850,15 +1486,15 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Workflow> getAllowedWorkflowSteps() throws ApiException {
-        ApiResponse<List<Workflow>> localVarResp = getAllowedWorkflowStepsWithHttpInfo();
+    public WorkflowListResult getAllowedWorkflowSteps() throws ApiException {
+        ApiResponse<WorkflowListResult> localVarResp = getAllowedWorkflowStepsWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * A list of allowed workflow steps
      * Get a list of allowed workflow steps that can be used for the &#39;workflow&#39; attribute of external organizations
-     * @return ApiResponse&lt;List&lt;Workflow&gt;&gt;
+     * @return ApiResponse&lt;WorkflowListResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -866,9 +1502,9 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Workflow>> getAllowedWorkflowStepsWithHttpInfo() throws ApiException {
+    public ApiResponse<WorkflowListResult> getAllowedWorkflowStepsWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getAllowedWorkflowStepsValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<List<Workflow>>(){}.getType();
+        Type localVarReturnType = new TypeToken<WorkflowListResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -884,10 +1520,10 @@ public class ExternalOrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllowedWorkflowStepsAsync(final ApiCallback<List<Workflow>> _callback) throws ApiException {
+    public okhttp3.Call getAllowedWorkflowStepsAsync(final ApiCallback<WorkflowListResult> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAllowedWorkflowStepsValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<List<Workflow>>(){}.getType();
+        Type localVarReturnType = new TypeToken<WorkflowListResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

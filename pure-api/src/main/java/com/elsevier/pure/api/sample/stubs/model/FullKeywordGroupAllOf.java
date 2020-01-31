@@ -13,30 +13,37 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.elsevier.pure.api.sample.stubs.model.KeywordContainer;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * KeywordGroupFullAllOf
+ * FullKeywordGroupAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
-public class KeywordGroupFullAllOf {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
+public class FullKeywordGroupAllOf {
   public static final String SERIALIZED_NAME_KEYWORD_CONTAINERS = "keywordContainers";
   @SerializedName(SERIALIZED_NAME_KEYWORD_CONTAINERS)
   private List<KeywordContainer> keywordContainers = null;
 
 
-  public KeywordGroupFullAllOf keywordContainers(List<KeywordContainer> keywordContainers) {
+  public FullKeywordGroupAllOf keywordContainers(List<KeywordContainer> keywordContainers) {
     
     this.keywordContainers = keywordContainers;
     return this;
   }
 
-  public KeywordGroupFullAllOf addKeywordContainersItem(KeywordContainer keywordContainersItem) {
+  public FullKeywordGroupAllOf addKeywordContainersItem(KeywordContainer keywordContainersItem) {
     if (this.keywordContainers == null) {
       this.keywordContainers = new ArrayList<KeywordContainer>();
     }
@@ -69,8 +76,8 @@ public class KeywordGroupFullAllOf {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    KeywordGroupFullAllOf keywordGroupFullAllOf = (KeywordGroupFullAllOf) o;
-    return Objects.equals(this.keywordContainers, keywordGroupFullAllOf.keywordContainers);
+    FullKeywordGroupAllOf fullKeywordGroupAllOf = (FullKeywordGroupAllOf) o;
+    return Objects.equals(this.keywordContainers, fullKeywordGroupAllOf.keywordContainers);
   }
 
   @Override
@@ -82,7 +89,7 @@ public class KeywordGroupFullAllOf {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class KeywordGroupFullAllOf {\n");
+    sb.append("class FullKeywordGroupAllOf {\n");
     sb.append("    keywordContainers: ").append(toIndentedString(keywordContainers)).append("\n");
     sb.append("}");
     return sb.toString();

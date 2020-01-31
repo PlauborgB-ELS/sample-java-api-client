@@ -13,18 +13,36 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.elsevier.pure.api.sample.stubs.model.Address;
+import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
+import com.elsevier.pure.api.sample.stubs.model.Document;
+import com.elsevier.pure.api.sample.stubs.model.Identifier;
+import com.elsevier.pure.api.sample.stubs.model.KeywordGroup;
+import com.elsevier.pure.api.sample.stubs.model.Link;
+import com.elsevier.pure.api.sample.stubs.model.Visibility;
+import com.elsevier.pure.api.sample.stubs.model.Workflow;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 import org.threeten.bp.OffsetDateTime;
-
-import java.util.*;
 
 /**
  * An organization external to the institution
  */
 @ApiModel(description = "An organization external to the institution")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
 public class ExternalOrganization {
   public static final String SERIALIZED_NAME_UUID = "uuid";
   @SerializedName(SERIALIZED_NAME_UUID)
@@ -255,12 +273,6 @@ public class ExternalOrganization {
 
 
 
-  public ExternalOrganization externallyManaged(Boolean externallyManaged) {
-    
-    this.externallyManaged = externallyManaged;
-    return this;
-  }
-
    /**
    * Signals that the information is maintained by synchronization from an external system
    * @return externallyManaged
@@ -273,9 +285,6 @@ public class ExternalOrganization {
   }
 
 
-  public void setExternallyManaged(Boolean externallyManaged) {
-    this.externallyManaged = externallyManaged;
-  }
 
 
   public ExternalOrganization name(Map<String, String> name) {
@@ -624,11 +633,11 @@ public class ExternalOrganization {
   }
 
    /**
-   * Arbitrary documents relevant to the organization
+   * Arbitrary documents relevant to the organization - Please note that there is no files support yet, so this property is ignored!
    * @return documents
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Arbitrary documents relevant to the organization")
+  @ApiModelProperty(value = "Arbitrary documents relevant to the organization - Please note that there is no files support yet, so this property is ignored!")
 
   public List<Document> getDocuments() {
     return documents;

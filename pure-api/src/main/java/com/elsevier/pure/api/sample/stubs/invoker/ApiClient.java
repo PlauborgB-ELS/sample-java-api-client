@@ -13,9 +13,6 @@
 
 package com.elsevier.pure.api.sample.stubs.invoker;
 
-import com.elsevier.pure.api.sample.stubs.invoker.auth.ApiKeyAuth;
-import com.elsevier.pure.api.sample.stubs.invoker.auth.Authentication;
-import com.elsevier.pure.api.sample.stubs.invoker.auth.HttpBasicAuth;
 import okhttp3.*;
 import okhttp3.internal.http.HttpMethod;
 import okhttp3.internal.tls.OkHostnameVerifier;
@@ -41,12 +38,18 @@ import java.security.SecureRandom;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.elsevier.pure.api.sample.stubs.invoker.auth.Authentication;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.HttpBasicAuth;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.HttpBearerAuth;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.ApiKeyAuth;
 
 public class ApiClient {
 

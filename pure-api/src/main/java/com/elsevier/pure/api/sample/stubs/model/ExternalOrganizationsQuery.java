@@ -13,20 +13,24 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.OffsetDateTime;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Create a query for external organizations
  */
 @ApiModel(description = "Create a query for external organizations")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
 public class ExternalOrganizationsQuery {
   public static final String SERIALIZED_NAME_UUIDS = "uuids";
   @SerializedName(SERIALIZED_NAME_UUIDS)
@@ -40,61 +44,13 @@ public class ExternalOrganizationsQuery {
   @SerializedName(SERIALIZED_NAME_OFFSET)
   private Integer offset;
 
-  public static final String SERIALIZED_NAME_LOCALES = "locales";
-  @SerializedName(SERIALIZED_NAME_LOCALES)
-  private List<String> locales = null;
-
-  public static final String SERIALIZED_NAME_FALLBACK_LOCALES = "fallbackLocales";
-  @SerializedName(SERIALIZED_NAME_FALLBACK_LOCALES)
-  private List<String> fallbackLocales = null;
-
-  public static final String SERIALIZED_NAME_FIELDS = "fields";
-  @SerializedName(SERIALIZED_NAME_FIELDS)
-  private List<String> fields = null;
-
   public static final String SERIALIZED_NAME_ORDERINGS = "orderings";
   @SerializedName(SERIALIZED_NAME_ORDERINGS)
   private List<String> orderings = null;
 
-  public static final String SERIALIZED_NAME_NAVIGATION_LINK = "navigationLink";
-  @SerializedName(SERIALIZED_NAME_NAVIGATION_LINK)
-  private Boolean navigationLink;
-
-  public static final String SERIALIZED_NAME_IDS = "ids";
-  @SerializedName(SERIALIZED_NAME_IDS)
-  private List<String> ids = null;
-
-  public static final String SERIALIZED_NAME_ID_CLASSIFICATION = "idClassification";
-  @SerializedName(SERIALIZED_NAME_ID_CLASSIFICATION)
-  private String idClassification;
-
-  public static final String SERIALIZED_NAME_ID_CLASSIFICATION_TYPE = "idClassificationType";
-  @SerializedName(SERIALIZED_NAME_ID_CLASSIFICATION_TYPE)
-  private String idClassificationType;
-
-  public static final String SERIALIZED_NAME_MODIFIED_AFTER = "modifiedAfter";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_AFTER)
-  private OffsetDateTime modifiedAfter;
-
-  public static final String SERIALIZED_NAME_MODIFIED_BEFORE = "modifiedBefore";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_BEFORE)
-  private OffsetDateTime modifiedBefore;
-
-  public static final String SERIALIZED_NAME_CREATED_AFTER = "createdAfter";
-  @SerializedName(SERIALIZED_NAME_CREATED_AFTER)
-  private OffsetDateTime createdAfter;
-
-  public static final String SERIALIZED_NAME_CREATED_BEFORE = "createdBefore";
-  @SerializedName(SERIALIZED_NAME_CREATED_BEFORE)
-  private OffsetDateTime createdBefore;
-
-  public static final String SERIALIZED_NAME_FREE_KEYWORDS = "freeKeywords";
-  @SerializedName(SERIALIZED_NAME_FREE_KEYWORDS)
-  private List<String> freeKeywords = null;
-
-  public static final String SERIALIZED_NAME_TYPE_URIS = "typeUris";
-  @SerializedName(SERIALIZED_NAME_TYPE_URIS)
-  private List<String> typeUris = null;
+  public static final String SERIALIZED_NAME_KEYWORD_U_R_IS = "keywordURIs";
+  @SerializedName(SERIALIZED_NAME_KEYWORD_U_R_IS)
+  private List<String> keywordURIs = null;
 
   public static final String SERIALIZED_NAME_SEARCH_STRING = "searchString";
   @SerializedName(SERIALIZED_NAME_SEARCH_STRING)
@@ -103,10 +59,6 @@ public class ExternalOrganizationsQuery {
   public static final String SERIALIZED_NAME_ORDER_BY = "orderBy";
   @SerializedName(SERIALIZED_NAME_ORDER_BY)
   private String orderBy;
-
-  public static final String SERIALIZED_NAME_KEYWORD_URIS = "keywordUris";
-  @SerializedName(SERIALIZED_NAME_KEYWORD_URIS)
-  private List<String> keywordUris = null;
 
 
   public ExternalOrganizationsQuery uuids(List<String> uuids) {
@@ -186,99 +138,6 @@ public class ExternalOrganizationsQuery {
   }
 
 
-  public ExternalOrganizationsQuery locales(List<String> locales) {
-    
-    this.locales = locales;
-    return this;
-  }
-
-  public ExternalOrganizationsQuery addLocalesItem(String localesItem) {
-    if (this.locales == null) {
-      this.locales = new ArrayList<String>();
-    }
-    this.locales.add(localesItem);
-    return this;
-  }
-
-   /**
-   * Get locales
-   * @return locales
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<String> getLocales() {
-    return locales;
-  }
-
-
-  public void setLocales(List<String> locales) {
-    this.locales = locales;
-  }
-
-
-  public ExternalOrganizationsQuery fallbackLocales(List<String> fallbackLocales) {
-    
-    this.fallbackLocales = fallbackLocales;
-    return this;
-  }
-
-  public ExternalOrganizationsQuery addFallbackLocalesItem(String fallbackLocalesItem) {
-    if (this.fallbackLocales == null) {
-      this.fallbackLocales = new ArrayList<String>();
-    }
-    this.fallbackLocales.add(fallbackLocalesItem);
-    return this;
-  }
-
-   /**
-   * Get fallbackLocales
-   * @return fallbackLocales
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<String> getFallbackLocales() {
-    return fallbackLocales;
-  }
-
-
-  public void setFallbackLocales(List<String> fallbackLocales) {
-    this.fallbackLocales = fallbackLocales;
-  }
-
-
-  public ExternalOrganizationsQuery fields(List<String> fields) {
-    
-    this.fields = fields;
-    return this;
-  }
-
-  public ExternalOrganizationsQuery addFieldsItem(String fieldsItem) {
-    if (this.fields == null) {
-      this.fields = new ArrayList<String>();
-    }
-    this.fields.add(fieldsItem);
-    return this;
-  }
-
-   /**
-   * Get fields
-   * @return fields
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<String> getFields() {
-    return fields;
-  }
-
-
-  public void setFields(List<String> fields) {
-    this.fields = fields;
-  }
-
-
   public ExternalOrganizationsQuery orderings(List<String> orderings) {
     
     this.orderings = orderings;
@@ -310,257 +169,34 @@ public class ExternalOrganizationsQuery {
   }
 
 
-  public ExternalOrganizationsQuery navigationLink(Boolean navigationLink) {
+  public ExternalOrganizationsQuery keywordURIs(List<String> keywordURIs) {
     
-    this.navigationLink = navigationLink;
+    this.keywordURIs = keywordURIs;
     return this;
   }
 
-   /**
-   * Get navigationLink
-   * @return navigationLink
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Boolean getNavigationLink() {
-    return navigationLink;
-  }
-
-
-  public void setNavigationLink(Boolean navigationLink) {
-    this.navigationLink = navigationLink;
-  }
-
-
-  public ExternalOrganizationsQuery ids(List<String> ids) {
-    
-    this.ids = ids;
-    return this;
-  }
-
-  public ExternalOrganizationsQuery addIdsItem(String idsItem) {
-    if (this.ids == null) {
-      this.ids = new ArrayList<String>();
+  public ExternalOrganizationsQuery addKeywordURIsItem(String keywordURIsItem) {
+    if (this.keywordURIs == null) {
+      this.keywordURIs = new ArrayList<String>();
     }
-    this.ids.add(idsItem);
+    this.keywordURIs.add(keywordURIsItem);
     return this;
   }
 
    /**
-   * Get ids
-   * @return ids
+   * Get keywordURIs
+   * @return keywordURIs
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getIds() {
-    return ids;
+  public List<String> getKeywordURIs() {
+    return keywordURIs;
   }
 
 
-  public void setIds(List<String> ids) {
-    this.ids = ids;
-  }
-
-
-  public ExternalOrganizationsQuery idClassification(String idClassification) {
-    
-    this.idClassification = idClassification;
-    return this;
-  }
-
-   /**
-   * Get idClassification
-   * @return idClassification
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getIdClassification() {
-    return idClassification;
-  }
-
-
-  public void setIdClassification(String idClassification) {
-    this.idClassification = idClassification;
-  }
-
-
-  public ExternalOrganizationsQuery idClassificationType(String idClassificationType) {
-    
-    this.idClassificationType = idClassificationType;
-    return this;
-  }
-
-   /**
-   * Get idClassificationType
-   * @return idClassificationType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getIdClassificationType() {
-    return idClassificationType;
-  }
-
-
-  public void setIdClassificationType(String idClassificationType) {
-    this.idClassificationType = idClassificationType;
-  }
-
-
-  public ExternalOrganizationsQuery modifiedAfter(OffsetDateTime modifiedAfter) {
-    
-    this.modifiedAfter = modifiedAfter;
-    return this;
-  }
-
-   /**
-   * Get modifiedAfter
-   * @return modifiedAfter
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public OffsetDateTime getModifiedAfter() {
-    return modifiedAfter;
-  }
-
-
-  public void setModifiedAfter(OffsetDateTime modifiedAfter) {
-    this.modifiedAfter = modifiedAfter;
-  }
-
-
-  public ExternalOrganizationsQuery modifiedBefore(OffsetDateTime modifiedBefore) {
-    
-    this.modifiedBefore = modifiedBefore;
-    return this;
-  }
-
-   /**
-   * Get modifiedBefore
-   * @return modifiedBefore
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public OffsetDateTime getModifiedBefore() {
-    return modifiedBefore;
-  }
-
-
-  public void setModifiedBefore(OffsetDateTime modifiedBefore) {
-    this.modifiedBefore = modifiedBefore;
-  }
-
-
-  public ExternalOrganizationsQuery createdAfter(OffsetDateTime createdAfter) {
-    
-    this.createdAfter = createdAfter;
-    return this;
-  }
-
-   /**
-   * Get createdAfter
-   * @return createdAfter
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public OffsetDateTime getCreatedAfter() {
-    return createdAfter;
-  }
-
-
-  public void setCreatedAfter(OffsetDateTime createdAfter) {
-    this.createdAfter = createdAfter;
-  }
-
-
-  public ExternalOrganizationsQuery createdBefore(OffsetDateTime createdBefore) {
-    
-    this.createdBefore = createdBefore;
-    return this;
-  }
-
-   /**
-   * Get createdBefore
-   * @return createdBefore
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public OffsetDateTime getCreatedBefore() {
-    return createdBefore;
-  }
-
-
-  public void setCreatedBefore(OffsetDateTime createdBefore) {
-    this.createdBefore = createdBefore;
-  }
-
-
-  public ExternalOrganizationsQuery freeKeywords(List<String> freeKeywords) {
-    
-    this.freeKeywords = freeKeywords;
-    return this;
-  }
-
-  public ExternalOrganizationsQuery addFreeKeywordsItem(String freeKeywordsItem) {
-    if (this.freeKeywords == null) {
-      this.freeKeywords = new ArrayList<String>();
-    }
-    this.freeKeywords.add(freeKeywordsItem);
-    return this;
-  }
-
-   /**
-   * Get freeKeywords
-   * @return freeKeywords
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<String> getFreeKeywords() {
-    return freeKeywords;
-  }
-
-
-  public void setFreeKeywords(List<String> freeKeywords) {
-    this.freeKeywords = freeKeywords;
-  }
-
-
-  public ExternalOrganizationsQuery typeUris(List<String> typeUris) {
-    
-    this.typeUris = typeUris;
-    return this;
-  }
-
-  public ExternalOrganizationsQuery addTypeUrisItem(String typeUrisItem) {
-    if (this.typeUris == null) {
-      this.typeUris = new ArrayList<String>();
-    }
-    this.typeUris.add(typeUrisItem);
-    return this;
-  }
-
-   /**
-   * Get typeUris
-   * @return typeUris
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<String> getTypeUris() {
-    return typeUris;
-  }
-
-
-  public void setTypeUris(List<String> typeUris) {
-    this.typeUris = typeUris;
+  public void setKeywordURIs(List<String> keywordURIs) {
+    this.keywordURIs = keywordURIs;
   }
 
 
@@ -610,37 +246,6 @@ public class ExternalOrganizationsQuery {
   }
 
 
-  public ExternalOrganizationsQuery keywordUris(List<String> keywordUris) {
-    
-    this.keywordUris = keywordUris;
-    return this;
-  }
-
-  public ExternalOrganizationsQuery addKeywordUrisItem(String keywordUrisItem) {
-    if (this.keywordUris == null) {
-      this.keywordUris = new ArrayList<String>();
-    }
-    this.keywordUris.add(keywordUrisItem);
-    return this;
-  }
-
-   /**
-   * Get keywordUris
-   * @return keywordUris
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<String> getKeywordUris() {
-    return keywordUris;
-  }
-
-
-  public void setKeywordUris(List<String> keywordUris) {
-    this.keywordUris = keywordUris;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -653,28 +258,15 @@ public class ExternalOrganizationsQuery {
     return Objects.equals(this.uuids, externalOrganizationsQuery.uuids) &&
         Objects.equals(this.size, externalOrganizationsQuery.size) &&
         Objects.equals(this.offset, externalOrganizationsQuery.offset) &&
-        Objects.equals(this.locales, externalOrganizationsQuery.locales) &&
-        Objects.equals(this.fallbackLocales, externalOrganizationsQuery.fallbackLocales) &&
-        Objects.equals(this.fields, externalOrganizationsQuery.fields) &&
         Objects.equals(this.orderings, externalOrganizationsQuery.orderings) &&
-        Objects.equals(this.navigationLink, externalOrganizationsQuery.navigationLink) &&
-        Objects.equals(this.ids, externalOrganizationsQuery.ids) &&
-        Objects.equals(this.idClassification, externalOrganizationsQuery.idClassification) &&
-        Objects.equals(this.idClassificationType, externalOrganizationsQuery.idClassificationType) &&
-        Objects.equals(this.modifiedAfter, externalOrganizationsQuery.modifiedAfter) &&
-        Objects.equals(this.modifiedBefore, externalOrganizationsQuery.modifiedBefore) &&
-        Objects.equals(this.createdAfter, externalOrganizationsQuery.createdAfter) &&
-        Objects.equals(this.createdBefore, externalOrganizationsQuery.createdBefore) &&
-        Objects.equals(this.freeKeywords, externalOrganizationsQuery.freeKeywords) &&
-        Objects.equals(this.typeUris, externalOrganizationsQuery.typeUris) &&
+        Objects.equals(this.keywordURIs, externalOrganizationsQuery.keywordURIs) &&
         Objects.equals(this.searchString, externalOrganizationsQuery.searchString) &&
-        Objects.equals(this.orderBy, externalOrganizationsQuery.orderBy) &&
-        Objects.equals(this.keywordUris, externalOrganizationsQuery.keywordUris);
+        Objects.equals(this.orderBy, externalOrganizationsQuery.orderBy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuids, size, offset, locales, fallbackLocales, fields, orderings, navigationLink, ids, idClassification, idClassificationType, modifiedAfter, modifiedBefore, createdAfter, createdBefore, freeKeywords, typeUris, searchString, orderBy, keywordUris);
+    return Objects.hash(uuids, size, offset, orderings, keywordURIs, searchString, orderBy);
   }
 
 
@@ -685,23 +277,10 @@ public class ExternalOrganizationsQuery {
     sb.append("    uuids: ").append(toIndentedString(uuids)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
-    sb.append("    locales: ").append(toIndentedString(locales)).append("\n");
-    sb.append("    fallbackLocales: ").append(toIndentedString(fallbackLocales)).append("\n");
-    sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    orderings: ").append(toIndentedString(orderings)).append("\n");
-    sb.append("    navigationLink: ").append(toIndentedString(navigationLink)).append("\n");
-    sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
-    sb.append("    idClassification: ").append(toIndentedString(idClassification)).append("\n");
-    sb.append("    idClassificationType: ").append(toIndentedString(idClassificationType)).append("\n");
-    sb.append("    modifiedAfter: ").append(toIndentedString(modifiedAfter)).append("\n");
-    sb.append("    modifiedBefore: ").append(toIndentedString(modifiedBefore)).append("\n");
-    sb.append("    createdAfter: ").append(toIndentedString(createdAfter)).append("\n");
-    sb.append("    createdBefore: ").append(toIndentedString(createdBefore)).append("\n");
-    sb.append("    freeKeywords: ").append(toIndentedString(freeKeywords)).append("\n");
-    sb.append("    typeUris: ").append(toIndentedString(typeUris)).append("\n");
+    sb.append("    keywordURIs: ").append(toIndentedString(keywordURIs)).append("\n");
     sb.append("    searchString: ").append(toIndentedString(searchString)).append("\n");
     sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
-    sb.append("    keywordUris: ").append(toIndentedString(keywordUris)).append("\n");
     sb.append("}");
     return sb.toString();
   }

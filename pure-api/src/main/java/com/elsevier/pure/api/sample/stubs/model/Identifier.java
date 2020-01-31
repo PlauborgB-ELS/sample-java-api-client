@@ -13,47 +13,52 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
-import java.util.Objects;
+import java.io.IOException;
 
 /**
  * IDs that this object corresponds to in external systems. Such as a Scopus ID. Used by Pure where it is necessary to identify objects to specific external systems
  */
 @ApiModel(description = "IDs that this object corresponds to in external systems. Such as a Scopus ID. Used by Pure where it is necessary to identify objects to specific external systems")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
 
 public class Identifier {
-  public static final String SERIALIZED_NAME_ID_TYPE = "idType";
-  @SerializedName(SERIALIZED_NAME_ID_TYPE)
-  private String idType;
+  public static final String SERIALIZED_NAME_TYPE_DISCRIMINATOR = "typeDiscriminator";
+  @SerializedName(SERIALIZED_NAME_TYPE_DISCRIMINATOR)
+  private String typeDiscriminator;
 
   public Identifier() {
-    this.idType = this.getClass().getSimpleName();
+    this.typeDiscriminator = this.getClass().getSimpleName();
   }
 
-  public Identifier idType(String idType) {
+  public Identifier typeDiscriminator(String typeDiscriminator) {
     
-    this.idType = idType;
+    this.typeDiscriminator = typeDiscriminator;
     return this;
   }
 
    /**
    * A Identifier type discriminator property so we can differentiate between the different sub-types
-   * @return idType
+   * @return typeDiscriminator
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "A Identifier type discriminator property so we can differentiate between the different sub-types")
 
-  public String getIdType() {
-    return idType;
+  public String getTypeDiscriminator() {
+    return typeDiscriminator;
   }
 
 
-  public void setIdType(String idType) {
-    this.idType = idType;
+  public void setTypeDiscriminator(String typeDiscriminator) {
+    this.typeDiscriminator = typeDiscriminator;
   }
 
 
@@ -66,12 +71,12 @@ public class Identifier {
       return false;
     }
     Identifier identifier = (Identifier) o;
-    return Objects.equals(this.idType, identifier.idType);
+    return Objects.equals(this.typeDiscriminator, identifier.typeDiscriminator);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(idType);
+    return Objects.hash(typeDiscriminator);
   }
 
 
@@ -79,7 +84,7 @@ public class Identifier {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Identifier {\n");
-    sb.append("    idType: ").append(toIndentedString(idType)).append("\n");
+    sb.append("    typeDiscriminator: ").append(toIndentedString(typeDiscriminator)).append("\n");
     sb.append("}");
     return sb.toString();
   }

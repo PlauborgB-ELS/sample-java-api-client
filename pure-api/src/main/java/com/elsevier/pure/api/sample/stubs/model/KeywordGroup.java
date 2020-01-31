@@ -13,28 +13,34 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * A group for each type of keyword present
  */
 @ApiModel(description = "A group for each type of keyword present")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
 
 public class KeywordGroup {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
   private Long pureId;
 
-  public static final String SERIALIZED_NAME_KG_TYPE = "kgType";
-  @SerializedName(SERIALIZED_NAME_KG_TYPE)
-  private String kgType;
+  public static final String SERIALIZED_NAME_TYPE_DISCRIMINATOR = "typeDiscriminator";
+  @SerializedName(SERIALIZED_NAME_TYPE_DISCRIMINATOR)
+  private String typeDiscriminator;
 
   public static final String SERIALIZED_NAME_LOGICAL_NAME = "logicalName";
   @SerializedName(SERIALIZED_NAME_LOGICAL_NAME)
@@ -45,7 +51,7 @@ public class KeywordGroup {
   private Map<String, String> name = null;
 
   public KeywordGroup() {
-    this.kgType = this.getClass().getSimpleName();
+    this.typeDiscriminator = this.getClass().getSimpleName();
   }
 
    /**
@@ -62,26 +68,25 @@ public class KeywordGroup {
 
 
 
-  public KeywordGroup kgType(String kgType) {
+  public KeywordGroup typeDiscriminator(String typeDiscriminator) {
     
-    this.kgType = kgType;
+    this.typeDiscriminator = typeDiscriminator;
     return this;
   }
 
    /**
-   * A KeywordGroup type discriminator property so we can differentiate between the different sub-types
-   * @return kgType
+   * A KeywordGroup type discriminator property so we can differentiate between the different sub-types, this is the schema type name of the child type.
+   * @return typeDiscriminator
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A KeywordGroup type discriminator property so we can differentiate between the different sub-types")
+  @ApiModelProperty(required = true, value = "A KeywordGroup type discriminator property so we can differentiate between the different sub-types, this is the schema type name of the child type.")
 
-  public String getKgType() {
-    return kgType;
+  public String getTypeDiscriminator() {
+    return typeDiscriminator;
   }
 
 
-  public void setKgType(String kgType) {
-    this.kgType = kgType;
+  public void setTypeDiscriminator(String typeDiscriminator) {
+    this.typeDiscriminator = typeDiscriminator;
   }
 
 
@@ -95,8 +100,7 @@ public class KeywordGroup {
    * Unique name of the configuration that specifies this keyword group
    * @return logicalName
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique name of the configuration that specifies this keyword group")
+  @ApiModelProperty(required = true, value = "Unique name of the configuration that specifies this keyword group")
 
   public String getLogicalName() {
     return logicalName;
@@ -149,14 +153,14 @@ public class KeywordGroup {
     }
     KeywordGroup keywordGroup = (KeywordGroup) o;
     return Objects.equals(this.pureId, keywordGroup.pureId) &&
-        Objects.equals(this.kgType, keywordGroup.kgType) &&
+        Objects.equals(this.typeDiscriminator, keywordGroup.typeDiscriminator) &&
         Objects.equals(this.logicalName, keywordGroup.logicalName) &&
         Objects.equals(this.name, keywordGroup.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pureId, kgType, logicalName, name);
+    return Objects.hash(pureId, typeDiscriminator, logicalName, name);
   }
 
 
@@ -165,7 +169,7 @@ public class KeywordGroup {
     StringBuilder sb = new StringBuilder();
     sb.append("class KeywordGroup {\n");
     sb.append("    pureId: ").append(toIndentedString(pureId)).append("\n");
-    sb.append("    kgType: ").append(toIndentedString(kgType)).append("\n");
+    sb.append("    typeDiscriminator: ").append(toIndentedString(typeDiscriminator)).append("\n");
     sb.append("    logicalName: ").append(toIndentedString(logicalName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");

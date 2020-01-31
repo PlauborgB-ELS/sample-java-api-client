@@ -13,32 +13,38 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * De-normalized version of the full keyword group representation for instances where only structured keywords can be selected
+ * List of classification references
  */
-@ApiModel(description = "De-normalized version of the full keyword group representation for instances where only structured keywords can be selected")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]")
-public class KeywordGroupClassifications extends KeywordGroup {
+@ApiModel(description = "List of classification references")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
+public class ClassificationRefList {
   public static final String SERIALIZED_NAME_CLASSIFICATIONS = "classifications";
   @SerializedName(SERIALIZED_NAME_CLASSIFICATIONS)
   private List<ClassificationRef> classifications = null;
 
 
-  public KeywordGroupClassifications classifications(List<ClassificationRef> classifications) {
+  public ClassificationRefList classifications(List<ClassificationRef> classifications) {
     
     this.classifications = classifications;
     return this;
   }
 
-  public KeywordGroupClassifications addClassificationsItem(ClassificationRef classificationsItem) {
+  public ClassificationRefList addClassificationsItem(ClassificationRef classificationsItem) {
     if (this.classifications == null) {
       this.classifications = new ArrayList<ClassificationRef>();
     }
@@ -47,11 +53,11 @@ public class KeywordGroupClassifications extends KeywordGroup {
   }
 
    /**
-   * A list classifications extracted from the keyword group structured keyword concept
+   * Get classifications
    * @return classifications
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list classifications extracted from the keyword group structured keyword concept")
+  @ApiModelProperty(value = "")
 
   public List<ClassificationRef> getClassifications() {
     return classifications;
@@ -71,22 +77,20 @@ public class KeywordGroupClassifications extends KeywordGroup {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    KeywordGroupClassifications keywordGroupClassifications = (KeywordGroupClassifications) o;
-    return Objects.equals(this.classifications, keywordGroupClassifications.classifications) &&
-        super.equals(o);
+    ClassificationRefList classificationRefList = (ClassificationRefList) o;
+    return Objects.equals(this.classifications, classificationRefList.classifications);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(classifications, super.hashCode());
+    return Objects.hash(classifications);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class KeywordGroupClassifications {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("class ClassificationRefList {\n");
     sb.append("    classifications: ").append(toIndentedString(classifications)).append("\n");
     sb.append("}");
     return sb.toString();

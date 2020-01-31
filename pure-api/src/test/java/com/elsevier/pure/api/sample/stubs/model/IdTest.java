@@ -13,6 +13,18 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
+import com.elsevier.pure.api.sample.stubs.model.IdAllOf;
+import com.elsevier.pure.api.sample.stubs.model.Identifier;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 
@@ -31,11 +43,11 @@ public class IdTest {
     }
 
     /**
-     * Test the property 'idType'
+     * Test the property 'typeDiscriminator'
      */
     @Test
-    public void idTypeTest() {
-        // TODO: test idType
+    public void typeDiscriminatorTest() {
+        // TODO: test typeDiscriminator
     }
 
     /**

@@ -14,11 +14,22 @@
 package com.elsevier.pure.api.sample.stubs.api;
 
 import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
-import com.elsevier.pure.api.sample.stubs.model.*;
-import org.junit.Ignore;
+import com.elsevier.pure.api.sample.stubs.model.ClassificationRefList;
+import com.elsevier.pure.api.sample.stubs.model.ExternalOrganization;
+import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationListResult;
+import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationsQuery;
+import com.elsevier.pure.api.sample.stubs.model.KeywordGroupConfigurationList;
+import com.elsevier.pure.api.sample.stubs.model.LocalesList;
+import com.elsevier.pure.api.sample.stubs.model.OrderingsList;
+import com.elsevier.pure.api.sample.stubs.model.ProblemDetails;
+import com.elsevier.pure.api.sample.stubs.model.WorkflowListResult;
 import org.junit.Test;
+import org.junit.Ignore;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * API tests for ExternalOrganizationApi
@@ -87,7 +98,7 @@ public class ExternalOrganizationApiTest {
      */
     @Test
     public void getAllowedAddressCountriesTest() throws ApiException {
-        List<ClassificationRef> response = api.getAllowedAddressCountries();
+        ClassificationRefList response = api.getAllowedAddressCountries();
 
         // TODO: test validations
     }
@@ -102,7 +113,98 @@ public class ExternalOrganizationApiTest {
      */
     @Test
     public void getAllowedAddressSubdivisionsTest() throws ApiException {
-        List<ClassificationRef> response = api.getAllowedAddressSubdivisions();
+        ClassificationRefList response = api.getAllowedAddressSubdivisions();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * A list of allowed document licenses
+     *
+     * Get a list of allowed document licenses that can be used for the &#39;documents.documentLicense&#39; attribute of external organizations
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllowedDocumentLicensesTest() throws ApiException {
+        ClassificationRefList response = api.getAllowedDocumentLicenses();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * A list of allowed document types
+     *
+     * Get a list of allowed document types that can be used for the &#39;documents.documentType&#39; attribute of external organizations
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllowedDocumentTypesTest() throws ApiException {
+        ClassificationRefList response = api.getAllowedDocumentTypes();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * A list of allowed classifications for the specified keyword group
+     *
+     * Get a list of allowed classifications that can be used when submitting a specified keyword group.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllowedKeywordGroupConfigurationClassificationsTest() throws ApiException {
+        Long id = null;
+        ClassificationRefList response = api.getAllowedKeywordGroupConfigurationClassifications(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * A list of keyword group configurations
+     *
+     * Get a list of allowed keyword group configurations that can be used when submitting keyword groups.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllowedKeywordGroupConfigurationsTest() throws ApiException {
+        KeywordGroupConfigurationList response = api.getAllowedKeywordGroupConfigurations();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * A list of allowed link types
+     *
+     * Get a list of allowed link types that can be used for the &#39;links.linkType&#39; attribute of external organizations
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllowedLinkTypesTest() throws ApiException {
+        ClassificationRefList response = api.getAllowedLinkTypes();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * A list of allowed locales
+     *
+     * Get a list of allowed locales that can be used when submitting localized string entities.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllowedLocalesTest() throws ApiException {
+        LocalesList response = api.getAllowedLocales();
 
         // TODO: test validations
     }
@@ -117,7 +219,7 @@ public class ExternalOrganizationApiTest {
      */
     @Test
     public void getAllowedNatureTypesTest() throws ApiException {
-        List<ClassificationRef> response = api.getAllowedNatureTypes();
+        ClassificationRefList response = api.getAllowedNatureTypes();
 
         // TODO: test validations
     }
@@ -132,7 +234,7 @@ public class ExternalOrganizationApiTest {
      */
     @Test
     public void getAllowedTypesTest() throws ApiException {
-        List<ClassificationRef> response = api.getAllowedTypes();
+        ClassificationRefList response = api.getAllowedTypes();
 
         // TODO: test validations
     }
@@ -147,7 +249,7 @@ public class ExternalOrganizationApiTest {
      */
     @Test
     public void getAllowedWorkflowStepsTest() throws ApiException {
-        List<Workflow> response = api.getAllowedWorkflowSteps();
+        WorkflowListResult response = api.getAllowedWorkflowSteps();
 
         // TODO: test validations
     }

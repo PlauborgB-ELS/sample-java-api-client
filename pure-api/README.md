@@ -2,7 +2,7 @@
 
 Pure API
 - API version: 0.1 Early Access
-  - Build date: 2019-12-06T11:10:39.862+01:00[Europe/Copenhagen]
+  - Build date: 2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]
 
 This is an early access version of the new Pure write API.
 
@@ -119,6 +119,12 @@ Class | Method | HTTP request | Description
 *ExternalOrganizationApi* | [**get**](docs/ExternalOrganizationApi.md#get) | **GET** /external-organizations/{uuid} | Get external organization
 *ExternalOrganizationApi* | [**getAllowedAddressCountries**](docs/ExternalOrganizationApi.md#getAllowedAddressCountries) | **GET** /external-organizations/allowed-address-countries | A list of allowed address countries
 *ExternalOrganizationApi* | [**getAllowedAddressSubdivisions**](docs/ExternalOrganizationApi.md#getAllowedAddressSubdivisions) | **GET** /external-organizations/allowed-address-subdivision | A list of allowed address subdivisions
+*ExternalOrganizationApi* | [**getAllowedDocumentLicenses**](docs/ExternalOrganizationApi.md#getAllowedDocumentLicenses) | **GET** /external-organizations/allowed-document-licenses | A list of allowed document licenses
+*ExternalOrganizationApi* | [**getAllowedDocumentTypes**](docs/ExternalOrganizationApi.md#getAllowedDocumentTypes) | **GET** /external-organizations/allowed-document-types | A list of allowed document types
+*ExternalOrganizationApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/ExternalOrganizationApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /external-organizations/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
+*ExternalOrganizationApi* | [**getAllowedKeywordGroupConfigurations**](docs/ExternalOrganizationApi.md#getAllowedKeywordGroupConfigurations) | **GET** /external-organizations/allowed-keyword-group-configurations | A list of keyword group configurations
+*ExternalOrganizationApi* | [**getAllowedLinkTypes**](docs/ExternalOrganizationApi.md#getAllowedLinkTypes) | **GET** /external-organizations/allowed-link-types | A list of allowed link types
+*ExternalOrganizationApi* | [**getAllowedLocales**](docs/ExternalOrganizationApi.md#getAllowedLocales) | **GET** /external-organizations/allowed-locales | A list of allowed locales
 *ExternalOrganizationApi* | [**getAllowedNatureTypes**](docs/ExternalOrganizationApi.md#getAllowedNatureTypes) | **GET** /external-organizations/allowed-nature-types | A list of allowed nature types
 *ExternalOrganizationApi* | [**getAllowedTypes**](docs/ExternalOrganizationApi.md#getAllowedTypes) | **GET** /external-organizations/allowed-types | A list of allowed external organization types
 *ExternalOrganizationApi* | [**getAllowedWorkflowSteps**](docs/ExternalOrganizationApi.md#getAllowedWorkflowSteps) | **GET** /external-organizations/allowed-workflow-steps | A list of allowed workflow steps
@@ -132,12 +138,26 @@ Class | Method | HTTP request | Description
 
  - [Address](docs/Address.md)
  - [ClassificationRef](docs/ClassificationRef.md)
+ - [ClassificationRefList](docs/ClassificationRefList.md)
+ - [ClassificationSchemeRef](docs/ClassificationSchemeRef.md)
+ - [ClassificationsKeywordGroup](docs/ClassificationsKeywordGroup.md)
+ - [ClassificationsKeywordGroupAllOf](docs/ClassificationsKeywordGroupAllOf.md)
  - [ClassifiedId](docs/ClassifiedId.md)
  - [ClassifiedIdAllOf](docs/ClassifiedIdAllOf.md)
+ - [ContentRef](docs/ContentRef.md)
+ - [DependencyViolationProblemDetails](docs/DependencyViolationProblemDetails.md)
+ - [DependencyViolationProblemDetailsAllOf](docs/DependencyViolationProblemDetailsAllOf.md)
  - [Document](docs/Document.md)
  - [ExternalOrganization](docs/ExternalOrganization.md)
  - [ExternalOrganizationListResult](docs/ExternalOrganizationListResult.md)
+ - [ExternalOrganizationRef](docs/ExternalOrganizationRef.md)
  - [ExternalOrganizationsQuery](docs/ExternalOrganizationsQuery.md)
+ - [ExternalPersonRef](docs/ExternalPersonRef.md)
+ - [FreeKeywordsKeywordGroup](docs/FreeKeywordsKeywordGroup.md)
+ - [FreeKeywordsKeywordGroupAllOf](docs/FreeKeywordsKeywordGroupAllOf.md)
+ - [FullKeywordGroup](docs/FullKeywordGroup.md)
+ - [FullKeywordGroupAllOf](docs/FullKeywordGroupAllOf.md)
+ - [GenericProblemDetails](docs/GenericProblemDetails.md)
  - [GeoLocation](docs/GeoLocation.md)
  - [Id](docs/Id.md)
  - [IdAllOf](docs/IdAllOf.md)
@@ -145,24 +165,23 @@ Class | Method | HTTP request | Description
  - [Keyword](docs/Keyword.md)
  - [KeywordContainer](docs/KeywordContainer.md)
  - [KeywordGroup](docs/KeywordGroup.md)
- - [KeywordGroupClassifications](docs/KeywordGroupClassifications.md)
- - [KeywordGroupClassificationsAllOf](docs/KeywordGroupClassificationsAllOf.md)
- - [KeywordGroupFreeKeywords](docs/KeywordGroupFreeKeywords.md)
- - [KeywordGroupFreeKeywordsAllOf](docs/KeywordGroupFreeKeywordsAllOf.md)
- - [KeywordGroupFull](docs/KeywordGroupFull.md)
- - [KeywordGroupFullAllOf](docs/KeywordGroupFullAllOf.md)
+ - [KeywordGroupConfiguration](docs/KeywordGroupConfiguration.md)
+ - [KeywordGroupConfigurationList](docs/KeywordGroupConfigurationList.md)
  - [Link](docs/Link.md)
+ - [LocalesList](docs/LocalesList.md)
  - [NavigationLink](docs/NavigationLink.md)
  - [OrderingsList](docs/OrderingsList.md)
  - [PageInformation](docs/PageInformation.md)
  - [ProblemDetails](docs/ProblemDetails.md)
  - [PureId](docs/PureId.md)
  - [PureIdAllOf](docs/PureIdAllOf.md)
+ - [ResearchOutputRef](docs/ResearchOutputRef.md)
  - [ValidationError](docs/ValidationError.md)
  - [ValidationProblemDetails](docs/ValidationProblemDetails.md)
  - [ValidationProblemDetailsAllOf](docs/ValidationProblemDetailsAllOf.md)
  - [Visibility](docs/Visibility.md)
  - [Workflow](docs/Workflow.md)
+ - [WorkflowListResult](docs/WorkflowListResult.md)
 
 
 ## Documentation for Authorization
