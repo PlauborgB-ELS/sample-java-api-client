@@ -14,6 +14,7 @@
 package com.elsevier.pure.api.sample.stubs.model;
 
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
+import com.elsevier.pure.api.sample.stubs.model.UploadedFile;
 import com.elsevier.pure.api.sample.stubs.model.Visibility;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -60,11 +61,11 @@ public class DocumentTest {
     }
 
     /**
-     * Test the property 'documentType'
+     * Test the property 'type'
      */
     @Test
-    public void documentTypeTest() {
-        // TODO: test documentType
+    public void typeTest() {
+        // TODO: test type
     }
 
     /**
@@ -76,11 +77,11 @@ public class DocumentTest {
     }
 
     /**
-     * Test the property 'documentLicense'
+     * Test the property 'license'
      */
     @Test
-    public void documentLicenseTest() {
-        // TODO: test documentLicense
+    public void licenseTest() {
+        // TODO: test license
     }
 
     /**
@@ -113,6 +114,38 @@ public class DocumentTest {
     @Test
     public void createdTest() {
         // TODO: test created
+    }
+
+    /**
+     * Test the property 'fileContent'
+     */
+    @Test
+    public void fileContentTest() {
+        // TODO: test fileContent
+    }
+
+    /**
+     * Test the property 'fileName'
+     */
+    @Test
+    public void fileNameTest() {
+        // TODO: test fileName
+    }
+
+    /**
+     * Test the property 'mimeType'
+     */
+    @Test
+    public void mimeTypeTest() {
+        // TODO: test mimeType
+    }
+
+    /**
+     * Test the property 'size'
+     */
+    @Test
+    public void sizeTest() {
+        // TODO: test size
     }
 
 }

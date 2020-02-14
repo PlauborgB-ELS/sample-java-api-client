@@ -30,7 +30,7 @@ import java.io.IOException;
  * A physical address
  */
 @ApiModel(description = "A physical address")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
 public class Address {
   public static final String SERIALIZED_NAME_ADDRESS1 = "address1";
   @SerializedName(SERIALIZED_NAME_ADDRESS1)

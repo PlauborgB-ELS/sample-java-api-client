@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.elsevier.pure.api.sample.stubs.model.Address;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
+import com.elsevier.pure.api.sample.stubs.model.ClassifiedFile;
 import com.elsevier.pure.api.sample.stubs.model.Document;
 import com.elsevier.pure.api.sample.stubs.model.Identifier;
 import com.elsevier.pure.api.sample.stubs.model.KeywordGroup;
@@ -42,8 +43,12 @@ import org.threeten.bp.OffsetDateTime;
  * An organization external to the institution
  */
 @ApiModel(description = "An organization external to the institution")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
 public class ExternalOrganization {
+  public static final String SERIALIZED_NAME_PURE_ID = "pureId";
+  @SerializedName(SERIALIZED_NAME_PURE_ID)
+  private Long pureId;
+
   public static final String SERIALIZED_NAME_UUID = "uuid";
   @SerializedName(SERIALIZED_NAME_UUID)
   private UUID uuid;
@@ -82,7 +87,7 @@ public class ExternalOrganization {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  private Map<String, String> name = null;
+  private Map<String, String> name = new HashMap<String, String>();
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -136,6 +141,10 @@ public class ExternalOrganization {
   @SerializedName(SERIALIZED_NAME_DOCUMENTS)
   private List<Document> documents = null;
 
+  public static final String SERIALIZED_NAME_IMAGES = "images";
+  @SerializedName(SERIALIZED_NAME_IMAGES)
+  private List<ClassifiedFile> images = null;
+
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
   private List<Link> links = null;
@@ -156,9 +165,27 @@ public class ExternalOrganization {
   @SerializedName(SERIALIZED_NAME_WORKFLOW)
   private Workflow workflow;
 
+  public static final String SERIALIZED_NAME_IMAGE = "image";
+  @SerializedName(SERIALIZED_NAME_IMAGE)
+  private List<ClassifiedFile> image = null;
+
   public static final String SERIALIZED_NAME_FAMILY = "family";
   @SerializedName(SERIALIZED_NAME_FAMILY)
   private String family;
+
+
+   /**
+   * Pure database ID of the object
+   * @return pureId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Pure database ID of the object")
+
+  public Long getPureId() {
+    return pureId;
+  }
+
+
 
 
    /**
@@ -294,9 +321,6 @@ public class ExternalOrganization {
   }
 
   public ExternalOrganization putNameItem(String key, String nameItem) {
-    if (this.name == null) {
-      this.name = new HashMap<String, String>();
-    }
     this.name.put(key, nameItem);
     return this;
   }
@@ -306,7 +330,7 @@ public class ExternalOrganization {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.")
+  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", required = true, value = "A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.")
 
   public Map<String, String> getName() {
     return name;
@@ -328,8 +352,7 @@ public class ExternalOrganization {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
 
   public ClassificationRef getType() {
     return type;
@@ -633,11 +656,11 @@ public class ExternalOrganization {
   }
 
    /**
-   * Arbitrary documents relevant to the organization - Please note that there is no files support yet, so this property is ignored!
+   * Arbitrary documents relevant to the organization
    * @return documents
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Arbitrary documents relevant to the organization - Please note that there is no files support yet, so this property is ignored!")
+  @ApiModelProperty(value = "Arbitrary documents relevant to the organization")
 
   public List<Document> getDocuments() {
     return documents;
@@ -646,6 +669,37 @@ public class ExternalOrganization {
 
   public void setDocuments(List<Document> documents) {
     this.documents = documents;
+  }
+
+
+  public ExternalOrganization images(List<ClassifiedFile> images) {
+    
+    this.images = images;
+    return this;
+  }
+
+  public ExternalOrganization addImagesItem(ClassifiedFile imagesItem) {
+    if (this.images == null) {
+      this.images = new ArrayList<ClassifiedFile>();
+    }
+    this.images.add(imagesItem);
+    return this;
+  }
+
+   /**
+   * External organization image
+   * @return images
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "External organization image")
+
+  public List<ClassifiedFile> getImages() {
+    return images;
+  }
+
+
+  public void setImages(List<ClassifiedFile> images) {
+    this.images = images;
   }
 
 
@@ -780,6 +834,37 @@ public class ExternalOrganization {
   }
 
 
+  public ExternalOrganization image(List<ClassifiedFile> image) {
+    
+    this.image = image;
+    return this;
+  }
+
+  public ExternalOrganization addImageItem(ClassifiedFile imageItem) {
+    if (this.image == null) {
+      this.image = new ArrayList<ClassifiedFile>();
+    }
+    this.image.add(imageItem);
+    return this;
+  }
+
+   /**
+   * Get image
+   * @return image
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<ClassifiedFile> getImage() {
+    return image;
+  }
+
+
+  public void setImage(List<ClassifiedFile> image) {
+    this.image = image;
+  }
+
+
    /**
    * The content family
    * @return family
@@ -803,7 +888,8 @@ public class ExternalOrganization {
       return false;
     }
     ExternalOrganization externalOrganization = (ExternalOrganization) o;
-    return Objects.equals(this.uuid, externalOrganization.uuid) &&
+    return Objects.equals(this.pureId, externalOrganization.pureId) &&
+        Objects.equals(this.uuid, externalOrganization.uuid) &&
         Objects.equals(this.createdBy, externalOrganization.createdBy) &&
         Objects.equals(this.createdDate, externalOrganization.createdDate) &&
         Objects.equals(this.modifiedBy, externalOrganization.modifiedBy) &&
@@ -826,17 +912,19 @@ public class ExternalOrganization {
         Objects.equals(this.bankAccountNumber, externalOrganization.bankAccountNumber) &&
         Objects.equals(this.vatNumber, externalOrganization.vatNumber) &&
         Objects.equals(this.documents, externalOrganization.documents) &&
+        Objects.equals(this.images, externalOrganization.images) &&
         Objects.equals(this.links, externalOrganization.links) &&
         Objects.equals(this.keywordGroups, externalOrganization.keywordGroups) &&
         Objects.equals(this.note, externalOrganization.note) &&
         Objects.equals(this.visibility, externalOrganization.visibility) &&
         Objects.equals(this.workflow, externalOrganization.workflow) &&
+        Objects.equals(this.image, externalOrganization.image) &&
         Objects.equals(this.family, externalOrganization.family);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, createdBy, createdDate, modifiedBy, modifiedDate, portalUrl, prettyUrlIdentifiers, previousUuids, externallyManaged, name, type, natureTypes, acronym, alternativeNames, identifiers, address, phoneNumber, mobilePhoneNumber, fax, email, bankAccountNumber, vatNumber, documents, links, keywordGroups, note, visibility, workflow, family);
+    return Objects.hash(pureId, uuid, createdBy, createdDate, modifiedBy, modifiedDate, portalUrl, prettyUrlIdentifiers, previousUuids, externallyManaged, name, type, natureTypes, acronym, alternativeNames, identifiers, address, phoneNumber, mobilePhoneNumber, fax, email, bankAccountNumber, vatNumber, documents, images, links, keywordGroups, note, visibility, workflow, image, family);
   }
 
 
@@ -844,6 +932,7 @@ public class ExternalOrganization {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExternalOrganization {\n");
+    sb.append("    pureId: ").append(toIndentedString(pureId)).append("\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
@@ -867,11 +956,13 @@ public class ExternalOrganization {
     sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append("\n");
     sb.append("    vatNumber: ").append(toIndentedString(vatNumber)).append("\n");
     sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
+    sb.append("    images: ").append(toIndentedString(images)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    keywordGroups: ").append(toIndentedString(keywordGroups)).append("\n");
     sb.append("    note: ").append(toIndentedString(note)).append("\n");
     sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
     sb.append("    workflow: ").append(toIndentedString(workflow)).append("\n");
+    sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    family: ").append(toIndentedString(family)).append("\n");
     sb.append("}");
     return sb.toString();

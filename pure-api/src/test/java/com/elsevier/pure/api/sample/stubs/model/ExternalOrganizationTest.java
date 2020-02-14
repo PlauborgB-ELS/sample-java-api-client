@@ -15,6 +15,7 @@ package com.elsevier.pure.api.sample.stubs.model;
 
 import com.elsevier.pure.api.sample.stubs.model.Address;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
+import com.elsevier.pure.api.sample.stubs.model.ClassifiedFile;
 import com.elsevier.pure.api.sample.stubs.model.Document;
 import com.elsevier.pure.api.sample.stubs.model.Identifier;
 import com.elsevier.pure.api.sample.stubs.model.KeywordGroup;
@@ -52,6 +53,14 @@ public class ExternalOrganizationTest {
     @Test
     public void testExternalOrganization() {
         // TODO: test ExternalOrganization
+    }
+
+    /**
+     * Test the property 'pureId'
+     */
+    @Test
+    public void pureIdTest() {
+        // TODO: test pureId
     }
 
     /**
@@ -239,6 +248,14 @@ public class ExternalOrganizationTest {
     }
 
     /**
+     * Test the property 'images'
+     */
+    @Test
+    public void imagesTest() {
+        // TODO: test images
+    }
+
+    /**
      * Test the property 'links'
      */
     @Test
@@ -276,6 +293,14 @@ public class ExternalOrganizationTest {
     @Test
     public void workflowTest() {
         // TODO: test workflow
+    }
+
+    /**
+     * Test the property 'image'
+     */
+    @Test
+    public void imageTest() {
+        // TODO: test image
     }
 
     /**

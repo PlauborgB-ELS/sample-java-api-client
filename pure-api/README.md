@@ -2,7 +2,7 @@
 
 Pure API
 - API version: 0.1 Early Access
-  - Build date: 2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]
+  - Build date: 2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]
 
 This is an early access version of the new Pure write API.
 
@@ -119,6 +119,8 @@ Class | Method | HTTP request | Description
 *ExternalOrganizationApi* | [**get**](docs/ExternalOrganizationApi.md#get) | **GET** /external-organizations/{uuid} | Get external organization
 *ExternalOrganizationApi* | [**getAllowedAddressCountries**](docs/ExternalOrganizationApi.md#getAllowedAddressCountries) | **GET** /external-organizations/allowed-address-countries | A list of allowed address countries
 *ExternalOrganizationApi* | [**getAllowedAddressSubdivisions**](docs/ExternalOrganizationApi.md#getAllowedAddressSubdivisions) | **GET** /external-organizations/allowed-address-subdivision | A list of allowed address subdivisions
+*ExternalOrganizationApi* | [**getAllowedClassifiedIdentifierTypes**](docs/ExternalOrganizationApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /external-organizations/allowed-classified-identifier-types | A list of allowed classified identifier types
+*ExternalOrganizationApi* | [**getAllowedClassifiedImageTypes**](docs/ExternalOrganizationApi.md#getAllowedClassifiedImageTypes) | **GET** /external-organizations/allowed-classified-file-types | A list of allowed classified identifier types
 *ExternalOrganizationApi* | [**getAllowedDocumentLicenses**](docs/ExternalOrganizationApi.md#getAllowedDocumentLicenses) | **GET** /external-organizations/allowed-document-licenses | A list of allowed document licenses
 *ExternalOrganizationApi* | [**getAllowedDocumentTypes**](docs/ExternalOrganizationApi.md#getAllowedDocumentTypes) | **GET** /external-organizations/allowed-document-types | A list of allowed document types
 *ExternalOrganizationApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/ExternalOrganizationApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /external-organizations/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
@@ -128,10 +130,36 @@ Class | Method | HTTP request | Description
 *ExternalOrganizationApi* | [**getAllowedNatureTypes**](docs/ExternalOrganizationApi.md#getAllowedNatureTypes) | **GET** /external-organizations/allowed-nature-types | A list of allowed nature types
 *ExternalOrganizationApi* | [**getAllowedTypes**](docs/ExternalOrganizationApi.md#getAllowedTypes) | **GET** /external-organizations/allowed-types | A list of allowed external organization types
 *ExternalOrganizationApi* | [**getAllowedWorkflowSteps**](docs/ExternalOrganizationApi.md#getAllowedWorkflowSteps) | **GET** /external-organizations/allowed-workflow-steps | A list of allowed workflow steps
+*ExternalOrganizationApi* | [**getFile**](docs/ExternalOrganizationApi.md#getFile) | **GET** /external-organizations/{uuid}/file/{fileid} | Get file from the external organization
 *ExternalOrganizationApi* | [**getOrderings**](docs/ExternalOrganizationApi.md#getOrderings) | **GET** /external-organizations/orderings | Lists available orderings
 *ExternalOrganizationApi* | [**list**](docs/ExternalOrganizationApi.md#list) | **GET** /external-organizations | Lists all external organizations
 *ExternalOrganizationApi* | [**query**](docs/ExternalOrganizationApi.md#query) | **POST** /external-organizations/search | Query operation for external organizations
 *ExternalOrganizationApi* | [**update**](docs/ExternalOrganizationApi.md#update) | **PUT** /external-organizations/{uuid} | Update external organization
+*ExternalOrganizationApi* | [**uploadFile**](docs/ExternalOrganizationApi.md#uploadFile) | **PUT** /external-organizations/{uuid}/file | Upload file to a specific external organization
+*OrganizationApi* | [**create**](docs/OrganizationApi.md#create) | **PUT** /organizations | Create organization
+*OrganizationApi* | [**delete**](docs/OrganizationApi.md#delete) | **DELETE** /organizations/{uuid} | Delete organization
+*OrganizationApi* | [**file**](docs/OrganizationApi.md#file) | **GET** /organizations/{uuid}/file/{fileid} | Get file from the organization
+*OrganizationApi* | [**get**](docs/OrganizationApi.md#get) | **GET** /organizations/{uuid} | Get organization
+*OrganizationApi* | [**getAllowedAddressCountries**](docs/OrganizationApi.md#getAllowedAddressCountries) | **GET** /organizations/allowed-address-countries | A list of allowed address countries
+*OrganizationApi* | [**getAllowedAddressSubdivisions**](docs/OrganizationApi.md#getAllowedAddressSubdivisions) | **GET** /organizations/allowed-address-subdivision | A list of allowed address subdivisions
+*OrganizationApi* | [**getAllowedAddressTypes**](docs/OrganizationApi.md#getAllowedAddressTypes) | **GET** /organizations/allowed-address-types | A list of allowed address types
+*OrganizationApi* | [**getAllowedClassifiedIdentifierTypes**](docs/OrganizationApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /organizations/allowed-classified-identifier-types | A list of allowed classified identifier types
+*OrganizationApi* | [**getAllowedClassifiedImageTypes**](docs/OrganizationApi.md#getAllowedClassifiedImageTypes) | **GET** /organizations/allowed-classified-file-types | A list of allowed classified identifier types
+*OrganizationApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/OrganizationApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /organizations/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
+*OrganizationApi* | [**getAllowedKeywordGroupConfigurations**](docs/OrganizationApi.md#getAllowedKeywordGroupConfigurations) | **GET** /organizations/allowed-keyword-group-configurations | A list of keyword group configurations
+*OrganizationApi* | [**getAllowedLinkTypes**](docs/OrganizationApi.md#getAllowedLinkTypes) | **GET** /organizations/allowed-email-types | A list of allowed e-mail types
+*OrganizationApi* | [**getAllowedNameVariantTypes**](docs/OrganizationApi.md#getAllowedNameVariantTypes) | **GET** /organizations/allowed-name-variant-types | A list of allowed name variant types
+*OrganizationApi* | [**getAllowedNatureTypes**](docs/OrganizationApi.md#getAllowedNatureTypes) | **GET** /organizations/allowed-cost-centers | A list of allowed cost centers
+*OrganizationApi* | [**getAllowedPhoneNumberTypes**](docs/OrganizationApi.md#getAllowedPhoneNumberTypes) | **GET** /organizations/allowed-phone-number-types | A list of allowed phone number types
+*OrganizationApi* | [**getAllowedPhotoTypes**](docs/OrganizationApi.md#getAllowedPhotoTypes) | **GET** /organizations/allowed-photo-types | A list of allowed photo types
+*OrganizationApi* | [**getAllowedProfileInformationTypes**](docs/OrganizationApi.md#getAllowedProfileInformationTypes) | **GET** /organizations/allowed-profile-information-types | A list of allowed profile information types
+*OrganizationApi* | [**getAllowedTypes**](docs/OrganizationApi.md#getAllowedTypes) | **GET** /organizations/allowed-types | A list of allowed organization types
+*OrganizationApi* | [**getAllowedWebAddressTypes**](docs/OrganizationApi.md#getAllowedWebAddressTypes) | **GET** /organizations/allowed-web-address-types | A list of allowed web address types
+*OrganizationApi* | [**getOrderings**](docs/OrganizationApi.md#getOrderings) | **GET** /organizations/orderings | Lists available orderings
+*OrganizationApi* | [**list**](docs/OrganizationApi.md#list) | **GET** /organizations | Lists all organizations
+*OrganizationApi* | [**query**](docs/OrganizationApi.md#query) | **POST** /organizations/search | Query operation for organizations
+*OrganizationApi* | [**update**](docs/OrganizationApi.md#update) | **PUT** /organizations/{uuid} | Update organization
+*OrganizationApi* | [**uploadfile**](docs/OrganizationApi.md#uploadfile) | **PUT** /organizations/{uuid}/file | Upload file to a specific organization
 
 
 ## Documentation for Models
@@ -142,9 +170,14 @@ Class | Method | HTTP request | Description
  - [ClassificationSchemeRef](docs/ClassificationSchemeRef.md)
  - [ClassificationsKeywordGroup](docs/ClassificationsKeywordGroup.md)
  - [ClassificationsKeywordGroupAllOf](docs/ClassificationsKeywordGroupAllOf.md)
+ - [ClassifiedAddress](docs/ClassifiedAddress.md)
+ - [ClassifiedFile](docs/ClassifiedFile.md)
  - [ClassifiedId](docs/ClassifiedId.md)
  - [ClassifiedIdAllOf](docs/ClassifiedIdAllOf.md)
+ - [ClassifiedLocalizedValue](docs/ClassifiedLocalizedValue.md)
+ - [ClassifiedValue](docs/ClassifiedValue.md)
  - [ContentRef](docs/ContentRef.md)
+ - [DateRange](docs/DateRange.md)
  - [DependencyViolationProblemDetails](docs/DependencyViolationProblemDetails.md)
  - [DependencyViolationProblemDetailsAllOf](docs/DependencyViolationProblemDetailsAllOf.md)
  - [Document](docs/Document.md)
@@ -171,11 +204,15 @@ Class | Method | HTTP request | Description
  - [LocalesList](docs/LocalesList.md)
  - [NavigationLink](docs/NavigationLink.md)
  - [OrderingsList](docs/OrderingsList.md)
+ - [Organization](docs/Organization.md)
+ - [OrganizationListResult](docs/OrganizationListResult.md)
+ - [OrganizationRef](docs/OrganizationRef.md)
+ - [OrganizationsQuery](docs/OrganizationsQuery.md)
  - [PageInformation](docs/PageInformation.md)
+ - [PersonRef](docs/PersonRef.md)
  - [ProblemDetails](docs/ProblemDetails.md)
- - [PureId](docs/PureId.md)
- - [PureIdAllOf](docs/PureIdAllOf.md)
  - [ResearchOutputRef](docs/ResearchOutputRef.md)
+ - [UploadedFile](docs/UploadedFile.md)
  - [ValidationError](docs/ValidationError.md)
  - [ValidationProblemDetails](docs/ValidationProblemDetails.md)
  - [ValidationProblemDetailsAllOf](docs/ValidationProblemDetailsAllOf.md)

@@ -32,7 +32,7 @@ import java.util.Map;
  * A list of dependant content that block deletion, may not be a complete list if the number of dependencies is very large
  */
 @ApiModel(description = "A list of dependant content that block deletion, may not be a complete list if the number of dependencies is very large")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
 
 public class ContentRef {
   public static final String SERIALIZED_NAME_UUID = "uuid";

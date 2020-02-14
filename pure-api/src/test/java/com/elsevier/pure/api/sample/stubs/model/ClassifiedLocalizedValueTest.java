@@ -13,6 +13,7 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
+import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,31 +22,50 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for PureIdAllOf
+ * Model tests for ClassifiedLocalizedValue
  */
-public class PureIdAllOfTest {
-    private final PureIdAllOf model = new PureIdAllOf();
+public class ClassifiedLocalizedValueTest {
+    private final ClassifiedLocalizedValue model = new ClassifiedLocalizedValue();
 
     /**
-     * Model tests for PureIdAllOf
+     * Model tests for ClassifiedLocalizedValue
      */
     @Test
-    public void testPureIdAllOf() {
-        // TODO: test PureIdAllOf
+    public void testClassifiedLocalizedValue() {
+        // TODO: test ClassifiedLocalizedValue
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'pureId'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void pureIdTest() {
+        // TODO: test pureId
+    }
+
+    /**
+     * Test the property 'value'
+     */
+    @Test
+    public void valueTest() {
+        // TODO: test value
+    }
+
+    /**
+     * Test the property 'type'
+     */
+    @Test
+    public void typeTest() {
+        // TODO: test type
     }
 
 }

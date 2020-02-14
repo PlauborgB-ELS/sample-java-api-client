@@ -34,7 +34,7 @@ import java.util.Map;
  * Keywords of a specific type. A type of keyword can be configured to solely support free keywords (represented as the FreeKeywordsKeywordGroup type), to solely support structured keywords (represented as the ClassificationsKeywordGroup type), or to both support structured keywords supplemented by optional free keywords (this type)
  */
 @ApiModel(description = "Keywords of a specific type. A type of keyword can be configured to solely support free keywords (represented as the FreeKeywordsKeywordGroup type), to solely support structured keywords (represented as the ClassificationsKeywordGroup type), or to both support structured keywords supplemented by optional free keywords (this type)")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
 public class FullKeywordGroup extends KeywordGroup {
   public static final String SERIALIZED_NAME_KEYWORD_CONTAINERS = "keywordContainers";
   @SerializedName(SERIALIZED_NAME_KEYWORD_CONTAINERS)

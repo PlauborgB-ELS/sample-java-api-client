@@ -34,7 +34,7 @@ import java.util.Map;
  * De-normalized version of the full keyword group representation for instances where only structured keywords can be selected
  */
 @ApiModel(description = "De-normalized version of the full keyword group representation for instances where only structured keywords can be selected")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
 public class ClassificationsKeywordGroup extends KeywordGroup {
   public static final String SERIALIZED_NAME_CLASSIFICATIONS = "classifications";
   @SerializedName(SERIALIZED_NAME_CLASSIFICATIONS)

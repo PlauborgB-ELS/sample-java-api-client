@@ -7,6 +7,7 @@ An organization external to the institution
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pureId** | **Long** | Pure database ID of the object |  [optional] [readonly]
 **uuid** | [**UUID**](UUID.md) | UUID |  [optional] [readonly]
 **createdBy** | **String** | Username of creator |  [optional] [readonly]
 **createdDate** | [**OffsetDateTime**](OffsetDateTime.md) | Date and time of creation |  [optional] [readonly]
@@ -16,8 +17,8 @@ Name | Type | Description | Notes
 **prettyUrlIdentifiers** | **List&lt;String&gt;** | All pretty URLs |  [optional] [readonly]
 **previousUuids** | **List&lt;String&gt;** | UUIDs of other content items which have been merged into this content item (or similar) |  [optional] [readonly]
 **externallyManaged** | **Boolean** | Signals that the information is maintained by synchronization from an external system |  [optional] [readonly]
-**name** | **Map&lt;String, String&gt;** | A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored. |  [optional]
-**type** | [**ClassificationRef**](ClassificationRef.md) |  |  [optional]
+**name** | **Map&lt;String, String&gt;** | A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored. | 
+**type** | [**ClassificationRef**](ClassificationRef.md) |  | 
 **natureTypes** | [**List&lt;ClassificationRef&gt;**](ClassificationRef.md) | Nature of the organizations work |  [optional]
 **acronym** | **String** | Acronym of organization name |  [optional]
 **alternativeNames** | **List&lt;String&gt;** | Alternative names of organization |  [optional]
@@ -29,12 +30,14 @@ Name | Type | Description | Notes
 **email** | **String** | Email address |  [optional]
 **bankAccountNumber** | **String** | Bank account number |  [optional]
 **vatNumber** | **String** | VAT number |  [optional]
-**documents** | [**List&lt;Document&gt;**](Document.md) | Arbitrary documents relevant to the organization - Please note that there is no files support yet, so this property is ignored! |  [optional]
+**documents** | [**List&lt;Document&gt;**](Document.md) | Arbitrary documents relevant to the organization |  [optional]
+**images** | [**List&lt;ClassifiedFile&gt;**](ClassifiedFile.md) | External organization image |  [optional]
 **links** | [**List&lt;Link&gt;**](Link.md) | Links to information about the organization |  [optional]
 **keywordGroups** | [**List&lt;KeywordGroup&gt;**](KeywordGroup.md) | A group for each type of keyword present |  [optional]
 **note** | **String** | A free-form note about the organization |  [optional]
 **visibility** | [**Visibility**](Visibility.md) |  |  [optional]
 **workflow** | [**Workflow**](Workflow.md) |  |  [optional]
+**image** | [**List&lt;ClassifiedFile&gt;**](ClassifiedFile.md) |  |  [optional]
 **family** | **String** | The content family |  [optional] [readonly]
 
 

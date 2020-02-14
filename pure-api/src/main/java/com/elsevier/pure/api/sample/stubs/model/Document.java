@@ -16,6 +16,7 @@ package com.elsevier.pure.api.sample.stubs.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
+import com.elsevier.pure.api.sample.stubs.model.UploadedFile;
 import com.elsevier.pure.api.sample.stubs.model.Visibility;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -31,7 +32,7 @@ import org.threeten.bp.OffsetDateTime;
  * Document
  */
 @ApiModel(description = "Document")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
 public class Document {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -41,17 +42,17 @@ public class Document {
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
 
-  public static final String SERIALIZED_NAME_DOCUMENT_TYPE = "documentType";
-  @SerializedName(SERIALIZED_NAME_DOCUMENT_TYPE)
-  private ClassificationRef documentType;
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private ClassificationRef type;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
 
-  public static final String SERIALIZED_NAME_DOCUMENT_LICENSE = "documentLicense";
-  @SerializedName(SERIALIZED_NAME_DOCUMENT_LICENSE)
-  private ClassificationRef documentLicense;
+  public static final String SERIALIZED_NAME_LICENSE = "license";
+  @SerializedName(SERIALIZED_NAME_LICENSE)
+  private ClassificationRef license;
 
   public static final String SERIALIZED_NAME_VISIBLE_ON_PORTAL_DATE = "visibleOnPortalDate";
   @SerializedName(SERIALIZED_NAME_VISIBLE_ON_PORTAL_DATE)
@@ -68,6 +69,22 @@ public class Document {
   public static final String SERIALIZED_NAME_CREATED = "created";
   @SerializedName(SERIALIZED_NAME_CREATED)
   private OffsetDateTime created;
+
+  public static final String SERIALIZED_NAME_FILE_CONTENT = "fileContent";
+  @SerializedName(SERIALIZED_NAME_FILE_CONTENT)
+  private UploadedFile fileContent;
+
+  public static final String SERIALIZED_NAME_FILE_NAME = "fileName";
+  @SerializedName(SERIALIZED_NAME_FILE_NAME)
+  private String fileName;
+
+  public static final String SERIALIZED_NAME_MIME_TYPE = "mimeType";
+  @SerializedName(SERIALIZED_NAME_MIME_TYPE)
+  private String mimeType;
+
+  public static final String SERIALIZED_NAME_SIZE = "size";
+  @SerializedName(SERIALIZED_NAME_SIZE)
+  private Long size;
 
 
    /**
@@ -91,11 +108,11 @@ public class Document {
   }
 
    /**
-   * Get title
+   * Document title
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Document title")
 
   public String getTitle() {
     return title;
@@ -107,81 +124,71 @@ public class Document {
   }
 
 
-  public Document documentType(ClassificationRef documentType) {
+  public Document type(ClassificationRef type) {
     
-    this.documentType = documentType;
+    this.type = type;
     return this;
   }
 
    /**
-   * Get documentType
-   * @return documentType
+   * Get type
+   * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
 
-  public ClassificationRef getDocumentType() {
-    return documentType;
+  public ClassificationRef getType() {
+    return type;
   }
 
 
-  public void setDocumentType(ClassificationRef documentType) {
-    this.documentType = documentType;
+  public void setType(ClassificationRef type) {
+    this.type = type;
   }
 
-
-  public Document url(String url) {
-    
-    this.url = url;
-    return this;
-  }
 
    /**
-   * Get url
+   * Download url for the binary file
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Download url for the binary file")
 
   public String getUrl() {
     return url;
   }
 
 
-  public void setUrl(String url) {
-    this.url = url;
-  }
 
 
-  public Document documentLicense(ClassificationRef documentLicense) {
+  public Document license(ClassificationRef license) {
     
-    this.documentLicense = documentLicense;
+    this.license = license;
     return this;
   }
 
    /**
-   * Get documentLicense
-   * @return documentLicense
+   * Get license
+   * @return license
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ClassificationRef getDocumentLicense() {
-    return documentLicense;
+  public ClassificationRef getLicense() {
+    return license;
   }
 
 
-  public void setDocumentLicense(ClassificationRef documentLicense) {
-    this.documentLicense = documentLicense;
+  public void setLicense(ClassificationRef license) {
+    this.license = license;
   }
 
 
    /**
-   * Get visibleOnPortalDate
+   * The date the document will be available on the portal
    * @return visibleOnPortalDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date the document will be available on the portal")
 
   public OffsetDateTime getVisibleOnPortalDate() {
     return visibleOnPortalDate;
@@ -200,8 +207,7 @@ public class Document {
    * Get visibility
    * @return visibility
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
 
   public Visibility getVisibility() {
     return visibility;
@@ -214,11 +220,11 @@ public class Document {
 
 
    /**
-   * Get creator
+   * The user that created the document
    * @return creator
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The user that created the document")
 
   public String getCreator() {
     return creator;
@@ -228,17 +234,108 @@ public class Document {
 
 
    /**
-   * Get created
+   * Create date for the document
    * @return created
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Create date for the document")
 
   public OffsetDateTime getCreated() {
     return created;
   }
 
 
+
+
+  public Document fileContent(UploadedFile fileContent) {
+    
+    this.fileContent = fileContent;
+    return this;
+  }
+
+   /**
+   * Get fileContent
+   * @return fileContent
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public UploadedFile getFileContent() {
+    return fileContent;
+  }
+
+
+  public void setFileContent(UploadedFile fileContent) {
+    this.fileContent = fileContent;
+  }
+
+
+  public Document fileName(String fileName) {
+    
+    this.fileName = fileName;
+    return this;
+  }
+
+   /**
+   * The documents file name
+   * @return fileName
+  **/
+  @ApiModelProperty(required = true, value = "The documents file name")
+
+  public String getFileName() {
+    return fileName;
+  }
+
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+
+  public Document mimeType(String mimeType) {
+    
+    this.mimeType = mimeType;
+    return this;
+  }
+
+   /**
+   * The documents mime type
+   * @return mimeType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The documents mime type")
+
+  public String getMimeType() {
+    return mimeType;
+  }
+
+
+  public void setMimeType(String mimeType) {
+    this.mimeType = mimeType;
+  }
+
+
+  public Document size(Long size) {
+    
+    this.size = size;
+    return this;
+  }
+
+   /**
+   * The documents size in bytes
+   * @return size
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The documents size in bytes")
+
+  public Long getSize() {
+    return size;
+  }
+
+
+  public void setSize(Long size) {
+    this.size = size;
+  }
 
 
   @Override
@@ -252,18 +349,22 @@ public class Document {
     Document document = (Document) o;
     return Objects.equals(this.pureId, document.pureId) &&
         Objects.equals(this.title, document.title) &&
-        Objects.equals(this.documentType, document.documentType) &&
+        Objects.equals(this.type, document.type) &&
         Objects.equals(this.url, document.url) &&
-        Objects.equals(this.documentLicense, document.documentLicense) &&
+        Objects.equals(this.license, document.license) &&
         Objects.equals(this.visibleOnPortalDate, document.visibleOnPortalDate) &&
         Objects.equals(this.visibility, document.visibility) &&
         Objects.equals(this.creator, document.creator) &&
-        Objects.equals(this.created, document.created);
+        Objects.equals(this.created, document.created) &&
+        Objects.equals(this.fileContent, document.fileContent) &&
+        Objects.equals(this.fileName, document.fileName) &&
+        Objects.equals(this.mimeType, document.mimeType) &&
+        Objects.equals(this.size, document.size);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pureId, title, documentType, url, documentLicense, visibleOnPortalDate, visibility, creator, created);
+    return Objects.hash(pureId, title, type, url, license, visibleOnPortalDate, visibility, creator, created, fileContent, fileName, mimeType, size);
   }
 
 
@@ -273,13 +374,17 @@ public class Document {
     sb.append("class Document {\n");
     sb.append("    pureId: ").append(toIndentedString(pureId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    documentLicense: ").append(toIndentedString(documentLicense)).append("\n");
+    sb.append("    license: ").append(toIndentedString(license)).append("\n");
     sb.append("    visibleOnPortalDate: ").append(toIndentedString(visibleOnPortalDate)).append("\n");
     sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    fileContent: ").append(toIndentedString(fileContent)).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
+    sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();
   }

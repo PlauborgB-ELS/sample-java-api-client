@@ -18,10 +18,12 @@ import com.elsevier.pure.api.sample.stubs.model.ClassificationRefList;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganization;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationListResult;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationsQuery;
+import java.io.File;
 import com.elsevier.pure.api.sample.stubs.model.KeywordGroupConfigurationList;
 import com.elsevier.pure.api.sample.stubs.model.LocalesList;
 import com.elsevier.pure.api.sample.stubs.model.OrderingsList;
 import com.elsevier.pure.api.sample.stubs.model.ProblemDetails;
+import com.elsevier.pure.api.sample.stubs.model.UploadedFile;
 import com.elsevier.pure.api.sample.stubs.model.WorkflowListResult;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -114,6 +116,36 @@ public class ExternalOrganizationApiTest {
     @Test
     public void getAllowedAddressSubdivisionsTest() throws ApiException {
         ClassificationRefList response = api.getAllowedAddressSubdivisions();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * A list of allowed classified identifier types
+     *
+     * Get a list of allowed classified identifier types that can be used for the &#39;identifiers.type&#39; attribute of external organizations
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllowedClassifiedIdentifierTypesTest() throws ApiException {
+        ClassificationRefList response = api.getAllowedClassifiedIdentifierTypes();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * A list of allowed classified identifier types
+     *
+     * Get a list of allowed classified image types that can be used for the &#39;images.type&#39; attribute of external organizations
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllowedClassifiedImageTypesTest() throws ApiException {
+        ClassificationRefList response = api.getAllowedClassifiedImageTypes();
 
         // TODO: test validations
     }
@@ -255,6 +287,23 @@ public class ExternalOrganizationApiTest {
     }
     
     /**
+     * Get file from the external organization
+     *
+     * Get file from the external organization
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getFileTest() throws ApiException {
+        String uuid = null;
+        Long fileid = null;
+        File response = api.getFile(uuid, fileid);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Lists available orderings
      *
      * Lists all orderings available to the external organization endpoint. These values can be used by the order parameter.
@@ -316,6 +365,24 @@ public class ExternalOrganizationApiTest {
         String uuid = null;
         ExternalOrganization externalOrganization = null;
         ExternalOrganization response = api.update(uuid, externalOrganization);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Upload file to a specific external organization
+     *
+     * Uploads file for the external organization
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void uploadFileTest() throws ApiException {
+        String uuid = null;
+        File body = null;
+        String contentType = null;
+        UploadedFile response = api.uploadFile(uuid, body, contentType);
 
         // TODO: test validations
     }

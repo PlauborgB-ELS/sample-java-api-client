@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**get**](ExternalOrganizationApi.md#get) | **GET** /external-organizations/{uuid} | Get external organization
 [**getAllowedAddressCountries**](ExternalOrganizationApi.md#getAllowedAddressCountries) | **GET** /external-organizations/allowed-address-countries | A list of allowed address countries
 [**getAllowedAddressSubdivisions**](ExternalOrganizationApi.md#getAllowedAddressSubdivisions) | **GET** /external-organizations/allowed-address-subdivision | A list of allowed address subdivisions
+[**getAllowedClassifiedIdentifierTypes**](ExternalOrganizationApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /external-organizations/allowed-classified-identifier-types | A list of allowed classified identifier types
+[**getAllowedClassifiedImageTypes**](ExternalOrganizationApi.md#getAllowedClassifiedImageTypes) | **GET** /external-organizations/allowed-classified-file-types | A list of allowed classified identifier types
 [**getAllowedDocumentLicenses**](ExternalOrganizationApi.md#getAllowedDocumentLicenses) | **GET** /external-organizations/allowed-document-licenses | A list of allowed document licenses
 [**getAllowedDocumentTypes**](ExternalOrganizationApi.md#getAllowedDocumentTypes) | **GET** /external-organizations/allowed-document-types | A list of allowed document types
 [**getAllowedKeywordGroupConfigurationClassifications**](ExternalOrganizationApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /external-organizations/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
@@ -18,10 +20,12 @@ Method | HTTP request | Description
 [**getAllowedNatureTypes**](ExternalOrganizationApi.md#getAllowedNatureTypes) | **GET** /external-organizations/allowed-nature-types | A list of allowed nature types
 [**getAllowedTypes**](ExternalOrganizationApi.md#getAllowedTypes) | **GET** /external-organizations/allowed-types | A list of allowed external organization types
 [**getAllowedWorkflowSteps**](ExternalOrganizationApi.md#getAllowedWorkflowSteps) | **GET** /external-organizations/allowed-workflow-steps | A list of allowed workflow steps
+[**getFile**](ExternalOrganizationApi.md#getFile) | **GET** /external-organizations/{uuid}/file/{fileid} | Get file from the external organization
 [**getOrderings**](ExternalOrganizationApi.md#getOrderings) | **GET** /external-organizations/orderings | Lists available orderings
 [**list**](ExternalOrganizationApi.md#list) | **GET** /external-organizations | Lists all external organizations
 [**query**](ExternalOrganizationApi.md#query) | **POST** /external-organizations/search | Query operation for external organizations
 [**update**](ExternalOrganizationApi.md#update) | **PUT** /external-organizations/{uuid} | Update external organization
+[**uploadFile**](ExternalOrganizationApi.md#uploadFile) | **PUT** /external-organizations/{uuid}/file | Upload file to a specific external organization
 
 
 <a name="create"></a>
@@ -334,6 +338,136 @@ public class Example {
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalOrganizationApi#getAllowedAddressSubdivisions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ClassificationRefList**](ClassificationRefList.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
+<a name="getAllowedClassifiedIdentifierTypes"></a>
+# **getAllowedClassifiedIdentifierTypes**
+> ClassificationRefList getAllowedClassifiedIdentifierTypes()
+
+A list of allowed classified identifier types
+
+Get a list of allowed classified identifier types that can be used for the &#39;identifiers.type&#39; attribute of external organizations
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    try {
+      ClassificationRefList result = apiInstance.getAllowedClassifiedIdentifierTypes();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#getAllowedClassifiedIdentifierTypes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ClassificationRefList**](ClassificationRefList.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
+<a name="getAllowedClassifiedImageTypes"></a>
+# **getAllowedClassifiedImageTypes**
+> ClassificationRefList getAllowedClassifiedImageTypes()
+
+A list of allowed classified identifier types
+
+Get a list of allowed classified image types that can be used for the &#39;images.type&#39; attribute of external organizations
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    try {
+      ClassificationRefList result = apiInstance.getAllowedClassifiedImageTypes();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#getAllowedClassifiedImageTypes");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -953,6 +1087,77 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 
+<a name="getFile"></a>
+# **getFile**
+> File getFile(uuid, fileid)
+
+Get file from the external organization
+
+Get file from the external organization
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    String uuid = "uuid_example"; // String | UUID of the external organization
+    Long fileid = 56L; // Long | File id 
+    try {
+      File result = apiInstance.getFile(uuid, fileid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#getFile");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **String**| UUID of the external organization |
+ **fileid** | **Long**| File id  |
+
+### Return type
+
+[**File**](File.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
 <a name="getOrderings"></a>
 # **getOrderings**
 > OrderingsList getOrderings()
@@ -1233,4 +1438,77 @@ Name | Type | Description  | Notes
 **200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
 **404** | Resource not found |  -  |
+
+<a name="uploadFile"></a>
+# **uploadFile**
+> UploadedFile uploadFile(uuid, body, contentType)
+
+Upload file to a specific external organization
+
+Uploads file for the external organization
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    String uuid = "uuid_example"; // String | Set the uuid for the content that the file belongs to
+    File body = new File("/path/to/file"); // File | 
+    String contentType = "contentType_example"; // String | Set the mime type for the file
+    try {
+      UploadedFile result = apiInstance.uploadFile(uuid, body, contentType);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#uploadFile");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **String**| Set the uuid for the content that the file belongs to |
+ **body** | **File**|  |
+ **contentType** | **String**| Set the mime type for the file | [optional]
+
+### Return type
+
+[**UploadedFile**](UploadedFile.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**0** | default response |  -  |
 

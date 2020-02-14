@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModel;
  * Problem details for generic failures
  */
 @ApiModel(description = "Problem details for generic failures")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
 public class GenericProblemDetails extends ProblemDetails {
 
   @Override

@@ -33,7 +33,7 @@ import java.util.List;
  * Problem details for dependency violation failures, typically seen when deleting an entity that referred to from other dependent entities
  */
 @ApiModel(description = "Problem details for dependency violation failures, typically seen when deleting an entity that referred to from other dependent entities")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
 public class DependencyViolationProblemDetails extends ProblemDetails {
   public static final String SERIALIZED_NAME_DEPENDENCY_VIOLATION_ERRORS = "dependencyViolationErrors";
   @SerializedName(SERIALIZED_NAME_DEPENDENCY_VIOLATION_ERRORS)

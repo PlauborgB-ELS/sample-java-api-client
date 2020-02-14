@@ -13,8 +13,7 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
-import com.elsevier.pure.api.sample.stubs.model.Identifier;
-import com.elsevier.pure.api.sample.stubs.model.PureIdAllOf;
+import com.elsevier.pure.api.sample.stubs.model.NavigationLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,39 +22,58 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for PureId
+ * Model tests for PersonRef
  */
-public class PureIdTest {
-    private final PureId model = new PureId();
+public class PersonRefTest {
+    private final PersonRef model = new PersonRef();
 
     /**
-     * Model tests for PureId
+     * Model tests for PersonRef
      */
     @Test
-    public void testPureId() {
-        // TODO: test PureId
+    public void testPersonRef() {
+        // TODO: test PersonRef
     }
 
     /**
-     * Test the property 'typeDiscriminator'
+     * Test the property 'uuid'
      */
     @Test
-    public void typeDiscriminatorTest() {
-        // TODO: test typeDiscriminator
+    public void uuidTest() {
+        // TODO: test uuid
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'systemName'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void systemNameTest() {
+        // TODO: test systemName
+    }
+
+    /**
+     * Test the property 'link'
+     */
+    @Test
+    public void linkTest() {
+        // TODO: test link
+    }
+
+    /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
     }
 
 }

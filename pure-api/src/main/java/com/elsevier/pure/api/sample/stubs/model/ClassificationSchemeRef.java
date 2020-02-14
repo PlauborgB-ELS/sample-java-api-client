@@ -15,16 +15,9 @@ package com.elsevier.pure.api.sample.stubs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.elsevier.pure.api.sample.stubs.model.ContentRef;
 import com.elsevier.pure.api.sample.stubs.model.NavigationLink;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,122 +25,8 @@ import java.util.Map;
  * A reference to a classification scheme
  */
 @ApiModel(description = "A reference to a classification scheme")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-31T14:49:57.094851+01:00[Europe/Copenhagen]")
-public class ClassificationSchemeRef {
-  public static final String SERIALIZED_NAME_UUID = "uuid";
-  @SerializedName(SERIALIZED_NAME_UUID)
-  private String uuid;
-
-  public static final String SERIALIZED_NAME_SYSTEM_NAME = "systemName";
-  @SerializedName(SERIALIZED_NAME_SYSTEM_NAME)
-  private String systemName;
-
-  public static final String SERIALIZED_NAME_LINK = "link";
-  @SerializedName(SERIALIZED_NAME_LINK)
-  private NavigationLink link;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private Map<String, String> name = null;
-
-
-  public ClassificationSchemeRef uuid(String uuid) {
-    
-    this.uuid = uuid;
-    return this;
-  }
-
-   /**
-   * UUID of the referred content
-   * @return uuid
-  **/
-  @ApiModelProperty(required = true, value = "UUID of the referred content")
-
-  public String getUuid() {
-    return uuid;
-  }
-
-
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
-  }
-
-
-  public ClassificationSchemeRef systemName(String systemName) {
-    
-    this.systemName = systemName;
-    return this;
-  }
-
-   /**
-   * The system name of the content
-   * @return systemName
-  **/
-  @ApiModelProperty(required = true, value = "The system name of the content")
-
-  public String getSystemName() {
-    return systemName;
-  }
-
-
-  public void setSystemName(String systemName) {
-    this.systemName = systemName;
-  }
-
-
-  public ClassificationSchemeRef link(NavigationLink link) {
-    
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Get link
-   * @return link
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public NavigationLink getLink() {
-    return link;
-  }
-
-
-  public void setLink(NavigationLink link) {
-    this.link = link;
-  }
-
-
-  public ClassificationSchemeRef name(Map<String, String> name) {
-    
-    this.name = name;
-    return this;
-  }
-
-  public ClassificationSchemeRef putNameItem(String key, String nameItem) {
-    if (this.name == null) {
-      this.name = new HashMap<String, String>();
-    }
-    this.name.put(key, nameItem);
-    return this;
-  }
-
-   /**
-   * A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.")
-
-  public Map<String, String> getName() {
-    return name;
-  }
-
-
-  public void setName(Map<String, String> name) {
-    this.name = name;
-  }
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+public class ClassificationSchemeRef extends ContentRef {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -157,16 +36,12 @@ public class ClassificationSchemeRef {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ClassificationSchemeRef classificationSchemeRef = (ClassificationSchemeRef) o;
-    return Objects.equals(this.uuid, classificationSchemeRef.uuid) &&
-        Objects.equals(this.systemName, classificationSchemeRef.systemName) &&
-        Objects.equals(this.link, classificationSchemeRef.link) &&
-        Objects.equals(this.name, classificationSchemeRef.name);
+    return super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, systemName, link, name);
+    return Objects.hash(super.hashCode());
   }
 
 
@@ -174,10 +49,7 @@ public class ClassificationSchemeRef {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClassificationSchemeRef {\n");
-    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
-    sb.append("    systemName: ").append(toIndentedString(systemName)).append("\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

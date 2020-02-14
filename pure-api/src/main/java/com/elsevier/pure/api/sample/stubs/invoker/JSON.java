@@ -70,7 +70,6 @@ public class JSON {
                     @Override
                     public Class getClassForElement(JsonElement readElement) {
                         Map classByDiscriminatorValue = new HashMap();
-                        classByDiscriminatorValue.put("PureId".toUpperCase(Locale.ROOT), PureId.class);
                         classByDiscriminatorValue.put("ClassifiedId".toUpperCase(Locale.ROOT), ClassifiedId.class);
                         classByDiscriminatorValue.put("Id".toUpperCase(Locale.ROOT), Id.class);
                         classByDiscriminatorValue.put("Identifier".toUpperCase(Locale.ROOT), Identifier.class);
