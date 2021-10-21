@@ -41,16 +41,16 @@ public class TestUserApi extends TestCase {
     }
 
     /**
-     * Test case that fetches all users from the configured Pure instance
+     * Test case that get all users from the configured Pure instance
      */
-    public void testFetch() throws ApiException {
+    public void testGet() throws ApiException {
+        System.out.println("\nGET users: ");
         final UserListResult response = userApi.list(10, 0, "modified");
-        System.out.println("Count: " + response.getCount());
 
-        if (response.getItems() != null) {
-            for (User user : response.getItems()) {
-                System.out.println(user.getUsername());
-            }
+        if (response != null) {
+            System.out.println(response.getCount() + " users found!");
+        } else {
+            fail("No response from the user endpoint!");
         }
     }
 
@@ -61,6 +61,8 @@ public class TestUserApi extends TestCase {
         User user = new User();
         user.setUsername("user-" + UUID.randomUUID());
         user.setEmail(UUID.randomUUID() + "@somebogusdomain.com");
+
+        System.out.println("\nCREATE user: ");
         final User userResponse = userApi.create(user);
 
         if (userResponse != null) {
@@ -77,16 +79,20 @@ public class TestUserApi extends TestCase {
         User user = new User();
         user.setUsername("user-" + UUID.randomUUID());
         user.setEmail(UUID.randomUUID() + "@somebogusdomain.com");
+
+        System.out.println("\nCREATE user: ");
         final User userCreateResponse = userApi.create(user);
 
         if (userCreateResponse != null) {
             System.out.println("User '" + userCreateResponse.getUsername() + "' was successfully created");
             userUuids.add(userCreateResponse.getUuid());
         } else {
-            System.out.println("response is null");
+            fail("response is null");
         }
         user.setUsername("user-" + UUID.randomUUID());
         user.setEmail(UUID.randomUUID() + "@somebogusdomain.com");
+
+        System.out.println("\nUPDATE user: ");
         final User userUpdateResponse = userApi.update(userCreateResponse.getUuid(), user);
 
         if (userUpdateResponse != null) {
@@ -94,7 +100,7 @@ public class TestUserApi extends TestCase {
             System.out.println("Old username '" + userCreateResponse.getUsername() + "'. New username '" + userUpdateResponse.getUsername() + "'");
             System.out.println("Old email '" + userCreateResponse.getEmail() + "'. New email '" + userUpdateResponse.getEmail() + "'");
         } else {
-            System.out.println("response is null");
+            fail("response is null");
         }
     }
 
@@ -105,6 +111,8 @@ public class TestUserApi extends TestCase {
         User user = new User();
         user.setUsername("user-" + UUID.randomUUID());
         user.setEmail(UUID.randomUUID() + "@somebogusdomain.com");
+
+        System.out.println("\nCREATE user: ");
         final User userCreateResponse = userApi.create(user);
 
         if (userCreateResponse != null) {
@@ -113,7 +121,13 @@ public class TestUserApi extends TestCase {
             fail("User was not created!");
         }
 
-        userApi.delete(userCreateResponse.getUuid());
+        System.out.println("\nDELETE user: ");
+        try {
+            userApi.delete(userCreateResponse.getUuid());
+            System.out.println("user with UUID '" + userCreateResponse.getUuid() + "' was deleted");
+        } catch (ApiException ex) {
+            fail("Exception occurred when trying to delete user with UUID '" + userCreateResponse.getUuid() + "'");
+        }
 
         try {
             userApi.get(userCreateResponse.getUuid());
@@ -134,6 +148,8 @@ public class TestUserApi extends TestCase {
         User user = new User();
         user.setUsername("user-" + UUID.randomUUID());
         user.setEmail(UUID.randomUUID() + "@somebogusdomain.com");
+
+        System.out.println("\nCREATE user: ");
         final User userCreateResponse = userApi.create(user);
 
         if (userCreateResponse != null) {
@@ -144,6 +160,7 @@ public class TestUserApi extends TestCase {
         }
 
         Organization organization = getOrganization();
+        System.out.println("\nCREATE organization: ");
         Organization organisationCreateResponse = organizationApi.create(organization);
 
         if (organisationCreateResponse != null) {
@@ -159,6 +176,7 @@ public class TestUserApi extends TestCase {
         StaffOrganizationAssociation staffOrgAssociation = getStaffOrganizationAssociation(organisationCreateResponse);
         person.setStaffOrganizationAssociations(Collections.singletonList(staffOrgAssociation));
 
+        System.out.println("\nCREATE person: ");
         Person personCreateResponse = personApi.create(person);
 
         if (personCreateResponse != null) {
