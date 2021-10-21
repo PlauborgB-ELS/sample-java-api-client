@@ -128,7 +128,7 @@ public class TestUserApi extends TestCase {
     }
 
     /**
-     * Test case that creates a new user, then deletes same user, in the configured Pure instance
+     * Test case that creates a new user, then creates a person with user attached, in the configured Pure instance
      */
     public void testCreateUserAndAttachToPerson() throws ApiException {
         User user = new User();
