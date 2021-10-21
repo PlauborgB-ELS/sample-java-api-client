@@ -130,11 +130,11 @@ public class OrganizationTest {
     }
 
     /**
-     * Test the property 'externallyManaged'
+     * Test the property 'version'
      */
     @Test
-    public void externallyManagedTest() {
-        // TODO: test externallyManaged
+    public void versionTest() {
+        // TODO: test version
     }
 
     /**
@@ -274,11 +274,11 @@ public class OrganizationTest {
     }
 
     /**
-     * Test the property 'family'
+     * Test the property 'systemName'
      */
     @Test
-    public void familyTest() {
-        // TODO: test family
+    public void systemNameTest() {
+        // TODO: test systemName
     }
 
 }

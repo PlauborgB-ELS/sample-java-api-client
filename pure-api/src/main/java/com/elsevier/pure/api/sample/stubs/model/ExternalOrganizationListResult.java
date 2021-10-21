@@ -16,7 +16,6 @@ package com.elsevier.pure.api.sample.stubs.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganization;
-import com.elsevier.pure.api.sample.stubs.model.NavigationLink;
 import com.elsevier.pure.api.sample.stubs.model.PageInformation;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -33,7 +32,7 @@ import java.util.List;
  * List of organizations external to the institution. Can contain a subset of all items along with the full count
  */
 @ApiModel(description = "List of organizations external to the institution. Can contain a subset of all items along with the full count")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class ExternalOrganizationListResult {
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
@@ -42,10 +41,6 @@ public class ExternalOrganizationListResult {
   public static final String SERIALIZED_NAME_PAGE_INFORMATION = "pageInformation";
   @SerializedName(SERIALIZED_NAME_PAGE_INFORMATION)
   private PageInformation pageInformation;
-
-  public static final String SERIALIZED_NAME_NAVIGATION_LINKS = "navigationLinks";
-  @SerializedName(SERIALIZED_NAME_NAVIGATION_LINKS)
-  private List<NavigationLink> navigationLinks = null;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
@@ -98,37 +93,6 @@ public class ExternalOrganizationListResult {
   }
 
 
-  public ExternalOrganizationListResult navigationLinks(List<NavigationLink> navigationLinks) {
-    
-    this.navigationLinks = navigationLinks;
-    return this;
-  }
-
-  public ExternalOrganizationListResult addNavigationLinksItem(NavigationLink navigationLinksItem) {
-    if (this.navigationLinks == null) {
-      this.navigationLinks = new ArrayList<NavigationLink>();
-    }
-    this.navigationLinks.add(navigationLinksItem);
-    return this;
-  }
-
-   /**
-   * Links to navigate from this result. Such as a &#39;prev&#39; link to link to the previous page of items
-   * @return navigationLinks
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Links to navigate from this result. Such as a 'prev' link to link to the previous page of items")
-
-  public List<NavigationLink> getNavigationLinks() {
-    return navigationLinks;
-  }
-
-
-  public void setNavigationLinks(List<NavigationLink> navigationLinks) {
-    this.navigationLinks = navigationLinks;
-  }
-
-
   public ExternalOrganizationListResult items(List<ExternalOrganization> items) {
     
     this.items = items;
@@ -171,13 +135,12 @@ public class ExternalOrganizationListResult {
     ExternalOrganizationListResult externalOrganizationListResult = (ExternalOrganizationListResult) o;
     return Objects.equals(this.count, externalOrganizationListResult.count) &&
         Objects.equals(this.pageInformation, externalOrganizationListResult.pageInformation) &&
-        Objects.equals(this.navigationLinks, externalOrganizationListResult.navigationLinks) &&
         Objects.equals(this.items, externalOrganizationListResult.items);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, pageInformation, navigationLinks, items);
+    return Objects.hash(count, pageInformation, items);
   }
 
 
@@ -187,7 +150,6 @@ public class ExternalOrganizationListResult {
     sb.append("class ExternalOrganizationListResult {\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    pageInformation: ").append(toIndentedString(pageInformation)).append("\n");
-    sb.append("    navigationLinks: ").append(toIndentedString(navigationLinks)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();

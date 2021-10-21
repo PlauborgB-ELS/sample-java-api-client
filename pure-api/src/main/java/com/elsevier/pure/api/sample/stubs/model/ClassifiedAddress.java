@@ -30,7 +30,7 @@ import java.io.IOException;
  * A physical address
  */
 @ApiModel(description = "A physical address")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class ClassifiedAddress {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -72,17 +72,13 @@ public class ClassifiedAddress {
   @SerializedName(SERIALIZED_NAME_GEO_LOCATION)
   private GeoLocation geoLocation;
 
-  public static final String SERIALIZED_NAME_SUBDIVISIONS = "subdivisions";
-  @SerializedName(SERIALIZED_NAME_SUBDIVISIONS)
-  private ClassificationRef subdivisions;
-
 
    /**
-   * Pure database ID of the object
+   * Pure database ID of the object, prefer using the UUID if it is present on the entity
    * @return pureId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pure database ID of the object")
+  @ApiModelProperty(value = "Pure database ID of the object, prefer using the UUID if it is present on the entity")
 
   public Long getPureId() {
     return pureId;
@@ -121,11 +117,11 @@ public class ClassifiedAddress {
   }
 
    /**
-   * Get addressLines
+   * Address for personal residence
    * @return addressLines
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Address for personal residence")
 
   public String getAddressLines() {
     return addressLines;
@@ -144,11 +140,11 @@ public class ClassifiedAddress {
   }
 
    /**
-   * Get street
+   * The name of the street
    * @return street
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the street")
 
   public String getStreet() {
     return street;
@@ -167,11 +163,11 @@ public class ClassifiedAddress {
   }
 
    /**
-   * Get building
+   * The name of the building
    * @return building
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the building")
 
   public String getBuilding() {
     return building;
@@ -190,11 +186,11 @@ public class ClassifiedAddress {
   }
 
    /**
-   * Get postalcode
+   * The postal code of the city
    * @return postalcode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The postal code of the city")
 
   public String getPostalcode() {
     return postalcode;
@@ -213,11 +209,11 @@ public class ClassifiedAddress {
   }
 
    /**
-   * Get city
+   * The name of the city
    * @return city
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the city")
 
   public String getCity() {
     return city;
@@ -298,29 +294,6 @@ public class ClassifiedAddress {
   }
 
 
-  public ClassifiedAddress subdivisions(ClassificationRef subdivisions) {
-    
-    this.subdivisions = subdivisions;
-    return this;
-  }
-
-   /**
-   * Get subdivisions
-   * @return subdivisions
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ClassificationRef getSubdivisions() {
-    return subdivisions;
-  }
-
-
-  public void setSubdivisions(ClassificationRef subdivisions) {
-    this.subdivisions = subdivisions;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -339,13 +312,12 @@ public class ClassifiedAddress {
         Objects.equals(this.city, classifiedAddress.city) &&
         Objects.equals(this.country, classifiedAddress.country) &&
         Objects.equals(this.subdivision, classifiedAddress.subdivision) &&
-        Objects.equals(this.geoLocation, classifiedAddress.geoLocation) &&
-        Objects.equals(this.subdivisions, classifiedAddress.subdivisions);
+        Objects.equals(this.geoLocation, classifiedAddress.geoLocation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pureId, addressType, addressLines, street, building, postalcode, city, country, subdivision, geoLocation, subdivisions);
+    return Objects.hash(pureId, addressType, addressLines, street, building, postalcode, city, country, subdivision, geoLocation);
   }
 
 
@@ -363,7 +335,6 @@ public class ClassifiedAddress {
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    subdivision: ").append(toIndentedString(subdivision)).append("\n");
     sb.append("    geoLocation: ").append(toIndentedString(geoLocation)).append("\n");
-    sb.append("    subdivisions: ").append(toIndentedString(subdivisions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

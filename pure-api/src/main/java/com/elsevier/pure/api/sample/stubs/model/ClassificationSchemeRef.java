@@ -15,18 +15,50 @@ package com.elsevier.pure.api.sample.stubs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.elsevier.pure.api.sample.stubs.model.ClassificationSchemeRefAllOf;
 import com.elsevier.pure.api.sample.stubs.model.ContentRef;
-import com.elsevier.pure.api.sample.stubs.model.NavigationLink;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
-import java.util.List;
-import java.util.Map;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.UUID;
 
 /**
  * A reference to a classification scheme
  */
 @ApiModel(description = "A reference to a classification scheme")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class ClassificationSchemeRef extends ContentRef {
+  public static final String SERIALIZED_NAME_BASE_URI = "baseUri";
+  @SerializedName(SERIALIZED_NAME_BASE_URI)
+  private String baseUri;
+
+
+  public ClassificationSchemeRef baseUri(String baseUri) {
+    
+    this.baseUri = baseUri;
+    return this;
+  }
+
+   /**
+   * Classification scheme base URI
+   * @return baseUri
+  **/
+  @ApiModelProperty(required = true, value = "Classification scheme base URI")
+
+  public String getBaseUri() {
+    return baseUri;
+  }
+
+
+  public void setBaseUri(String baseUri) {
+    this.baseUri = baseUri;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -36,12 +68,14 @@ public class ClassificationSchemeRef extends ContentRef {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return super.equals(o);
+    ClassificationSchemeRef classificationSchemeRef = (ClassificationSchemeRef) o;
+    return Objects.equals(this.baseUri, classificationSchemeRef.baseUri) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode());
+    return Objects.hash(baseUri, super.hashCode());
   }
 
 
@@ -50,6 +84,7 @@ public class ClassificationSchemeRef extends ContentRef {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClassificationSchemeRef {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    baseUri: ").append(toIndentedString(baseUri)).append("\n");
     sb.append("}");
     return sb.toString();
   }

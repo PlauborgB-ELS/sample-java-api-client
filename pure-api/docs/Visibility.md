@@ -8,7 +8,7 @@ Visibility of an object
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **key** | [**KeyEnum**](#KeyEnum) | Visibility value | 
-**description** | **Map&lt;String, String&gt;** | A set of localized string values each for a specific UI locale. |  [optional] [readonly]
+**description** | **Map&lt;String, String&gt;** | A set of localized string values each for a specific UI locale. |  [optional]
 
 
 
@@ -19,6 +19,7 @@ Name | Value
 FREE | &quot;FREE&quot;
 CAMPUS | &quot;CAMPUS&quot;
 BACKEND | &quot;BACKEND&quot;
+CONFIDENTIAL | &quot;CONFIDENTIAL&quot;
 
 
 

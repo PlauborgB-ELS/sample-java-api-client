@@ -28,13 +28,18 @@ import java.io.IOException;
 
 
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRefList;
+import com.elsevier.pure.api.sample.stubs.model.ContentRefListResult;
 import java.io.File;
 import com.elsevier.pure.api.sample.stubs.model.KeywordGroupConfigurationList;
+import com.elsevier.pure.api.sample.stubs.model.LocalesList;
+import com.elsevier.pure.api.sample.stubs.model.Note;
+import com.elsevier.pure.api.sample.stubs.model.NoteListResult;
 import com.elsevier.pure.api.sample.stubs.model.OrderingsList;
 import com.elsevier.pure.api.sample.stubs.model.Organization;
 import com.elsevier.pure.api.sample.stubs.model.OrganizationListResult;
 import com.elsevier.pure.api.sample.stubs.model.OrganizationsQuery;
 import com.elsevier.pure.api.sample.stubs.model.ProblemDetails;
+import java.util.UUID;
 import com.elsevier.pure.api.sample.stubs.model.UploadedFile;
 
 import java.lang.reflect.Type;
@@ -177,6 +182,130 @@ public class OrganizationApi {
         return localVarCall;
     }
     /**
+     * Build call for createNote
+     * @param uuid UUID of the organization to add note to (required)
+     * @param note The note to create (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createNoteCall(UUID uuid, Note note, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = note;
+
+        // create path and map variables
+        String localVarPath = "/organizations/{uuid}/notes"
+            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json", "application/problem+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createNoteValidateBeforeCall(UUID uuid, Note note, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'uuid' is set
+        if (uuid == null) {
+            throw new ApiException("Missing the required parameter 'uuid' when calling createNote(Async)");
+        }
+        
+        // verify the required parameter 'note' is set
+        if (note == null) {
+            throw new ApiException("Missing the required parameter 'note' when calling createNote(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createNoteCall(uuid, note, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create note
+     * Create note and associate it with an organization
+     * @param uuid UUID of the organization to add note to (required)
+     * @param note The note to create (required)
+     * @return Note
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     </table>
+     */
+    public Note createNote(UUID uuid, Note note) throws ApiException {
+        ApiResponse<Note> localVarResp = createNoteWithHttpInfo(uuid, note);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create note
+     * Create note and associate it with an organization
+     * @param uuid UUID of the organization to add note to (required)
+     * @param note The note to create (required)
+     * @return ApiResponse&lt;Note&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Note> createNoteWithHttpInfo(UUID uuid, Note note) throws ApiException {
+        okhttp3.Call localVarCall = createNoteValidateBeforeCall(uuid, note, null);
+        Type localVarReturnType = new TypeToken<Note>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create note (asynchronously)
+     * Create note and associate it with an organization
+     * @param uuid UUID of the organization to add note to (required)
+     * @param note The note to create (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createNoteAsync(UUID uuid, Note note, final ApiCallback<Note> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createNoteValidateBeforeCall(uuid, note, _callback);
+        Type localVarReturnType = new TypeToken<Note>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for delete
      * @param uuid UUID of the organization (required)
      * @param _callback Callback for upload/download progress
@@ -189,7 +318,7 @@ public class OrganizationApi {
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCall(String uuid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCall(UUID uuid, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -220,7 +349,7 @@ public class OrganizationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteValidateBeforeCall(String uuid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteValidateBeforeCall(UUID uuid, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
@@ -245,7 +374,7 @@ public class OrganizationApi {
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
-    public void delete(String uuid) throws ApiException {
+    public void delete(UUID uuid) throws ApiException {
         deleteWithHttpInfo(uuid);
     }
 
@@ -262,7 +391,7 @@ public class OrganizationApi {
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteWithHttpInfo(String uuid) throws ApiException {
+    public ApiResponse<Void> deleteWithHttpInfo(UUID uuid) throws ApiException {
         okhttp3.Call localVarCall = deleteValidateBeforeCall(uuid, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -281,16 +410,16 @@ public class OrganizationApi {
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAsync(String uuid, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteAsync(UUID uuid, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteValidateBeforeCall(uuid, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
-     * Build call for file
+     * Build call for dependents
      * @param uuid UUID of the organization (required)
-     * @param fileid File id  (required)
+     * @param verbose Default: false. Setting this to true will add links and names to the output but will also have an impact on performance. Use with coution. (optional, default to false)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -300,21 +429,24 @@ public class OrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call fileCall(String uuid, Long fileid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call dependentsCall(UUID uuid, Boolean verbose, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/organizations/{uuid}/file/{fileid}"
-            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()))
-            .replaceAll("\\{" + "fileid" + "\\}", localVarApiClient.escapeString(fileid.toString()));
+        String localVarPath = "/organizations/{uuid}/dependents"
+            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (verbose != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("verbose", verbose));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "*/*"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -332,30 +464,25 @@ public class OrganizationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call fileValidateBeforeCall(String uuid, Long fileid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call dependentsValidateBeforeCall(UUID uuid, Boolean verbose, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
-            throw new ApiException("Missing the required parameter 'uuid' when calling file(Async)");
-        }
-        
-        // verify the required parameter 'fileid' is set
-        if (fileid == null) {
-            throw new ApiException("Missing the required parameter 'fileid' when calling file(Async)");
+            throw new ApiException("Missing the required parameter 'uuid' when calling dependents(Async)");
         }
         
 
-        okhttp3.Call localVarCall = fileCall(uuid, fileid, _callback);
+        okhttp3.Call localVarCall = dependentsCall(uuid, verbose, _callback);
         return localVarCall;
 
     }
 
     /**
-     * Get file from the organization
-     * Get file from the organization
+     * Lists all dependents to the organization
+     * Lists all dependents to the organization with the specified UUID. If the user dont have access to view all the dependent content, an authorization error will be thrown. 
      * @param uuid UUID of the organization (required)
-     * @param fileid File id  (required)
-     * @return File
+     * @param verbose Default: false. Setting this to true will add links and names to the output but will also have an impact on performance. Use with coution. (optional, default to false)
+     * @return ContentRefListResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -363,17 +490,17 @@ public class OrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public File file(String uuid, Long fileid) throws ApiException {
-        ApiResponse<File> localVarResp = fileWithHttpInfo(uuid, fileid);
+    public ContentRefListResult dependents(UUID uuid, Boolean verbose) throws ApiException {
+        ApiResponse<ContentRefListResult> localVarResp = dependentsWithHttpInfo(uuid, verbose);
         return localVarResp.getData();
     }
 
     /**
-     * Get file from the organization
-     * Get file from the organization
+     * Lists all dependents to the organization
+     * Lists all dependents to the organization with the specified UUID. If the user dont have access to view all the dependent content, an authorization error will be thrown. 
      * @param uuid UUID of the organization (required)
-     * @param fileid File id  (required)
-     * @return ApiResponse&lt;File&gt;
+     * @param verbose Default: false. Setting this to true will add links and names to the output but will also have an impact on performance. Use with coution. (optional, default to false)
+     * @return ApiResponse&lt;ContentRefListResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -381,17 +508,17 @@ public class OrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<File> fileWithHttpInfo(String uuid, Long fileid) throws ApiException {
-        okhttp3.Call localVarCall = fileValidateBeforeCall(uuid, fileid, null);
-        Type localVarReturnType = new TypeToken<File>(){}.getType();
+    public ApiResponse<ContentRefListResult> dependentsWithHttpInfo(UUID uuid, Boolean verbose) throws ApiException {
+        okhttp3.Call localVarCall = dependentsValidateBeforeCall(uuid, verbose, null);
+        Type localVarReturnType = new TypeToken<ContentRefListResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Get file from the organization (asynchronously)
-     * Get file from the organization
+     * Lists all dependents to the organization (asynchronously)
+     * Lists all dependents to the organization with the specified UUID. If the user dont have access to view all the dependent content, an authorization error will be thrown. 
      * @param uuid UUID of the organization (required)
-     * @param fileid File id  (required)
+     * @param verbose Default: false. Setting this to true will add links and names to the output but will also have an impact on performance. Use with coution. (optional, default to false)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -401,10 +528,128 @@ public class OrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call fileAsync(String uuid, Long fileid, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call dependentsAsync(UUID uuid, Boolean verbose, final ApiCallback<ContentRefListResult> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = fileValidateBeforeCall(uuid, fileid, _callback);
-        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        okhttp3.Call localVarCall = dependentsValidateBeforeCall(uuid, verbose, _callback);
+        Type localVarReturnType = new TypeToken<ContentRefListResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for fileUploads
+     * @param body  (required)
+     * @param contentType Set the mime type for the file (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 0 </td><td> default response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fileUploadsCall(File body, String contentType, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/organizations/file-uploads";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (contentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarApiClient.parameterToString(contentType));
+        }
+
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json", "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call fileUploadsValidateBeforeCall(File body, String contentType, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling fileUploads(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = fileUploadsCall(body, contentType, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Upload file to a specific organization
+     * Uploads file for the organization
+     * @param body  (required)
+     * @param contentType Set the mime type for the file (optional)
+     * @return UploadedFile
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 0 </td><td> default response </td><td>  -  </td></tr>
+     </table>
+     */
+    public UploadedFile fileUploads(File body, String contentType) throws ApiException {
+        ApiResponse<UploadedFile> localVarResp = fileUploadsWithHttpInfo(body, contentType);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Upload file to a specific organization
+     * Uploads file for the organization
+     * @param body  (required)
+     * @param contentType Set the mime type for the file (optional)
+     * @return ApiResponse&lt;UploadedFile&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 0 </td><td> default response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UploadedFile> fileUploadsWithHttpInfo(File body, String contentType) throws ApiException {
+        okhttp3.Call localVarCall = fileUploadsValidateBeforeCall(body, contentType, null);
+        Type localVarReturnType = new TypeToken<UploadedFile>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Upload file to a specific organization (asynchronously)
+     * Uploads file for the organization
+     * @param body  (required)
+     * @param contentType Set the mime type for the file (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 0 </td><td> default response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fileUploadsAsync(File body, String contentType, final ApiCallback<UploadedFile> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = fileUploadsValidateBeforeCall(body, contentType, _callback);
+        Type localVarReturnType = new TypeToken<UploadedFile>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -422,7 +667,7 @@ public class OrganizationApi {
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCall(String uuid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCall(UUID uuid, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -453,7 +698,7 @@ public class OrganizationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getValidateBeforeCall(String uuid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getValidateBeforeCall(UUID uuid, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
@@ -468,7 +713,7 @@ public class OrganizationApi {
 
     /**
      * Get organization
-     * Get external with specific UUID.
+     * Get organization with specific UUID.
      * @param uuid UUID of the desired organization (required)
      * @return Organization
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -480,14 +725,14 @@ public class OrganizationApi {
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
-    public Organization get(String uuid) throws ApiException {
+    public Organization get(UUID uuid) throws ApiException {
         ApiResponse<Organization> localVarResp = getWithHttpInfo(uuid);
         return localVarResp.getData();
     }
 
     /**
      * Get organization
-     * Get external with specific UUID.
+     * Get organization with specific UUID.
      * @param uuid UUID of the desired organization (required)
      * @return ApiResponse&lt;Organization&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -499,7 +744,7 @@ public class OrganizationApi {
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Organization> getWithHttpInfo(String uuid) throws ApiException {
+    public ApiResponse<Organization> getWithHttpInfo(UUID uuid) throws ApiException {
         okhttp3.Call localVarCall = getValidateBeforeCall(uuid, null);
         Type localVarReturnType = new TypeToken<Organization>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -507,7 +752,7 @@ public class OrganizationApi {
 
     /**
      * Get organization (asynchronously)
-     * Get external with specific UUID.
+     * Get organization with specific UUID.
      * @param uuid UUID of the desired organization (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -520,7 +765,7 @@ public class OrganizationApi {
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAsync(String uuid, final ApiCallback<Organization> _callback) throws ApiException {
+    public okhttp3.Call getAsync(UUID uuid, final ApiCallback<Organization> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getValidateBeforeCall(uuid, _callback);
         Type localVarReturnType = new TypeToken<Organization>(){}.getType();
@@ -1033,6 +1278,208 @@ public class OrganizationApi {
         return localVarCall;
     }
     /**
+     * Build call for getAllowedCostCenters
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedCostCentersCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/organizations/allowed-cost-centers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAllowedCostCentersValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = getAllowedCostCentersCall(_callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * A list of allowed cost centers
+     * Get a list of allowed cost centers that can be used for the &#39;costCenters&#39; attribute of organizations
+     * @return ClassificationRefList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ClassificationRefList getAllowedCostCenters() throws ApiException {
+        ApiResponse<ClassificationRefList> localVarResp = getAllowedCostCentersWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * A list of allowed cost centers
+     * Get a list of allowed cost centers that can be used for the &#39;costCenters&#39; attribute of organizations
+     * @return ApiResponse&lt;ClassificationRefList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ClassificationRefList> getAllowedCostCentersWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getAllowedCostCentersValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * A list of allowed cost centers (asynchronously)
+     * Get a list of allowed cost centers that can be used for the &#39;costCenters&#39; attribute of organizations
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedCostCentersAsync(final ApiCallback<ClassificationRefList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAllowedCostCentersValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getAllowedEmailTypes
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedEmailTypesCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/organizations/allowed-email-types";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAllowedEmailTypesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = getAllowedEmailTypesCall(_callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * A list of allowed e-mail types
+     * Get a list of allowed e-mail types that can be used for the &#39;emails.type&#39; attribute of organizations
+     * @return ClassificationRefList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ClassificationRefList getAllowedEmailTypes() throws ApiException {
+        ApiResponse<ClassificationRefList> localVarResp = getAllowedEmailTypesWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * A list of allowed e-mail types
+     * Get a list of allowed e-mail types that can be used for the &#39;emails.type&#39; attribute of organizations
+     * @return ApiResponse&lt;ClassificationRefList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ClassificationRefList> getAllowedEmailTypesWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getAllowedEmailTypesValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * A list of allowed e-mail types (asynchronously)
+     * Get a list of allowed e-mail types that can be used for the &#39;emails.type&#39; attribute of organizations
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedEmailTypesAsync(final ApiCallback<ClassificationRefList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAllowedEmailTypesValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getAllowedKeywordGroupConfigurationClassifications
      * @param id Pure id of the keyword group configuration (required)
      * @param _callback Callback for upload/download progress
@@ -1245,7 +1692,7 @@ public class OrganizationApi {
         return localVarCall;
     }
     /**
-     * Build call for getAllowedLinkTypes
+     * Build call for getAllowedLocales
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1255,11 +1702,11 @@ public class OrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllowedLinkTypesCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAllowedLocalesCall(final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/organizations/allowed-email-types";
+        String localVarPath = "/organizations/allowed-locales";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1285,18 +1732,18 @@ public class OrganizationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAllowedLinkTypesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAllowedLocalesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = getAllowedLinkTypesCall(_callback);
+        okhttp3.Call localVarCall = getAllowedLocalesCall(_callback);
         return localVarCall;
 
     }
 
     /**
-     * A list of allowed e-mail types
-     * Get a list of allowed e-mail types that can be used for the &#39;links.linkType&#39; attribute of organizations
-     * @return ClassificationRefList
+     * A list of allowed locales in localized strings
+     * Get a list of allowed locales that can be used when submitting localized string entities.
+     * @return LocalesList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1304,15 +1751,15 @@ public class OrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ClassificationRefList getAllowedLinkTypes() throws ApiException {
-        ApiResponse<ClassificationRefList> localVarResp = getAllowedLinkTypesWithHttpInfo();
+    public LocalesList getAllowedLocales() throws ApiException {
+        ApiResponse<LocalesList> localVarResp = getAllowedLocalesWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
-     * A list of allowed e-mail types
-     * Get a list of allowed e-mail types that can be used for the &#39;links.linkType&#39; attribute of organizations
-     * @return ApiResponse&lt;ClassificationRefList&gt;
+     * A list of allowed locales in localized strings
+     * Get a list of allowed locales that can be used when submitting localized string entities.
+     * @return ApiResponse&lt;LocalesList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1320,15 +1767,15 @@ public class OrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ClassificationRefList> getAllowedLinkTypesWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getAllowedLinkTypesValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
+    public ApiResponse<LocalesList> getAllowedLocalesWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getAllowedLocalesValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<LocalesList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * A list of allowed e-mail types (asynchronously)
-     * Get a list of allowed e-mail types that can be used for the &#39;links.linkType&#39; attribute of organizations
+     * A list of allowed locales in localized strings (asynchronously)
+     * Get a list of allowed locales that can be used when submitting localized string entities.
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1338,10 +1785,10 @@ public class OrganizationApi {
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllowedLinkTypesAsync(final ApiCallback<ClassificationRefList> _callback) throws ApiException {
+    public okhttp3.Call getAllowedLocalesAsync(final ApiCallback<LocalesList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAllowedLinkTypesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
+        okhttp3.Call localVarCall = getAllowedLocalesValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<LocalesList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1442,107 +1889,6 @@ public class OrganizationApi {
     public okhttp3.Call getAllowedNameVariantTypesAsync(final ApiCallback<ClassificationRefList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAllowedNameVariantTypesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getAllowedNatureTypes
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getAllowedNatureTypesCall(final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/organizations/allowed-cost-centers";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] { "api-key" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAllowedNatureTypesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = getAllowedNatureTypesCall(_callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * A list of allowed cost centers
-     * Get a list of allowed cost centers that can be used for the &#39;costCenters&#39; attribute of organizations
-     * @return ClassificationRefList
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-     </table>
-     */
-    public ClassificationRefList getAllowedNatureTypes() throws ApiException {
-        ApiResponse<ClassificationRefList> localVarResp = getAllowedNatureTypesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * A list of allowed cost centers
-     * Get a list of allowed cost centers that can be used for the &#39;costCenters&#39; attribute of organizations
-     * @return ApiResponse&lt;ClassificationRefList&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ClassificationRefList> getAllowedNatureTypesWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getAllowedNatureTypesValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * A list of allowed cost centers (asynchronously)
-     * Get a list of allowed cost centers that can be used for the &#39;costCenters&#39; attribute of organizations
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getAllowedNatureTypesAsync(final ApiCallback<ClassificationRefList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getAllowedNatureTypesValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<ClassificationRefList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2053,6 +2399,127 @@ public class OrganizationApi {
         return localVarCall;
     }
     /**
+     * Build call for getFile
+     * @param uuid UUID of the organization (required)
+     * @param fileId Id of the file (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFileCall(UUID uuid, String fileId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/organizations/{uuid}/files/{fileId}"
+            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()))
+            .replaceAll("\\{" + "fileId" + "\\}", localVarApiClient.escapeString(fileId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFileValidateBeforeCall(UUID uuid, String fileId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'uuid' is set
+        if (uuid == null) {
+            throw new ApiException("Missing the required parameter 'uuid' when calling getFile(Async)");
+        }
+        
+        // verify the required parameter 'fileId' is set
+        if (fileId == null) {
+            throw new ApiException("Missing the required parameter 'fileId' when calling getFile(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getFileCall(uuid, fileId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get file from the organization
+     * Get file from the organization
+     * @param uuid UUID of the organization (required)
+     * @param fileId Id of the file (required)
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public File getFile(UUID uuid, String fileId) throws ApiException {
+        ApiResponse<File> localVarResp = getFileWithHttpInfo(uuid, fileId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get file from the organization
+     * Get file from the organization
+     * @param uuid UUID of the organization (required)
+     * @param fileId Id of the file (required)
+     * @return ApiResponse&lt;File&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<File> getFileWithHttpInfo(UUID uuid, String fileId) throws ApiException {
+        okhttp3.Call localVarCall = getFileValidateBeforeCall(uuid, fileId, null);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get file from the organization (asynchronously)
+     * Get file from the organization
+     * @param uuid UUID of the organization (required)
+     * @param fileId Id of the file (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFileAsync(UUID uuid, String fileId, final ApiCallback<File> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getFileValidateBeforeCall(uuid, fileId, _callback);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getOrderings
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2157,7 +2624,7 @@ public class OrganizationApi {
      * Build call for list
      * @param size Number of returned organizations per request. (optional, default to 10)
      * @param offset The offset for the returned list. 0 or null value is from the start (optional, default to 0)
-     * @param order The order of the list, must be a value from getOrganizationOrderings (optional)
+     * @param order The order of the list, must be a value from organization_getOrderings (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2222,7 +2689,7 @@ public class OrganizationApi {
      * Lists all organizations in the Pure instance. If you need to filter the organizations returned, see the POST version which supports additional filtering.
      * @param size Number of returned organizations per request. (optional, default to 10)
      * @param offset The offset for the returned list. 0 or null value is from the start (optional, default to 0)
-     * @param order The order of the list, must be a value from getOrganizationOrderings (optional)
+     * @param order The order of the list, must be a value from organization_getOrderings (optional)
      * @return OrganizationListResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2241,7 +2708,7 @@ public class OrganizationApi {
      * Lists all organizations in the Pure instance. If you need to filter the organizations returned, see the POST version which supports additional filtering.
      * @param size Number of returned organizations per request. (optional, default to 10)
      * @param offset The offset for the returned list. 0 or null value is from the start (optional, default to 0)
-     * @param order The order of the list, must be a value from getOrganizationOrderings (optional)
+     * @param order The order of the list, must be a value from organization_getOrderings (optional)
      * @return ApiResponse&lt;OrganizationListResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2261,7 +2728,7 @@ public class OrganizationApi {
      * Lists all organizations in the Pure instance. If you need to filter the organizations returned, see the POST version which supports additional filtering.
      * @param size Number of returned organizations per request. (optional, default to 10)
      * @param offset The offset for the returned list. 0 or null value is from the start (optional, default to 0)
-     * @param order The order of the list, must be a value from getOrganizationOrderings (optional)
+     * @param order The order of the list, must be a value from organization_getOrderings (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2275,6 +2742,137 @@ public class OrganizationApi {
 
         okhttp3.Call localVarCall = listValidateBeforeCall(size, offset, order, _callback);
         Type localVarReturnType = new TypeToken<OrganizationListResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listNotes
+     * @param uuid UUID of the organization to get notes for (required)
+     * @param size Number of returned notes per request (optional, default to 10)
+     * @param offset The offset for the returned list. 0 or null value is from the start (optional, default to 0)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Organization not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listNotesCall(UUID uuid, Integer size, Integer offset, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/organizations/{uuid}/notes"
+            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (size != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json", "application/problem+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listNotesValidateBeforeCall(UUID uuid, Integer size, Integer offset, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'uuid' is set
+        if (uuid == null) {
+            throw new ApiException("Missing the required parameter 'uuid' when calling listNotes(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listNotesCall(uuid, size, offset, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Lists notes
+     * Lists notes associated with an organization ordered by date (nulls last)
+     * @param uuid UUID of the organization to get notes for (required)
+     * @param size Number of returned notes per request (optional, default to 10)
+     * @param offset The offset for the returned list. 0 or null value is from the start (optional, default to 0)
+     * @return NoteListResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Organization not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public NoteListResult listNotes(UUID uuid, Integer size, Integer offset) throws ApiException {
+        ApiResponse<NoteListResult> localVarResp = listNotesWithHttpInfo(uuid, size, offset);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Lists notes
+     * Lists notes associated with an organization ordered by date (nulls last)
+     * @param uuid UUID of the organization to get notes for (required)
+     * @param size Number of returned notes per request (optional, default to 10)
+     * @param offset The offset for the returned list. 0 or null value is from the start (optional, default to 0)
+     * @return ApiResponse&lt;NoteListResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Organization not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<NoteListResult> listNotesWithHttpInfo(UUID uuid, Integer size, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = listNotesValidateBeforeCall(uuid, size, offset, null);
+        Type localVarReturnType = new TypeToken<NoteListResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Lists notes (asynchronously)
+     * Lists notes associated with an organization ordered by date (nulls last)
+     * @param uuid UUID of the organization to get notes for (required)
+     * @param size Number of returned notes per request (optional, default to 10)
+     * @param offset The offset for the returned list. 0 or null value is from the start (optional, default to 0)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Organization not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listNotesAsync(UUID uuid, Integer size, Integer offset, final ApiCallback<NoteListResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listNotesValidateBeforeCall(uuid, size, offset, _callback);
+        Type localVarReturnType = new TypeToken<NoteListResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2407,7 +3005,7 @@ public class OrganizationApi {
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCall(String uuid, Organization organization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCall(UUID uuid, Organization organization, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = organization;
 
         // create path and map variables
@@ -2438,7 +3036,7 @@ public class OrganizationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateValidateBeforeCall(String uuid, Organization organization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateValidateBeforeCall(UUID uuid, Organization organization, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
@@ -2471,7 +3069,7 @@ public class OrganizationApi {
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
-    public Organization update(String uuid, Organization organization) throws ApiException {
+    public Organization update(UUID uuid, Organization organization) throws ApiException {
         ApiResponse<Organization> localVarResp = updateWithHttpInfo(uuid, organization);
         return localVarResp.getData();
     }
@@ -2491,7 +3089,7 @@ public class OrganizationApi {
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Organization> updateWithHttpInfo(String uuid, Organization organization) throws ApiException {
+    public ApiResponse<Organization> updateWithHttpInfo(UUID uuid, Organization organization) throws ApiException {
         okhttp3.Call localVarCall = updateValidateBeforeCall(uuid, organization, null);
         Type localVarReturnType = new TypeToken<Organization>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2513,138 +3111,10 @@ public class OrganizationApi {
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAsync(String uuid, Organization organization, final ApiCallback<Organization> _callback) throws ApiException {
+    public okhttp3.Call updateAsync(UUID uuid, Organization organization, final ApiCallback<Organization> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateValidateBeforeCall(uuid, organization, _callback);
         Type localVarReturnType = new TypeToken<Organization>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for uploadfile
-     * @param uuid Set the uuid for the content that the file belongs to (required)
-     * @param body  (required)
-     * @param contentType Set the mime type for the file (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 0 </td><td> default response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call uploadfileCall(String uuid, File body, String contentType, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = body;
-
-        // create path and map variables
-        String localVarPath = "/organizations/{uuid}/file"
-            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (contentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarApiClient.parameterToString(contentType));
-        }
-
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json", "application/xml"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] { "api-key" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadfileValidateBeforeCall(String uuid, File body, String contentType, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'uuid' is set
-        if (uuid == null) {
-            throw new ApiException("Missing the required parameter 'uuid' when calling uploadfile(Async)");
-        }
-        
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling uploadfile(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = uploadfileCall(uuid, body, contentType, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * Upload file to a specific organization
-     * Uploads file for the organization
-     * @param uuid Set the uuid for the content that the file belongs to (required)
-     * @param body  (required)
-     * @param contentType Set the mime type for the file (optional)
-     * @return UploadedFile
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 0 </td><td> default response </td><td>  -  </td></tr>
-     </table>
-     */
-    public UploadedFile uploadfile(String uuid, File body, String contentType) throws ApiException {
-        ApiResponse<UploadedFile> localVarResp = uploadfileWithHttpInfo(uuid, body, contentType);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Upload file to a specific organization
-     * Uploads file for the organization
-     * @param uuid Set the uuid for the content that the file belongs to (required)
-     * @param body  (required)
-     * @param contentType Set the mime type for the file (optional)
-     * @return ApiResponse&lt;UploadedFile&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 0 </td><td> default response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<UploadedFile> uploadfileWithHttpInfo(String uuid, File body, String contentType) throws ApiException {
-        okhttp3.Call localVarCall = uploadfileValidateBeforeCall(uuid, body, contentType, null);
-        Type localVarReturnType = new TypeToken<UploadedFile>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Upload file to a specific organization (asynchronously)
-     * Uploads file for the organization
-     * @param uuid Set the uuid for the content that the file belongs to (required)
-     * @param body  (required)
-     * @param contentType Set the mime type for the file (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 0 </td><td> default response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call uploadfileAsync(String uuid, File body, String contentType, final ApiCallback<UploadedFile> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = uploadfileValidateBeforeCall(uuid, body, contentType, _callback);
-        Type localVarReturnType = new TypeToken<UploadedFile>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

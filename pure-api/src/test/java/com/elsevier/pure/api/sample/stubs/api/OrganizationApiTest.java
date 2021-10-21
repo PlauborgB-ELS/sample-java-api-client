@@ -15,13 +15,18 @@ package com.elsevier.pure.api.sample.stubs.api;
 
 import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRefList;
+import com.elsevier.pure.api.sample.stubs.model.ContentRefListResult;
 import java.io.File;
 import com.elsevier.pure.api.sample.stubs.model.KeywordGroupConfigurationList;
+import com.elsevier.pure.api.sample.stubs.model.LocalesList;
+import com.elsevier.pure.api.sample.stubs.model.Note;
+import com.elsevier.pure.api.sample.stubs.model.NoteListResult;
 import com.elsevier.pure.api.sample.stubs.model.OrderingsList;
 import com.elsevier.pure.api.sample.stubs.model.Organization;
 import com.elsevier.pure.api.sample.stubs.model.OrganizationListResult;
 import com.elsevier.pure.api.sample.stubs.model.OrganizationsQuery;
 import com.elsevier.pure.api.sample.stubs.model.ProblemDetails;
+import java.util.UUID;
 import com.elsevier.pure.api.sample.stubs.model.UploadedFile;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -57,6 +62,23 @@ public class OrganizationApiTest {
     }
     
     /**
+     * Create note
+     *
+     * Create note and associate it with an organization
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createNoteTest() throws ApiException {
+        UUID uuid = null;
+        Note note = null;
+        Note response = api.createNote(uuid, note);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Delete organization
      *
      * Delete organization with specific UUID.
@@ -66,25 +88,42 @@ public class OrganizationApiTest {
      */
     @Test
     public void deleteTest() throws ApiException {
-        String uuid = null;
+        UUID uuid = null;
         api.delete(uuid);
 
         // TODO: test validations
     }
     
     /**
-     * Get file from the organization
+     * Lists all dependents to the organization
      *
-     * Get file from the organization
+     * Lists all dependents to the organization with the specified UUID. If the user dont have access to view all the dependent content, an authorization error will be thrown. 
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void fileTest() throws ApiException {
-        String uuid = null;
-        Long fileid = null;
-        File response = api.file(uuid, fileid);
+    public void dependentsTest() throws ApiException {
+        UUID uuid = null;
+        Boolean verbose = null;
+        ContentRefListResult response = api.dependents(uuid, verbose);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Upload file to a specific organization
+     *
+     * Uploads file for the organization
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void fileUploadsTest() throws ApiException {
+        File body = null;
+        String contentType = null;
+        UploadedFile response = api.fileUploads(body, contentType);
 
         // TODO: test validations
     }
@@ -92,14 +131,14 @@ public class OrganizationApiTest {
     /**
      * Get organization
      *
-     * Get external with specific UUID.
+     * Get organization with specific UUID.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void getTest() throws ApiException {
-        String uuid = null;
+        UUID uuid = null;
         Organization response = api.get(uuid);
 
         // TODO: test validations
@@ -181,6 +220,36 @@ public class OrganizationApiTest {
     }
     
     /**
+     * A list of allowed cost centers
+     *
+     * Get a list of allowed cost centers that can be used for the &#39;costCenters&#39; attribute of organizations
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllowedCostCentersTest() throws ApiException {
+        ClassificationRefList response = api.getAllowedCostCenters();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * A list of allowed e-mail types
+     *
+     * Get a list of allowed e-mail types that can be used for the &#39;emails.type&#39; attribute of organizations
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllowedEmailTypesTest() throws ApiException {
+        ClassificationRefList response = api.getAllowedEmailTypes();
+
+        // TODO: test validations
+    }
+    
+    /**
      * A list of allowed classifications for the specified keyword group
      *
      * Get a list of allowed classifications that can be used when submitting a specified keyword group.
@@ -212,16 +281,16 @@ public class OrganizationApiTest {
     }
     
     /**
-     * A list of allowed e-mail types
+     * A list of allowed locales in localized strings
      *
-     * Get a list of allowed e-mail types that can be used for the &#39;links.linkType&#39; attribute of organizations
+     * Get a list of allowed locales that can be used when submitting localized string entities.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void getAllowedLinkTypesTest() throws ApiException {
-        ClassificationRefList response = api.getAllowedLinkTypes();
+    public void getAllowedLocalesTest() throws ApiException {
+        LocalesList response = api.getAllowedLocales();
 
         // TODO: test validations
     }
@@ -237,21 +306,6 @@ public class OrganizationApiTest {
     @Test
     public void getAllowedNameVariantTypesTest() throws ApiException {
         ClassificationRefList response = api.getAllowedNameVariantTypes();
-
-        // TODO: test validations
-    }
-    
-    /**
-     * A list of allowed cost centers
-     *
-     * Get a list of allowed cost centers that can be used for the &#39;costCenters&#39; attribute of organizations
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getAllowedNatureTypesTest() throws ApiException {
-        ClassificationRefList response = api.getAllowedNatureTypes();
 
         // TODO: test validations
     }
@@ -332,6 +386,23 @@ public class OrganizationApiTest {
     }
     
     /**
+     * Get file from the organization
+     *
+     * Get file from the organization
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getFileTest() throws ApiException {
+        UUID uuid = null;
+        String fileId = null;
+        File response = api.getFile(uuid, fileId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Lists available orderings
      *
      * Lists all orderings available to the organization endpoint. These values can be used by the order parameter.
@@ -365,6 +436,24 @@ public class OrganizationApiTest {
     }
     
     /**
+     * Lists notes
+     *
+     * Lists notes associated with an organization ordered by date (nulls last)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listNotesTest() throws ApiException {
+        UUID uuid = null;
+        Integer size = null;
+        Integer offset = null;
+        NoteListResult response = api.listNotes(uuid, size, offset);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Query operation for organizations
      *
      * Lists organizations in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options.
@@ -390,27 +479,9 @@ public class OrganizationApiTest {
      */
     @Test
     public void updateTest() throws ApiException {
-        String uuid = null;
+        UUID uuid = null;
         Organization organization = null;
         Organization response = api.update(uuid, organization);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Upload file to a specific organization
-     *
-     * Uploads file for the organization
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void uploadfileTest() throws ApiException {
-        String uuid = null;
-        File body = null;
-        String contentType = null;
-        UploadedFile response = api.uploadfile(uuid, body, contentType);
 
         // TODO: test validations
     }

@@ -14,7 +14,6 @@
 package com.elsevier.pure.api.sample.stubs.model;
 
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
-import com.elsevier.pure.api.sample.stubs.model.GeoLocation;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,43 +42,27 @@ public class AddressTest {
     }
 
     /**
-     * Test the property 'address1'
+     * Test the property 'road'
      */
     @Test
-    public void address1Test() {
-        // TODO: test address1
+    public void roadTest() {
+        // TODO: test road
     }
 
     /**
-     * Test the property 'address2'
+     * Test the property 'room'
      */
     @Test
-    public void address2Test() {
-        // TODO: test address2
+    public void roomTest() {
+        // TODO: test room
     }
 
     /**
-     * Test the property 'address3'
+     * Test the property 'building'
      */
     @Test
-    public void address3Test() {
-        // TODO: test address3
-    }
-
-    /**
-     * Test the property 'address4'
-     */
-    @Test
-    public void address4Test() {
-        // TODO: test address4
-    }
-
-    /**
-     * Test the property 'address5'
-     */
-    @Test
-    public void address5Test() {
-        // TODO: test address5
+    public void buildingTest() {
+        // TODO: test building
     }
 
     /**
@@ -104,30 +87,6 @@ public class AddressTest {
     @Test
     public void countryTest() {
         // TODO: test country
-    }
-
-    /**
-     * Test the property 'subdivision'
-     */
-    @Test
-    public void subdivisionTest() {
-        // TODO: test subdivision
-    }
-
-    /**
-     * Test the property 'state'
-     */
-    @Test
-    public void stateTest() {
-        // TODO: test state
-    }
-
-    /**
-     * Test the property 'geoLocation'
-     */
-    @Test
-    public void geoLocationTest() {
-        // TODO: test geoLocation
     }
 
 }

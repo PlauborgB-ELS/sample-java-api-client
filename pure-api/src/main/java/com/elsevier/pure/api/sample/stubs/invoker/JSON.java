@@ -52,18 +52,59 @@ public class JSON {
 
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder()
+                .registerTypeSelector(AdditionalISSN.class, new TypeSelector() {
+                    @Override
+                    public Class getClassForElement(JsonElement readElement) {
+                        Map classByDiscriminatorValue = new HashMap();
+                        classByDiscriminatorValue.put("ElectronicISSN".toUpperCase(Locale.ROOT), ElectronicISSN.class);
+                        classByDiscriminatorValue.put("AlternativeISSN".toUpperCase(Locale.ROOT), AlternativeISSN.class);
+                        classByDiscriminatorValue.put("AdditionalISSN".toUpperCase(Locale.ROOT), AdditionalISSN.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "typeDiscriminator"));
+                    }
+          })
                 .registerTypeSelector(ContentRef.class, new TypeSelector() {
                     @Override
                     public Class getClassForElement(JsonElement readElement) {
                         Map classByDiscriminatorValue = new HashMap();
+                        classByDiscriminatorValue.put("AccessDefinition".toUpperCase(Locale.ROOT), AccessDefinitionRef.class);
+                        classByDiscriminatorValue.put("Activity".toUpperCase(Locale.ROOT), ActivityRef.class);
+                        classByDiscriminatorValue.put("Application".toUpperCase(Locale.ROOT), ApplicationRef.class);
+                        classByDiscriminatorValue.put("AuthorCollaboration".toUpperCase(Locale.ROOT), AuthorCollaborationRef.class);
+                        classByDiscriminatorValue.put("Award".toUpperCase(Locale.ROOT), AwardRef.class);
                         classByDiscriminatorValue.put("ClassificationScheme".toUpperCase(Locale.ROOT), ClassificationSchemeRef.class);
-                        classByDiscriminatorValue.put("ExternalOrganisation".toUpperCase(Locale.ROOT), ExternalOrganizationRef.class);
+                        classByDiscriminatorValue.put("ConferenceSeries".toUpperCase(Locale.ROOT), ConferenceSeriesRef.class);
+                        classByDiscriminatorValue.put("DataSet".toUpperCase(Locale.ROOT), DataSetRef.class);
+                        classByDiscriminatorValue.put("Equipment".toUpperCase(Locale.ROOT), EquipmentRef.class);
+                        classByDiscriminatorValue.put("Event".toUpperCase(Locale.ROOT), EventRef.class);
+                        classByDiscriminatorValue.put("ExternalOrganization".toUpperCase(Locale.ROOT), ExternalOrganizationRef.class);
                         classByDiscriminatorValue.put("ExternalPerson".toUpperCase(Locale.ROOT), ExternalPersonRef.class);
+                        classByDiscriminatorValue.put("Impact".toUpperCase(Locale.ROOT), ImpactRef.class);
+                        classByDiscriminatorValue.put("Journal".toUpperCase(Locale.ROOT), JournalRef.class);
+                        classByDiscriminatorValue.put("Organization".toUpperCase(Locale.ROOT), OrganizationRef.class);
+                        classByDiscriminatorValue.put("Person".toUpperCase(Locale.ROOT), PersonRef.class);
+                        classByDiscriminatorValue.put("Publisher".toUpperCase(Locale.ROOT), PublisherRef.class);
+                        classByDiscriminatorValue.put("PressMedia".toUpperCase(Locale.ROOT), PressMediaRef.class);
+                        classByDiscriminatorValue.put("Prize".toUpperCase(Locale.ROOT), PrizeRef.class);
+                        classByDiscriminatorValue.put("Project".toUpperCase(Locale.ROOT), ProjectRef.class);
                         classByDiscriminatorValue.put("ResearchOutput".toUpperCase(Locale.ROOT), ResearchOutputRef.class);
-                        classByDiscriminatorValue.put("Content".toUpperCase(Locale.ROOT), ContentRef.class);
+                        classByDiscriminatorValue.put("StudentThesis".toUpperCase(Locale.ROOT), StudentThesisRef.class);
+                        classByDiscriminatorValue.put("User".toUpperCase(Locale.ROOT), UserRef.class);
                         classByDiscriminatorValue.put("ContentRef".toUpperCase(Locale.ROOT), ContentRef.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "systemName"));
+                    }
+          })
+                .registerTypeSelector(ElectronicVersion.class, new TypeSelector() {
+                    @Override
+                    public Class getClassForElement(JsonElement readElement) {
+                        Map classByDiscriminatorValue = new HashMap();
+                        classByDiscriminatorValue.put("DoiElectronicVersion".toUpperCase(Locale.ROOT), DoiElectronicVersion.class);
+                        classByDiscriminatorValue.put("FileElectronicVersion".toUpperCase(Locale.ROOT), FileElectronicVersion.class);
+                        classByDiscriminatorValue.put("LinkElectronicVersion".toUpperCase(Locale.ROOT), LinkElectronicVersion.class);
+                        classByDiscriminatorValue.put("ElectronicVersion".toUpperCase(Locale.ROOT), ElectronicVersion.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "typeDiscriminator"));
                     }
           })
                 .registerTypeSelector(Identifier.class, new TypeSelector() {
@@ -89,6 +130,19 @@ public class JSON {
                                 getDiscriminatorValue(readElement, "typeDiscriminator"));
                     }
           })
+                .registerTypeSelector(PersonOrganizationAssociation.class, new TypeSelector() {
+                    @Override
+                    public Class getClassForElement(JsonElement readElement) {
+                        Map classByDiscriminatorValue = new HashMap();
+                        classByDiscriminatorValue.put("HonoraryStaffOrganizationAssociation".toUpperCase(Locale.ROOT), HonoraryStaffOrganizationAssociation.class);
+                        classByDiscriminatorValue.put("StaffOrganizationAssociation".toUpperCase(Locale.ROOT), StaffOrganizationAssociation.class);
+                        classByDiscriminatorValue.put("StudentOrganizationAssociation".toUpperCase(Locale.ROOT), StudentOrganizationAssociation.class);
+                        classByDiscriminatorValue.put("VisitingScholarOrganizationAssociation".toUpperCase(Locale.ROOT), VisitingScholarOrganizationAssociation.class);
+                        classByDiscriminatorValue.put("PersonOrganizationAssociation".toUpperCase(Locale.ROOT), PersonOrganizationAssociation.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "typeDiscriminator"));
+                    }
+          })
                 .registerTypeSelector(ProblemDetails.class, new TypeSelector() {
                     @Override
                     public Class getClassForElement(JsonElement readElement) {
@@ -99,6 +153,27 @@ public class JSON {
                         classByDiscriminatorValue.put("ProblemDetails".toUpperCase(Locale.ROOT), ProblemDetails.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ResearchOutput.class, new TypeSelector() {
+                    @Override
+                    public Class getClassForElement(JsonElement readElement) {
+                        Map classByDiscriminatorValue = new HashMap();
+                        classByDiscriminatorValue.put("BookAnthology".toUpperCase(Locale.ROOT), BookAnthology.class);
+                        classByDiscriminatorValue.put("ContributionToBookAnthology".toUpperCase(Locale.ROOT), ContributionToBookAnthology.class);
+                        classByDiscriminatorValue.put("ContributionToConference".toUpperCase(Locale.ROOT), ContributionToConference.class);
+                        classByDiscriminatorValue.put("ContributionToJournal".toUpperCase(Locale.ROOT), ContributionToJournal.class);
+                        classByDiscriminatorValue.put("ContributionToMemorandum".toUpperCase(Locale.ROOT), ContributionToMemorandum.class);
+                        classByDiscriminatorValue.put("ContributionToPeriodical".toUpperCase(Locale.ROOT), ContributionToPeriodical.class);
+                        classByDiscriminatorValue.put("Memorandum".toUpperCase(Locale.ROOT), Memorandum.class);
+                        classByDiscriminatorValue.put("NonTextual".toUpperCase(Locale.ROOT), NonTextual.class);
+                        classByDiscriminatorValue.put("OtherContribution".toUpperCase(Locale.ROOT), OtherContribution.class);
+                        classByDiscriminatorValue.put("Patent".toUpperCase(Locale.ROOT), Patent.class);
+                        classByDiscriminatorValue.put("Thesis".toUpperCase(Locale.ROOT), Thesis.class);
+                        classByDiscriminatorValue.put("WorkingPaper".toUpperCase(Locale.ROOT), WorkingPaper.class);
+                        classByDiscriminatorValue.put("ResearchOutput".toUpperCase(Locale.ROOT), ResearchOutput.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "typeDiscriminator"));
                     }
           })
         ;

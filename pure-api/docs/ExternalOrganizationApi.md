@@ -5,7 +5,10 @@ All URIs are relative to *http://localhost:8080/ws/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create**](ExternalOrganizationApi.md#create) | **PUT** /external-organizations | Create external organization
+[**createNote**](ExternalOrganizationApi.md#createNote) | **PUT** /external-organizations/{uuid}/notes | Create note
 [**delete**](ExternalOrganizationApi.md#delete) | **DELETE** /external-organizations/{uuid} | Delete external organization
+[**dependents**](ExternalOrganizationApi.md#dependents) | **GET** /external-organizations/{uuid}/dependents | Lists all dependents to the external organization
+[**fileUploads**](ExternalOrganizationApi.md#fileUploads) | **PUT** /external-organizations/file-uploads | Upload file to a specific external organization
 [**get**](ExternalOrganizationApi.md#get) | **GET** /external-organizations/{uuid} | Get external organization
 [**getAllowedAddressCountries**](ExternalOrganizationApi.md#getAllowedAddressCountries) | **GET** /external-organizations/allowed-address-countries | A list of allowed address countries
 [**getAllowedAddressSubdivisions**](ExternalOrganizationApi.md#getAllowedAddressSubdivisions) | **GET** /external-organizations/allowed-address-subdivision | A list of allowed address subdivisions
@@ -16,16 +19,18 @@ Method | HTTP request | Description
 [**getAllowedKeywordGroupConfigurationClassifications**](ExternalOrganizationApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /external-organizations/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
 [**getAllowedKeywordGroupConfigurations**](ExternalOrganizationApi.md#getAllowedKeywordGroupConfigurations) | **GET** /external-organizations/allowed-keyword-group-configurations | A list of keyword group configurations
 [**getAllowedLinkTypes**](ExternalOrganizationApi.md#getAllowedLinkTypes) | **GET** /external-organizations/allowed-link-types | A list of allowed link types
-[**getAllowedLocales**](ExternalOrganizationApi.md#getAllowedLocales) | **GET** /external-organizations/allowed-locales | A list of allowed locales
+[**getAllowedLocales**](ExternalOrganizationApi.md#getAllowedLocales) | **GET** /external-organizations/allowed-locales | A list of allowed locales in localized strings
 [**getAllowedNatureTypes**](ExternalOrganizationApi.md#getAllowedNatureTypes) | **GET** /external-organizations/allowed-nature-types | A list of allowed nature types
 [**getAllowedTypes**](ExternalOrganizationApi.md#getAllowedTypes) | **GET** /external-organizations/allowed-types | A list of allowed external organization types
 [**getAllowedWorkflowSteps**](ExternalOrganizationApi.md#getAllowedWorkflowSteps) | **GET** /external-organizations/allowed-workflow-steps | A list of allowed workflow steps
-[**getFile**](ExternalOrganizationApi.md#getFile) | **GET** /external-organizations/{uuid}/file/{fileid} | Get file from the external organization
+[**getFile**](ExternalOrganizationApi.md#getFile) | **GET** /external-organizations/{uuid}/files/{fileId} | Get file from the external organization
 [**getOrderings**](ExternalOrganizationApi.md#getOrderings) | **GET** /external-organizations/orderings | Lists available orderings
 [**list**](ExternalOrganizationApi.md#list) | **GET** /external-organizations | Lists all external organizations
+[**listNotes**](ExternalOrganizationApi.md#listNotes) | **GET** /external-organizations/{uuid}/notes | Lists notes
+[**merge**](ExternalOrganizationApi.md#merge) | **POST** /external-organizations/merge | Merge external organizations
+[**previewDeduplication**](ExternalOrganizationApi.md#previewDeduplication) | **POST** /external-organizations/preview-deduplication | Preview deduplication of external organizations
 [**query**](ExternalOrganizationApi.md#query) | **POST** /external-organizations/search | Query operation for external organizations
 [**update**](ExternalOrganizationApi.md#update) | **PUT** /external-organizations/{uuid} | Update external organization
-[**uploadFile**](ExternalOrganizationApi.md#uploadFile) | **PUT** /external-organizations/{uuid}/file | Upload file to a specific external organization
 
 
 <a name="create"></a>
@@ -98,6 +103,78 @@ Name | Type | Description  | Notes
 **200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
 
+<a name="createNote"></a>
+# **createNote**
+> Note createNote(uuid, note)
+
+Create note
+
+Create note and associate it with an external organization
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    UUID uuid = new UUID(); // UUID | UUID of the external organization to add note to
+    Note note = new Note(); // Note | The note to create
+    try {
+      Note result = apiInstance.createNote(uuid, note);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#createNote");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | [**UUID**](.md)| UUID of the external organization to add note to |
+ **note** | [**Note**](Note.md)| The note to create |
+
+### Return type
+
+[**Note**](Note.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
+
 <a name="delete"></a>
 # **delete**
 > delete(uuid)
@@ -128,7 +205,7 @@ public class Example {
     //api-key.setApiKeyPrefix("Token");
 
     ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
-    String uuid = "uuid_example"; // String | UUID of the external organization
+    UUID uuid = new UUID(); // UUID | UUID of the external organization
     try {
       apiInstance.delete(uuid);
     } catch (ApiException e) {
@@ -146,7 +223,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **String**| UUID of the external organization |
+ **uuid** | [**UUID**](.md)| UUID of the external organization |
 
 ### Return type
 
@@ -166,6 +243,148 @@ null (empty response body)
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
 **404** | Resource not found |  -  |
+
+<a name="dependents"></a>
+# **dependents**
+> ContentRefListResult dependents(uuid, verbose)
+
+Lists all dependents to the external organization
+
+Lists all dependents to the external organization with the specified UUID. If the user dont have access to view all the dependent content, an authorization error will be thrown. 
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    UUID uuid = new UUID(); // UUID | UUID of the external organization to update
+    Boolean verbose = false; // Boolean | Default: false. Setting this to true will add links and names to the output but will also have an impact on performance. Use with coution.
+    try {
+      ContentRefListResult result = apiInstance.dependents(uuid, verbose);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#dependents");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | [**UUID**](.md)| UUID of the external organization to update |
+ **verbose** | **Boolean**| Default: false. Setting this to true will add links and names to the output but will also have an impact on performance. Use with coution. | [optional] [default to false]
+
+### Return type
+
+[**ContentRefListResult**](ContentRefListResult.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
+<a name="fileUploads"></a>
+# **fileUploads**
+> UploadedFile fileUploads(body, contentType)
+
+Upload file to a specific external organization
+
+Uploads file for the external organization
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    File body = new File("/path/to/file"); // File | 
+    String contentType = "contentType_example"; // String | Set the mime type for the file
+    try {
+      UploadedFile result = apiInstance.fileUploads(body, contentType);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#fileUploads");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **File**|  |
+ **contentType** | **String**| Set the mime type for the file | [optional]
+
+### Return type
+
+[**UploadedFile**](UploadedFile.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**0** | default response |  -  |
 
 <a name="get"></a>
 # **get**
@@ -197,7 +416,7 @@ public class Example {
     //api-key.setApiKeyPrefix("Token");
 
     ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
-    String uuid = "uuid_example"; // String | UUID of the desired external organization
+    UUID uuid = new UUID(); // UUID | UUID of the desired external organization
     try {
       ExternalOrganization result = apiInstance.get(uuid);
       System.out.println(result);
@@ -216,7 +435,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **String**| UUID of the desired external organization |
+ **uuid** | [**UUID**](.md)| UUID of the desired external organization |
 
 ### Return type
 
@@ -504,7 +723,7 @@ This endpoint does not need any parameter.
 
 A list of allowed document licenses
 
-Get a list of allowed document licenses that can be used for the &#39;documents.documentLicense&#39; attribute of external organizations
+Get a list of allowed document licenses that can be used for the &#39;documents.license&#39; attribute of external organizations
 
 ### Example
 ```java
@@ -569,7 +788,7 @@ This endpoint does not need any parameter.
 
 A list of allowed document types
 
-Get a list of allowed document types that can be used for the &#39;documents.documentType&#39; attribute of external organizations
+Get a list of allowed document types that can be used for the &#39;documents.type&#39; attribute of external organizations
 
 ### Example
 ```java
@@ -831,7 +1050,7 @@ This endpoint does not need any parameter.
 # **getAllowedLocales**
 > LocalesList getAllowedLocales()
 
-A list of allowed locales
+A list of allowed locales in localized strings
 
 Get a list of allowed locales that can be used when submitting localized string entities.
 
@@ -1089,7 +1308,7 @@ This endpoint does not need any parameter.
 
 <a name="getFile"></a>
 # **getFile**
-> File getFile(uuid, fileid)
+> File getFile(uuid, fileId)
 
 Get file from the external organization
 
@@ -1117,10 +1336,10 @@ public class Example {
     //api-key.setApiKeyPrefix("Token");
 
     ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
-    String uuid = "uuid_example"; // String | UUID of the external organization
-    Long fileid = 56L; // Long | File id 
+    UUID uuid = new UUID(); // UUID | UUID of the external organization
+    String fileId = "fileId_example"; // String | File id 
     try {
-      File result = apiInstance.getFile(uuid, fileid);
+      File result = apiInstance.getFile(uuid, fileId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalOrganizationApi#getFile");
@@ -1137,8 +1356,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **String**| UUID of the external organization |
- **fileid** | **Long**| File id  |
+ **uuid** | [**UUID**](.md)| UUID of the external organization |
+ **fileId** | **String**| File id  |
 
 ### Return type
 
@@ -1255,7 +1474,7 @@ public class Example {
     ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
     Integer size = 10; // Integer | Number of returned external organizations per request.
     Integer offset = 0; // Integer | The offset for the returned list. 0 or null value is from the start
-    String order = "order_example"; // String | The order of the list, must be a value from getExternalOrganizationOrderings
+    String order = "order_example"; // String | The order of the list, must be a value from externalOrganization_getOrderings
     try {
       ExternalOrganizationListResult result = apiInstance.list(size, offset, order);
       System.out.println(result);
@@ -1276,7 +1495,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **size** | **Integer**| Number of returned external organizations per request. | [optional] [default to 10]
  **offset** | **Integer**| The offset for the returned list. 0 or null value is from the start | [optional] [default to 0]
- **order** | **String**| The order of the list, must be a value from getExternalOrganizationOrderings | [optional]
+ **order** | **String**| The order of the list, must be a value from externalOrganization_getOrderings | [optional]
 
 ### Return type
 
@@ -1295,6 +1514,220 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
+
+<a name="listNotes"></a>
+# **listNotes**
+> NoteListResult listNotes(uuid, size, offset)
+
+Lists notes
+
+Lists notes associated with an external organization ordered by date (nulls last)
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    UUID uuid = new UUID(); // UUID | UUID of the external organization to get notes for
+    Integer size = 10; // Integer | Number of returned notes per request
+    Integer offset = 0; // Integer | The offset for the returned list. 0 or null value is from the start
+    try {
+      NoteListResult result = apiInstance.listNotes(uuid, size, offset);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#listNotes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | [**UUID**](.md)| UUID of the external organization to get notes for |
+ **size** | **Integer**| Number of returned notes per request | [optional] [default to 10]
+ **offset** | **Integer**| The offset for the returned list. 0 or null value is from the start | [optional] [default to 0]
+
+### Return type
+
+[**NoteListResult**](NoteListResult.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**404** | External organization not found |  -  |
+
+<a name="merge"></a>
+# **merge**
+> ExternalOrganization merge(externalOrganizationRefList)
+
+Merge external organizations
+
+Merge a list of external organizations together. Note that this operation is irreversible
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    ExternalOrganizationRefList externalOrganizationRefList = new ExternalOrganizationRefList(); // ExternalOrganizationRefList | References to the entities to merge. The first will be the target. All additional entities will be merged into the target.
+    try {
+      ExternalOrganization result = apiInstance.merge(externalOrganizationRefList);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#merge");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **externalOrganizationRefList** | [**ExternalOrganizationRefList**](ExternalOrganizationRefList.md)| References to the entities to merge. The first will be the target. All additional entities will be merged into the target. |
+
+### Return type
+
+[**ExternalOrganization**](ExternalOrganization.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
+
+<a name="previewDeduplication"></a>
+# **previewDeduplication**
+> ExternalOrganizationListResult previewDeduplication(externalOrganizationList)
+
+Preview deduplication of external organizations
+
+Runs through a list external organizations and returns the deduplicated and merged organizations. The operation does not touch the Pure database
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    ExternalOrganizationList externalOrganizationList = new ExternalOrganizationList(); // ExternalOrganizationList | The content to deduplicate. The data do not need to exist in the database.
+    try {
+      ExternalOrganizationListResult result = apiInstance.previewDeduplication(externalOrganizationList);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#previewDeduplication");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **externalOrganizationList** | [**ExternalOrganizationList**](ExternalOrganizationList.md)| The content to deduplicate. The data do not need to exist in the database. |
+
+### Return type
+
+[**ExternalOrganizationListResult**](ExternalOrganizationListResult.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 
 <a name="query"></a>
 # **query**
@@ -1396,7 +1829,7 @@ public class Example {
     //api-key.setApiKeyPrefix("Token");
 
     ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
-    String uuid = "uuid_example"; // String | UUID of the external organization to update
+    UUID uuid = new UUID(); // UUID | UUID of the external organization to update
     ExternalOrganization externalOrganization = new ExternalOrganization(); // ExternalOrganization | The content to update
     try {
       ExternalOrganization result = apiInstance.update(uuid, externalOrganization);
@@ -1416,7 +1849,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **String**| UUID of the external organization to update |
+ **uuid** | [**UUID**](.md)| UUID of the external organization to update |
  **externalOrganization** | [**ExternalOrganization**](ExternalOrganization.md)| The content to update |
 
 ### Return type
@@ -1438,77 +1871,4 @@ Name | Type | Description  | Notes
 **200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
 **404** | Resource not found |  -  |
-
-<a name="uploadFile"></a>
-# **uploadFile**
-> UploadedFile uploadFile(uuid, body, contentType)
-
-Upload file to a specific external organization
-
-Uploads file for the external organization
-
-### Example
-```java
-// Import classes:
-import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
-import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
-import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
-import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
-import com.elsevier.pure.api.sample.stubs.invoker.models.*;
-import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/ws/api");
-    
-    // Configure API key authorization: api-key
-    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
-    api-key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //api-key.setApiKeyPrefix("Token");
-
-    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
-    String uuid = "uuid_example"; // String | Set the uuid for the content that the file belongs to
-    File body = new File("/path/to/file"); // File | 
-    String contentType = "contentType_example"; // String | Set the mime type for the file
-    try {
-      UploadedFile result = apiInstance.uploadFile(uuid, body, contentType);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ExternalOrganizationApi#uploadFile");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **uuid** | **String**| Set the uuid for the content that the file belongs to |
- **body** | **File**|  |
- **contentType** | **String**| Set the mime type for the file | [optional]
-
-### Return type
-
-[**UploadedFile**](UploadedFile.md)
-
-### Authorization
-
-[api-key](../README.md#api-key)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**0** | default response |  -  |
 

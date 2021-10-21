@@ -28,7 +28,7 @@ import java.io.IOException;
  * Link to resource
  */
 @ApiModel(description = "Link to resource")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class NavigationLink {
   public static final String SERIALIZED_NAME_REF = "ref";
   @SerializedName(SERIALIZED_NAME_REF)
@@ -40,11 +40,11 @@ public class NavigationLink {
 
 
    /**
-   * System nam of the kind of link (such as &#39;prev&#39;, &#39;next&#39; etc.)
+   * System name of the kind of link (such as &#39;prev&#39;, &#39;next&#39; etc.)
    * @return ref
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "System nam of the kind of link (such as 'prev', 'next' etc.)")
+  @ApiModelProperty(value = "System name of the kind of link (such as 'prev', 'next' etc.)")
 
   public String getRef() {
     return ref;

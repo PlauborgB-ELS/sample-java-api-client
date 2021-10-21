@@ -13,18 +13,9 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
-import com.elsevier.pure.api.sample.stubs.model.NavigationLink;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.elsevier.pure.api.sample.stubs.model.ContentRef;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -58,22 +49,6 @@ public class OrganizationRefTest {
     @Test
     public void systemNameTest() {
         // TODO: test systemName
-    }
-
-    /**
-     * Test the property 'link'
-     */
-    @Test
-    public void linkTest() {
-        // TODO: test link
-    }
-
-    /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        // TODO: test name
     }
 
 }

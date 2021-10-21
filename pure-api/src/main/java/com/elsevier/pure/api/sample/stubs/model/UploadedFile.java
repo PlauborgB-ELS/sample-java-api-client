@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * Information about the uploaded file
  */
 @ApiModel(description = "Information about the uploaded file")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class UploadedFile {
   public static final String SERIALIZED_NAME_DIGEST = "digest";
   @SerializedName(SERIALIZED_NAME_DIGEST)

@@ -32,11 +32,39 @@ import org.threeten.bp.OffsetDateTime;
  * Document
  */
 @ApiModel(description = "Document")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class Document {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
   private Long pureId;
+
+  public static final String SERIALIZED_NAME_FILE_ID = "fileId";
+  @SerializedName(SERIALIZED_NAME_FILE_ID)
+  private String fileId;
+
+  public static final String SERIALIZED_NAME_FILE_NAME = "fileName";
+  @SerializedName(SERIALIZED_NAME_FILE_NAME)
+  private String fileName;
+
+  public static final String SERIALIZED_NAME_MIME_TYPE = "mimeType";
+  @SerializedName(SERIALIZED_NAME_MIME_TYPE)
+  private String mimeType;
+
+  public static final String SERIALIZED_NAME_SIZE = "size";
+  @SerializedName(SERIALIZED_NAME_SIZE)
+  private Long size;
+
+  public static final String SERIALIZED_NAME_URL = "url";
+  @SerializedName(SERIALIZED_NAME_URL)
+  private String url;
+
+  public static final String SERIALIZED_NAME_UPLOADED_FILE = "uploadedFile";
+  @SerializedName(SERIALIZED_NAME_UPLOADED_FILE)
+  private UploadedFile uploadedFile;
+
+  public static final String SERIALIZED_NAME_FILE_DATA = "fileData";
+  @SerializedName(SERIALIZED_NAME_FILE_DATA)
+  private byte[] fileData;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -45,10 +73,6 @@ public class Document {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private ClassificationRef type;
-
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
-  private String url;
 
   public static final String SERIALIZED_NAME_LICENSE = "license";
   @SerializedName(SERIALIZED_NAME_LICENSE)
@@ -70,29 +94,13 @@ public class Document {
   @SerializedName(SERIALIZED_NAME_CREATED)
   private OffsetDateTime created;
 
-  public static final String SERIALIZED_NAME_FILE_CONTENT = "fileContent";
-  @SerializedName(SERIALIZED_NAME_FILE_CONTENT)
-  private UploadedFile fileContent;
-
-  public static final String SERIALIZED_NAME_FILE_NAME = "fileName";
-  @SerializedName(SERIALIZED_NAME_FILE_NAME)
-  private String fileName;
-
-  public static final String SERIALIZED_NAME_MIME_TYPE = "mimeType";
-  @SerializedName(SERIALIZED_NAME_MIME_TYPE)
-  private String mimeType;
-
-  public static final String SERIALIZED_NAME_SIZE = "size";
-  @SerializedName(SERIALIZED_NAME_SIZE)
-  private Long size;
-
 
    /**
-   * Pure database ID of the object
+   * Pure database ID of the object, prefer using the UUID if it is present on the entity
    * @return pureId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pure database ID of the object")
+  @ApiModelProperty(value = "Pure database ID of the object, prefer using the UUID if it is present on the entity")
 
   public Long getPureId() {
     return pureId;
@@ -101,173 +109,18 @@ public class Document {
 
 
 
-  public Document title(String title) {
-    
-    this.title = title;
-    return this;
-  }
-
    /**
-   * Document title
-   * @return title
+   * The id of the file
+   * @return fileId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Document title")
+  @ApiModelProperty(value = "The id of the file")
 
-  public String getTitle() {
-    return title;
+  public String getFileId() {
+    return fileId;
   }
 
 
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-
-  public Document type(ClassificationRef type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(required = true, value = "")
-
-  public ClassificationRef getType() {
-    return type;
-  }
-
-
-  public void setType(ClassificationRef type) {
-    this.type = type;
-  }
-
-
-   /**
-   * Download url for the binary file
-   * @return url
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Download url for the binary file")
-
-  public String getUrl() {
-    return url;
-  }
-
-
-
-
-  public Document license(ClassificationRef license) {
-    
-    this.license = license;
-    return this;
-  }
-
-   /**
-   * Get license
-   * @return license
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ClassificationRef getLicense() {
-    return license;
-  }
-
-
-  public void setLicense(ClassificationRef license) {
-    this.license = license;
-  }
-
-
-   /**
-   * The date the document will be available on the portal
-   * @return visibleOnPortalDate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The date the document will be available on the portal")
-
-  public OffsetDateTime getVisibleOnPortalDate() {
-    return visibleOnPortalDate;
-  }
-
-
-
-
-  public Document visibility(Visibility visibility) {
-    
-    this.visibility = visibility;
-    return this;
-  }
-
-   /**
-   * Get visibility
-   * @return visibility
-  **/
-  @ApiModelProperty(required = true, value = "")
-
-  public Visibility getVisibility() {
-    return visibility;
-  }
-
-
-  public void setVisibility(Visibility visibility) {
-    this.visibility = visibility;
-  }
-
-
-   /**
-   * The user that created the document
-   * @return creator
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The user that created the document")
-
-  public String getCreator() {
-    return creator;
-  }
-
-
-
-
-   /**
-   * Create date for the document
-   * @return created
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Create date for the document")
-
-  public OffsetDateTime getCreated() {
-    return created;
-  }
-
-
-
-
-  public Document fileContent(UploadedFile fileContent) {
-    
-    this.fileContent = fileContent;
-    return this;
-  }
-
-   /**
-   * Get fileContent
-   * @return fileContent
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UploadedFile getFileContent() {
-    return fileContent;
-  }
-
-
-  public void setFileContent(UploadedFile fileContent) {
-    this.fileContent = fileContent;
-  }
 
 
   public Document fileName(String fileName) {
@@ -338,6 +191,200 @@ public class Document {
   }
 
 
+   /**
+   * Download url for the binary file
+   * @return url
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Download url for the binary file")
+
+  public String getUrl() {
+    return url;
+  }
+
+
+
+
+  public Document uploadedFile(UploadedFile uploadedFile) {
+    
+    this.uploadedFile = uploadedFile;
+    return this;
+  }
+
+   /**
+   * Get uploadedFile
+   * @return uploadedFile
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public UploadedFile getUploadedFile() {
+    return uploadedFile;
+  }
+
+
+  public void setUploadedFile(UploadedFile uploadedFile) {
+    this.uploadedFile = uploadedFile;
+  }
+
+
+  public Document fileData(byte[] fileData) {
+    
+    this.fileData = fileData;
+    return this;
+  }
+
+   /**
+   * Base64 encoded file data for new files. This property can be used instead of uploadedFile for small files
+   * @return fileData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Base64 encoded file data for new files. This property can be used instead of uploadedFile for small files")
+
+  public byte[] getFileData() {
+    return fileData;
+  }
+
+
+  public void setFileData(byte[] fileData) {
+    this.fileData = fileData;
+  }
+
+
+  public Document title(String title) {
+    
+    this.title = title;
+    return this;
+  }
+
+   /**
+   * Document title
+   * @return title
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Document title")
+
+  public String getTitle() {
+    return title;
+  }
+
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+
+  public Document type(ClassificationRef type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ClassificationRef getType() {
+    return type;
+  }
+
+
+  public void setType(ClassificationRef type) {
+    this.type = type;
+  }
+
+
+  public Document license(ClassificationRef license) {
+    
+    this.license = license;
+    return this;
+  }
+
+   /**
+   * Get license
+   * @return license
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ClassificationRef getLicense() {
+    return license;
+  }
+
+
+  public void setLicense(ClassificationRef license) {
+    this.license = license;
+  }
+
+
+   /**
+   * The date the document will be available on the portal
+   * @return visibleOnPortalDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date the document will be available on the portal")
+
+  public OffsetDateTime getVisibleOnPortalDate() {
+    return visibleOnPortalDate;
+  }
+
+
+
+
+  public Document visibility(Visibility visibility) {
+    
+    this.visibility = visibility;
+    return this;
+  }
+
+   /**
+   * Get visibility
+   * @return visibility
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Visibility getVisibility() {
+    return visibility;
+  }
+
+
+  public void setVisibility(Visibility visibility) {
+    this.visibility = visibility;
+  }
+
+
+   /**
+   * The user that created the document
+   * @return creator
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The user that created the document")
+
+  public String getCreator() {
+    return creator;
+  }
+
+
+
+
+   /**
+   * Create date for the document
+   * @return created
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Create date for the document")
+
+  public OffsetDateTime getCreated() {
+    return created;
+  }
+
+
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -348,23 +395,25 @@ public class Document {
     }
     Document document = (Document) o;
     return Objects.equals(this.pureId, document.pureId) &&
+        Objects.equals(this.fileId, document.fileId) &&
+        Objects.equals(this.fileName, document.fileName) &&
+        Objects.equals(this.mimeType, document.mimeType) &&
+        Objects.equals(this.size, document.size) &&
+        Objects.equals(this.url, document.url) &&
+        Objects.equals(this.uploadedFile, document.uploadedFile) &&
+        Arrays.equals(this.fileData, document.fileData) &&
         Objects.equals(this.title, document.title) &&
         Objects.equals(this.type, document.type) &&
-        Objects.equals(this.url, document.url) &&
         Objects.equals(this.license, document.license) &&
         Objects.equals(this.visibleOnPortalDate, document.visibleOnPortalDate) &&
         Objects.equals(this.visibility, document.visibility) &&
         Objects.equals(this.creator, document.creator) &&
-        Objects.equals(this.created, document.created) &&
-        Objects.equals(this.fileContent, document.fileContent) &&
-        Objects.equals(this.fileName, document.fileName) &&
-        Objects.equals(this.mimeType, document.mimeType) &&
-        Objects.equals(this.size, document.size);
+        Objects.equals(this.created, document.created);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pureId, title, type, url, license, visibleOnPortalDate, visibility, creator, created, fileContent, fileName, mimeType, size);
+    return Objects.hash(pureId, fileId, fileName, mimeType, size, url, uploadedFile, Arrays.hashCode(fileData), title, type, license, visibleOnPortalDate, visibility, creator, created);
   }
 
 
@@ -373,18 +422,20 @@ public class Document {
     StringBuilder sb = new StringBuilder();
     sb.append("class Document {\n");
     sb.append("    pureId: ").append(toIndentedString(pureId)).append("\n");
+    sb.append("    fileId: ").append(toIndentedString(fileId)).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
+    sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    uploadedFile: ").append(toIndentedString(uploadedFile)).append("\n");
+    sb.append("    fileData: ").append(toIndentedString(fileData)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    license: ").append(toIndentedString(license)).append("\n");
     sb.append("    visibleOnPortalDate: ").append(toIndentedString(visibleOnPortalDate)).append("\n");
     sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
-    sb.append("    fileContent: ").append(toIndentedString(fileContent)).append("\n");
-    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
-    sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();
   }

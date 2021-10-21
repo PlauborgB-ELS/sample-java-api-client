@@ -15,14 +15,20 @@ package com.elsevier.pure.api.sample.stubs.api;
 
 import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRefList;
+import com.elsevier.pure.api.sample.stubs.model.ContentRefListResult;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganization;
+import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationList;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationListResult;
+import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationRefList;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationsQuery;
 import java.io.File;
 import com.elsevier.pure.api.sample.stubs.model.KeywordGroupConfigurationList;
 import com.elsevier.pure.api.sample.stubs.model.LocalesList;
+import com.elsevier.pure.api.sample.stubs.model.Note;
+import com.elsevier.pure.api.sample.stubs.model.NoteListResult;
 import com.elsevier.pure.api.sample.stubs.model.OrderingsList;
 import com.elsevier.pure.api.sample.stubs.model.ProblemDetails;
+import java.util.UUID;
 import com.elsevier.pure.api.sample.stubs.model.UploadedFile;
 import com.elsevier.pure.api.sample.stubs.model.WorkflowListResult;
 import org.junit.Test;
@@ -59,6 +65,23 @@ public class ExternalOrganizationApiTest {
     }
     
     /**
+     * Create note
+     *
+     * Create note and associate it with an external organization
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createNoteTest() throws ApiException {
+        UUID uuid = null;
+        Note note = null;
+        Note response = api.createNote(uuid, note);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Delete external organization
      *
      * Delete external organization with specific UUID.
@@ -68,8 +91,42 @@ public class ExternalOrganizationApiTest {
      */
     @Test
     public void deleteTest() throws ApiException {
-        String uuid = null;
+        UUID uuid = null;
         api.delete(uuid);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Lists all dependents to the external organization
+     *
+     * Lists all dependents to the external organization with the specified UUID. If the user dont have access to view all the dependent content, an authorization error will be thrown. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void dependentsTest() throws ApiException {
+        UUID uuid = null;
+        Boolean verbose = null;
+        ContentRefListResult response = api.dependents(uuid, verbose);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Upload file to a specific external organization
+     *
+     * Uploads file for the external organization
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void fileUploadsTest() throws ApiException {
+        File body = null;
+        String contentType = null;
+        UploadedFile response = api.fileUploads(body, contentType);
 
         // TODO: test validations
     }
@@ -84,7 +141,7 @@ public class ExternalOrganizationApiTest {
      */
     @Test
     public void getTest() throws ApiException {
-        String uuid = null;
+        UUID uuid = null;
         ExternalOrganization response = api.get(uuid);
 
         // TODO: test validations
@@ -153,7 +210,7 @@ public class ExternalOrganizationApiTest {
     /**
      * A list of allowed document licenses
      *
-     * Get a list of allowed document licenses that can be used for the &#39;documents.documentLicense&#39; attribute of external organizations
+     * Get a list of allowed document licenses that can be used for the &#39;documents.license&#39; attribute of external organizations
      *
      * @throws ApiException
      *          if the Api call fails
@@ -168,7 +225,7 @@ public class ExternalOrganizationApiTest {
     /**
      * A list of allowed document types
      *
-     * Get a list of allowed document types that can be used for the &#39;documents.documentType&#39; attribute of external organizations
+     * Get a list of allowed document types that can be used for the &#39;documents.type&#39; attribute of external organizations
      *
      * @throws ApiException
      *          if the Api call fails
@@ -227,7 +284,7 @@ public class ExternalOrganizationApiTest {
     }
     
     /**
-     * A list of allowed locales
+     * A list of allowed locales in localized strings
      *
      * Get a list of allowed locales that can be used when submitting localized string entities.
      *
@@ -296,9 +353,9 @@ public class ExternalOrganizationApiTest {
      */
     @Test
     public void getFileTest() throws ApiException {
-        String uuid = null;
-        Long fileid = null;
-        File response = api.getFile(uuid, fileid);
+        UUID uuid = null;
+        String fileId = null;
+        File response = api.getFile(uuid, fileId);
 
         // TODO: test validations
     }
@@ -337,6 +394,56 @@ public class ExternalOrganizationApiTest {
     }
     
     /**
+     * Lists notes
+     *
+     * Lists notes associated with an external organization ordered by date (nulls last)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listNotesTest() throws ApiException {
+        UUID uuid = null;
+        Integer size = null;
+        Integer offset = null;
+        NoteListResult response = api.listNotes(uuid, size, offset);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Merge external organizations
+     *
+     * Merge a list of external organizations together. Note that this operation is irreversible
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeTest() throws ApiException {
+        ExternalOrganizationRefList externalOrganizationRefList = null;
+        ExternalOrganization response = api.merge(externalOrganizationRefList);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Preview deduplication of external organizations
+     *
+     * Runs through a list external organizations and returns the deduplicated and merged organizations. The operation does not touch the Pure database
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void previewDeduplicationTest() throws ApiException {
+        ExternalOrganizationList externalOrganizationList = null;
+        ExternalOrganizationListResult response = api.previewDeduplication(externalOrganizationList);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Query operation for external organizations
      *
      * Lists external organizations in the Pure instance that matches the provided query, similar to the GET version, instead of using parameters to alter the response, an JSON document is posted with the request. The JSON document contains fields for all the parameters available for the GET version, but also additional filtering options.
@@ -362,27 +469,9 @@ public class ExternalOrganizationApiTest {
      */
     @Test
     public void updateTest() throws ApiException {
-        String uuid = null;
+        UUID uuid = null;
         ExternalOrganization externalOrganization = null;
         ExternalOrganization response = api.update(uuid, externalOrganization);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Upload file to a specific external organization
-     *
-     * Uploads file for the external organization
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void uploadFileTest() throws ApiException {
-        String uuid = null;
-        File body = null;
-        String contentType = null;
-        UploadedFile response = api.uploadFile(uuid, body, contentType);
 
         // TODO: test validations
     }

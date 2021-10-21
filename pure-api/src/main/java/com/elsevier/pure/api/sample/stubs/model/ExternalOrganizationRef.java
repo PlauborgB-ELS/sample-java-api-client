@@ -16,16 +16,14 @@ package com.elsevier.pure.api.sample.stubs.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.elsevier.pure.api.sample.stubs.model.ContentRef;
-import com.elsevier.pure.api.sample.stubs.model.NavigationLink;
 import io.swagger.annotations.ApiModel;
-import java.util.List;
-import java.util.Map;
+import java.util.UUID;
 
 /**
  * A reference to an organization external to the institution
  */
 @ApiModel(description = "A reference to an organization external to the institution")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class ExternalOrganizationRef extends ContentRef {
 
   @Override

@@ -29,10 +29,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * A hyperlink
+ * A hyperlink describing a location on the web.
  */
-@ApiModel(description = "A hyperlink")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@ApiModel(description = "A hyperlink describing a location on the web.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class Link {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -52,11 +52,11 @@ public class Link {
 
 
    /**
-   * Pure database ID of the object
+   * Pure database ID of the object, prefer using the UUID if it is present on the entity
    * @return pureId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pure database ID of the object")
+  @ApiModelProperty(value = "Pure database ID of the object, prefer using the UUID if it is present on the entity")
 
   public Long getPureId() {
     return pureId;
@@ -72,10 +72,10 @@ public class Link {
   }
 
    /**
-   * URL
+   * The URL (Uniform Resource Locator) of the link
    * @return url
   **/
-  @ApiModelProperty(required = true, value = "URL")
+  @ApiModelProperty(required = true, value = "The URL (Uniform Resource Locator) of the link")
 
   public String getUrl() {
     return url;
@@ -102,11 +102,11 @@ public class Link {
   }
 
    /**
-   * A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.
+   * A set of string values, one for each submission locale. Note: invalid locale values will be ignored.
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.")
+  @ApiModelProperty(example = "{\"en_GB\":\"Some text\"}", value = "A set of string values, one for each submission locale. Note: invalid locale values will be ignored.")
 
   public Map<String, String> getDescription() {
     return description;

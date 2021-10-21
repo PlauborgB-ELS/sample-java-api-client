@@ -15,7 +15,7 @@ package com.elsevier.pure.api.sample.stubs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.elsevier.pure.api.sample.stubs.model.Address;
+import com.elsevier.pure.api.sample.stubs.model.CERIFAddress;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
 import com.elsevier.pure.api.sample.stubs.model.ClassifiedFile;
 import com.elsevier.pure.api.sample.stubs.model.Document;
@@ -43,7 +43,7 @@ import org.threeten.bp.OffsetDateTime;
  * An organization external to the institution
  */
 @ApiModel(description = "An organization external to the institution")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class ExternalOrganization {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -81,13 +81,13 @@ public class ExternalOrganization {
   @SerializedName(SERIALIZED_NAME_PREVIOUS_UUIDS)
   private List<String> previousUuids = null;
 
-  public static final String SERIALIZED_NAME_EXTERNALLY_MANAGED = "externallyManaged";
-  @SerializedName(SERIALIZED_NAME_EXTERNALLY_MANAGED)
-  private Boolean externallyManaged;
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private String version;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  private Map<String, String> name = new HashMap<String, String>();
+  private Map<String, String> name = null;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -111,7 +111,7 @@ public class ExternalOrganization {
 
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private Address address;
+  private CERIFAddress address;
 
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phoneNumber";
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
@@ -165,21 +165,17 @@ public class ExternalOrganization {
   @SerializedName(SERIALIZED_NAME_WORKFLOW)
   private Workflow workflow;
 
-  public static final String SERIALIZED_NAME_IMAGE = "image";
-  @SerializedName(SERIALIZED_NAME_IMAGE)
-  private List<ClassifiedFile> image = null;
-
-  public static final String SERIALIZED_NAME_FAMILY = "family";
-  @SerializedName(SERIALIZED_NAME_FAMILY)
-  private String family;
+  public static final String SERIALIZED_NAME_SYSTEM_NAME = "systemName";
+  @SerializedName(SERIALIZED_NAME_SYSTEM_NAME)
+  private String systemName;
 
 
    /**
-   * Pure database ID of the object
+   * Pure database ID of the object, prefer using the UUID if it is present on the entity
    * @return pureId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pure database ID of the object")
+  @ApiModelProperty(value = "Pure database ID of the object, prefer using the UUID if it is present on the entity")
 
   public Long getPureId() {
     return pureId;
@@ -189,11 +185,11 @@ public class ExternalOrganization {
 
 
    /**
-   * UUID
+   * UUID, this is the primary identity of the entity
    * @return uuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "UUID")
+  @ApiModelProperty(value = "UUID, this is the primary identity of the entity")
 
   public UUID getUuid() {
     return uuid;
@@ -300,18 +296,27 @@ public class ExternalOrganization {
 
 
 
+  public ExternalOrganization version(String version) {
+    
+    this.version = version;
+    return this;
+  }
+
    /**
-   * Signals that the information is maintained by synchronization from an external system
-   * @return externallyManaged
+   * A hash representing the current version of the content. For new content this is null, and for existing content the current value. The property should never be modified explicitly by a client.
+   * @return version
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Signals that the information is maintained by synchronization from an external system")
+  @ApiModelProperty(value = "A hash representing the current version of the content. For new content this is null, and for existing content the current value. The property should never be modified explicitly by a client.")
 
-  public Boolean getExternallyManaged() {
-    return externallyManaged;
+  public String getVersion() {
+    return version;
   }
 
 
+  public void setVersion(String version) {
+    this.version = version;
+  }
 
 
   public ExternalOrganization name(Map<String, String> name) {
@@ -321,16 +326,19 @@ public class ExternalOrganization {
   }
 
   public ExternalOrganization putNameItem(String key, String nameItem) {
+    if (this.name == null) {
+      this.name = new HashMap<String, String>();
+    }
     this.name.put(key, nameItem);
     return this;
   }
 
    /**
-   * A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.
+   * A set of string values, one for each submission locale. Note: invalid locale values will be ignored.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", required = true, value = "A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.")
+  @ApiModelProperty(example = "{\"en_GB\":\"Some text\"}", value = "A set of string values, one for each submission locale. Note: invalid locale values will be ignored.")
 
   public Map<String, String> getName() {
     return name;
@@ -352,7 +360,8 @@ public class ExternalOrganization {
    * Get type
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ClassificationRef getType() {
     return type;
@@ -480,7 +489,7 @@ public class ExternalOrganization {
   }
 
 
-  public ExternalOrganization address(Address address) {
+  public ExternalOrganization address(CERIFAddress address) {
     
     this.address = address;
     return this;
@@ -493,12 +502,12 @@ public class ExternalOrganization {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Address getAddress() {
+  public CERIFAddress getAddress() {
     return address;
   }
 
 
-  public void setAddress(Address address) {
+  public void setAddress(CERIFAddress address) {
     this.address = address;
   }
 
@@ -834,46 +843,15 @@ public class ExternalOrganization {
   }
 
 
-  public ExternalOrganization image(List<ClassifiedFile> image) {
-    
-    this.image = image;
-    return this;
-  }
-
-  public ExternalOrganization addImageItem(ClassifiedFile imageItem) {
-    if (this.image == null) {
-      this.image = new ArrayList<ClassifiedFile>();
-    }
-    this.image.add(imageItem);
-    return this;
-  }
-
    /**
-   * Get image
-   * @return image
+   * The content system name
+   * @return systemName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The content system name")
 
-  public List<ClassifiedFile> getImage() {
-    return image;
-  }
-
-
-  public void setImage(List<ClassifiedFile> image) {
-    this.image = image;
-  }
-
-
-   /**
-   * The content family
-   * @return family
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The content family")
-
-  public String getFamily() {
-    return family;
+  public String getSystemName() {
+    return systemName;
   }
 
 
@@ -897,7 +875,7 @@ public class ExternalOrganization {
         Objects.equals(this.portalUrl, externalOrganization.portalUrl) &&
         Objects.equals(this.prettyUrlIdentifiers, externalOrganization.prettyUrlIdentifiers) &&
         Objects.equals(this.previousUuids, externalOrganization.previousUuids) &&
-        Objects.equals(this.externallyManaged, externalOrganization.externallyManaged) &&
+        Objects.equals(this.version, externalOrganization.version) &&
         Objects.equals(this.name, externalOrganization.name) &&
         Objects.equals(this.type, externalOrganization.type) &&
         Objects.equals(this.natureTypes, externalOrganization.natureTypes) &&
@@ -918,13 +896,12 @@ public class ExternalOrganization {
         Objects.equals(this.note, externalOrganization.note) &&
         Objects.equals(this.visibility, externalOrganization.visibility) &&
         Objects.equals(this.workflow, externalOrganization.workflow) &&
-        Objects.equals(this.image, externalOrganization.image) &&
-        Objects.equals(this.family, externalOrganization.family);
+        Objects.equals(this.systemName, externalOrganization.systemName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pureId, uuid, createdBy, createdDate, modifiedBy, modifiedDate, portalUrl, prettyUrlIdentifiers, previousUuids, externallyManaged, name, type, natureTypes, acronym, alternativeNames, identifiers, address, phoneNumber, mobilePhoneNumber, fax, email, bankAccountNumber, vatNumber, documents, images, links, keywordGroups, note, visibility, workflow, image, family);
+    return Objects.hash(pureId, uuid, createdBy, createdDate, modifiedBy, modifiedDate, portalUrl, prettyUrlIdentifiers, previousUuids, version, name, type, natureTypes, acronym, alternativeNames, identifiers, address, phoneNumber, mobilePhoneNumber, fax, email, bankAccountNumber, vatNumber, documents, images, links, keywordGroups, note, visibility, workflow, systemName);
   }
 
 
@@ -941,7 +918,7 @@ public class ExternalOrganization {
     sb.append("    portalUrl: ").append(toIndentedString(portalUrl)).append("\n");
     sb.append("    prettyUrlIdentifiers: ").append(toIndentedString(prettyUrlIdentifiers)).append("\n");
     sb.append("    previousUuids: ").append(toIndentedString(previousUuids)).append("\n");
-    sb.append("    externallyManaged: ").append(toIndentedString(externallyManaged)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    natureTypes: ").append(toIndentedString(natureTypes)).append("\n");
@@ -962,8 +939,7 @@ public class ExternalOrganization {
     sb.append("    note: ").append(toIndentedString(note)).append("\n");
     sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
     sb.append("    workflow: ").append(toIndentedString(workflow)).append("\n");
-    sb.append("    image: ").append(toIndentedString(image)).append("\n");
-    sb.append("    family: ").append(toIndentedString(family)).append("\n");
+    sb.append("    systemName: ").append(toIndentedString(systemName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -51,19 +51,11 @@ public class ClassifiedFileTest {
     }
 
     /**
-     * Test the property 'type'
+     * Test the property 'fileId'
      */
     @Test
-    public void typeTest() {
-        // TODO: test type
-    }
-
-    /**
-     * Test the property 'url'
-     */
-    @Test
-    public void urlTest() {
-        // TODO: test url
+    public void fileIdTest() {
+        // TODO: test fileId
     }
 
     /**
@@ -91,11 +83,35 @@ public class ClassifiedFileTest {
     }
 
     /**
-     * Test the property 'fileContent'
+     * Test the property 'url'
      */
     @Test
-    public void fileContentTest() {
-        // TODO: test fileContent
+    public void urlTest() {
+        // TODO: test url
+    }
+
+    /**
+     * Test the property 'uploadedFile'
+     */
+    @Test
+    public void uploadedFileTest() {
+        // TODO: test uploadedFile
+    }
+
+    /**
+     * Test the property 'fileData'
+     */
+    @Test
+    public void fileDataTest() {
+        // TODO: test fileData
+    }
+
+    /**
+     * Test the property 'type'
+     */
+    @Test
+    public void typeTest() {
+        // TODO: test type
     }
 
 }

@@ -28,7 +28,7 @@ import java.io.IOException;
  * RFC7807 Error details
  */
 @ApiModel(description = "RFC7807 Error details")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 
 public class ProblemDetails {
   public static final String SERIALIZED_NAME_TYPE = "type";

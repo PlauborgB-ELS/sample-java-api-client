@@ -16,7 +16,6 @@ package com.elsevier.pure.api.sample.stubs.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
-import com.elsevier.pure.api.sample.stubs.model.GeoLocation;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,27 +29,19 @@ import java.io.IOException;
  * A physical address
  */
 @ApiModel(description = "A physical address")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class Address {
-  public static final String SERIALIZED_NAME_ADDRESS1 = "address1";
-  @SerializedName(SERIALIZED_NAME_ADDRESS1)
-  private String address1;
+  public static final String SERIALIZED_NAME_ROAD = "road";
+  @SerializedName(SERIALIZED_NAME_ROAD)
+  private String road;
 
-  public static final String SERIALIZED_NAME_ADDRESS2 = "address2";
-  @SerializedName(SERIALIZED_NAME_ADDRESS2)
-  private String address2;
+  public static final String SERIALIZED_NAME_ROOM = "room";
+  @SerializedName(SERIALIZED_NAME_ROOM)
+  private String room;
 
-  public static final String SERIALIZED_NAME_ADDRESS3 = "address3";
-  @SerializedName(SERIALIZED_NAME_ADDRESS3)
-  private String address3;
-
-  public static final String SERIALIZED_NAME_ADDRESS4 = "address4";
-  @SerializedName(SERIALIZED_NAME_ADDRESS4)
-  private String address4;
-
-  public static final String SERIALIZED_NAME_ADDRESS5 = "address5";
-  @SerializedName(SERIALIZED_NAME_ADDRESS5)
-  private String address5;
+  public static final String SERIALIZED_NAME_BUILDING = "building";
+  @SerializedName(SERIALIZED_NAME_BUILDING)
+  private String building;
 
   public static final String SERIALIZED_NAME_POSTAL_CODE = "postalCode";
   @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
@@ -64,131 +55,73 @@ public class Address {
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private ClassificationRef country;
 
-  public static final String SERIALIZED_NAME_SUBDIVISION = "subdivision";
-  @SerializedName(SERIALIZED_NAME_SUBDIVISION)
-  private ClassificationRef subdivision;
 
-  public static final String SERIALIZED_NAME_STATE = "state";
-  @SerializedName(SERIALIZED_NAME_STATE)
-  private String state;
-
-  public static final String SERIALIZED_NAME_GEO_LOCATION = "geoLocation";
-  @SerializedName(SERIALIZED_NAME_GEO_LOCATION)
-  private GeoLocation geoLocation;
-
-
-  public Address address1(String address1) {
+  public Address road(String road) {
     
-    this.address1 = address1;
+    this.road = road;
     return this;
   }
 
    /**
-   * Address line 1
-   * @return address1
+   * Name of road and house number, eg. &#39;Pennsylvania Avenue&#39; or &#39;123 Main St.&#39;
+   * @return road
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Address line 1")
+  @ApiModelProperty(value = "Name of road and house number, eg. 'Pennsylvania Avenue' or '123 Main St.'")
 
-  public String getAddress1() {
-    return address1;
+  public String getRoad() {
+    return road;
   }
 
 
-  public void setAddress1(String address1) {
-    this.address1 = address1;
+  public void setRoad(String road) {
+    this.road = road;
   }
 
 
-  public Address address2(String address2) {
+  public Address room(String room) {
     
-    this.address2 = address2;
+    this.room = room;
     return this;
   }
 
    /**
-   * Address line 2
-   * @return address2
+   * Room number or name if available, eg. &#39;1.23&#39; or &#39;Office of Creative Services&#39;
+   * @return room
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Address line 2")
+  @ApiModelProperty(value = "Room number or name if available, eg. '1.23' or 'Office of Creative Services'")
 
-  public String getAddress2() {
-    return address2;
+  public String getRoom() {
+    return room;
   }
 
 
-  public void setAddress2(String address2) {
-    this.address2 = address2;
+  public void setRoom(String room) {
+    this.room = room;
   }
 
 
-  public Address address3(String address3) {
+  public Address building(String building) {
     
-    this.address3 = address3;
+    this.building = building;
     return this;
   }
 
    /**
-   * Address line 3
-   * @return address3
+   * Building Name if available, eg. &#39;Couper Administration Building&#39;
+   * @return building
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Address line 3")
+  @ApiModelProperty(value = "Building Name if available, eg. 'Couper Administration Building'")
 
-  public String getAddress3() {
-    return address3;
+  public String getBuilding() {
+    return building;
   }
 
 
-  public void setAddress3(String address3) {
-    this.address3 = address3;
-  }
-
-
-  public Address address4(String address4) {
-    
-    this.address4 = address4;
-    return this;
-  }
-
-   /**
-   * Address line 4
-   * @return address4
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Address line 4")
-
-  public String getAddress4() {
-    return address4;
-  }
-
-
-  public void setAddress4(String address4) {
-    this.address4 = address4;
-  }
-
-
-  public Address address5(String address5) {
-    
-    this.address5 = address5;
-    return this;
-  }
-
-   /**
-   * Address line 5
-   * @return address5
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Address line 5")
-
-  public String getAddress5() {
-    return address5;
-  }
-
-
-  public void setAddress5(String address5) {
-    this.address5 = address5;
+  public void setBuilding(String building) {
+    this.building = building;
   }
 
 
@@ -199,11 +132,11 @@ public class Address {
   }
 
    /**
-   * Postal code of city
+   * Postal code
    * @return postalCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Postal code of city")
+  @ApiModelProperty(value = "Postal code")
 
   public String getPostalCode() {
     return postalCode;
@@ -222,11 +155,11 @@ public class Address {
   }
 
    /**
-   * City
+   * City or town, eg. &#39;Binghamton&#39;
    * @return city
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "City")
+  @ApiModelProperty(value = "City or town, eg. 'Binghamton'")
 
   public String getCity() {
     return city;
@@ -261,75 +194,6 @@ public class Address {
   }
 
 
-  public Address subdivision(ClassificationRef subdivision) {
-    
-    this.subdivision = subdivision;
-    return this;
-  }
-
-   /**
-   * Get subdivision
-   * @return subdivision
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ClassificationRef getSubdivision() {
-    return subdivision;
-  }
-
-
-  public void setSubdivision(ClassificationRef subdivision) {
-    this.subdivision = subdivision;
-  }
-
-
-  public Address state(String state) {
-    
-    this.state = state;
-    return this;
-  }
-
-   /**
-   * State. Mutually exclusive with state
-   * @return state
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "State. Mutually exclusive with state")
-
-  public String getState() {
-    return state;
-  }
-
-
-  public void setState(String state) {
-    this.state = state;
-  }
-
-
-  public Address geoLocation(GeoLocation geoLocation) {
-    
-    this.geoLocation = geoLocation;
-    return this;
-  }
-
-   /**
-   * Get geoLocation
-   * @return geoLocation
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public GeoLocation getGeoLocation() {
-    return geoLocation;
-  }
-
-
-  public void setGeoLocation(GeoLocation geoLocation) {
-    this.geoLocation = geoLocation;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -339,22 +203,17 @@ public class Address {
       return false;
     }
     Address address = (Address) o;
-    return Objects.equals(this.address1, address.address1) &&
-        Objects.equals(this.address2, address.address2) &&
-        Objects.equals(this.address3, address.address3) &&
-        Objects.equals(this.address4, address.address4) &&
-        Objects.equals(this.address5, address.address5) &&
+    return Objects.equals(this.road, address.road) &&
+        Objects.equals(this.room, address.room) &&
+        Objects.equals(this.building, address.building) &&
         Objects.equals(this.postalCode, address.postalCode) &&
         Objects.equals(this.city, address.city) &&
-        Objects.equals(this.country, address.country) &&
-        Objects.equals(this.subdivision, address.subdivision) &&
-        Objects.equals(this.state, address.state) &&
-        Objects.equals(this.geoLocation, address.geoLocation);
+        Objects.equals(this.country, address.country);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address1, address2, address3, address4, address5, postalCode, city, country, subdivision, state, geoLocation);
+    return Objects.hash(road, room, building, postalCode, city, country);
   }
 
 
@@ -362,17 +221,12 @@ public class Address {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Address {\n");
-    sb.append("    address1: ").append(toIndentedString(address1)).append("\n");
-    sb.append("    address2: ").append(toIndentedString(address2)).append("\n");
-    sb.append("    address3: ").append(toIndentedString(address3)).append("\n");
-    sb.append("    address4: ").append(toIndentedString(address4)).append("\n");
-    sb.append("    address5: ").append(toIndentedString(address5)).append("\n");
+    sb.append("    road: ").append(toIndentedString(road)).append("\n");
+    sb.append("    room: ").append(toIndentedString(room)).append("\n");
+    sb.append("    building: ").append(toIndentedString(building)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
-    sb.append("    subdivision: ").append(toIndentedString(subdivision)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    geoLocation: ").append(toIndentedString(geoLocation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -2,7 +2,7 @@
 
 Pure API
 - API version: 0.1 Early Access
-  - Build date: 2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]
+  - Build date: 2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]
 
 This is an early access version of the new Pure write API.
 
@@ -78,7 +78,7 @@ import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
 import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
 import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
 import com.elsevier.pure.api.sample.stubs.invoker.models.*;
-import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+import com.elsevier.pure.api.sample.stubs.api.AccessDefinitionApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -91,13 +91,13 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //api-key.setApiKeyPrefix("Token");
 
-    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
-    ExternalOrganization externalOrganization = new ExternalOrganization(); // ExternalOrganization | The content to create
+    AccessDefinitionApi apiInstance = new AccessDefinitionApi(defaultClient);
+    AccessDefinition accessDefinition = new AccessDefinition(); // AccessDefinition | The content to create
     try {
-      ExternalOrganization result = apiInstance.create(externalOrganization);
+      AccessDefinition result = apiInstance.create(accessDefinition);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ExternalOrganizationApi#create");
+      System.err.println("Exception when calling AccessDefinitionApi#create");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -114,8 +114,41 @@ All URIs are relative to *http://localhost:8080/ws/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccessDefinitionApi* | [**create**](docs/AccessDefinitionApi.md#create) | **PUT** /access-definitions | Create access definition
+*AccessDefinitionApi* | [**delete**](docs/AccessDefinitionApi.md#delete) | **DELETE** /access-definitions/{uuid} | Delete access definition
+*AccessDefinitionApi* | [**get**](docs/AccessDefinitionApi.md#get) | **GET** /access-definitions/{uuid} | Get access definition
+*AccessDefinitionApi* | [**list**](docs/AccessDefinitionApi.md#list) | **GET** /access-definitions | Lists all access definitions
+*AccessDefinitionApi* | [**update**](docs/AccessDefinitionApi.md#update) | **PUT** /access-definitions/{uuid} | Update access definition
+*ApiKeyApi* | [**create**](docs/ApiKeyApi.md#create) | **PUT** /api-key | Create api key
+*ApiKeyApi* | [**delete**](docs/ApiKeyApi.md#delete) | **DELETE** /api-key/{uuid} | Delete api key
+*ApiKeyApi* | [**get**](docs/ApiKeyApi.md#get) | **GET** /api-key/{uuid} | Get api key
+*ApiKeyApi* | [**list**](docs/ApiKeyApi.md#list) | **GET** /api-key | Lists all api keys
+*ApiKeyApi* | [**update**](docs/ApiKeyApi.md#update) | **PUT** /api-key/{uuid} | Update api key
+*AuditEntryApi* | [**query**](docs/AuditEntryApi.md#query) | **POST** /audit-entries/search | Query operation for audit entries
+*EventApi* | [**create**](docs/EventApi.md#create) | **PUT** /events | Create event
+*EventApi* | [**createNote**](docs/EventApi.md#createNote) | **PUT** /events/{uuid}/notes | Create note
+*EventApi* | [**delete**](docs/EventApi.md#delete) | **DELETE** /events/{uuid} | Delete event
+*EventApi* | [**get**](docs/EventApi.md#get) | **GET** /events/{uuid} | Get event
+*EventApi* | [**getAllowedClassifiedIdentifierTypes**](docs/EventApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /events/allowed-classified-identifier-types | A list of allowed classified identifier types
+*EventApi* | [**getAllowedCountries**](docs/EventApi.md#getAllowedCountries) | **GET** /events/allowed-countries | A list of allowed countries
+*EventApi* | [**getAllowedDegreeOfRecognitions**](docs/EventApi.md#getAllowedDegreeOfRecognitions) | **GET** /events/allowed-degree-of-recognition | A list of allowed degree of recognitions
+*EventApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/EventApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /events/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
+*EventApi* | [**getAllowedKeywordGroupConfigurations**](docs/EventApi.md#getAllowedKeywordGroupConfigurations) | **GET** /events/allowed-keyword-group-configurations | A list of keyword group configurations
+*EventApi* | [**getAllowedLinkTypes**](docs/EventApi.md#getAllowedLinkTypes) | **GET** /events/allowed-link-types | A list of allowed link types
+*EventApi* | [**getAllowedLocales**](docs/EventApi.md#getAllowedLocales) | **GET** /events/allowed-locales | A list of allowed locales in localized strings
+*EventApi* | [**getAllowedSubdivisions**](docs/EventApi.md#getAllowedSubdivisions) | **GET** /events/allowed-subdivision | A list of allowed subdivisions
+*EventApi* | [**getAllowedTypes**](docs/EventApi.md#getAllowedTypes) | **GET** /events/allowed-types | A list of allowed event types
+*EventApi* | [**getAllowedWorkflowSteps**](docs/EventApi.md#getAllowedWorkflowSteps) | **GET** /events/allowed-workflow-steps | A list of allowed workflow steps
+*EventApi* | [**getOrderings**](docs/EventApi.md#getOrderings) | **GET** /events/orderings | Lists available orderings
+*EventApi* | [**list**](docs/EventApi.md#list) | **GET** /events | Lists all events
+*EventApi* | [**listNotes**](docs/EventApi.md#listNotes) | **GET** /events/{uuid}/notes | Lists notes
+*EventApi* | [**query**](docs/EventApi.md#query) | **POST** /events/search | Query operation for events
+*EventApi* | [**update**](docs/EventApi.md#update) | **PUT** /events/{uuid} | Update event
 *ExternalOrganizationApi* | [**create**](docs/ExternalOrganizationApi.md#create) | **PUT** /external-organizations | Create external organization
+*ExternalOrganizationApi* | [**createNote**](docs/ExternalOrganizationApi.md#createNote) | **PUT** /external-organizations/{uuid}/notes | Create note
 *ExternalOrganizationApi* | [**delete**](docs/ExternalOrganizationApi.md#delete) | **DELETE** /external-organizations/{uuid} | Delete external organization
+*ExternalOrganizationApi* | [**dependents**](docs/ExternalOrganizationApi.md#dependents) | **GET** /external-organizations/{uuid}/dependents | Lists all dependents to the external organization
+*ExternalOrganizationApi* | [**fileUploads**](docs/ExternalOrganizationApi.md#fileUploads) | **PUT** /external-organizations/file-uploads | Upload file to a specific external organization
 *ExternalOrganizationApi* | [**get**](docs/ExternalOrganizationApi.md#get) | **GET** /external-organizations/{uuid} | Get external organization
 *ExternalOrganizationApi* | [**getAllowedAddressCountries**](docs/ExternalOrganizationApi.md#getAllowedAddressCountries) | **GET** /external-organizations/allowed-address-countries | A list of allowed address countries
 *ExternalOrganizationApi* | [**getAllowedAddressSubdivisions**](docs/ExternalOrganizationApi.md#getAllowedAddressSubdivisions) | **GET** /external-organizations/allowed-address-subdivision | A list of allowed address subdivisions
@@ -126,99 +159,396 @@ Class | Method | HTTP request | Description
 *ExternalOrganizationApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/ExternalOrganizationApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /external-organizations/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
 *ExternalOrganizationApi* | [**getAllowedKeywordGroupConfigurations**](docs/ExternalOrganizationApi.md#getAllowedKeywordGroupConfigurations) | **GET** /external-organizations/allowed-keyword-group-configurations | A list of keyword group configurations
 *ExternalOrganizationApi* | [**getAllowedLinkTypes**](docs/ExternalOrganizationApi.md#getAllowedLinkTypes) | **GET** /external-organizations/allowed-link-types | A list of allowed link types
-*ExternalOrganizationApi* | [**getAllowedLocales**](docs/ExternalOrganizationApi.md#getAllowedLocales) | **GET** /external-organizations/allowed-locales | A list of allowed locales
+*ExternalOrganizationApi* | [**getAllowedLocales**](docs/ExternalOrganizationApi.md#getAllowedLocales) | **GET** /external-organizations/allowed-locales | A list of allowed locales in localized strings
 *ExternalOrganizationApi* | [**getAllowedNatureTypes**](docs/ExternalOrganizationApi.md#getAllowedNatureTypes) | **GET** /external-organizations/allowed-nature-types | A list of allowed nature types
 *ExternalOrganizationApi* | [**getAllowedTypes**](docs/ExternalOrganizationApi.md#getAllowedTypes) | **GET** /external-organizations/allowed-types | A list of allowed external organization types
 *ExternalOrganizationApi* | [**getAllowedWorkflowSteps**](docs/ExternalOrganizationApi.md#getAllowedWorkflowSteps) | **GET** /external-organizations/allowed-workflow-steps | A list of allowed workflow steps
-*ExternalOrganizationApi* | [**getFile**](docs/ExternalOrganizationApi.md#getFile) | **GET** /external-organizations/{uuid}/file/{fileid} | Get file from the external organization
+*ExternalOrganizationApi* | [**getFile**](docs/ExternalOrganizationApi.md#getFile) | **GET** /external-organizations/{uuid}/files/{fileId} | Get file from the external organization
 *ExternalOrganizationApi* | [**getOrderings**](docs/ExternalOrganizationApi.md#getOrderings) | **GET** /external-organizations/orderings | Lists available orderings
 *ExternalOrganizationApi* | [**list**](docs/ExternalOrganizationApi.md#list) | **GET** /external-organizations | Lists all external organizations
+*ExternalOrganizationApi* | [**listNotes**](docs/ExternalOrganizationApi.md#listNotes) | **GET** /external-organizations/{uuid}/notes | Lists notes
+*ExternalOrganizationApi* | [**merge**](docs/ExternalOrganizationApi.md#merge) | **POST** /external-organizations/merge | Merge external organizations
+*ExternalOrganizationApi* | [**previewDeduplication**](docs/ExternalOrganizationApi.md#previewDeduplication) | **POST** /external-organizations/preview-deduplication | Preview deduplication of external organizations
 *ExternalOrganizationApi* | [**query**](docs/ExternalOrganizationApi.md#query) | **POST** /external-organizations/search | Query operation for external organizations
 *ExternalOrganizationApi* | [**update**](docs/ExternalOrganizationApi.md#update) | **PUT** /external-organizations/{uuid} | Update external organization
-*ExternalOrganizationApi* | [**uploadFile**](docs/ExternalOrganizationApi.md#uploadFile) | **PUT** /external-organizations/{uuid}/file | Upload file to a specific external organization
+*ExternalPersonApi* | [**create**](docs/ExternalPersonApi.md#create) | **PUT** /external-persons | Create external person
+*ExternalPersonApi* | [**createNote**](docs/ExternalPersonApi.md#createNote) | **PUT** /external-persons/{uuid}/notes | Create note
+*ExternalPersonApi* | [**delete**](docs/ExternalPersonApi.md#delete) | **DELETE** /external-persons/{uuid} | Delete external person
+*ExternalPersonApi* | [**dependents**](docs/ExternalPersonApi.md#dependents) | **GET** /external-persons/{uuid}/dependents | Lists all dependents to a external person
+*ExternalPersonApi* | [**get**](docs/ExternalPersonApi.md#get) | **GET** /external-persons/{uuid} | Get external person
+*ExternalPersonApi* | [**getAllowedClassifiedIdentifierTypes**](docs/ExternalPersonApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /external-persons/allowed-classified-identifier-types | A list of allowed classified identifier types
+*ExternalPersonApi* | [**getAllowedCountries**](docs/ExternalPersonApi.md#getAllowedCountries) | **GET** /external-persons/allowed-countries | A list of allowed countries
+*ExternalPersonApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/ExternalPersonApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /external-persons/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
+*ExternalPersonApi* | [**getAllowedKeywordGroupConfigurations**](docs/ExternalPersonApi.md#getAllowedKeywordGroupConfigurations) | **GET** /external-persons/allowed-keyword-group-configurations | A list of keyword group configurations
+*ExternalPersonApi* | [**getAllowedLocales**](docs/ExternalPersonApi.md#getAllowedLocales) | **GET** /external-persons/allowed-locales | A list of allowed locales in localized strings
+*ExternalPersonApi* | [**getAllowedTypes**](docs/ExternalPersonApi.md#getAllowedTypes) | **GET** /external-persons/allowed-types | A list of allowed external person types
+*ExternalPersonApi* | [**getAllowedWorkflowSteps**](docs/ExternalPersonApi.md#getAllowedWorkflowSteps) | **GET** /external-persons/allowed-workflow-steps | A list of allowed workflow steps
+*ExternalPersonApi* | [**getOrderings**](docs/ExternalPersonApi.md#getOrderings) | **GET** /external-persons/orderings | Lists available orderings
+*ExternalPersonApi* | [**list**](docs/ExternalPersonApi.md#list) | **GET** /external-persons | Lists all external persons
+*ExternalPersonApi* | [**listNotes**](docs/ExternalPersonApi.md#listNotes) | **GET** /external-persons/{uuid}/notes | Lists notes
+*ExternalPersonApi* | [**query**](docs/ExternalPersonApi.md#query) | **POST** /external-persons/search | Query operation for external persons
+*ExternalPersonApi* | [**update**](docs/ExternalPersonApi.md#update) | **PUT** /external-persons/{uuid} | Update external persons
+*JournalApi* | [**create**](docs/JournalApi.md#create) | **PUT** /journals | Create journal
+*JournalApi* | [**createNote**](docs/JournalApi.md#createNote) | **PUT** /journals/{uuid}/notes | Create note
+*JournalApi* | [**delete**](docs/JournalApi.md#delete) | **DELETE** /journals/{uuid} | Delete journal
+*JournalApi* | [**dependents**](docs/JournalApi.md#dependents) | **GET** /journals/{uuid}/dependents | Lists all dependents to a journal
+*JournalApi* | [**get**](docs/JournalApi.md#get) | **GET** /journals/{uuid} | Get journal
+*JournalApi* | [**getAllowedClassifiedIdentifierTypes**](docs/JournalApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /journals/allowed-classified-identifier-types | A list of allowed classified identifier types
+*JournalApi* | [**getAllowedCountries**](docs/JournalApi.md#getAllowedCountries) | **GET** /journals/allowed-countries | A list of allowed countries
+*JournalApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/JournalApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /journals/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
+*JournalApi* | [**getAllowedKeywordGroupConfigurations**](docs/JournalApi.md#getAllowedKeywordGroupConfigurations) | **GET** /journals/allowed-keyword-group-configurations | A list of keyword group configurations
+*JournalApi* | [**getAllowedLinkTypes**](docs/JournalApi.md#getAllowedLinkTypes) | **GET** /journals/allowed-link-types | A list of allowed link types
+*JournalApi* | [**getAllowedLocales**](docs/JournalApi.md#getAllowedLocales) | **GET** /journals/allowed-locales | A list of allowed locales in localized strings
+*JournalApi* | [**getAllowedTypes**](docs/JournalApi.md#getAllowedTypes) | **GET** /journals/allowed-types | A list of allowed journal types
+*JournalApi* | [**getAllowedWorkflowSteps**](docs/JournalApi.md#getAllowedWorkflowSteps) | **GET** /journals/allowed-workflow-steps | A list of allowed workflow steps
+*JournalApi* | [**getOrderings**](docs/JournalApi.md#getOrderings) | **GET** /journals/orderings | Lists available orderings
+*JournalApi* | [**list**](docs/JournalApi.md#list) | **GET** /journals | Lists all journals
+*JournalApi* | [**listNotes**](docs/JournalApi.md#listNotes) | **GET** /journals/{uuid}/notes | Lists notes
+*JournalApi* | [**query**](docs/JournalApi.md#query) | **POST** /journals/search | Query operation for journals
+*JournalApi* | [**update**](docs/JournalApi.md#update) | **PUT** /journals/{uuid} | Update journal
 *OrganizationApi* | [**create**](docs/OrganizationApi.md#create) | **PUT** /organizations | Create organization
+*OrganizationApi* | [**createNote**](docs/OrganizationApi.md#createNote) | **PUT** /organizations/{uuid}/notes | Create note
 *OrganizationApi* | [**delete**](docs/OrganizationApi.md#delete) | **DELETE** /organizations/{uuid} | Delete organization
-*OrganizationApi* | [**file**](docs/OrganizationApi.md#file) | **GET** /organizations/{uuid}/file/{fileid} | Get file from the organization
+*OrganizationApi* | [**dependents**](docs/OrganizationApi.md#dependents) | **GET** /organizations/{uuid}/dependents | Lists all dependents to the organization
+*OrganizationApi* | [**fileUploads**](docs/OrganizationApi.md#fileUploads) | **PUT** /organizations/file-uploads | Upload file to a specific organization
 *OrganizationApi* | [**get**](docs/OrganizationApi.md#get) | **GET** /organizations/{uuid} | Get organization
 *OrganizationApi* | [**getAllowedAddressCountries**](docs/OrganizationApi.md#getAllowedAddressCountries) | **GET** /organizations/allowed-address-countries | A list of allowed address countries
 *OrganizationApi* | [**getAllowedAddressSubdivisions**](docs/OrganizationApi.md#getAllowedAddressSubdivisions) | **GET** /organizations/allowed-address-subdivision | A list of allowed address subdivisions
 *OrganizationApi* | [**getAllowedAddressTypes**](docs/OrganizationApi.md#getAllowedAddressTypes) | **GET** /organizations/allowed-address-types | A list of allowed address types
 *OrganizationApi* | [**getAllowedClassifiedIdentifierTypes**](docs/OrganizationApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /organizations/allowed-classified-identifier-types | A list of allowed classified identifier types
 *OrganizationApi* | [**getAllowedClassifiedImageTypes**](docs/OrganizationApi.md#getAllowedClassifiedImageTypes) | **GET** /organizations/allowed-classified-file-types | A list of allowed classified identifier types
+*OrganizationApi* | [**getAllowedCostCenters**](docs/OrganizationApi.md#getAllowedCostCenters) | **GET** /organizations/allowed-cost-centers | A list of allowed cost centers
+*OrganizationApi* | [**getAllowedEmailTypes**](docs/OrganizationApi.md#getAllowedEmailTypes) | **GET** /organizations/allowed-email-types | A list of allowed e-mail types
 *OrganizationApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/OrganizationApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /organizations/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
 *OrganizationApi* | [**getAllowedKeywordGroupConfigurations**](docs/OrganizationApi.md#getAllowedKeywordGroupConfigurations) | **GET** /organizations/allowed-keyword-group-configurations | A list of keyword group configurations
-*OrganizationApi* | [**getAllowedLinkTypes**](docs/OrganizationApi.md#getAllowedLinkTypes) | **GET** /organizations/allowed-email-types | A list of allowed e-mail types
+*OrganizationApi* | [**getAllowedLocales**](docs/OrganizationApi.md#getAllowedLocales) | **GET** /organizations/allowed-locales | A list of allowed locales in localized strings
 *OrganizationApi* | [**getAllowedNameVariantTypes**](docs/OrganizationApi.md#getAllowedNameVariantTypes) | **GET** /organizations/allowed-name-variant-types | A list of allowed name variant types
-*OrganizationApi* | [**getAllowedNatureTypes**](docs/OrganizationApi.md#getAllowedNatureTypes) | **GET** /organizations/allowed-cost-centers | A list of allowed cost centers
 *OrganizationApi* | [**getAllowedPhoneNumberTypes**](docs/OrganizationApi.md#getAllowedPhoneNumberTypes) | **GET** /organizations/allowed-phone-number-types | A list of allowed phone number types
 *OrganizationApi* | [**getAllowedPhotoTypes**](docs/OrganizationApi.md#getAllowedPhotoTypes) | **GET** /organizations/allowed-photo-types | A list of allowed photo types
 *OrganizationApi* | [**getAllowedProfileInformationTypes**](docs/OrganizationApi.md#getAllowedProfileInformationTypes) | **GET** /organizations/allowed-profile-information-types | A list of allowed profile information types
 *OrganizationApi* | [**getAllowedTypes**](docs/OrganizationApi.md#getAllowedTypes) | **GET** /organizations/allowed-types | A list of allowed organization types
 *OrganizationApi* | [**getAllowedWebAddressTypes**](docs/OrganizationApi.md#getAllowedWebAddressTypes) | **GET** /organizations/allowed-web-address-types | A list of allowed web address types
+*OrganizationApi* | [**getFile**](docs/OrganizationApi.md#getFile) | **GET** /organizations/{uuid}/files/{fileId} | Get file from the organization
 *OrganizationApi* | [**getOrderings**](docs/OrganizationApi.md#getOrderings) | **GET** /organizations/orderings | Lists available orderings
 *OrganizationApi* | [**list**](docs/OrganizationApi.md#list) | **GET** /organizations | Lists all organizations
+*OrganizationApi* | [**listNotes**](docs/OrganizationApi.md#listNotes) | **GET** /organizations/{uuid}/notes | Lists notes
 *OrganizationApi* | [**query**](docs/OrganizationApi.md#query) | **POST** /organizations/search | Query operation for organizations
 *OrganizationApi* | [**update**](docs/OrganizationApi.md#update) | **PUT** /organizations/{uuid} | Update organization
-*OrganizationApi* | [**uploadfile**](docs/OrganizationApi.md#uploadfile) | **PUT** /organizations/{uuid}/file | Upload file to a specific organization
+*PersonApi* | [**create**](docs/PersonApi.md#create) | **PUT** /persons | Create person
+*PersonApi* | [**createNote**](docs/PersonApi.md#createNote) | **PUT** /persons/{uuid}/notes | Create note
+*PersonApi* | [**delete**](docs/PersonApi.md#delete) | **DELETE** /persons/{uuid} | Delete person
+*PersonApi* | [**fileUploads**](docs/PersonApi.md#fileUploads) | **PUT** /persons/file-uploads | Upload file to a specific person
+*PersonApi* | [**get**](docs/PersonApi.md#get) | **GET** /persons/{uuid} | Get person
+*PersonApi* | [**getAllowedAcademicQualificationsFieldOfStudies**](docs/PersonApi.md#getAllowedAcademicQualificationsFieldOfStudies) | **GET** /persons/allowed-academic-qualifications-field-of-studies | A list of the allowed values for field of study
+*PersonApi* | [**getAllowedAcademicQualificationsTypes**](docs/PersonApi.md#getAllowedAcademicQualificationsTypes) | **GET** /persons/allowed-allowed-academic-qualification-types | A list of allowed academic qualification types for persons
+*PersonApi* | [**getAllowedAddressCountries**](docs/PersonApi.md#getAllowedAddressCountries) | **GET** /persons/allowed-address-countries | A list of allowed address countries
+*PersonApi* | [**getAllowedAddressSubdivisions**](docs/PersonApi.md#getAllowedAddressSubdivisions) | **GET** /persons/allowed-address-subdivisions | A list of allowed subdivisions
+*PersonApi* | [**getAllowedAddressTypes**](docs/PersonApi.md#getAllowedAddressTypes) | **GET** /persons/allowed-address-types | A list of allowed address types
+*PersonApi* | [**getAllowedClassifiedIdentifierTypes**](docs/PersonApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /persons/allowed-classified-identifier-types | A list of allowed classified identifier types
+*PersonApi* | [**getAllowedExternalPositionsAppointments**](docs/PersonApi.md#getAllowedExternalPositionsAppointments) | **GET** /persons/allowed-external-positions-appointments | A list of the allowed values for appointments
+*PersonApi* | [**getAllowedGenders**](docs/PersonApi.md#getAllowedGenders) | **GET** /persons/allowed-genders | A list of allowed classifications for the gender property
+*PersonApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/PersonApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /persons/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
+*PersonApi* | [**getAllowedKeywordGroupConfigurations**](docs/PersonApi.md#getAllowedKeywordGroupConfigurations) | **GET** /persons/allowed-keyword-group-configurations | A list of keyword group configurations
+*PersonApi* | [**getAllowedLeavesOfAbsenceClassifications**](docs/PersonApi.md#getAllowedLeavesOfAbsenceClassifications) | **GET** /persons/allowed-leave-of-absense | A list of allowed classifications for the leave of absence property
+*PersonApi* | [**getAllowedLinkTypes**](docs/PersonApi.md#getAllowedLinkTypes) | **GET** /persons/allowed-link-types | A list of allowed link types
+*PersonApi* | [**getAllowedLocales**](docs/PersonApi.md#getAllowedLocales) | **GET** /persons/allowed-locales | A list of allowed locales in localized strings
+*PersonApi* | [**getAllowedNamesTypes**](docs/PersonApi.md#getAllowedNamesTypes) | **GET** /persons/allowed-names-types | A list of allowed classifications for classified names
+*PersonApi* | [**getAllowedNationalities**](docs/PersonApi.md#getAllowedNationalities) | **GET** /persons/allowed-nationalities | A list of allowed classifications for the nationalities property
+*PersonApi* | [**getAllowedPersonOrganizationAssociationsEmailTypes**](docs/PersonApi.md#getAllowedPersonOrganizationAssociationsEmailTypes) | **GET** /persons/allowed-person-organization-associations-email-types | A list of allowed email types
+*PersonApi* | [**getAllowedPersonOrganizationAssociationsEmploymentTypes**](docs/PersonApi.md#getAllowedPersonOrganizationAssociationsEmploymentTypes) | **GET** /persons/allowed-person-organization-associations-employment-types | A list of allowed employment types
+*PersonApi* | [**getAllowedPersonOrganizationAssociationsJobTitles**](docs/PersonApi.md#getAllowedPersonOrganizationAssociationsJobTitles) | **GET** /persons/allowed-person-organization-associations-job-titles | A list of allowed job titles
+*PersonApi* | [**getAllowedPersonOrganizationAssociationsPhoneNumberTypes**](docs/PersonApi.md#getAllowedPersonOrganizationAssociationsPhoneNumberTypes) | **GET** /persons/allowed-person-organization-associations-phonenumber-types | A list of allowed phone number types
+*PersonApi* | [**getAllowedPersonOrganizationAssociationsSupervisorRoles**](docs/PersonApi.md#getAllowedPersonOrganizationAssociationsSupervisorRoles) | **GET** /persons/allowed-person-organization-associations-supervisor-roles | A list of allowed supervisor roles
+*PersonApi* | [**getAllowedPersonOrganizationAssociationsWebAddressTypes**](docs/PersonApi.md#getAllowedPersonOrganizationAssociationsWebAddressTypes) | **GET** /persons/allowed-person-organization-associations-webaddress-types | A list of allowed web address types
+*PersonApi* | [**getAllowedPrivateAddressCountries**](docs/PersonApi.md#getAllowedPrivateAddressCountries) | **GET** /persons/allowed-private-address-countries | A list of allowed country classifications for private address
+*PersonApi* | [**getAllowedProfileInformationTypes**](docs/PersonApi.md#getAllowedProfileInformationTypes) | **GET** /persons/allowed-profile-information-types | A list of allowed classifications for the profile information property
+*PersonApi* | [**getAllowedProfilePhotoTypes**](docs/PersonApi.md#getAllowedProfilePhotoTypes) | **GET** /persons/allowed-profile-photo-types | A list of allowed photo types
+*PersonApi* | [**getAllowedProfilePhotosTypes**](docs/PersonApi.md#getAllowedProfilePhotosTypes) | **GET** /persons/allowed-allowed-profile-photo-types | A list of allowed types for person profile photos
+*PersonApi* | [**getAllowedStaffOrganizationAssociationsContractTypes**](docs/PersonApi.md#getAllowedStaffOrganizationAssociationsContractTypes) | **GET** /persons/allowed-staff-organization-associations-contract-types | A list of allowed contract types
+*PersonApi* | [**getAllowedStaffOrganizationAssociationsStaffTypes**](docs/PersonApi.md#getAllowedStaffOrganizationAssociationsStaffTypes) | **GET** /persons/allowed-staff-organization-associations-staff-types | A list of allowed staff types
+*PersonApi* | [**getAllowedStudentAssociationsEmploymentTypes**](docs/PersonApi.md#getAllowedStudentAssociationsEmploymentTypes) | **GET** /persons/allowed-student-organization-associations-employment-types | A list of allowed employment types
+*PersonApi* | [**getAllowedTitlesTypes**](docs/PersonApi.md#getAllowedTitlesTypes) | **GET** /persons/allowed-titles-types | A list of allowed classifications for the titles property
+*PersonApi* | [**getAllowedVisitingScholarAssociationsEmploymentTypes**](docs/PersonApi.md#getAllowedVisitingScholarAssociationsEmploymentTypes) | **GET** /persons/allowed-visiting-scholar-organization-associations-employment-types | A list of allowed employment types
+*PersonApi* | [**getFile**](docs/PersonApi.md#getFile) | **GET** /persons/{uuid}/files/{fileId} | Get file from the person
+*PersonApi* | [**getHighlightedContent**](docs/PersonApi.md#getHighlightedContent) | **GET** /persons/{uuid}/highlighted-content | Get highlighted content
+*PersonApi* | [**getOrderings**](docs/PersonApi.md#getOrderings) | **GET** /persons/orderings | Lists available orderings
+*PersonApi* | [**list**](docs/PersonApi.md#list) | **GET** /persons | Lists all persons
+*PersonApi* | [**listNotes**](docs/PersonApi.md#listNotes) | **GET** /persons/{uuid}/notes | Lists notes
+*PersonApi* | [**query**](docs/PersonApi.md#query) | **POST** /persons/search | Query operation for persons
+*PersonApi* | [**supervisee**](docs/PersonApi.md#supervisee) | **GET** /persons/{uuid}/supervisee | person supervisees
+*PersonApi* | [**update**](docs/PersonApi.md#update) | **PUT** /persons/{uuid} | Update person
+*PersonApi* | [**updateHighlightedContent**](docs/PersonApi.md#updateHighlightedContent) | **PUT** /persons/{uuid}/highlighted-content | Update highlighted content
+*PublisherApi* | [**create**](docs/PublisherApi.md#create) | **PUT** /publishers | Create publisher
+*PublisherApi* | [**createNote**](docs/PublisherApi.md#createNote) | **PUT** /publishers/{uuid}/notes | Create note
+*PublisherApi* | [**delete**](docs/PublisherApi.md#delete) | **DELETE** /publishers/{uuid} | Delete publisher
+*PublisherApi* | [**dependents**](docs/PublisherApi.md#dependents) | **GET** /publishers/{uuid}/dependents | Lists all dependents to a publisher
+*PublisherApi* | [**get**](docs/PublisherApi.md#get) | **GET** /publishers/{uuid} | Get publisher
+*PublisherApi* | [**getAllowedCountries**](docs/PublisherApi.md#getAllowedCountries) | **GET** /publishers/allowed-countries | A list of allowed countries
+*PublisherApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/PublisherApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /publishers/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
+*PublisherApi* | [**getAllowedKeywordGroupConfigurations**](docs/PublisherApi.md#getAllowedKeywordGroupConfigurations) | **GET** /publishers/allowed-keyword-group-configurations | A list of keyword group configurations
+*PublisherApi* | [**getAllowedLocales**](docs/PublisherApi.md#getAllowedLocales) | **GET** /publishers/allowed-locales | A list of allowed locales in localized strings
+*PublisherApi* | [**getAllowedTypes**](docs/PublisherApi.md#getAllowedTypes) | **GET** /publishers/allowed-types | A list of allowed publisher types
+*PublisherApi* | [**getAllowedWorkflowSteps**](docs/PublisherApi.md#getAllowedWorkflowSteps) | **GET** /publishers/allowed-workflow-steps | A list of allowed workflow steps
+*PublisherApi* | [**getOrderings**](docs/PublisherApi.md#getOrderings) | **GET** /publishers/orderings | Lists available orderings
+*PublisherApi* | [**list**](docs/PublisherApi.md#list) | **GET** /publishers | Lists all publishers
+*PublisherApi* | [**listNotes**](docs/PublisherApi.md#listNotes) | **GET** /publishers/{uuid}/notes | Lists notes
+*PublisherApi* | [**query**](docs/PublisherApi.md#query) | **POST** /publishers/search | Query operation for publishers
+*PublisherApi* | [**update**](docs/PublisherApi.md#update) | **PUT** /publishers/{uuid} | Update publishers
+*ResearchOutputApi* | [**create**](docs/ResearchOutputApi.md#create) | **PUT** /research-outputs | Create research output
+*ResearchOutputApi* | [**createNote**](docs/ResearchOutputApi.md#createNote) | **PUT** /research-outputs/{uuid}/notes | Create note
+*ResearchOutputApi* | [**delete**](docs/ResearchOutputApi.md#delete) | **DELETE** /research-outputs/{uuid} | Delete research output
+*ResearchOutputApi* | [**dependents**](docs/ResearchOutputApi.md#dependents) | **GET** /research-outputs/{uuid}/dependents | Lists all dependents to a research output
+*ResearchOutputApi* | [**fileUploads**](docs/ResearchOutputApi.md#fileUploads) | **PUT** /research-outputs/file-uploads | Upload file to a specific research output
+*ResearchOutputApi* | [**get**](docs/ResearchOutputApi.md#get) | **GET** /research-outputs/{uuid} | Get research output
+*ResearchOutputApi* | [**getAllowedAdditionalFileAccessTypes**](docs/ResearchOutputApi.md#getAllowedAdditionalFileAccessTypes) | **GET** /research-outputs/allowed-additional-file-access-types | A list of allowed access types
+*ResearchOutputApi* | [**getAllowedAdditionalFileLicenseTypes**](docs/ResearchOutputApi.md#getAllowedAdditionalFileLicenseTypes) | **GET** /research-outputs/allowed-additional-file-license-types | A list of allowed license types
+*ResearchOutputApi* | [**getAllowedArticleProcessingChargeCurrencies**](docs/ResearchOutputApi.md#getAllowedArticleProcessingChargeCurrencies) | **GET** /research-outputs/allowed-article-processing-charge-currencies | A list of allowed article processing charge currencies
+*ResearchOutputApi* | [**getAllowedBookAnthologyContributorRoles**](docs/ResearchOutputApi.md#getAllowedBookAnthologyContributorRoles) | **GET** /research-outputs/allowed-book-anthology-contributor-roles | A list of allowed contributor roles for the book anthology subtype
+*ResearchOutputApi* | [**getAllowedBookAnthologyDescriptionTypes**](docs/ResearchOutputApi.md#getAllowedBookAnthologyDescriptionTypes) | **GET** /research-outputs/allowed-book-anthology-description-types | A list of allowed description types for the book anthology subtype
+*ResearchOutputApi* | [**getAllowedCaseNoteSources**](docs/ResearchOutputApi.md#getAllowedCaseNoteSources) | **GET** /research-outputs/allowed-case-note-sources | A list of allowed case note sources
+*ResearchOutputApi* | [**getAllowedCategories**](docs/ResearchOutputApi.md#getAllowedCategories) | **GET** /research-outputs/allowed-categories | A list of allowed categories
+*ResearchOutputApi* | [**getAllowedContributionToBookAnthologyContributorRoles**](docs/ResearchOutputApi.md#getAllowedContributionToBookAnthologyContributorRoles) | **GET** /research-outputs/allowed-contribution-to-book-anthology-contributor-roles | A list of allowed contributor roles for the contribution to book anthology subtype
+*ResearchOutputApi* | [**getAllowedContributionToBookAnthologyDescriptionTypes**](docs/ResearchOutputApi.md#getAllowedContributionToBookAnthologyDescriptionTypes) | **GET** /research-outputs/allowed-contribution-to-book-anthology-description-types | A list of allowed description types for the contribution to book anthology subtype
+*ResearchOutputApi* | [**getAllowedContributionToConferenceContributorRoles**](docs/ResearchOutputApi.md#getAllowedContributionToConferenceContributorRoles) | **GET** /research-outputs/allowed-contribution-to-conference-contributor-roles | A list of allowed contributor roles for the contribution to conference subtype
+*ResearchOutputApi* | [**getAllowedContributionToConferenceDescriptionTypes**](docs/ResearchOutputApi.md#getAllowedContributionToConferenceDescriptionTypes) | **GET** /research-outputs/allowed-contribution-to-conference-description-types | A list of allowed description types for the contribution to conference subtype
+*ResearchOutputApi* | [**getAllowedContributionToJournalContributorRoles**](docs/ResearchOutputApi.md#getAllowedContributionToJournalContributorRoles) | **GET** /research-outputs/allowed-contribution-to-journal-contributor-roles | A list of allowed contributor roles for the contribution to journal subtype
+*ResearchOutputApi* | [**getAllowedContributionToJournalDescriptionTypes**](docs/ResearchOutputApi.md#getAllowedContributionToJournalDescriptionTypes) | **GET** /research-outputs/allowed-contribution-to-journal-description-types | A list of allowed description types for the contribution to journal subtype
+*ResearchOutputApi* | [**getAllowedContributionToMemorandumContributorRoles**](docs/ResearchOutputApi.md#getAllowedContributionToMemorandumContributorRoles) | **GET** /research-outputs/allowed-contribution-to-memorandum-contributor-roles | A list of allowed contributor roles for the contribution to memorandum subtype
+*ResearchOutputApi* | [**getAllowedContributionToMemorandumDescriptionTypes**](docs/ResearchOutputApi.md#getAllowedContributionToMemorandumDescriptionTypes) | **GET** /research-outputs/allowed-contribution-to-memorandum-description-types | A list of allowed description types for the contribution to memorandum subtype
+*ResearchOutputApi* | [**getAllowedContributionToPeriodicalContributorRoles**](docs/ResearchOutputApi.md#getAllowedContributionToPeriodicalContributorRoles) | **GET** /research-outputs/allowed-contribution-to-periodical-contributor-roles | A list of allowed contributor roles for the contribution to periodical subtype
+*ResearchOutputApi* | [**getAllowedContributionToPeriodicalDescriptionTypes**](docs/ResearchOutputApi.md#getAllowedContributionToPeriodicalDescriptionTypes) | **GET** /research-outputs/allowed-contribution-to-periodical-description-types | A list of allowed description types for the contribution to periodical subtype
+*ResearchOutputApi* | [**getAllowedContributorCountries**](docs/ResearchOutputApi.md#getAllowedContributorCountries) | **GET** /research-outputs/allowed-contributor-countries | A list of allowed contributor countries
+*ResearchOutputApi* | [**getAllowedCountries**](docs/ResearchOutputApi.md#getAllowedCountries) | **GET** /research-outputs/allowed-countries | A list of allowed countries
+*ResearchOutputApi* | [**getAllowedElectronicVersionAccessTypes**](docs/ResearchOutputApi.md#getAllowedElectronicVersionAccessTypes) | **GET** /research-outputs/allowed-electronic-version-access-types | A list of allowed access types
+*ResearchOutputApi* | [**getAllowedElectronicVersionLicenseTypes**](docs/ResearchOutputApi.md#getAllowedElectronicVersionLicenseTypes) | **GET** /research-outputs/allowed-electronic-version-license-types | A list of allowed license types
+*ResearchOutputApi* | [**getAllowedElectronicVersionVersionTypes**](docs/ResearchOutputApi.md#getAllowedElectronicVersionVersionTypes) | **GET** /research-outputs/allowed-electronic-version-version-types | A list of allowed version types
+*ResearchOutputApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/ResearchOutputApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /research-outputs/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
+*ResearchOutputApi* | [**getAllowedKeywordGroupConfigurations**](docs/ResearchOutputApi.md#getAllowedKeywordGroupConfigurations) | **GET** /research-outputs/allowed-keyword-group-configurations | A list of keyword group configurations
+*ResearchOutputApi* | [**getAllowedLanguages**](docs/ResearchOutputApi.md#getAllowedLanguages) | **GET** /research-outputs/allowed-languages | A list of allowed languages
+*ResearchOutputApi* | [**getAllowedLinkTypes**](docs/ResearchOutputApi.md#getAllowedLinkTypes) | **GET** /research-outputs/allowed-link-types | A list of allowed link types
+*ResearchOutputApi* | [**getAllowedLocales**](docs/ResearchOutputApi.md#getAllowedLocales) | **GET** /research-outputs/allowed-locales | A list of allowed locales in localized strings
+*ResearchOutputApi* | [**getAllowedMainResearchAreas**](docs/ResearchOutputApi.md#getAllowedMainResearchAreas) | **GET** /research-outputs/allowed-main-research-areas | A list of allowed main research areas
+*ResearchOutputApi* | [**getAllowedMemorandumContributorRoles**](docs/ResearchOutputApi.md#getAllowedMemorandumContributorRoles) | **GET** /research-outputs/allowed-memorandum-contributor-roles | A list of allowed contributor roles for the memorandum subtype
+*ResearchOutputApi* | [**getAllowedMemorandumDescriptionTypes**](docs/ResearchOutputApi.md#getAllowedMemorandumDescriptionTypes) | **GET** /research-outputs/allowed-memorandum-description-types | A list of allowed description types for the memorandum subtype
+*ResearchOutputApi* | [**getAllowedNonTextualContributorRoles**](docs/ResearchOutputApi.md#getAllowedNonTextualContributorRoles) | **GET** /research-outputs/allowed-non-textual-contributor-roles | A list of allowed contributor roles for the non-textual subtype
+*ResearchOutputApi* | [**getAllowedNonTextualDescriptionTypes**](docs/ResearchOutputApi.md#getAllowedNonTextualDescriptionTypes) | **GET** /research-outputs/allowed-non-textual-description-types | A list of allowed description types for the non-textual subtype
+*ResearchOutputApi* | [**getAllowedOpenAccessPermissions**](docs/ResearchOutputApi.md#getAllowedOpenAccessPermissions) | **GET** /research-outputs/allowed-open-access-permissions | A list of allowed open access permissions
+*ResearchOutputApi* | [**getAllowedOtherContributionContributorRoles**](docs/ResearchOutputApi.md#getAllowedOtherContributionContributorRoles) | **GET** /research-outputs/allowed-other-contribution-contributor-roles | A list of allowed contributor roles for the other contribution subtype
+*ResearchOutputApi* | [**getAllowedOtherContributionDescriptionTypes**](docs/ResearchOutputApi.md#getAllowedOtherContributionDescriptionTypes) | **GET** /research-outputs/allowed-other-contribution-description-types | A list of allowed description types for the other contribution subtype
+*ResearchOutputApi* | [**getAllowedOutputMedias**](docs/ResearchOutputApi.md#getAllowedOutputMedias) | **GET** /research-outputs/allowed-output-medias | A list of allowed output medias
+*ResearchOutputApi* | [**getAllowedPatentContributorRoles**](docs/ResearchOutputApi.md#getAllowedPatentContributorRoles) | **GET** /research-outputs/allowed-patent-contributor-roles | A list of allowed contributor roles for the patent subtype
+*ResearchOutputApi* | [**getAllowedPatentDescriptionTypes**](docs/ResearchOutputApi.md#getAllowedPatentDescriptionTypes) | **GET** /research-outputs/allowed-patent-description-types | A list of allowed description types for the patent subtype
+*ResearchOutputApi* | [**getAllowedPeerReviewConfigurations**](docs/ResearchOutputApi.md#getAllowedPeerReviewConfigurations) | **GET** /research-outputs/allowed-peer-review-configurations | A list of peer review configurations
+*ResearchOutputApi* | [**getAllowedPublicationStatuses**](docs/ResearchOutputApi.md#getAllowedPublicationStatuses) | **GET** /research-outputs/allowed-publication-statuses | A list of allowed publication statuses
+*ResearchOutputApi* | [**getAllowedQualifications**](docs/ResearchOutputApi.md#getAllowedQualifications) | **GET** /research-outputs/allowed-qualifications | A list of allowed qualifications
+*ResearchOutputApi* | [**getAllowedSupervisorRoles**](docs/ResearchOutputApi.md#getAllowedSupervisorRoles) | **GET** /research-outputs/allowed-supervisor-roles | A list of allowed supervisor roles
+*ResearchOutputApi* | [**getAllowedThesisContributorRoles**](docs/ResearchOutputApi.md#getAllowedThesisContributorRoles) | **GET** /research-outputs/allowed-thesis-contributor-roles | A list of allowed contributor roles for the thesis subtype
+*ResearchOutputApi* | [**getAllowedThesisDescriptionTypes**](docs/ResearchOutputApi.md#getAllowedThesisDescriptionTypes) | **GET** /research-outputs/allowed-thesis-description-types | A list of allowed description types for the thesis subtype
+*ResearchOutputApi* | [**getAllowedTypes**](docs/ResearchOutputApi.md#getAllowedTypes) | **GET** /research-outputs/allowed-types | A list of allowed research output types
+*ResearchOutputApi* | [**getAllowedWorkflowSteps**](docs/ResearchOutputApi.md#getAllowedWorkflowSteps) | **GET** /research-outputs/allowed-workflow-steps | A list of allowed workflow steps
+*ResearchOutputApi* | [**getAllowedWorkingPaperContributorRoles**](docs/ResearchOutputApi.md#getAllowedWorkingPaperContributorRoles) | **GET** /research-outputs/allowed-working-paper-contributor-roles | A list of allowed contributor roles for the working paper subtype
+*ResearchOutputApi* | [**getAllowedWorkingPaperDescriptionTypes**](docs/ResearchOutputApi.md#getAllowedWorkingPaperDescriptionTypes) | **GET** /research-outputs/allowed-working-paper-description-types | A list of allowed description types for the working paper subtype
+*ResearchOutputApi* | [**getFile**](docs/ResearchOutputApi.md#getFile) | **GET** /research-outputs/{uuid}/files/{fileId} | Get file from the research output
+*ResearchOutputApi* | [**getOrderings**](docs/ResearchOutputApi.md#getOrderings) | **GET** /research-outputs/orderings | Lists available orderings
+*ResearchOutputApi* | [**list**](docs/ResearchOutputApi.md#list) | **GET** /research-outputs | Lists all  research outputs
+*ResearchOutputApi* | [**listNotes**](docs/ResearchOutputApi.md#listNotes) | **GET** /research-outputs/{uuid}/notes | Lists notes
+*ResearchOutputApi* | [**query**](docs/ResearchOutputApi.md#query) | **POST** /research-outputs/search | Query operation for research outputs
+*ResearchOutputApi* | [**update**](docs/ResearchOutputApi.md#update) | **PUT** /research-outputs/{uuid} | Update research outputs
+*RoleApi* | [**addRoles**](docs/RoleApi.md#addRoles) | **PUT** /roles/{uuid} | Add roles to user
+*UserApi* | [**create**](docs/UserApi.md#create) | **PUT** /users | Create user
+*UserApi* | [**delete**](docs/UserApi.md#delete) | **DELETE** /users/{uuid} | Delete user
+*UserApi* | [**get**](docs/UserApi.md#get) | **GET** /users/{uuid} | Get user
+*UserApi* | [**list**](docs/UserApi.md#list) | **GET** /users | Lists all users
+*UserApi* | [**update**](docs/UserApi.md#update) | **PUT** /users/{uuid} | Update user
 
 
 ## Documentation for Models
 
+ - [AcademicQualification](docs/AcademicQualification.md)
+ - [AccessDefinition](docs/AccessDefinition.md)
+ - [AccessDefinitionAllowedField](docs/AccessDefinitionAllowedField.md)
+ - [AccessDefinitionContentServiceFilter](docs/AccessDefinitionContentServiceFilter.md)
+ - [AccessDefinitionListResult](docs/AccessDefinitionListResult.md)
+ - [AccessDefinitionRef](docs/AccessDefinitionRef.md)
+ - [AccessDefinitionSystemNameFieldFilter](docs/AccessDefinitionSystemNameFieldFilter.md)
+ - [ActivityRef](docs/ActivityRef.md)
+ - [AdditionalFileElectronicVersion](docs/AdditionalFileElectronicVersion.md)
+ - [AdditionalISSN](docs/AdditionalISSN.md)
  - [Address](docs/Address.md)
+ - [AlternativeISSN](docs/AlternativeISSN.md)
+ - [ApiKey](docs/ApiKey.md)
+ - [ApiKeyListResult](docs/ApiKeyListResult.md)
+ - [ApplicationRef](docs/ApplicationRef.md)
+ - [ArticleProcessingCharge](docs/ArticleProcessingCharge.md)
+ - [AuditEntriesQuery](docs/AuditEntriesQuery.md)
+ - [AuditEntry](docs/AuditEntry.md)
+ - [AuditEntryListResult](docs/AuditEntryListResult.md)
+ - [AuthorCollaborationRef](docs/AuthorCollaborationRef.md)
+ - [AwardRef](docs/AwardRef.md)
+ - [BookAnthology](docs/BookAnthology.md)
+ - [BookAnthologyAllOf](docs/BookAnthologyAllOf.md)
+ - [BookSeriesJournalAssociation](docs/BookSeriesJournalAssociation.md)
+ - [CERIFAddress](docs/CERIFAddress.md)
+ - [CaseNote](docs/CaseNote.md)
  - [ClassificationRef](docs/ClassificationRef.md)
  - [ClassificationRefList](docs/ClassificationRefList.md)
  - [ClassificationSchemeRef](docs/ClassificationSchemeRef.md)
+ - [ClassificationSchemeRefAllOf](docs/ClassificationSchemeRefAllOf.md)
  - [ClassificationsKeywordGroup](docs/ClassificationsKeywordGroup.md)
  - [ClassificationsKeywordGroupAllOf](docs/ClassificationsKeywordGroupAllOf.md)
  - [ClassifiedAddress](docs/ClassifiedAddress.md)
+ - [ClassifiedCaseNoteSource](docs/ClassifiedCaseNoteSource.md)
  - [ClassifiedFile](docs/ClassifiedFile.md)
  - [ClassifiedId](docs/ClassifiedId.md)
  - [ClassifiedIdAllOf](docs/ClassifiedIdAllOf.md)
  - [ClassifiedLocalizedValue](docs/ClassifiedLocalizedValue.md)
+ - [ClassifiedName](docs/ClassifiedName.md)
  - [ClassifiedValue](docs/ClassifiedValue.md)
+ - [CompoundDate](docs/CompoundDate.md)
+ - [CompoundDateRange](docs/CompoundDateRange.md)
+ - [ConferenceSeriesRef](docs/ConferenceSeriesRef.md)
  - [ContentRef](docs/ContentRef.md)
+ - [ContentRefListResult](docs/ContentRefListResult.md)
+ - [ContributionToBookAnthology](docs/ContributionToBookAnthology.md)
+ - [ContributionToBookAnthologyAllOf](docs/ContributionToBookAnthologyAllOf.md)
+ - [ContributionToConference](docs/ContributionToConference.md)
+ - [ContributionToConferenceAllOf](docs/ContributionToConferenceAllOf.md)
+ - [ContributionToJournal](docs/ContributionToJournal.md)
+ - [ContributionToJournalAllOf](docs/ContributionToJournalAllOf.md)
+ - [ContributionToMemorandum](docs/ContributionToMemorandum.md)
+ - [ContributionToMemorandumAllOf](docs/ContributionToMemorandumAllOf.md)
+ - [ContributionToPeriodical](docs/ContributionToPeriodical.md)
+ - [ContributionToPeriodicalAllOf](docs/ContributionToPeriodicalAllOf.md)
+ - [ContributorAssociation](docs/ContributorAssociation.md)
+ - [DataSetRef](docs/DataSetRef.md)
  - [DateRange](docs/DateRange.md)
  - [DependencyViolationProblemDetails](docs/DependencyViolationProblemDetails.md)
  - [DependencyViolationProblemDetailsAllOf](docs/DependencyViolationProblemDetailsAllOf.md)
  - [Document](docs/Document.md)
+ - [DoiElectronicVersion](docs/DoiElectronicVersion.md)
+ - [DoiElectronicVersionAllOf](docs/DoiElectronicVersionAllOf.md)
+ - [ElectronicISSN](docs/ElectronicISSN.md)
+ - [ElectronicVersion](docs/ElectronicVersion.md)
+ - [ElectronicVersionFile](docs/ElectronicVersionFile.md)
+ - [EquipmentRef](docs/EquipmentRef.md)
+ - [Event](docs/Event.md)
+ - [EventListResult](docs/EventListResult.md)
+ - [EventRef](docs/EventRef.md)
+ - [EventsQuery](docs/EventsQuery.md)
+ - [ExternalAppointment](docs/ExternalAppointment.md)
  - [ExternalOrganization](docs/ExternalOrganization.md)
+ - [ExternalOrganizationList](docs/ExternalOrganizationList.md)
  - [ExternalOrganizationListResult](docs/ExternalOrganizationListResult.md)
  - [ExternalOrganizationRef](docs/ExternalOrganizationRef.md)
+ - [ExternalOrganizationRefList](docs/ExternalOrganizationRefList.md)
  - [ExternalOrganizationsQuery](docs/ExternalOrganizationsQuery.md)
+ - [ExternalPerson](docs/ExternalPerson.md)
+ - [ExternalPersonListResult](docs/ExternalPersonListResult.md)
  - [ExternalPersonRef](docs/ExternalPersonRef.md)
+ - [ExternalPersonsQuery](docs/ExternalPersonsQuery.md)
+ - [FileElectronicVersion](docs/FileElectronicVersion.md)
+ - [FileElectronicVersionAllOf](docs/FileElectronicVersionAllOf.md)
+ - [FormattedString](docs/FormattedString.md)
  - [FreeKeywordsKeywordGroup](docs/FreeKeywordsKeywordGroup.md)
  - [FreeKeywordsKeywordGroupAllOf](docs/FreeKeywordsKeywordGroupAllOf.md)
  - [FullKeywordGroup](docs/FullKeywordGroup.md)
  - [FullKeywordGroupAllOf](docs/FullKeywordGroupAllOf.md)
+ - [Gender](docs/Gender.md)
  - [GenericProblemDetails](docs/GenericProblemDetails.md)
  - [GeoLocation](docs/GeoLocation.md)
+ - [HighlightedContent](docs/HighlightedContent.md)
+ - [HonoraryStaffOrganizationAssociation](docs/HonoraryStaffOrganizationAssociation.md)
+ - [HonoraryStaffOrganizationAssociationAllOf](docs/HonoraryStaffOrganizationAssociationAllOf.md)
+ - [ISSN](docs/ISSN.md)
  - [Id](docs/Id.md)
  - [IdAllOf](docs/IdAllOf.md)
  - [Identifier](docs/Identifier.md)
+ - [ImpactRef](docs/ImpactRef.md)
+ - [InternalExternalOrganizationAssociation](docs/InternalExternalOrganizationAssociation.md)
+ - [InternalOrExternalSupervisor](docs/InternalOrExternalSupervisor.md)
+ - [Journal](docs/Journal.md)
+ - [JournalAssociation](docs/JournalAssociation.md)
+ - [JournalListResult](docs/JournalListResult.md)
+ - [JournalRef](docs/JournalRef.md)
+ - [JournalTitle](docs/JournalTitle.md)
+ - [JournalsQuery](docs/JournalsQuery.md)
  - [Keyword](docs/Keyword.md)
  - [KeywordContainer](docs/KeywordContainer.md)
  - [KeywordGroup](docs/KeywordGroup.md)
  - [KeywordGroupConfiguration](docs/KeywordGroupConfiguration.md)
  - [KeywordGroupConfigurationList](docs/KeywordGroupConfigurationList.md)
  - [Link](docs/Link.md)
+ - [LinkElectronicVersion](docs/LinkElectronicVersion.md)
+ - [LinkElectronicVersionAllOf](docs/LinkElectronicVersionAllOf.md)
  - [LocalesList](docs/LocalesList.md)
+ - [Memorandum](docs/Memorandum.md)
+ - [Name](docs/Name.md)
  - [NavigationLink](docs/NavigationLink.md)
+ - [NonTextual](docs/NonTextual.md)
+ - [NonTextualAllOf](docs/NonTextualAllOf.md)
+ - [Note](docs/Note.md)
+ - [NoteListResult](docs/NoteListResult.md)
  - [OrderingsList](docs/OrderingsList.md)
  - [Organization](docs/Organization.md)
  - [OrganizationListResult](docs/OrganizationListResult.md)
+ - [OrganizationOrExternalOrganizationRef](docs/OrganizationOrExternalOrganizationRef.md)
  - [OrganizationRef](docs/OrganizationRef.md)
  - [OrganizationsQuery](docs/OrganizationsQuery.md)
+ - [OtherContribution](docs/OtherContribution.md)
+ - [OtherContributionAllOf](docs/OtherContributionAllOf.md)
  - [PageInformation](docs/PageInformation.md)
+ - [Patent](docs/Patent.md)
+ - [PatentAllOf](docs/PatentAllOf.md)
+ - [Person](docs/Person.md)
+ - [PersonClassifiedLeaveOfAbsence](docs/PersonClassifiedLeaveOfAbsence.md)
+ - [PersonListResult](docs/PersonListResult.md)
+ - [PersonOrganizationAssociation](docs/PersonOrganizationAssociation.md)
  - [PersonRef](docs/PersonRef.md)
+ - [PersonSuperviseeAssociation](docs/PersonSuperviseeAssociation.md)
+ - [PersonSuperviseeAssociationListResult](docs/PersonSuperviseeAssociationListResult.md)
+ - [PersonSupervisorAssociation](docs/PersonSupervisorAssociation.md)
+ - [PersonsQuery](docs/PersonsQuery.md)
+ - [PressMediaRef](docs/PressMediaRef.md)
+ - [PrizeRef](docs/PrizeRef.md)
  - [ProblemDetails](docs/ProblemDetails.md)
+ - [ProfessionalQualification](docs/ProfessionalQualification.md)
+ - [ProjectRef](docs/ProjectRef.md)
+ - [PublicationSeries](docs/PublicationSeries.md)
+ - [PublicationStatus](docs/PublicationStatus.md)
+ - [Publisher](docs/Publisher.md)
+ - [PublisherListResult](docs/PublisherListResult.md)
+ - [PublisherRef](docs/PublisherRef.md)
+ - [PublishersQuery](docs/PublishersQuery.md)
+ - [ResearchOutput](docs/ResearchOutput.md)
+ - [ResearchOutputListResult](docs/ResearchOutputListResult.md)
+ - [ResearchOutputPeerReviewConfiguration](docs/ResearchOutputPeerReviewConfiguration.md)
+ - [ResearchOutputPeerReviewConfigurationCombination](docs/ResearchOutputPeerReviewConfigurationCombination.md)
+ - [ResearchOutputPeerReviewConfigurationListResult](docs/ResearchOutputPeerReviewConfigurationListResult.md)
  - [ResearchOutputRef](docs/ResearchOutputRef.md)
+ - [ResearchOutputsQuery](docs/ResearchOutputsQuery.md)
+ - [Roles](docs/Roles.md)
+ - [StaffOrganizationAssociation](docs/StaffOrganizationAssociation.md)
+ - [StaffOrganizationAssociationAllOf](docs/StaffOrganizationAssociationAllOf.md)
+ - [StudentOrganizationAssociation](docs/StudentOrganizationAssociation.md)
+ - [StudentOrganizationAssociationAllOf](docs/StudentOrganizationAssociationAllOf.md)
+ - [StudentThesisRef](docs/StudentThesisRef.md)
+ - [SupervisorAssociation](docs/SupervisorAssociation.md)
+ - [Thesis](docs/Thesis.md)
+ - [ThesisAllOf](docs/ThesisAllOf.md)
  - [UploadedFile](docs/UploadedFile.md)
+ - [User](docs/User.md)
+ - [UserListResult](docs/UserListResult.md)
+ - [UserRef](docs/UserRef.md)
  - [ValidationError](docs/ValidationError.md)
  - [ValidationProblemDetails](docs/ValidationProblemDetails.md)
  - [ValidationProblemDetailsAllOf](docs/ValidationProblemDetailsAllOf.md)
  - [Visibility](docs/Visibility.md)
+ - [VisitingScholarOrganizationAssociation](docs/VisitingScholarOrganizationAssociation.md)
+ - [VisitingScholarOrganizationAssociationAllOf](docs/VisitingScholarOrganizationAssociationAllOf.md)
  - [Workflow](docs/Workflow.md)
  - [WorkflowListResult](docs/WorkflowListResult.md)
+ - [WorkingPaper](docs/WorkingPaper.md)
+ - [WorkingPaperAllOf](docs/WorkingPaperAllOf.md)
 
 
 ## Documentation for Authorization

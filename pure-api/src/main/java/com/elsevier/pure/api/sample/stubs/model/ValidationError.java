@@ -31,7 +31,7 @@ import java.util.Map;
  * Validation error
  */
 @ApiModel(description = "Validation error")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class ValidationError {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
@@ -92,18 +92,35 @@ public class ValidationError {
   }
 
 
+  public ValidationError title(Map<String, String> title) {
+    
+    this.title = title;
+    return this;
+  }
+
+  public ValidationError putTitleItem(String key, String titleItem) {
+    if (this.title == null) {
+      this.title = new HashMap<String, String>();
+    }
+    this.title.put(key, titleItem);
+    return this;
+  }
+
    /**
    * A set of localized string values each for a specific UI locale.
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "A set of localized string values each for a specific UI locale.")
+  @ApiModelProperty(example = "{\"en_GB\":\"Some text\"}", value = "A set of localized string values each for a specific UI locale.")
 
   public Map<String, String> getTitle() {
     return title;
   }
 
 
+  public void setTitle(Map<String, String> title) {
+    this.title = title;
+  }
 
 
   @Override

@@ -30,7 +30,7 @@ import java.util.List;
  * List of free keywords
  */
 @ApiModel(description = "List of free keywords")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class Keyword {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -46,11 +46,11 @@ public class Keyword {
 
 
    /**
-   * Pure database ID of the object
+   * Pure database ID of the object, prefer using the UUID if it is present on the entity
    * @return pureId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pure database ID of the object")
+  @ApiModelProperty(value = "Pure database ID of the object, prefer using the UUID if it is present on the entity")
 
   public Long getPureId() {
     return pureId;
@@ -69,8 +69,7 @@ public class Keyword {
    * Locale that user defined keywords are in
    * @return locale
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Locale that user defined keywords are in")
+  @ApiModelProperty(required = true, value = "Locale that user defined keywords are in")
 
   public String getLocale() {
     return locale;

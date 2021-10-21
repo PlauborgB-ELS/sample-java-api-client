@@ -53,11 +53,11 @@ public class KeywordGroupConfigurationTest {
     }
 
     /**
-     * Test the property 'targetFamily'
+     * Test the property 'targetSystemName'
      */
     @Test
-    public void targetFamilyTest() {
-        // TODO: test targetFamily
+    public void targetSystemNameTest() {
+        // TODO: test targetSystemName
     }
 
     /**

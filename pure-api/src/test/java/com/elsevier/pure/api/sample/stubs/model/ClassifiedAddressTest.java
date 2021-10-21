@@ -122,12 +122,4 @@ public class ClassifiedAddressTest {
         // TODO: test geoLocation
     }
 
-    /**
-     * Test the property 'subdivisions'
-     */
-    @Test
-    public void subdivisionsTest() {
-        // TODO: test subdivisions
-    }
-
 }

@@ -32,7 +32,7 @@ import java.util.Map;
  * A reference to a classification value
  */
 @ApiModel(description = "A reference to a classification value")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class ClassificationRef {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -92,18 +92,35 @@ public class ClassificationRef {
   }
 
 
+  public ClassificationRef term(Map<String, String> term) {
+    
+    this.term = term;
+    return this;
+  }
+
+  public ClassificationRef putTermItem(String key, String termItem) {
+    if (this.term == null) {
+      this.term = new HashMap<String, String>();
+    }
+    this.term.put(key, termItem);
+    return this;
+  }
+
    /**
    * A set of localized string values each for a specific UI locale.
    * @return term
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "A set of localized string values each for a specific UI locale.")
+  @ApiModelProperty(example = "{\"en_GB\":\"Some text\"}", value = "A set of localized string values each for a specific UI locale.")
 
   public Map<String, String> getTerm() {
     return term;
   }
 
 
+  public void setTerm(Map<String, String> term) {
+    this.term = term;
+  }
 
 
   @Override

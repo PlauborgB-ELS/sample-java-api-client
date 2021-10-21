@@ -31,7 +31,7 @@ import java.util.Map;
  * Information about workflow
  */
 @ApiModel(description = "Information about workflow")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class Workflow {
   public static final String SERIALIZED_NAME_STEP = "step";
   @SerializedName(SERIALIZED_NAME_STEP)
@@ -64,18 +64,35 @@ public class Workflow {
   }
 
 
+  public Workflow description(Map<String, String> description) {
+    
+    this.description = description;
+    return this;
+  }
+
+  public Workflow putDescriptionItem(String key, String descriptionItem) {
+    if (this.description == null) {
+      this.description = new HashMap<String, String>();
+    }
+    this.description.put(key, descriptionItem);
+    return this;
+  }
+
    /**
    * A set of localized string values each for a specific UI locale.
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "A set of localized string values each for a specific UI locale.")
+  @ApiModelProperty(example = "{\"en_GB\":\"Some text\"}", value = "A set of localized string values each for a specific UI locale.")
 
   public Map<String, String> getDescription() {
     return description;
   }
 
 
+  public void setDescription(Map<String, String> description) {
+    this.description = description;
+  }
 
 
   @Override

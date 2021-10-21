@@ -2,7 +2,6 @@
 
 # Identifier
 
-IDs that this object corresponds to in external systems. Such as a Scopus ID. Used by Pure where it is necessary to identify objects to specific external systems
 ## Properties
 
 Name | Type | Description | Notes

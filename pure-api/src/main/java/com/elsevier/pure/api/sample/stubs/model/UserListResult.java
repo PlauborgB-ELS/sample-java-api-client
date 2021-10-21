@@ -15,8 +15,8 @@ package com.elsevier.pure.api.sample.stubs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.elsevier.pure.api.sample.stubs.model.Organization;
 import com.elsevier.pure.api.sample.stubs.model.PageInformation;
+import com.elsevier.pure.api.sample.stubs.model.User;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,11 +29,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A list of organizations
+ * List of users. Can contain a subset of all items along with the full count
  */
-@ApiModel(description = "A list of organizations")
+@ApiModel(description = "List of users. Can contain a subset of all items along with the full count")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
-public class OrganizationListResult {
+public class UserListResult {
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
   private Integer count;
@@ -44,10 +44,10 @@ public class OrganizationListResult {
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<Organization> items = null;
+  private List<User> items = null;
 
 
-  public OrganizationListResult count(Integer count) {
+  public UserListResult count(Integer count) {
     
     this.count = count;
     return this;
@@ -70,7 +70,7 @@ public class OrganizationListResult {
   }
 
 
-  public OrganizationListResult pageInformation(PageInformation pageInformation) {
+  public UserListResult pageInformation(PageInformation pageInformation) {
     
     this.pageInformation = pageInformation;
     return this;
@@ -93,33 +93,33 @@ public class OrganizationListResult {
   }
 
 
-  public OrganizationListResult items(List<Organization> items) {
+  public UserListResult items(List<User> items) {
     
     this.items = items;
     return this;
   }
 
-  public OrganizationListResult addItemsItem(Organization itemsItem) {
+  public UserListResult addItemsItem(User itemsItem) {
     if (this.items == null) {
-      this.items = new ArrayList<Organization>();
+      this.items = new ArrayList<User>();
     }
     this.items.add(itemsItem);
     return this;
   }
 
    /**
-   * Get items
+   * Users
    * @return items
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Users")
 
-  public List<Organization> getItems() {
+  public List<User> getItems() {
     return items;
   }
 
 
-  public void setItems(List<Organization> items) {
+  public void setItems(List<User> items) {
     this.items = items;
   }
 
@@ -132,10 +132,10 @@ public class OrganizationListResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrganizationListResult organizationListResult = (OrganizationListResult) o;
-    return Objects.equals(this.count, organizationListResult.count) &&
-        Objects.equals(this.pageInformation, organizationListResult.pageInformation) &&
-        Objects.equals(this.items, organizationListResult.items);
+    UserListResult userListResult = (UserListResult) o;
+    return Objects.equals(this.count, userListResult.count) &&
+        Objects.equals(this.pageInformation, userListResult.pageInformation) &&
+        Objects.equals(this.items, userListResult.items);
   }
 
   @Override
@@ -147,7 +147,7 @@ public class OrganizationListResult {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrganizationListResult {\n");
+    sb.append("class UserListResult {\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    pageInformation: ").append(toIndentedString(pageInformation)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");

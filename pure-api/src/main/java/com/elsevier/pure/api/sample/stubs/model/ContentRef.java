@@ -15,7 +15,6 @@ package com.elsevier.pure.api.sample.stubs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.elsevier.pure.api.sample.stubs.model.NavigationLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,38 +23,27 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.UUID;
 
 /**
- * A list of dependant content that block deletion, may not be a complete list if the number of dependencies is very large
+ * ContentRef
  */
-@ApiModel(description = "A list of dependant content that block deletion, may not be a complete list if the number of dependencies is very large")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 
 public class ContentRef {
   public static final String SERIALIZED_NAME_UUID = "uuid";
   @SerializedName(SERIALIZED_NAME_UUID)
-  private String uuid;
+  private UUID uuid;
 
   public static final String SERIALIZED_NAME_SYSTEM_NAME = "systemName";
   @SerializedName(SERIALIZED_NAME_SYSTEM_NAME)
   private String systemName;
 
-  public static final String SERIALIZED_NAME_LINK = "link";
-  @SerializedName(SERIALIZED_NAME_LINK)
-  private NavigationLink link;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private Map<String, String> name = null;
-
   public ContentRef() {
     this.systemName = this.getClass().getSimpleName();
   }
 
-  public ContentRef uuid(String uuid) {
+  public ContentRef uuid(UUID uuid) {
     
     this.uuid = uuid;
     return this;
@@ -67,12 +55,12 @@ public class ContentRef {
   **/
   @ApiModelProperty(required = true, value = "UUID of the referred content")
 
-  public String getUuid() {
+  public UUID getUuid() {
     return uuid;
   }
 
 
-  public void setUuid(String uuid) {
+  public void setUuid(UUID uuid) {
     this.uuid = uuid;
   }
 
@@ -99,60 +87,6 @@ public class ContentRef {
   }
 
 
-  public ContentRef link(NavigationLink link) {
-    
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Get link
-   * @return link
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public NavigationLink getLink() {
-    return link;
-  }
-
-
-  public void setLink(NavigationLink link) {
-    this.link = link;
-  }
-
-
-  public ContentRef name(Map<String, String> name) {
-    
-    this.name = name;
-    return this;
-  }
-
-  public ContentRef putNameItem(String key, String nameItem) {
-    if (this.name == null) {
-      this.name = new HashMap<String, String>();
-    }
-    this.name.put(key, nameItem);
-    return this;
-  }
-
-   /**
-   * A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.")
-
-  public Map<String, String> getName() {
-    return name;
-  }
-
-
-  public void setName(Map<String, String> name) {
-    this.name = name;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -163,14 +97,12 @@ public class ContentRef {
     }
     ContentRef contentRef = (ContentRef) o;
     return Objects.equals(this.uuid, contentRef.uuid) &&
-        Objects.equals(this.systemName, contentRef.systemName) &&
-        Objects.equals(this.link, contentRef.link) &&
-        Objects.equals(this.name, contentRef.name);
+        Objects.equals(this.systemName, contentRef.systemName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, systemName, link, name);
+    return Objects.hash(uuid, systemName);
   }
 
 
@@ -180,8 +112,6 @@ public class ContentRef {
     sb.append("class ContentRef {\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    systemName: ").append(toIndentedString(systemName)).append("\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

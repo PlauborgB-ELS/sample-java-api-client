@@ -7,7 +7,7 @@ Create a query for organizations
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uuids** | **List&lt;String&gt;** |  |  [optional]
+**uuids** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
 **size** | **Integer** |  |  [optional]
 **offset** | **Integer** |  |  [optional]
 **orderings** | **List&lt;String&gt;** |  |  [optional]

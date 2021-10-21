@@ -15,139 +15,16 @@ package com.elsevier.pure.api.sample.stubs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.elsevier.pure.api.sample.stubs.model.NavigationLink;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.elsevier.pure.api.sample.stubs.model.ContentRef;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.UUID;
 
 /**
  * A reference to an organization in the institution
  */
 @ApiModel(description = "A reference to an organization in the institution")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
-public class OrganizationRef {
-  public static final String SERIALIZED_NAME_UUID = "uuid";
-  @SerializedName(SERIALIZED_NAME_UUID)
-  private String uuid;
-
-  public static final String SERIALIZED_NAME_SYSTEM_NAME = "systemName";
-  @SerializedName(SERIALIZED_NAME_SYSTEM_NAME)
-  private String systemName;
-
-  public static final String SERIALIZED_NAME_LINK = "link";
-  @SerializedName(SERIALIZED_NAME_LINK)
-  private NavigationLink link;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private Map<String, String> name = null;
-
-
-  public OrganizationRef uuid(String uuid) {
-    
-    this.uuid = uuid;
-    return this;
-  }
-
-   /**
-   * UUID of the referred content
-   * @return uuid
-  **/
-  @ApiModelProperty(required = true, value = "UUID of the referred content")
-
-  public String getUuid() {
-    return uuid;
-  }
-
-
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
-  }
-
-
-  public OrganizationRef systemName(String systemName) {
-    
-    this.systemName = systemName;
-    return this;
-  }
-
-   /**
-   * The system name of the content
-   * @return systemName
-  **/
-  @ApiModelProperty(required = true, value = "The system name of the content")
-
-  public String getSystemName() {
-    return systemName;
-  }
-
-
-  public void setSystemName(String systemName) {
-    this.systemName = systemName;
-  }
-
-
-  public OrganizationRef link(NavigationLink link) {
-    
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Get link
-   * @return link
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public NavigationLink getLink() {
-    return link;
-  }
-
-
-  public void setLink(NavigationLink link) {
-    this.link = link;
-  }
-
-
-  public OrganizationRef name(Map<String, String> name) {
-    
-    this.name = name;
-    return this;
-  }
-
-  public OrganizationRef putNameItem(String key, String nameItem) {
-    if (this.name == null) {
-      this.name = new HashMap<String, String>();
-    }
-    this.name.put(key, nameItem);
-    return this;
-  }
-
-   /**
-   * A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.")
-
-  public Map<String, String> getName() {
-    return name;
-  }
-
-
-  public void setName(Map<String, String> name) {
-    this.name = name;
-  }
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+public class OrganizationRef extends ContentRef {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -157,16 +34,12 @@ public class OrganizationRef {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrganizationRef organizationRef = (OrganizationRef) o;
-    return Objects.equals(this.uuid, organizationRef.uuid) &&
-        Objects.equals(this.systemName, organizationRef.systemName) &&
-        Objects.equals(this.link, organizationRef.link) &&
-        Objects.equals(this.name, organizationRef.name);
+    return super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, systemName, link, name);
+    return Objects.hash(super.hashCode());
   }
 
 
@@ -174,10 +47,7 @@ public class OrganizationRef {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrganizationRef {\n");
-    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
-    sb.append("    systemName: ").append(toIndentedString(systemName)).append("\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

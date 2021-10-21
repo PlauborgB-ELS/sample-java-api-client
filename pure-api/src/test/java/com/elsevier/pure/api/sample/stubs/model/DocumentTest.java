@@ -53,6 +53,62 @@ public class DocumentTest {
     }
 
     /**
+     * Test the property 'fileId'
+     */
+    @Test
+    public void fileIdTest() {
+        // TODO: test fileId
+    }
+
+    /**
+     * Test the property 'fileName'
+     */
+    @Test
+    public void fileNameTest() {
+        // TODO: test fileName
+    }
+
+    /**
+     * Test the property 'mimeType'
+     */
+    @Test
+    public void mimeTypeTest() {
+        // TODO: test mimeType
+    }
+
+    /**
+     * Test the property 'size'
+     */
+    @Test
+    public void sizeTest() {
+        // TODO: test size
+    }
+
+    /**
+     * Test the property 'url'
+     */
+    @Test
+    public void urlTest() {
+        // TODO: test url
+    }
+
+    /**
+     * Test the property 'uploadedFile'
+     */
+    @Test
+    public void uploadedFileTest() {
+        // TODO: test uploadedFile
+    }
+
+    /**
+     * Test the property 'fileData'
+     */
+    @Test
+    public void fileDataTest() {
+        // TODO: test fileData
+    }
+
+    /**
      * Test the property 'title'
      */
     @Test
@@ -66,14 +122,6 @@ public class DocumentTest {
     @Test
     public void typeTest() {
         // TODO: test type
-    }
-
-    /**
-     * Test the property 'url'
-     */
-    @Test
-    public void urlTest() {
-        // TODO: test url
     }
 
     /**
@@ -114,38 +162,6 @@ public class DocumentTest {
     @Test
     public void createdTest() {
         // TODO: test created
-    }
-
-    /**
-     * Test the property 'fileContent'
-     */
-    @Test
-    public void fileContentTest() {
-        // TODO: test fileContent
-    }
-
-    /**
-     * Test the property 'fileName'
-     */
-    @Test
-    public void fileNameTest() {
-        // TODO: test fileName
-    }
-
-    /**
-     * Test the property 'mimeType'
-     */
-    @Test
-    public void mimeTypeTest() {
-        // TODO: test mimeType
-    }
-
-    /**
-     * Test the property 'size'
-     */
-    @Test
-    public void sizeTest() {
-        // TODO: test size
     }
 
 }

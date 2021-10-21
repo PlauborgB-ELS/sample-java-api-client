@@ -7,13 +7,15 @@ A classified file
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pureId** | **Long** | Pure database ID of the object |  [optional] [readonly]
+**pureId** | **Long** | Pure database ID of the object, prefer using the UUID if it is present on the entity |  [optional] [readonly]
+**fileId** | **String** | The id of the file |  [optional] [readonly]
+**fileName** | **String** | The documents file name | 
+**mimeType** | **String** | The documents mime type |  [optional]
+**size** | **Long** | The documents size in bytes |  [optional]
+**url** | **String** | Download url for the binary file |  [optional] [readonly]
+**uploadedFile** | [**UploadedFile**](UploadedFile.md) |  |  [optional]
+**fileData** | **byte[]** | Base64 encoded file data for new files. This property can be used instead of uploadedFile for small files |  [optional]
 **type** | [**ClassificationRef**](ClassificationRef.md) |  |  [optional]
-**url** | **String** | File URL |  [optional] [readonly]
-**fileName** | **String** | File name | 
-**mimeType** | **String** | File mime-type |  [optional]
-**size** | **Long** | File size |  [optional]
-**fileContent** | [**UploadedFile**](UploadedFile.md) |  |  [optional]
 
 
 

@@ -8,7 +8,7 @@ A classified ID
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pureId** | **Long** | Pure database ID of the object |  [optional] [readonly]
-**id** | **String** | Classified ID |  [optional]
+**id** | **String** | Classified ID | 
 **type** | [**ClassificationRef**](ClassificationRef.md) |  |  [optional]
 
 

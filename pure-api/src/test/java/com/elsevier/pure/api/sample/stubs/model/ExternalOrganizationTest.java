@@ -13,7 +13,7 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
-import com.elsevier.pure.api.sample.stubs.model.Address;
+import com.elsevier.pure.api.sample.stubs.model.CERIFAddress;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
 import com.elsevier.pure.api.sample.stubs.model.ClassifiedFile;
 import com.elsevier.pure.api.sample.stubs.model.Document;
@@ -128,11 +128,11 @@ public class ExternalOrganizationTest {
     }
 
     /**
-     * Test the property 'externallyManaged'
+     * Test the property 'version'
      */
     @Test
-    public void externallyManagedTest() {
-        // TODO: test externallyManaged
+    public void versionTest() {
+        // TODO: test version
     }
 
     /**
@@ -296,19 +296,11 @@ public class ExternalOrganizationTest {
     }
 
     /**
-     * Test the property 'image'
+     * Test the property 'systemName'
      */
     @Test
-    public void imageTest() {
-        // TODO: test image
-    }
-
-    /**
-     * Test the property 'family'
-     */
-    @Test
-    public void familyTest() {
-        // TODO: test family
+    public void systemNameTest() {
+        // TODO: test systemName
     }
 
 }

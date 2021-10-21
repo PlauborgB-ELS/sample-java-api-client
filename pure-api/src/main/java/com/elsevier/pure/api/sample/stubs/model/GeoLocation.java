@@ -28,7 +28,7 @@ import java.io.IOException;
  * Geographical location
  */
 @ApiModel(description = "Geographical location")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class GeoLocation {
   public static final String SERIALIZED_NAME_POINT = "point";
   @SerializedName(SERIALIZED_NAME_POINT)
@@ -89,12 +89,6 @@ public class GeoLocation {
   }
 
 
-  public GeoLocation calculatedPoint(String calculatedPoint) {
-    
-    this.calculatedPoint = calculatedPoint;
-    return this;
-  }
-
    /**
    * Used to determine whether or not we may update the point. An end-user has not entered a point manually if the value of the calculated point is the same as point
    * @return calculatedPoint
@@ -107,9 +101,6 @@ public class GeoLocation {
   }
 
 
-  public void setCalculatedPoint(String calculatedPoint) {
-    this.calculatedPoint = calculatedPoint;
-  }
 
 
   @Override

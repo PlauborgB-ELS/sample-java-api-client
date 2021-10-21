@@ -32,15 +32,15 @@ import java.util.Map;
  * A specification of the allowed behavior of a specified keyword group
  */
 @ApiModel(description = "A specification of the allowed behavior of a specified keyword group")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class KeywordGroupConfiguration {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
   private Long pureId;
 
-  public static final String SERIALIZED_NAME_TARGET_FAMILY = "targetFamily";
-  @SerializedName(SERIALIZED_NAME_TARGET_FAMILY)
-  private String targetFamily;
+  public static final String SERIALIZED_NAME_TARGET_SYSTEM_NAME = "targetSystemName";
+  @SerializedName(SERIALIZED_NAME_TARGET_SYSTEM_NAME)
+  private String targetSystemName;
 
   public static final String SERIALIZED_NAME_KEYWORD_GROUP_TYPE = "keywordGroupType";
   @SerializedName(SERIALIZED_NAME_KEYWORD_GROUP_TYPE)
@@ -72,11 +72,11 @@ public class KeywordGroupConfiguration {
 
 
    /**
-   * Pure database ID of the object
+   * Pure database ID of the object, prefer using the UUID if it is present on the entity
    * @return pureId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pure database ID of the object")
+  @ApiModelProperty(value = "Pure database ID of the object, prefer using the UUID if it is present on the entity")
 
   public Long getPureId() {
     return pureId;
@@ -85,26 +85,26 @@ public class KeywordGroupConfiguration {
 
 
 
-  public KeywordGroupConfiguration targetFamily(String targetFamily) {
+  public KeywordGroupConfiguration targetSystemName(String targetSystemName) {
     
-    this.targetFamily = targetFamily;
+    this.targetSystemName = targetSystemName;
     return this;
   }
 
    /**
-   * The content family this configuration applies to
-   * @return targetFamily
+   * The content system name this configuration applies to
+   * @return targetSystemName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The content family this configuration applies to")
+  @ApiModelProperty(value = "The content system name this configuration applies to")
 
-  public String getTargetFamily() {
-    return targetFamily;
+  public String getTargetSystemName() {
+    return targetSystemName;
   }
 
 
-  public void setTargetFamily(String targetFamily) {
-    this.targetFamily = targetFamily;
+  public void setTargetSystemName(String targetSystemName) {
+    this.targetSystemName = targetSystemName;
   }
 
 
@@ -146,11 +146,11 @@ public class KeywordGroupConfiguration {
   }
 
    /**
-   * A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.
+   * A set of string values, one for each submission locale. Note: invalid locale values will be ignored.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.")
+  @ApiModelProperty(example = "{\"en_GB\":\"Some text\"}", value = "A set of string values, one for each submission locale. Note: invalid locale values will be ignored.")
 
   public Map<String, String> getName() {
     return name;
@@ -177,11 +177,11 @@ public class KeywordGroupConfiguration {
   }
 
    /**
-   * A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.
+   * A set of string values, one for each submission locale. Note: invalid locale values will be ignored.
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.")
+  @ApiModelProperty(example = "{\"en_GB\":\"Some text\"}", value = "A set of string values, one for each submission locale. Note: invalid locale values will be ignored.")
 
   public Map<String, String> getDescription() {
     return description;
@@ -295,7 +295,7 @@ public class KeywordGroupConfiguration {
     }
     KeywordGroupConfiguration keywordGroupConfiguration = (KeywordGroupConfiguration) o;
     return Objects.equals(this.pureId, keywordGroupConfiguration.pureId) &&
-        Objects.equals(this.targetFamily, keywordGroupConfiguration.targetFamily) &&
+        Objects.equals(this.targetSystemName, keywordGroupConfiguration.targetSystemName) &&
         Objects.equals(this.keywordGroupType, keywordGroupConfiguration.keywordGroupType) &&
         Objects.equals(this.name, keywordGroupConfiguration.name) &&
         Objects.equals(this.description, keywordGroupConfiguration.description) &&
@@ -307,7 +307,7 @@ public class KeywordGroupConfiguration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pureId, targetFamily, keywordGroupType, name, description, classificationScheme, allowUserdefinedKeywords, limitToLeafSelection, logicalName);
+    return Objects.hash(pureId, targetSystemName, keywordGroupType, name, description, classificationScheme, allowUserdefinedKeywords, limitToLeafSelection, logicalName);
   }
 
 
@@ -316,7 +316,7 @@ public class KeywordGroupConfiguration {
     StringBuilder sb = new StringBuilder();
     sb.append("class KeywordGroupConfiguration {\n");
     sb.append("    pureId: ").append(toIndentedString(pureId)).append("\n");
-    sb.append("    targetFamily: ").append(toIndentedString(targetFamily)).append("\n");
+    sb.append("    targetSystemName: ").append(toIndentedString(targetSystemName)).append("\n");
     sb.append("    keywordGroupType: ").append(toIndentedString(keywordGroupType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

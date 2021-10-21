@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * A date range
  */
 @ApiModel(description = "A date range")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class DateRange {
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
@@ -47,11 +47,11 @@ public class DateRange {
   }
 
    /**
-   * Get startDate
+   * Start date
    * @return startDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Start date")
 
   public OffsetDateTime getStartDate() {
     return startDate;
@@ -70,11 +70,11 @@ public class DateRange {
   }
 
    /**
-   * Get endDate
+   * End date
    * @return endDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "End date")
 
   public OffsetDateTime getEndDate() {
     return endDate;

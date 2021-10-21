@@ -25,16 +25,17 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Create a query for external organizations
  */
 @ApiModel(description = "Create a query for external organizations")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class ExternalOrganizationsQuery {
   public static final String SERIALIZED_NAME_UUIDS = "uuids";
   @SerializedName(SERIALIZED_NAME_UUIDS)
-  private List<String> uuids = null;
+  private List<UUID> uuids = null;
 
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
@@ -61,15 +62,15 @@ public class ExternalOrganizationsQuery {
   private String orderBy;
 
 
-  public ExternalOrganizationsQuery uuids(List<String> uuids) {
+  public ExternalOrganizationsQuery uuids(List<UUID> uuids) {
     
     this.uuids = uuids;
     return this;
   }
 
-  public ExternalOrganizationsQuery addUuidsItem(String uuidsItem) {
+  public ExternalOrganizationsQuery addUuidsItem(UUID uuidsItem) {
     if (this.uuids == null) {
-      this.uuids = new ArrayList<String>();
+      this.uuids = new ArrayList<UUID>();
     }
     this.uuids.add(uuidsItem);
     return this;
@@ -82,12 +83,12 @@ public class ExternalOrganizationsQuery {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getUuids() {
+  public List<UUID> getUuids() {
     return uuids;
   }
 
 
-  public void setUuids(List<String> uuids) {
+  public void setUuids(List<UUID> uuids) {
     this.uuids = uuids;
   }
 

@@ -7,6 +7,7 @@ A reference to a classification scheme
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**baseUri** | **String** | Classification scheme base URI | 
 
 
 

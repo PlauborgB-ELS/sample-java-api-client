@@ -31,7 +31,7 @@ import java.io.IOException;
  * A classified ID
  */
 @ApiModel(description = "A classified ID")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class ClassifiedId extends Identifier {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -70,8 +70,7 @@ public class ClassifiedId extends Identifier {
    * Classified ID
    * @return id
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Classified ID")
+  @ApiModelProperty(required = true, value = "Classified ID")
 
   public String getId() {
     return id;

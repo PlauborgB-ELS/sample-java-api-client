@@ -13,11 +13,17 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
+import com.elsevier.pure.api.sample.stubs.model.ClassificationSchemeRefAllOf;
 import com.elsevier.pure.api.sample.stubs.model.ContentRef;
-import com.elsevier.pure.api.sample.stubs.model.NavigationLink;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
-import java.util.List;
-import java.util.Map;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -54,19 +60,11 @@ public class ClassificationSchemeRefTest {
     }
 
     /**
-     * Test the property 'link'
+     * Test the property 'baseUri'
      */
     @Test
-    public void linkTest() {
-        // TODO: test link
-    }
-
-    /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        // TODO: test name
+    public void baseUriTest() {
+        // TODO: test baseUri
     }
 
 }

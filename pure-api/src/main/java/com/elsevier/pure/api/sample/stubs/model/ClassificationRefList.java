@@ -31,7 +31,7 @@ import java.util.List;
  * List of classification references
  */
 @ApiModel(description = "List of classification references")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class ClassificationRefList {
   public static final String SERIALIZED_NAME_CLASSIFICATIONS = "classifications";
   @SerializedName(SERIALIZED_NAME_CLASSIFICATIONS)

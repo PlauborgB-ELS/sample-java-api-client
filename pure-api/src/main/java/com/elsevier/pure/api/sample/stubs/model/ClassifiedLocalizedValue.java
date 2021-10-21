@@ -32,7 +32,7 @@ import java.util.Map;
  * A classified localized value
  */
 @ApiModel(description = "A classified localized value")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class ClassifiedLocalizedValue {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -48,11 +48,11 @@ public class ClassifiedLocalizedValue {
 
 
    /**
-   * Pure database ID of the object
+   * Pure database ID of the object, prefer using the UUID if it is present on the entity
    * @return pureId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pure database ID of the object")
+  @ApiModelProperty(value = "Pure database ID of the object, prefer using the UUID if it is present on the entity")
 
   public Long getPureId() {
     return pureId;
@@ -76,11 +76,11 @@ public class ClassifiedLocalizedValue {
   }
 
    /**
-   * A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.
+   * A set of string values, one for each submission locale. Note: invalid locale values will be ignored.
    * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.")
+  @ApiModelProperty(example = "{\"en_GB\":\"Some text\"}", value = "A set of string values, one for each submission locale. Note: invalid locale values will be ignored.")
 
   public Map<String, String> getValue() {
     return value;

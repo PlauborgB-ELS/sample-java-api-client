@@ -45,7 +45,7 @@ import org.threeten.bp.OffsetDateTime;
  * An organization in the institution
  */
 @ApiModel(description = "An organization in the institution")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class Organization {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -83,9 +83,9 @@ public class Organization {
   @SerializedName(SERIALIZED_NAME_PREVIOUS_UUIDS)
   private List<String> previousUuids = null;
 
-  public static final String SERIALIZED_NAME_EXTERNALLY_MANAGED = "externallyManaged";
-  @SerializedName(SERIALIZED_NAME_EXTERNALLY_MANAGED)
-  private Boolean externallyManaged;
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private String version;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -155,17 +155,17 @@ public class Organization {
   @SerializedName(SERIALIZED_NAME_VISIBILITY)
   private Visibility visibility;
 
-  public static final String SERIALIZED_NAME_FAMILY = "family";
-  @SerializedName(SERIALIZED_NAME_FAMILY)
-  private String family;
+  public static final String SERIALIZED_NAME_SYSTEM_NAME = "systemName";
+  @SerializedName(SERIALIZED_NAME_SYSTEM_NAME)
+  private String systemName;
 
 
    /**
-   * Pure database ID of the object
+   * Pure database ID of the object, prefer using the UUID if it is present on the entity
    * @return pureId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pure database ID of the object")
+  @ApiModelProperty(value = "Pure database ID of the object, prefer using the UUID if it is present on the entity")
 
   public Long getPureId() {
     return pureId;
@@ -175,11 +175,11 @@ public class Organization {
 
 
    /**
-   * UUID
+   * UUID, this is the primary identity of the entity
    * @return uuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "UUID")
+  @ApiModelProperty(value = "UUID, this is the primary identity of the entity")
 
   public UUID getUuid() {
     return uuid;
@@ -286,18 +286,27 @@ public class Organization {
 
 
 
+  public Organization version(String version) {
+    
+    this.version = version;
+    return this;
+  }
+
    /**
-   * Signals that the information is maintained by synchronization from an external system
-   * @return externallyManaged
+   * A hash representing the current version of the content. For new content this is null, and for existing content the current value. The property should never be modified explicitly by a client.
+   * @return version
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Signals that the information is maintained by synchronization from an external system")
+  @ApiModelProperty(value = "A hash representing the current version of the content. For new content this is null, and for existing content the current value. The property should never be modified explicitly by a client.")
 
-  public Boolean getExternallyManaged() {
-    return externallyManaged;
+  public String getVersion() {
+    return version;
   }
 
 
+  public void setVersion(String version) {
+    this.version = version;
+  }
 
 
   public Organization name(Map<String, String> name) {
@@ -315,11 +324,11 @@ public class Organization {
   }
 
    /**
-   * A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.
+   * A set of string values, one for each submission locale. Note: invalid locale values will be ignored.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"en_UK\":\"Some text\"}", value = "A set of localized string values each for a specific submission locale. Please note that invalid locale values will be ignored.")
+  @ApiModelProperty(example = "{\"en_GB\":\"Some text\"}", value = "A set of string values, one for each submission locale. Note: invalid locale values will be ignored.")
 
   public Map<String, String> getName() {
     return name;
@@ -796,14 +805,14 @@ public class Organization {
 
 
    /**
-   * The content family
-   * @return family
+   * The content system name
+   * @return systemName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The content family")
+  @ApiModelProperty(value = "The content system name")
 
-  public String getFamily() {
-    return family;
+  public String getSystemName() {
+    return systemName;
   }
 
 
@@ -827,7 +836,7 @@ public class Organization {
         Objects.equals(this.portalUrl, organization.portalUrl) &&
         Objects.equals(this.prettyUrlIdentifiers, organization.prettyUrlIdentifiers) &&
         Objects.equals(this.previousUuids, organization.previousUuids) &&
-        Objects.equals(this.externallyManaged, organization.externallyManaged) &&
+        Objects.equals(this.version, organization.version) &&
         Objects.equals(this.name, organization.name) &&
         Objects.equals(this.type, organization.type) &&
         Objects.equals(this.identifiers, organization.identifiers) &&
@@ -845,12 +854,12 @@ public class Organization {
         Objects.equals(this.keywordGroups, organization.keywordGroups) &&
         Objects.equals(this.costCenters, organization.costCenters) &&
         Objects.equals(this.visibility, organization.visibility) &&
-        Objects.equals(this.family, organization.family);
+        Objects.equals(this.systemName, organization.systemName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pureId, uuid, createdBy, createdDate, modifiedBy, modifiedDate, portalUrl, prettyUrlIdentifiers, previousUuids, externallyManaged, name, type, identifiers, nameVariants, profileInformations, photos, addresses, phoneNumbers, emails, webAddresses, lifecycle, takenOverBy, parents, contactPersons, keywordGroups, costCenters, visibility, family);
+    return Objects.hash(pureId, uuid, createdBy, createdDate, modifiedBy, modifiedDate, portalUrl, prettyUrlIdentifiers, previousUuids, version, name, type, identifiers, nameVariants, profileInformations, photos, addresses, phoneNumbers, emails, webAddresses, lifecycle, takenOverBy, parents, contactPersons, keywordGroups, costCenters, visibility, systemName);
   }
 
 
@@ -867,7 +876,7 @@ public class Organization {
     sb.append("    portalUrl: ").append(toIndentedString(portalUrl)).append("\n");
     sb.append("    prettyUrlIdentifiers: ").append(toIndentedString(prettyUrlIdentifiers)).append("\n");
     sb.append("    previousUuids: ").append(toIndentedString(previousUuids)).append("\n");
-    sb.append("    externallyManaged: ").append(toIndentedString(externallyManaged)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    identifiers: ").append(toIndentedString(identifiers)).append("\n");
@@ -885,7 +894,7 @@ public class Organization {
     sb.append("    keywordGroups: ").append(toIndentedString(keywordGroups)).append("\n");
     sb.append("    costCenters: ").append(toIndentedString(costCenters)).append("\n");
     sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
-    sb.append("    family: ").append(toIndentedString(family)).append("\n");
+    sb.append("    systemName: ").append(toIndentedString(systemName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

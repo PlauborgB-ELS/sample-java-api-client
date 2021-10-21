@@ -7,8 +7,8 @@ A date range
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**startDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**endDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**startDate** | [**OffsetDateTime**](OffsetDateTime.md) | Start date |  [optional]
+**endDate** | [**OffsetDateTime**](OffsetDateTime.md) | End date |  [optional]
 
 
 

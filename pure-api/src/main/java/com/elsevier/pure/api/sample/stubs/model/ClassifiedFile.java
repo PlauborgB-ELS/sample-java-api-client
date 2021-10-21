@@ -30,19 +30,15 @@ import java.io.IOException;
  * A classified file
  */
 @ApiModel(description = "A classified file")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-14T14:15:05.724242+01:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
 public class ClassifiedFile {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
   private Long pureId;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private ClassificationRef type;
-
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
-  private String url;
+  public static final String SERIALIZED_NAME_FILE_ID = "fileId";
+  @SerializedName(SERIALIZED_NAME_FILE_ID)
+  private String fileId;
 
   public static final String SERIALIZED_NAME_FILE_NAME = "fileName";
   @SerializedName(SERIALIZED_NAME_FILE_NAME)
@@ -56,23 +52,177 @@ public class ClassifiedFile {
   @SerializedName(SERIALIZED_NAME_SIZE)
   private Long size;
 
-  public static final String SERIALIZED_NAME_FILE_CONTENT = "fileContent";
-  @SerializedName(SERIALIZED_NAME_FILE_CONTENT)
-  private UploadedFile fileContent;
+  public static final String SERIALIZED_NAME_URL = "url";
+  @SerializedName(SERIALIZED_NAME_URL)
+  private String url;
+
+  public static final String SERIALIZED_NAME_UPLOADED_FILE = "uploadedFile";
+  @SerializedName(SERIALIZED_NAME_UPLOADED_FILE)
+  private UploadedFile uploadedFile;
+
+  public static final String SERIALIZED_NAME_FILE_DATA = "fileData";
+  @SerializedName(SERIALIZED_NAME_FILE_DATA)
+  private byte[] fileData;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private ClassificationRef type;
 
 
    /**
-   * Pure database ID of the object
+   * Pure database ID of the object, prefer using the UUID if it is present on the entity
    * @return pureId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pure database ID of the object")
+  @ApiModelProperty(value = "Pure database ID of the object, prefer using the UUID if it is present on the entity")
 
   public Long getPureId() {
     return pureId;
   }
 
 
+
+
+   /**
+   * The id of the file
+   * @return fileId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The id of the file")
+
+  public String getFileId() {
+    return fileId;
+  }
+
+
+
+
+  public ClassifiedFile fileName(String fileName) {
+    
+    this.fileName = fileName;
+    return this;
+  }
+
+   /**
+   * The documents file name
+   * @return fileName
+  **/
+  @ApiModelProperty(required = true, value = "The documents file name")
+
+  public String getFileName() {
+    return fileName;
+  }
+
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+
+  public ClassifiedFile mimeType(String mimeType) {
+    
+    this.mimeType = mimeType;
+    return this;
+  }
+
+   /**
+   * The documents mime type
+   * @return mimeType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The documents mime type")
+
+  public String getMimeType() {
+    return mimeType;
+  }
+
+
+  public void setMimeType(String mimeType) {
+    this.mimeType = mimeType;
+  }
+
+
+  public ClassifiedFile size(Long size) {
+    
+    this.size = size;
+    return this;
+  }
+
+   /**
+   * The documents size in bytes
+   * @return size
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The documents size in bytes")
+
+  public Long getSize() {
+    return size;
+  }
+
+
+  public void setSize(Long size) {
+    this.size = size;
+  }
+
+
+   /**
+   * Download url for the binary file
+   * @return url
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Download url for the binary file")
+
+  public String getUrl() {
+    return url;
+  }
+
+
+
+
+  public ClassifiedFile uploadedFile(UploadedFile uploadedFile) {
+    
+    this.uploadedFile = uploadedFile;
+    return this;
+  }
+
+   /**
+   * Get uploadedFile
+   * @return uploadedFile
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public UploadedFile getUploadedFile() {
+    return uploadedFile;
+  }
+
+
+  public void setUploadedFile(UploadedFile uploadedFile) {
+    this.uploadedFile = uploadedFile;
+  }
+
+
+  public ClassifiedFile fileData(byte[] fileData) {
+    
+    this.fileData = fileData;
+    return this;
+  }
+
+   /**
+   * Base64 encoded file data for new files. This property can be used instead of uploadedFile for small files
+   * @return fileData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Base64 encoded file data for new files. This property can be used instead of uploadedFile for small files")
+
+  public byte[] getFileData() {
+    return fileData;
+  }
+
+
+  public void setFileData(byte[] fileData) {
+    this.fileData = fileData;
+  }
 
 
   public ClassifiedFile type(ClassificationRef type) {
@@ -98,111 +248,6 @@ public class ClassifiedFile {
   }
 
 
-   /**
-   * File URL
-   * @return url
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "File URL")
-
-  public String getUrl() {
-    return url;
-  }
-
-
-
-
-  public ClassifiedFile fileName(String fileName) {
-    
-    this.fileName = fileName;
-    return this;
-  }
-
-   /**
-   * File name
-   * @return fileName
-  **/
-  @ApiModelProperty(required = true, value = "File name")
-
-  public String getFileName() {
-    return fileName;
-  }
-
-
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
-  }
-
-
-  public ClassifiedFile mimeType(String mimeType) {
-    
-    this.mimeType = mimeType;
-    return this;
-  }
-
-   /**
-   * File mime-type
-   * @return mimeType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "File mime-type")
-
-  public String getMimeType() {
-    return mimeType;
-  }
-
-
-  public void setMimeType(String mimeType) {
-    this.mimeType = mimeType;
-  }
-
-
-  public ClassifiedFile size(Long size) {
-    
-    this.size = size;
-    return this;
-  }
-
-   /**
-   * File size
-   * @return size
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "File size")
-
-  public Long getSize() {
-    return size;
-  }
-
-
-  public void setSize(Long size) {
-    this.size = size;
-  }
-
-
-  public ClassifiedFile fileContent(UploadedFile fileContent) {
-    
-    this.fileContent = fileContent;
-    return this;
-  }
-
-   /**
-   * Get fileContent
-   * @return fileContent
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UploadedFile getFileContent() {
-    return fileContent;
-  }
-
-
-  public void setFileContent(UploadedFile fileContent) {
-    this.fileContent = fileContent;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -213,17 +258,19 @@ public class ClassifiedFile {
     }
     ClassifiedFile classifiedFile = (ClassifiedFile) o;
     return Objects.equals(this.pureId, classifiedFile.pureId) &&
-        Objects.equals(this.type, classifiedFile.type) &&
-        Objects.equals(this.url, classifiedFile.url) &&
+        Objects.equals(this.fileId, classifiedFile.fileId) &&
         Objects.equals(this.fileName, classifiedFile.fileName) &&
         Objects.equals(this.mimeType, classifiedFile.mimeType) &&
         Objects.equals(this.size, classifiedFile.size) &&
-        Objects.equals(this.fileContent, classifiedFile.fileContent);
+        Objects.equals(this.url, classifiedFile.url) &&
+        Objects.equals(this.uploadedFile, classifiedFile.uploadedFile) &&
+        Arrays.equals(this.fileData, classifiedFile.fileData) &&
+        Objects.equals(this.type, classifiedFile.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pureId, type, url, fileName, mimeType, size, fileContent);
+    return Objects.hash(pureId, fileId, fileName, mimeType, size, url, uploadedFile, Arrays.hashCode(fileData), type);
   }
 
 
@@ -232,12 +279,14 @@ public class ClassifiedFile {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClassifiedFile {\n");
     sb.append("    pureId: ").append(toIndentedString(pureId)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    fileId: ").append(toIndentedString(fileId)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    fileContent: ").append(toIndentedString(fileContent)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    uploadedFile: ").append(toIndentedString(uploadedFile)).append("\n");
+    sb.append("    fileData: ").append(toIndentedString(fileData)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

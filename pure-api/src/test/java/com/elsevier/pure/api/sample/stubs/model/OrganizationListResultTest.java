@@ -13,7 +13,6 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
-import com.elsevier.pure.api.sample.stubs.model.NavigationLink;
 import com.elsevier.pure.api.sample.stubs.model.Organization;
 import com.elsevier.pure.api.sample.stubs.model.PageInformation;
 import com.google.gson.TypeAdapter;
@@ -59,14 +58,6 @@ public class OrganizationListResultTest {
     @Test
     public void pageInformationTest() {
         // TODO: test pageInformation
-    }
-
-    /**
-     * Test the property 'navigationLinks'
-     */
-    @Test
-    public void navigationLinksTest() {
-        // TODO: test navigationLinks
     }
 
     /**

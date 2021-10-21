@@ -14,10 +14,8 @@
 package com.elsevier.pure.api.sample.stubs.model;
 
 import com.elsevier.pure.api.sample.stubs.model.ContentRef;
-import com.elsevier.pure.api.sample.stubs.model.NavigationLink;
 import io.swagger.annotations.ApiModel;
-import java.util.List;
-import java.util.Map;
+import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -51,22 +49,6 @@ public class ResearchOutputRefTest {
     @Test
     public void systemNameTest() {
         // TODO: test systemName
-    }
-
-    /**
-     * Test the property 'link'
-     */
-    @Test
-    public void linkTest() {
-        // TODO: test link
-    }
-
-    /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        // TODO: test name
     }
 
 }
