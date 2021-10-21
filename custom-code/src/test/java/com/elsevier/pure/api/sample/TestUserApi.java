@@ -36,8 +36,8 @@ public class TestUserApi extends TestCase {
     private Collection<UUID> organizationUuids;
 
     public TestUserApi() {
-        System.setProperty("pure-api-base-path", "http://localhost:8080/ws/api");
-        System.setProperty("pure-api-key", "f4f5e7db-fcae-4157-9406-efad57a5cd9f");
+        System.setProperty("pure-api-base-path", "https://api.elsevierpure.com/ws/api");
+        System.setProperty("pure-api-key", "622d9790-65f1-4769-a81b-b8d2967ef063");
     }
 
     /**
