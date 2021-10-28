@@ -51,7 +51,7 @@ import org.threeten.bp.OffsetDateTime;
  * Research output that is not explicitly text, e.g. content with main focus on audio or images.
  */
 @ApiModel(description = "Research output that is not explicitly text, e.g. content with main focus on audio or images.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class NonTextual extends ResearchOutput {
   public static final String SERIALIZED_NAME_PLACE_OF_PUBLICATION = "placeOfPublication";
   @SerializedName(SERIALIZED_NAME_PLACE_OF_PUBLICATION)

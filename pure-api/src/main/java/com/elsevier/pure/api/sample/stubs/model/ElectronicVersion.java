@@ -31,7 +31,7 @@ import org.threeten.bp.OffsetDateTime;
  * Electronic version related to a research output.
  */
 @ApiModel(description = "Electronic version related to a research output.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 
 public class ElectronicVersion {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";

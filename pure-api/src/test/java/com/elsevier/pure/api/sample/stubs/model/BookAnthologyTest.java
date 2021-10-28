@@ -147,14 +147,6 @@ public class BookAnthologyTest {
     }
 
     /**
-     * Test the property 'typeDiscriminator'
-     */
-    @Test
-    public void typeDiscriminatorTest() {
-        // TODO: test typeDiscriminator
-    }
-
-    /**
      * Test the property 'title'
      */
     @Test
@@ -400,6 +392,14 @@ public class BookAnthologyTest {
     @Test
     public void _abstractTest() {
         // TODO: test _abstract
+    }
+
+    /**
+     * Test the property 'typeDiscriminator'
+     */
+    @Test
+    public void typeDiscriminatorTest() {
+        // TODO: test typeDiscriminator
     }
 
     /**

@@ -33,7 +33,7 @@ import org.threeten.bp.OffsetDateTime;
  * A user that can be attached to a person in Pure
  */
 @ApiModel(description = "A user that can be attached to a person in Pure")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class User {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -91,9 +91,13 @@ public class User {
   @SerializedName(SERIALIZED_NAME_EXTERNALLY_AUTHENTICATED)
   private Boolean externallyAuthenticated;
 
-  public static final String SERIALIZED_NAME_SYSTEM_USER = "systemUser";
-  @SerializedName(SERIALIZED_NAME_SYSTEM_USER)
-  private Boolean systemUser;
+  public static final String SERIALIZED_NAME_PURE_SYSTEM_USER = "pureSystemUser";
+  @SerializedName(SERIALIZED_NAME_PURE_SYSTEM_USER)
+  private Boolean pureSystemUser;
+
+  public static final String SERIALIZED_NAME_LOCKED = "locked";
+  @SerializedName(SERIALIZED_NAME_LOCKED)
+  private Boolean locked;
 
   public static final String SERIALIZED_NAME_SYSTEM_NAME = "systemName";
   @SerializedName(SERIALIZED_NAME_SYSTEM_NAME)
@@ -330,26 +334,49 @@ public class User {
 
 
 
-  public User systemUser(Boolean systemUser) {
+  public User pureSystemUser(Boolean pureSystemUser) {
     
-    this.systemUser = systemUser;
+    this.pureSystemUser = pureSystemUser;
     return this;
   }
 
    /**
-   * Is the user a system user. Can only be changed by a vendor supporter user.
-   * @return systemUser
+   * Is the user a Pure system user. Set to false when creating normal Pure users.
+   * @return pureSystemUser
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Is the user a system user. Can only be changed by a vendor supporter user.")
+  @ApiModelProperty(value = "Is the user a Pure system user. Set to false when creating normal Pure users.")
 
-  public Boolean getSystemUser() {
-    return systemUser;
+  public Boolean getPureSystemUser() {
+    return pureSystemUser;
   }
 
 
-  public void setSystemUser(Boolean systemUser) {
-    this.systemUser = systemUser;
+  public void setPureSystemUser(Boolean pureSystemUser) {
+    this.pureSystemUser = pureSystemUser;
+  }
+
+
+  public User locked(Boolean locked) {
+    
+    this.locked = locked;
+    return this;
+  }
+
+   /**
+   * Is the user locked. A locked user cannot log into Pure.
+   * @return locked
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Is the user locked. A locked user cannot log into Pure.")
+
+  public Boolean getLocked() {
+    return locked;
+  }
+
+
+  public void setLocked(Boolean locked) {
+    this.locked = locked;
   }
 
 
@@ -390,13 +417,14 @@ public class User {
         Objects.equals(this.name, user.name) &&
         Objects.equals(this.email, user.email) &&
         Objects.equals(this.externallyAuthenticated, user.externallyAuthenticated) &&
-        Objects.equals(this.systemUser, user.systemUser) &&
+        Objects.equals(this.pureSystemUser, user.pureSystemUser) &&
+        Objects.equals(this.locked, user.locked) &&
         Objects.equals(this.systemName, user.systemName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pureId, uuid, createdBy, createdDate, modifiedBy, modifiedDate, portalUrl, prettyUrlIdentifiers, previousUuids, version, username, name, email, externallyAuthenticated, systemUser, systemName);
+    return Objects.hash(pureId, uuid, createdBy, createdDate, modifiedBy, modifiedDate, portalUrl, prettyUrlIdentifiers, previousUuids, version, username, name, email, externallyAuthenticated, pureSystemUser, locked, systemName);
   }
 
 
@@ -418,7 +446,8 @@ public class User {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    externallyAuthenticated: ").append(toIndentedString(externallyAuthenticated)).append("\n");
-    sb.append("    systemUser: ").append(toIndentedString(systemUser)).append("\n");
+    sb.append("    pureSystemUser: ").append(toIndentedString(pureSystemUser)).append("\n");
+    sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
     sb.append("    systemName: ").append(toIndentedString(systemName)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -144,14 +144,6 @@ public class ContributionToPeriodicalTest {
     }
 
     /**
-     * Test the property 'typeDiscriminator'
-     */
-    @Test
-    public void typeDiscriminatorTest() {
-        // TODO: test typeDiscriminator
-    }
-
-    /**
      * Test the property 'title'
      */
     @Test
@@ -397,6 +389,14 @@ public class ContributionToPeriodicalTest {
     @Test
     public void _abstractTest() {
         // TODO: test _abstract
+    }
+
+    /**
+     * Test the property 'typeDiscriminator'
+     */
+    @Test
+    public void typeDiscriminatorTest() {
+        // TODO: test typeDiscriminator
     }
 
     /**

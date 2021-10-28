@@ -20,7 +20,7 @@ import com.elsevier.pure.api.sample.stubs.model.ArticleProcessingCharge;
 import com.elsevier.pure.api.sample.stubs.model.CaseNote;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
 import com.elsevier.pure.api.sample.stubs.model.ClassifiedLocalizedValue;
-import com.elsevier.pure.api.sample.stubs.model.ContentRef;
+import com.elsevier.pure.api.sample.stubs.model.ConferenceSeriesRef;
 import com.elsevier.pure.api.sample.stubs.model.ContributionToJournalAllOf;
 import com.elsevier.pure.api.sample.stubs.model.ContributorAssociation;
 import com.elsevier.pure.api.sample.stubs.model.ElectronicVersion;
@@ -54,7 +54,7 @@ import org.threeten.bp.OffsetDateTime;
  * A journal is published in a consecutive number of volumes/issues, as a series with the same journal title.
  */
 @ApiModel(description = "A journal is published in a consecutive number of volumes/issues, as a series with the same journal title.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class ContributionToJournal extends ResearchOutput {
   public static final String SERIALIZED_NAME_EVENT = "event";
   @SerializedName(SERIALIZED_NAME_EVENT)
@@ -86,7 +86,7 @@ public class ContributionToJournal extends ResearchOutput {
 
   public static final String SERIALIZED_NAME_CONFERENCE_SERIES = "conferenceSeries";
   @SerializedName(SERIALIZED_NAME_CONFERENCE_SERIES)
-  private List<ContentRef> conferenceSeries = null;
+  private ConferenceSeriesRef conferenceSeries;
 
   public static final String SERIALIZED_NAME_NUMBER_OF_PAGES = "numberOfPages";
   @SerializedName(SERIALIZED_NAME_NUMBER_OF_PAGES)
@@ -173,7 +173,7 @@ public class ContributionToJournal extends ResearchOutput {
    * @return journalAssociation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
 
   public JournalAssociation getJournalAssociation() {
     return journalAssociation;
@@ -262,33 +262,25 @@ public class ContributionToJournal extends ResearchOutput {
   }
 
 
-  public ContributionToJournal conferenceSeries(List<ContentRef> conferenceSeries) {
+  public ContributionToJournal conferenceSeries(ConferenceSeriesRef conferenceSeries) {
     
     this.conferenceSeries = conferenceSeries;
     return this;
   }
 
-  public ContributionToJournal addConferenceSeriesItem(ContentRef conferenceSeriesItem) {
-    if (this.conferenceSeries == null) {
-      this.conferenceSeries = new ArrayList<ContentRef>();
-    }
-    this.conferenceSeries.add(conferenceSeriesItem);
-    return this;
-  }
-
    /**
-   * A collection of conference series related to this research output.
+   * Get conferenceSeries
    * @return conferenceSeries
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A collection of conference series related to this research output.")
+  @ApiModelProperty(value = "")
 
-  public List<ContentRef> getConferenceSeries() {
+  public ConferenceSeriesRef getConferenceSeries() {
     return conferenceSeries;
   }
 
 
-  public void setConferenceSeries(List<ContentRef> conferenceSeries) {
+  public void setConferenceSeries(ConferenceSeriesRef conferenceSeries) {
     this.conferenceSeries = conferenceSeries;
   }
 

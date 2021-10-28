@@ -34,7 +34,7 @@ import java.util.Map;
  * De-normalized version of the full keyword group representation for instances where only free keywords can be selected
  */
 @ApiModel(description = "De-normalized version of the full keyword group representation for instances where only free keywords can be selected")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class FreeKeywordsKeywordGroup extends KeywordGroup {
   public static final String SERIALIZED_NAME_KEYWORDS = "keywords";
   @SerializedName(SERIALIZED_NAME_KEYWORDS)

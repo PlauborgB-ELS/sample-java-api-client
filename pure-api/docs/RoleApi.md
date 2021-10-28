@@ -37,7 +37,7 @@ public class Example {
     //api-key.setApiKeyPrefix("Token");
 
     RoleApi apiInstance = new RoleApi(defaultClient);
-    UUID uuid = new UUID(); // UUID | UUID of the person to add roles to
+    UUID uuid = new UUID(); // UUID | UUID of the user to add roles to
     Roles roles = new Roles(); // Roles | The roles to add
     try {
       User result = apiInstance.addRoles(uuid, roles);
@@ -57,7 +57,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | [**UUID**](.md)| UUID of the person to add roles to |
+ **uuid** | [**UUID**](.md)| UUID of the user to add roles to |
  **roles** | [**Roles**](Roles.md)| The roles to add |
 
 ### Return type

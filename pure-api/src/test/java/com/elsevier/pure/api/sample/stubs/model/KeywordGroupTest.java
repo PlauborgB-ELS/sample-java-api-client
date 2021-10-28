@@ -52,14 +52,6 @@ public class KeywordGroupTest {
     }
 
     /**
-     * Test the property 'typeDiscriminator'
-     */
-    @Test
-    public void typeDiscriminatorTest() {
-        // TODO: test typeDiscriminator
-    }
-
-    /**
      * Test the property 'logicalName'
      */
     @Test
@@ -73,6 +65,14 @@ public class KeywordGroupTest {
     @Test
     public void nameTest() {
         // TODO: test name
+    }
+
+    /**
+     * Test the property 'typeDiscriminator'
+     */
+    @Test
+    public void typeDiscriminatorTest() {
+        // TODO: test typeDiscriminator
     }
 
 }

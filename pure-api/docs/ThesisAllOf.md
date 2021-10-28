@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **publicationSeries** | [**List&lt;PublicationSeries&gt;**](PublicationSeries.md) | The publication series this research output is part of. |  [optional]
 **bookSeries** | [**List&lt;BookSeriesJournalAssociation&gt;**](BookSeriesJournalAssociation.md) | The book series this research output is part of. |  [optional]
 **qualification** | [**ClassificationRef**](ClassificationRef.md) |  |  [optional]
-**awardingInstitutions** | [**List&lt;InternalExternalOrganizationAssociation&gt;**](InternalExternalOrganizationAssociation.md) | The awarding institution. |  [optional]
+**awardingInstitutions** | [**List&lt;OrganizationOrExternalOrganizationRef&gt;**](OrganizationOrExternalOrganizationRef.md) | The awarding institution. |  [optional]
 **supervisorOrganisations** | [**List&lt;OrganizationRef&gt;**](OrganizationRef.md) | A collection of organisational unit affiliations associated with supervisors of this research output. |  [optional]
 **supervisorExternalOrganisations** | [**List&lt;ExternalOrganizationRef&gt;**](ExternalOrganizationRef.md) | A collection of external organisation affiliations associated with supervisors of this research output. |  [optional]
 **supervisors** | [**List&lt;SupervisorAssociation&gt;**](SupervisorAssociation.md) | The supervisors of this research output. |  [optional]

@@ -16,7 +16,7 @@ package com.elsevier.pure.api.sample.stubs.model;
 import com.elsevier.pure.api.sample.stubs.model.BookSeriesJournalAssociation;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationRef;
-import com.elsevier.pure.api.sample.stubs.model.InternalExternalOrganizationAssociation;
+import com.elsevier.pure.api.sample.stubs.model.OrganizationOrExternalOrganizationRef;
 import com.elsevier.pure.api.sample.stubs.model.OrganizationRef;
 import com.elsevier.pure.api.sample.stubs.model.PublicationSeries;
 import com.elsevier.pure.api.sample.stubs.model.PublisherRef;

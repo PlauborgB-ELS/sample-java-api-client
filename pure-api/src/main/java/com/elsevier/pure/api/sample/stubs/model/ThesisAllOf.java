@@ -18,7 +18,7 @@ import java.util.Arrays;
 import com.elsevier.pure.api.sample.stubs.model.BookSeriesJournalAssociation;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationRef;
-import com.elsevier.pure.api.sample.stubs.model.InternalExternalOrganizationAssociation;
+import com.elsevier.pure.api.sample.stubs.model.OrganizationOrExternalOrganizationRef;
 import com.elsevier.pure.api.sample.stubs.model.OrganizationRef;
 import com.elsevier.pure.api.sample.stubs.model.PublicationSeries;
 import com.elsevier.pure.api.sample.stubs.model.PublisherRef;
@@ -38,7 +38,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * ThesisAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class ThesisAllOf {
   public static final String SERIALIZED_NAME_PLACE_OF_PUBLICATION = "placeOfPublication";
   @SerializedName(SERIALIZED_NAME_PLACE_OF_PUBLICATION)
@@ -82,7 +82,7 @@ public class ThesisAllOf {
 
   public static final String SERIALIZED_NAME_AWARDING_INSTITUTIONS = "awardingInstitutions";
   @SerializedName(SERIALIZED_NAME_AWARDING_INSTITUTIONS)
-  private List<InternalExternalOrganizationAssociation> awardingInstitutions = null;
+  private List<OrganizationOrExternalOrganizationRef> awardingInstitutions = null;
 
   public static final String SERIALIZED_NAME_SUPERVISOR_ORGANISATIONS = "supervisorOrganisations";
   @SerializedName(SERIALIZED_NAME_SUPERVISOR_ORGANISATIONS)
@@ -367,15 +367,15 @@ public class ThesisAllOf {
   }
 
 
-  public ThesisAllOf awardingInstitutions(List<InternalExternalOrganizationAssociation> awardingInstitutions) {
+  public ThesisAllOf awardingInstitutions(List<OrganizationOrExternalOrganizationRef> awardingInstitutions) {
     
     this.awardingInstitutions = awardingInstitutions;
     return this;
   }
 
-  public ThesisAllOf addAwardingInstitutionsItem(InternalExternalOrganizationAssociation awardingInstitutionsItem) {
+  public ThesisAllOf addAwardingInstitutionsItem(OrganizationOrExternalOrganizationRef awardingInstitutionsItem) {
     if (this.awardingInstitutions == null) {
-      this.awardingInstitutions = new ArrayList<InternalExternalOrganizationAssociation>();
+      this.awardingInstitutions = new ArrayList<OrganizationOrExternalOrganizationRef>();
     }
     this.awardingInstitutions.add(awardingInstitutionsItem);
     return this;
@@ -388,12 +388,12 @@ public class ThesisAllOf {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The awarding institution.")
 
-  public List<InternalExternalOrganizationAssociation> getAwardingInstitutions() {
+  public List<OrganizationOrExternalOrganizationRef> getAwardingInstitutions() {
     return awardingInstitutions;
   }
 
 
-  public void setAwardingInstitutions(List<InternalExternalOrganizationAssociation> awardingInstitutions) {
+  public void setAwardingInstitutions(List<OrganizationOrExternalOrganizationRef> awardingInstitutions) {
     this.awardingInstitutions = awardingInstitutions;
   }
 

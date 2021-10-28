@@ -13,9 +13,9 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
-import com.elsevier.pure.api.sample.stubs.model.ISSN;
+import com.elsevier.pure.api.sample.stubs.model.ISSNRef;
 import com.elsevier.pure.api.sample.stubs.model.JournalRef;
-import com.elsevier.pure.api.sample.stubs.model.JournalTitle;
+import com.elsevier.pure.api.sample.stubs.model.JournalTitleRef;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

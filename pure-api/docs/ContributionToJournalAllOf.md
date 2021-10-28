@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **articleNumber** | **String** | The article number. |  [optional]
 **journalNumber** | **String** | The issue number of the journal the research output is published in. |  [optional]
 **caseNotes** | [**List&lt;CaseNote&gt;**](CaseNote.md) | A collection of court case notes related to this research output. |  [optional]
-**conferenceSeries** | [**List&lt;ContentRef&gt;**](ContentRef.md) | A collection of conference series related to this research output. |  [optional]
+**conferenceSeries** | [**ConferenceSeriesRef**](ConferenceSeriesRef.md) |  |  [optional]
 **numberOfPages** | **Integer** | The number of pages in the research output. |  [optional]
 
 

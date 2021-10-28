@@ -50,7 +50,7 @@ import org.threeten.bp.OffsetDateTime;
  * Article, abstract or poster, published in continuation of a conference.
  */
 @ApiModel(description = "Article, abstract or poster, published in continuation of a conference.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class ContributionToConference extends ResearchOutput {
   public static final String SERIALIZED_NAME_PAGES = "pages";
   @SerializedName(SERIALIZED_NAME_PAGES)

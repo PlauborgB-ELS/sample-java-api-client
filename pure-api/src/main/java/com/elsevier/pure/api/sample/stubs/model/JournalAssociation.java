@@ -15,9 +15,9 @@ package com.elsevier.pure.api.sample.stubs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.elsevier.pure.api.sample.stubs.model.ISSN;
+import com.elsevier.pure.api.sample.stubs.model.ISSNRef;
 import com.elsevier.pure.api.sample.stubs.model.JournalRef;
-import com.elsevier.pure.api.sample.stubs.model.JournalTitle;
+import com.elsevier.pure.api.sample.stubs.model.JournalTitleRef;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,7 +31,7 @@ import java.io.IOException;
  * A journal associated with a research output.
  */
 @ApiModel(description = "A journal associated with a research output.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class JournalAssociation {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -39,11 +39,11 @@ public class JournalAssociation {
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  private JournalTitle title;
+  private JournalTitleRef title;
 
   public static final String SERIALIZED_NAME_ISSN = "issn";
   @SerializedName(SERIALIZED_NAME_ISSN)
-  private ISSN issn;
+  private ISSNRef issn;
 
   public static final String SERIALIZED_NAME_JOURNAL = "journal";
   @SerializedName(SERIALIZED_NAME_JOURNAL)
@@ -64,7 +64,7 @@ public class JournalAssociation {
 
 
 
-  public JournalAssociation title(JournalTitle title) {
+  public JournalAssociation title(JournalTitleRef title) {
     
     this.title = title;
     return this;
@@ -77,17 +77,17 @@ public class JournalAssociation {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public JournalTitle getTitle() {
+  public JournalTitleRef getTitle() {
     return title;
   }
 
 
-  public void setTitle(JournalTitle title) {
+  public void setTitle(JournalTitleRef title) {
     this.title = title;
   }
 
 
-  public JournalAssociation issn(ISSN issn) {
+  public JournalAssociation issn(ISSNRef issn) {
     
     this.issn = issn;
     return this;
@@ -100,12 +100,12 @@ public class JournalAssociation {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ISSN getIssn() {
+  public ISSNRef getIssn() {
     return issn;
   }
 
 
-  public void setIssn(ISSN issn) {
+  public void setIssn(ISSNRef issn) {
     this.issn = issn;
   }
 
@@ -121,7 +121,7 @@ public class JournalAssociation {
    * @return journal
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
 
   public JournalRef getJournal() {
     return journal;

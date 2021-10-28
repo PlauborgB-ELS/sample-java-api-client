@@ -49,7 +49,7 @@ import org.threeten.bp.OffsetDateTime;
  * Research output exists in many variations, from written to non-textual form. Templates are available for a range of these variations.
  */
 @ApiModel(description = "Research output exists in many variations, from written to non-textual form. Templates are available for a range of these variations.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 
 public class ResearchOutput {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
@@ -91,10 +91,6 @@ public class ResearchOutput {
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
   private String version;
-
-  public static final String SERIALIZED_NAME_TYPE_DISCRIMINATOR = "typeDiscriminator";
-  @SerializedName(SERIALIZED_NAME_TYPE_DISCRIMINATOR)
-  private String typeDiscriminator;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -219,6 +215,10 @@ public class ResearchOutput {
   public static final String SERIALIZED_NAME_ABSTRACT = "abstract";
   @SerializedName(SERIALIZED_NAME_ABSTRACT)
   private Map<String, String> _abstract = null;
+
+  public static final String SERIALIZED_NAME_TYPE_DISCRIMINATOR = "typeDiscriminator";
+  @SerializedName(SERIALIZED_NAME_TYPE_DISCRIMINATOR)
+  private String typeDiscriminator;
 
   public ResearchOutput() {
     this.typeDiscriminator = this.getClass().getSimpleName();
@@ -370,29 +370,6 @@ public class ResearchOutput {
 
   public void setVersion(String version) {
     this.version = version;
-  }
-
-
-  public ResearchOutput typeDiscriminator(String typeDiscriminator) {
-    
-    this.typeDiscriminator = typeDiscriminator;
-    return this;
-  }
-
-   /**
-   * A Identifier type discriminator property so we can differentiate between the different sub-types
-   * @return typeDiscriminator
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A Identifier type discriminator property so we can differentiate between the different sub-types")
-
-  public String getTypeDiscriminator() {
-    return typeDiscriminator;
-  }
-
-
-  public void setTypeDiscriminator(String typeDiscriminator) {
-    this.typeDiscriminator = typeDiscriminator;
   }
 
 
@@ -1212,6 +1189,28 @@ public class ResearchOutput {
   }
 
 
+  public ResearchOutput typeDiscriminator(String typeDiscriminator) {
+    
+    this.typeDiscriminator = typeDiscriminator;
+    return this;
+  }
+
+   /**
+   * Get typeDiscriminator
+   * @return typeDiscriminator
+  **/
+  @ApiModelProperty(required = true, value = "")
+
+  public String getTypeDiscriminator() {
+    return typeDiscriminator;
+  }
+
+
+  public void setTypeDiscriminator(String typeDiscriminator) {
+    this.typeDiscriminator = typeDiscriminator;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -1231,7 +1230,6 @@ public class ResearchOutput {
         Objects.equals(this.prettyUrlIdentifiers, researchOutput.prettyUrlIdentifiers) &&
         Objects.equals(this.previousUuids, researchOutput.previousUuids) &&
         Objects.equals(this.version, researchOutput.version) &&
-        Objects.equals(this.typeDiscriminator, researchOutput.typeDiscriminator) &&
         Objects.equals(this.title, researchOutput.title) &&
         Objects.equals(this.subTitle, researchOutput.subTitle) &&
         Objects.equals(this.type, researchOutput.type) &&
@@ -1262,12 +1260,13 @@ public class ResearchOutput {
         Objects.equals(this.workflow, researchOutput.workflow) &&
         Objects.equals(this.identifiers, researchOutput.identifiers) &&
         Objects.equals(this.systemName, researchOutput.systemName) &&
-        Objects.equals(this._abstract, researchOutput._abstract);
+        Objects.equals(this._abstract, researchOutput._abstract) &&
+        Objects.equals(this.typeDiscriminator, researchOutput.typeDiscriminator);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pureId, uuid, createdBy, createdDate, modifiedBy, modifiedDate, portalUrl, prettyUrlIdentifiers, previousUuids, version, typeDiscriminator, title, subTitle, type, category, peerReview, internationalPeerReview, publicationStatuses, language, translatedTitle, translatedSubTitle, contributors, organizations, externalOrganisations, totalNumberOfContributors, managingOrganization, openAccessPermission, openAccessEmbargoDate, submissionYear, mainResearchArea, electronicVersions, additionalFiles, links, articleProcessingCharge, keywordGroups, bibliographicalNote, descriptions, visibility, workflow, identifiers, systemName, _abstract);
+    return Objects.hash(pureId, uuid, createdBy, createdDate, modifiedBy, modifiedDate, portalUrl, prettyUrlIdentifiers, previousUuids, version, title, subTitle, type, category, peerReview, internationalPeerReview, publicationStatuses, language, translatedTitle, translatedSubTitle, contributors, organizations, externalOrganisations, totalNumberOfContributors, managingOrganization, openAccessPermission, openAccessEmbargoDate, submissionYear, mainResearchArea, electronicVersions, additionalFiles, links, articleProcessingCharge, keywordGroups, bibliographicalNote, descriptions, visibility, workflow, identifiers, systemName, _abstract, typeDiscriminator);
   }
 
 
@@ -1285,7 +1284,6 @@ public class ResearchOutput {
     sb.append("    prettyUrlIdentifiers: ").append(toIndentedString(prettyUrlIdentifiers)).append("\n");
     sb.append("    previousUuids: ").append(toIndentedString(previousUuids)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    typeDiscriminator: ").append(toIndentedString(typeDiscriminator)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    subTitle: ").append(toIndentedString(subTitle)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -1317,6 +1315,7 @@ public class ResearchOutput {
     sb.append("    identifiers: ").append(toIndentedString(identifiers)).append("\n");
     sb.append("    systemName: ").append(toIndentedString(systemName)).append("\n");
     sb.append("    _abstract: ").append(toIndentedString(_abstract)).append("\n");
+    sb.append("    typeDiscriminator: ").append(toIndentedString(typeDiscriminator)).append("\n");
     sb.append("}");
     return sb.toString();
   }

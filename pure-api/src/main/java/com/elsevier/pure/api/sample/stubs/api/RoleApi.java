@@ -59,7 +59,7 @@ public class RoleApi {
 
     /**
      * Build call for addRoles
-     * @param uuid UUID of the person to add roles to (required)
+     * @param uuid UUID of the user to add roles to (required)
      * @param roles The roles to add (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -123,7 +123,7 @@ public class RoleApi {
     /**
      * Add roles to user
      * Add roles to user
-     * @param uuid UUID of the person to add roles to (required)
+     * @param uuid UUID of the user to add roles to (required)
      * @param roles The roles to add (required)
      * @return User
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -142,7 +142,7 @@ public class RoleApi {
     /**
      * Add roles to user
      * Add roles to user
-     * @param uuid UUID of the person to add roles to (required)
+     * @param uuid UUID of the user to add roles to (required)
      * @param roles The roles to add (required)
      * @return ApiResponse&lt;User&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -162,7 +162,7 @@ public class RoleApi {
     /**
      * Add roles to user (asynchronously)
      * Add roles to user
-     * @param uuid UUID of the person to add roles to (required)
+     * @param uuid UUID of the user to add roles to (required)
      * @param roles The roles to add (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

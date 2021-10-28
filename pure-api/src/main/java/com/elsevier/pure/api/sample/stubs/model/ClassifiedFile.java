@@ -30,7 +30,7 @@ import java.io.IOException;
  * A classified file
  */
 @ApiModel(description = "A classified file")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class ClassifiedFile {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -129,8 +129,7 @@ public class ClassifiedFile {
    * The documents mime type
    * @return mimeType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The documents mime type")
+  @ApiModelProperty(required = true, value = "The documents mime type")
 
   public String getMimeType() {
     return mimeType;
@@ -152,8 +151,7 @@ public class ClassifiedFile {
    * The documents size in bytes
    * @return size
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The documents size in bytes")
+  @ApiModelProperty(required = true, value = "The documents size in bytes")
 
   public Long getSize() {
     return size;

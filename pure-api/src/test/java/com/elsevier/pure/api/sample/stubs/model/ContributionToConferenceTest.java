@@ -143,14 +143,6 @@ public class ContributionToConferenceTest {
     }
 
     /**
-     * Test the property 'typeDiscriminator'
-     */
-    @Test
-    public void typeDiscriminatorTest() {
-        // TODO: test typeDiscriminator
-    }
-
-    /**
      * Test the property 'title'
      */
     @Test
@@ -396,6 +388,14 @@ public class ContributionToConferenceTest {
     @Test
     public void _abstractTest() {
         // TODO: test _abstract
+    }
+
+    /**
+     * Test the property 'typeDiscriminator'
+     */
+    @Test
+    public void typeDiscriminatorTest() {
+        // TODO: test typeDiscriminator
     }
 
     /**

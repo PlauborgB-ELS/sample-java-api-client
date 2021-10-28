@@ -29,7 +29,7 @@ import java.io.IOException;
  * A title of a journal, can be populated with a start and end date if the title is only used in a specific period.
  */
 @ApiModel(description = "A title of a journal, can be populated with a start and end date if the title is only used in a specific period.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class JournalTitle {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)

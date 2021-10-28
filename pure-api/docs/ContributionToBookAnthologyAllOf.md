@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **commissioningBody** | [**ExternalOrganizationRef**](ExternalOrganizationRef.md) |  |  [optional]
 **bookSeries** | [**List&lt;BookSeriesJournalAssociation&gt;**](BookSeriesJournalAssociation.md) | The book series this research output is part of. |  [optional]
 **chapter** | **String** | The chapter of the host publication covered by this contribution, for example 2. |  [optional]
-**conferenceSeries** | [**List&lt;ContentRef&gt;**](ContentRef.md) | A collection of conference series related to this research output. |  [optional]
+**conferenceSeries** | [**ConferenceSeriesRef**](ConferenceSeriesRef.md) |  |  [optional]
 **numberOfPages** | **Integer** | The number of pages in the research output. |  [optional]
 
 

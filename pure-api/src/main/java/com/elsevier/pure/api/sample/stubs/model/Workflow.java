@@ -31,7 +31,7 @@ import java.util.Map;
  * Information about workflow
  */
 @ApiModel(description = "Information about workflow")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class Workflow {
   public static final String SERIALIZED_NAME_STEP = "step";
   @SerializedName(SERIALIZED_NAME_STEP)

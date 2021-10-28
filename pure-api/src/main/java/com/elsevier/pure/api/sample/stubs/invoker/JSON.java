@@ -112,6 +112,7 @@ public class JSON {
                     public Class getClassForElement(JsonElement readElement) {
                         Map classByDiscriminatorValue = new HashMap();
                         classByDiscriminatorValue.put("ClassifiedId".toUpperCase(Locale.ROOT), ClassifiedId.class);
+                        classByDiscriminatorValue.put("PrimaryId".toUpperCase(Locale.ROOT), PrimaryId.class);
                         classByDiscriminatorValue.put("Id".toUpperCase(Locale.ROOT), Id.class);
                         classByDiscriminatorValue.put("Identifier".toUpperCase(Locale.ROOT), Identifier.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,

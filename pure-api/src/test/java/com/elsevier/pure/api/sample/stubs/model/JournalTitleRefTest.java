@@ -13,8 +13,6 @@
 
 package com.elsevier.pure.api.sample.stubs.model;
 
-import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationRef;
-import com.elsevier.pure.api.sample.stubs.model.OrganizationRef;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,17 +27,17 @@ import org.junit.Test;
 
 
 /**
- * Model tests for InternalExternalOrganizationAssociation
+ * Model tests for JournalTitleRef
  */
-public class InternalExternalOrganizationAssociationTest {
-    private final InternalExternalOrganizationAssociation model = new InternalExternalOrganizationAssociation();
+public class JournalTitleRefTest {
+    private final JournalTitleRef model = new JournalTitleRef();
 
     /**
-     * Model tests for InternalExternalOrganizationAssociation
+     * Model tests for JournalTitleRef
      */
     @Test
-    public void testInternalExternalOrganizationAssociation() {
-        // TODO: test InternalExternalOrganizationAssociation
+    public void testJournalTitleRef() {
+        // TODO: test JournalTitleRef
     }
 
     /**
@@ -51,19 +49,11 @@ public class InternalExternalOrganizationAssociationTest {
     }
 
     /**
-     * Test the property 'organization'
+     * Test the property 'title'
      */
     @Test
-    public void organizationTest() {
-        // TODO: test organization
-    }
-
-    /**
-     * Test the property 'externalOrganization'
-     */
-    @Test
-    public void externalOrganizationTest() {
-        // TODO: test externalOrganization
+    public void titleTest() {
+        // TODO: test title
     }
 
 }

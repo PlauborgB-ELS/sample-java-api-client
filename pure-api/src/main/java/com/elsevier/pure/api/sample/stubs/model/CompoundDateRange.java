@@ -29,7 +29,7 @@ import java.io.IOException;
  * A date range of that can be defined by only year, year and month or a full date
  */
 @ApiModel(description = "A date range of that can be defined by only year, year and month or a full date")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class CompoundDateRange {
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)

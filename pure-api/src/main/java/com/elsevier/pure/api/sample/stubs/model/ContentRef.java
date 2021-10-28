@@ -28,7 +28,7 @@ import java.util.UUID;
 /**
  * ContentRef
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 
 public class ContentRef {
   public static final String SERIALIZED_NAME_UUID = "uuid";
@@ -72,10 +72,10 @@ public class ContentRef {
   }
 
    /**
-   * The system name of the content
+   * Get systemName
    * @return systemName
   **/
-  @ApiModelProperty(required = true, value = "The system name of the content")
+  @ApiModelProperty(required = true, value = "")
 
   public String getSystemName() {
     return systemName;

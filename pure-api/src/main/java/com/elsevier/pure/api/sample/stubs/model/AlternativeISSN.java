@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModel;
  * Additional non electronic ISSN, is searchable but cannot be used when relating the journal to other content
  */
 @ApiModel(description = "Additional non electronic ISSN, is searchable but cannot be used when relating the journal to other content")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class AlternativeISSN extends AdditionalISSN {
 
   @Override

@@ -23,9 +23,9 @@ import com.elsevier.pure.api.sample.stubs.model.ElectronicVersion;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationRef;
 import com.elsevier.pure.api.sample.stubs.model.FormattedString;
 import com.elsevier.pure.api.sample.stubs.model.Identifier;
-import com.elsevier.pure.api.sample.stubs.model.InternalExternalOrganizationAssociation;
 import com.elsevier.pure.api.sample.stubs.model.KeywordGroup;
 import com.elsevier.pure.api.sample.stubs.model.Link;
+import com.elsevier.pure.api.sample.stubs.model.OrganizationOrExternalOrganizationRef;
 import com.elsevier.pure.api.sample.stubs.model.OrganizationRef;
 import com.elsevier.pure.api.sample.stubs.model.PublicationSeries;
 import com.elsevier.pure.api.sample.stubs.model.PublicationStatus;
@@ -145,14 +145,6 @@ public class ThesisTest {
     @Test
     public void versionTest() {
         // TODO: test version
-    }
-
-    /**
-     * Test the property 'typeDiscriminator'
-     */
-    @Test
-    public void typeDiscriminatorTest() {
-        // TODO: test typeDiscriminator
     }
 
     /**
@@ -401,6 +393,14 @@ public class ThesisTest {
     @Test
     public void _abstractTest() {
         // TODO: test _abstract
+    }
+
+    /**
+     * Test the property 'typeDiscriminator'
+     */
+    @Test
+    public void typeDiscriminatorTest() {
+        // TODO: test typeDiscriminator
     }
 
     /**

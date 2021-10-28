@@ -14,7 +14,7 @@
 package com.elsevier.pure.api.sample.stubs.model;
 
 import com.elsevier.pure.api.sample.stubs.model.CaseNote;
-import com.elsevier.pure.api.sample.stubs.model.ContentRef;
+import com.elsevier.pure.api.sample.stubs.model.ConferenceSeriesRef;
 import com.elsevier.pure.api.sample.stubs.model.EventRef;
 import com.elsevier.pure.api.sample.stubs.model.JournalAssociation;
 import com.google.gson.TypeAdapter;

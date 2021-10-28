@@ -51,7 +51,7 @@ import org.threeten.bp.OffsetDateTime;
  * A research output that has been published in a domain-specific journal with a more communicative approach.
  */
 @ApiModel(description = "A research output that has been published in a domain-specific journal with a more communicative approach.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class ContributionToPeriodical extends ResearchOutput {
   public static final String SERIALIZED_NAME_PUBLISHER = "publisher";
   @SerializedName(SERIALIZED_NAME_PUBLISHER)
@@ -135,7 +135,7 @@ public class ContributionToPeriodical extends ResearchOutput {
    * @return journalAssociation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
 
   public JournalAssociation getJournalAssociation() {
     return journalAssociation;

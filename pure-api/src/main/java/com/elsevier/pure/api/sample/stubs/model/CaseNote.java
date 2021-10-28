@@ -35,7 +35,7 @@ import org.threeten.bp.OffsetDateTime;
  * A note on a case, detailing title, judgement data and court processing case.
  */
 @ApiModel(description = "A note on a case, detailing title, judgement data and court processing case.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class CaseNote {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -83,7 +83,7 @@ public class CaseNote {
    * @return court
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
 
   public ExternalOrganizationRef getCourt() {
     return court;

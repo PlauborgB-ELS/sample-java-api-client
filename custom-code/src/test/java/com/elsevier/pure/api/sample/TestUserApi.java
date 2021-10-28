@@ -66,6 +66,8 @@ public class TestUserApi extends TestCase {
         User user = new User();
         user.setUsername("user-" + UUID.randomUUID());
         user.setEmail(UUID.randomUUID() + "@somebogusdomain.com");
+        user.setLocked(false);
+        user.setPureSystemUser(false);
 
         System.out.println("\nCREATE user: ");
         final User userResponse = userApi.create(user);
@@ -84,6 +86,8 @@ public class TestUserApi extends TestCase {
         User user = new User();
         user.setUsername("user-" + UUID.randomUUID());
         user.setEmail(UUID.randomUUID() + "@somebogusdomain.com");
+        user.setLocked(false);
+        user.setPureSystemUser(false);
 
         System.out.println("\nCREATE user: ");
         final User userCreateResponse = userApi.create(user);
@@ -96,6 +100,7 @@ public class TestUserApi extends TestCase {
         }
         user.setUsername("user-" + UUID.randomUUID());
         user.setEmail(UUID.randomUUID() + "@somebogusdomain.com");
+        user.setLocked(true);
 
         System.out.println("\nUPDATE user: ");
         final User userUpdateResponse = userApi.update(userCreateResponse.getUuid(), user);
@@ -104,6 +109,7 @@ public class TestUserApi extends TestCase {
             System.out.println("User '" + userUpdateResponse.getUsername() + "' was successfully updated.");
             System.out.println("Old username '" + userCreateResponse.getUsername() + "'. New username '" + userUpdateResponse.getUsername() + "'");
             System.out.println("Old email '" + userCreateResponse.getEmail() + "'. New email '" + userUpdateResponse.getEmail() + "'");
+            System.out.println("Old locked '" + userCreateResponse.getLocked() + "'. New locked '" + userUpdateResponse.getLocked() + "'");
         } else {
             fail("response is null");
         }
@@ -116,6 +122,8 @@ public class TestUserApi extends TestCase {
         User user = new User();
         user.setUsername("user-" + UUID.randomUUID());
         user.setEmail(UUID.randomUUID() + "@somebogusdomain.com");
+        user.setLocked(false);
+        user.setPureSystemUser(false);
 
         System.out.println("\nCREATE user: ");
         final User userCreateResponse = userApi.create(user);
@@ -153,6 +161,8 @@ public class TestUserApi extends TestCase {
         User user = new User();
         user.setUsername("user-" + UUID.randomUUID());
         user.setEmail(UUID.randomUUID() + "@somebogusdomain.com");
+        user.setLocked(false);
+        user.setPureSystemUser(false);
 
         System.out.println("\nCREATE user: ");
         final User userCreateResponse = userApi.create(user);

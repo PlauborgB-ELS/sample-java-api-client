@@ -37,7 +37,7 @@ import java.util.List;
  * An association between research output and a person that has contributed to it
  */
 @ApiModel(description = "An association between research output and a person that has contributed to it")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class ContributorAssociation {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -313,11 +313,11 @@ public class ContributorAssociation {
   }
 
    /**
-   * A real number between 0 and 100, describing the percentage of the contribution of the person.
+   * A real number between 0 and 1, describing the percentage of the contribution of the person.
    * @return contributionPercentage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A real number between 0 and 100, describing the percentage of the contribution of the person.")
+  @ApiModelProperty(value = "A real number between 0 and 1, describing the percentage of the contribution of the person.")
 
   public Double getContributionPercentage() {
     return contributionPercentage;

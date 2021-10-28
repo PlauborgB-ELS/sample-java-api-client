@@ -30,16 +30,12 @@ import java.util.Map;
 /**
  * KeywordGroup
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 
 public class KeywordGroup {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
   private Long pureId;
-
-  public static final String SERIALIZED_NAME_TYPE_DISCRIMINATOR = "typeDiscriminator";
-  @SerializedName(SERIALIZED_NAME_TYPE_DISCRIMINATOR)
-  private String typeDiscriminator;
 
   public static final String SERIALIZED_NAME_LOGICAL_NAME = "logicalName";
   @SerializedName(SERIALIZED_NAME_LOGICAL_NAME)
@@ -48,6 +44,10 @@ public class KeywordGroup {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private Map<String, String> name = null;
+
+  public static final String SERIALIZED_NAME_TYPE_DISCRIMINATOR = "typeDiscriminator";
+  @SerializedName(SERIALIZED_NAME_TYPE_DISCRIMINATOR)
+  private String typeDiscriminator;
 
   public KeywordGroup() {
     this.typeDiscriminator = this.getClass().getSimpleName();
@@ -65,28 +65,6 @@ public class KeywordGroup {
   }
 
 
-
-
-  public KeywordGroup typeDiscriminator(String typeDiscriminator) {
-    
-    this.typeDiscriminator = typeDiscriminator;
-    return this;
-  }
-
-   /**
-   * A KeywordGroup type discriminator property so we can differentiate between the different sub-types, this is the schema type name of the child type.
-   * @return typeDiscriminator
-  **/
-  @ApiModelProperty(required = true, value = "A KeywordGroup type discriminator property so we can differentiate between the different sub-types, this is the schema type name of the child type.")
-
-  public String getTypeDiscriminator() {
-    return typeDiscriminator;
-  }
-
-
-  public void setTypeDiscriminator(String typeDiscriminator) {
-    this.typeDiscriminator = typeDiscriminator;
-  }
 
 
   public KeywordGroup logicalName(String logicalName) {
@@ -142,6 +120,28 @@ public class KeywordGroup {
   }
 
 
+  public KeywordGroup typeDiscriminator(String typeDiscriminator) {
+    
+    this.typeDiscriminator = typeDiscriminator;
+    return this;
+  }
+
+   /**
+   * Get typeDiscriminator
+   * @return typeDiscriminator
+  **/
+  @ApiModelProperty(required = true, value = "")
+
+  public String getTypeDiscriminator() {
+    return typeDiscriminator;
+  }
+
+
+  public void setTypeDiscriminator(String typeDiscriminator) {
+    this.typeDiscriminator = typeDiscriminator;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -152,14 +152,14 @@ public class KeywordGroup {
     }
     KeywordGroup keywordGroup = (KeywordGroup) o;
     return Objects.equals(this.pureId, keywordGroup.pureId) &&
-        Objects.equals(this.typeDiscriminator, keywordGroup.typeDiscriminator) &&
         Objects.equals(this.logicalName, keywordGroup.logicalName) &&
-        Objects.equals(this.name, keywordGroup.name);
+        Objects.equals(this.name, keywordGroup.name) &&
+        Objects.equals(this.typeDiscriminator, keywordGroup.typeDiscriminator);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pureId, typeDiscriminator, logicalName, name);
+    return Objects.hash(pureId, logicalName, name, typeDiscriminator);
   }
 
 
@@ -168,9 +168,9 @@ public class KeywordGroup {
     StringBuilder sb = new StringBuilder();
     sb.append("class KeywordGroup {\n");
     sb.append("    pureId: ").append(toIndentedString(pureId)).append("\n");
-    sb.append("    typeDiscriminator: ").append(toIndentedString(typeDiscriminator)).append("\n");
     sb.append("    logicalName: ").append(toIndentedString(logicalName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    typeDiscriminator: ").append(toIndentedString(typeDiscriminator)).append("\n");
     sb.append("}");
     return sb.toString();
   }

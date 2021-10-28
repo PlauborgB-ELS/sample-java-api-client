@@ -158,11 +158,19 @@ public class UserTest {
     }
 
     /**
-     * Test the property 'systemUser'
+     * Test the property 'pureSystemUser'
      */
     @Test
-    public void systemUserTest() {
-        // TODO: test systemUser
+    public void pureSystemUserTest() {
+        // TODO: test pureSystemUser
+    }
+
+    /**
+     * Test the property 'locked'
+     */
+    @Test
+    public void lockedTest() {
+        // TODO: test locked
     }
 
     /**

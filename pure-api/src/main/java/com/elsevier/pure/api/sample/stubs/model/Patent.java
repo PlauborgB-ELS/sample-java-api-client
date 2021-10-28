@@ -51,7 +51,7 @@ import org.threeten.bp.OffsetDateTime;
  * A patent is a document that grants the rights of a piece of work/invention to its originator.
  */
 @ApiModel(description = "A patent is a document that grants the rights of a piece of work/invention to its originator.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class Patent extends ResearchOutput {
   public static final String SERIALIZED_NAME_COUNTRY = "country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)

@@ -15,7 +15,7 @@ package com.elsevier.pure.api.sample.stubs.model;
 
 import com.elsevier.pure.api.sample.stubs.model.BookSeriesJournalAssociation;
 import com.elsevier.pure.api.sample.stubs.model.CaseNote;
-import com.elsevier.pure.api.sample.stubs.model.ContentRef;
+import com.elsevier.pure.api.sample.stubs.model.ConferenceSeriesRef;
 import com.elsevier.pure.api.sample.stubs.model.EventRef;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationRef;
 import com.elsevier.pure.api.sample.stubs.model.FormattedString;

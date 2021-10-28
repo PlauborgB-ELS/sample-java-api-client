@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **externalOrganisations** | [**List&lt;ExternalOrganizationRef&gt;**](ExternalOrganizationRef.md) | A collection of external organisation affiliations. |  [optional]
 **hidden** | **Boolean** | If this contribution should be hidden, this is set to true, false otherwise. This is used for research output that have author collaborations. If they do, we hide the individual contributors. |  [optional]
 **contributionDescription** | **String** | A string that details the contribution of the associated person. |  [optional]
-**contributionPercentage** | **Double** | A real number between 0 and 100, describing the percentage of the contribution of the person. |  [optional]
+**contributionPercentage** | **Double** | A real number between 0 and 1, describing the percentage of the contribution of the person. |  [optional]
 **country** | [**ClassificationRef**](ClassificationRef.md) |  |  [optional]
 **correspondingAuthor** | **Boolean** | True if the contributor is the corresponding author, false otherwise. |  [optional]
 **authorCollaboration** | [**AuthorCollaborationRef**](AuthorCollaborationRef.md) |  |  [optional]

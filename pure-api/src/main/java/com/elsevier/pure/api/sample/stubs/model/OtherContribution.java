@@ -55,7 +55,7 @@ import org.threeten.bp.OffsetDateTime;
  * Research output that does not fit into the other categories.
  */
 @ApiModel(description = "Research output that does not fit into the other categories.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class OtherContribution extends ResearchOutput {
   public static final String SERIALIZED_NAME_PUBLICATION_SERIES = "publicationSeries";
   @SerializedName(SERIALIZED_NAME_PUBLICATION_SERIES)

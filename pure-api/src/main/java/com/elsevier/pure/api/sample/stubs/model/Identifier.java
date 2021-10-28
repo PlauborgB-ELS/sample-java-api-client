@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Identifier
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 
 public class Identifier {
   public static final String SERIALIZED_NAME_TYPE_DISCRIMINATOR = "typeDiscriminator";
@@ -45,11 +45,10 @@ public class Identifier {
   }
 
    /**
-   * A Identifier type discriminator property so we can differentiate between the different sub-types
+   * Get typeDiscriminator
    * @return typeDiscriminator
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A Identifier type discriminator property so we can differentiate between the different sub-types")
+  @ApiModelProperty(required = true, value = "")
 
   public String getTypeDiscriminator() {
     return typeDiscriminator;

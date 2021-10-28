@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **prettyUrlIdentifiers** | **List&lt;String&gt;** | All pretty URLs |  [optional] [readonly]
 **previousUuids** | **List&lt;String&gt;** | UUIDs of other content items which have been merged into this content item (or similar) |  [optional] [readonly]
 **version** | **String** | A hash representing the current version of the content. For new content this is null, and for existing content the current value. The property should never be modified explicitly by a client. |  [optional]
-**typeDiscriminator** | **String** | A Identifier type discriminator property so we can differentiate between the different sub-types |  [optional]
 **title** | [**FormattedString**](FormattedString.md) |  |  [optional]
 **subTitle** | [**FormattedString**](FormattedString.md) |  |  [optional]
 **type** | [**ClassificationRef**](ClassificationRef.md) |  |  [optional]
@@ -49,6 +48,7 @@ Name | Type | Description | Notes
 **identifiers** | [**List&lt;Identifier&gt;**](Identifier.md) | Identifiers related to the research output. |  [optional]
 **systemName** | **String** | The content system name |  [optional] [readonly]
 **_abstract** | **Map&lt;String, String&gt;** | A set of string values, one for each submission locale. Note: invalid locale values will be ignored. |  [optional]
+**typeDiscriminator** | **String** |  | 
 
 
 

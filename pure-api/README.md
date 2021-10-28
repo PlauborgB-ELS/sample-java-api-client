@@ -2,7 +2,7 @@
 
 Pure API
 - API version: 0.1 Early Access
-  - Build date: 2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]
+  - Build date: 2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]
 
 This is an early access version of the new Pure write API.
 
@@ -460,17 +460,18 @@ Class | Method | HTTP request | Description
  - [HonoraryStaffOrganizationAssociation](docs/HonoraryStaffOrganizationAssociation.md)
  - [HonoraryStaffOrganizationAssociationAllOf](docs/HonoraryStaffOrganizationAssociationAllOf.md)
  - [ISSN](docs/ISSN.md)
+ - [ISSNRef](docs/ISSNRef.md)
  - [Id](docs/Id.md)
  - [IdAllOf](docs/IdAllOf.md)
  - [Identifier](docs/Identifier.md)
  - [ImpactRef](docs/ImpactRef.md)
- - [InternalExternalOrganizationAssociation](docs/InternalExternalOrganizationAssociation.md)
  - [InternalOrExternalSupervisor](docs/InternalOrExternalSupervisor.md)
  - [Journal](docs/Journal.md)
  - [JournalAssociation](docs/JournalAssociation.md)
  - [JournalListResult](docs/JournalListResult.md)
  - [JournalRef](docs/JournalRef.md)
  - [JournalTitle](docs/JournalTitle.md)
+ - [JournalTitleRef](docs/JournalTitleRef.md)
  - [JournalsQuery](docs/JournalsQuery.md)
  - [Keyword](docs/Keyword.md)
  - [KeywordContainer](docs/KeywordContainer.md)
@@ -509,6 +510,8 @@ Class | Method | HTTP request | Description
  - [PersonSupervisorAssociation](docs/PersonSupervisorAssociation.md)
  - [PersonsQuery](docs/PersonsQuery.md)
  - [PressMediaRef](docs/PressMediaRef.md)
+ - [PrimaryId](docs/PrimaryId.md)
+ - [PrimaryIdAllOf](docs/PrimaryIdAllOf.md)
  - [PrizeRef](docs/PrizeRef.md)
  - [ProblemDetails](docs/ProblemDetails.md)
  - [ProfessionalQualification](docs/ProfessionalQualification.md)

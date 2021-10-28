@@ -29,7 +29,7 @@ import java.io.IOException;
  * An ISSN of a journal, can be populated with a start and end date if the ISSN is only used in a specific period.
  */
 @ApiModel(description = "An ISSN of a journal, can be populated with a start and end date if the ISSN is only used in a specific period.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class ISSN {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -73,7 +73,7 @@ public class ISSN {
    * @return startDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
 
   public CompoundDate getStartDate() {
     return startDate;
@@ -96,7 +96,7 @@ public class ISSN {
    * @return endDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
 
   public CompoundDate getEndDate() {
     return endDate;

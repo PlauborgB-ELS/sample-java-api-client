@@ -19,7 +19,7 @@ import com.elsevier.pure.api.sample.stubs.model.BookSeriesJournalAssociation;
 import com.elsevier.pure.api.sample.stubs.model.CaseNote;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRef;
 import com.elsevier.pure.api.sample.stubs.model.ClassifiedLocalizedValue;
-import com.elsevier.pure.api.sample.stubs.model.ContentRef;
+import com.elsevier.pure.api.sample.stubs.model.ConferenceSeriesRef;
 import com.elsevier.pure.api.sample.stubs.model.ContributionToBookAnthologyAllOf;
 import com.elsevier.pure.api.sample.stubs.model.ContributorAssociation;
 import com.elsevier.pure.api.sample.stubs.model.ElectronicVersion;
@@ -148,14 +148,6 @@ public class ContributionToBookAnthologyTest {
     @Test
     public void versionTest() {
         // TODO: test version
-    }
-
-    /**
-     * Test the property 'typeDiscriminator'
-     */
-    @Test
-    public void typeDiscriminatorTest() {
-        // TODO: test typeDiscriminator
     }
 
     /**
@@ -404,6 +396,14 @@ public class ContributionToBookAnthologyTest {
     @Test
     public void _abstractTest() {
         // TODO: test _abstract
+    }
+
+    /**
+     * Test the property 'typeDiscriminator'
+     */
+    @Test
+    public void typeDiscriminatorTest() {
+        // TODO: test typeDiscriminator
     }
 
     /**

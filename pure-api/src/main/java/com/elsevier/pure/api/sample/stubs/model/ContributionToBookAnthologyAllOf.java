@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.elsevier.pure.api.sample.stubs.model.BookSeriesJournalAssociation;
 import com.elsevier.pure.api.sample.stubs.model.CaseNote;
-import com.elsevier.pure.api.sample.stubs.model.ContentRef;
+import com.elsevier.pure.api.sample.stubs.model.ConferenceSeriesRef;
 import com.elsevier.pure.api.sample.stubs.model.EventRef;
 import com.elsevier.pure.api.sample.stubs.model.ExternalOrganizationRef;
 import com.elsevier.pure.api.sample.stubs.model.FormattedString;
@@ -40,7 +40,7 @@ import java.util.Map;
 /**
  * ContributionToBookAnthologyAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-21T09:12:55.713+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
 public class ContributionToBookAnthologyAllOf {
   public static final String SERIALIZED_NAME_PLACE_OF_PUBLICATION = "placeOfPublication";
   @SerializedName(SERIALIZED_NAME_PLACE_OF_PUBLICATION)
@@ -120,7 +120,7 @@ public class ContributionToBookAnthologyAllOf {
 
   public static final String SERIALIZED_NAME_CONFERENCE_SERIES = "conferenceSeries";
   @SerializedName(SERIALIZED_NAME_CONFERENCE_SERIES)
-  private List<ContentRef> conferenceSeries = null;
+  private ConferenceSeriesRef conferenceSeries;
 
   public static final String SERIALIZED_NAME_NUMBER_OF_PAGES = "numberOfPages";
   @SerializedName(SERIALIZED_NAME_NUMBER_OF_PAGES)
@@ -628,33 +628,25 @@ public class ContributionToBookAnthologyAllOf {
   }
 
 
-  public ContributionToBookAnthologyAllOf conferenceSeries(List<ContentRef> conferenceSeries) {
+  public ContributionToBookAnthologyAllOf conferenceSeries(ConferenceSeriesRef conferenceSeries) {
     
     this.conferenceSeries = conferenceSeries;
     return this;
   }
 
-  public ContributionToBookAnthologyAllOf addConferenceSeriesItem(ContentRef conferenceSeriesItem) {
-    if (this.conferenceSeries == null) {
-      this.conferenceSeries = new ArrayList<ContentRef>();
-    }
-    this.conferenceSeries.add(conferenceSeriesItem);
-    return this;
-  }
-
    /**
-   * A collection of conference series related to this research output.
+   * Get conferenceSeries
    * @return conferenceSeries
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A collection of conference series related to this research output.")
+  @ApiModelProperty(value = "")
 
-  public List<ContentRef> getConferenceSeries() {
+  public ConferenceSeriesRef getConferenceSeries() {
     return conferenceSeries;
   }
 
 
-  public void setConferenceSeries(List<ContentRef> conferenceSeries) {
+  public void setConferenceSeries(ConferenceSeriesRef conferenceSeries) {
     this.conferenceSeries = conferenceSeries;
   }
 
