@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.UUID;
 
+import org.apache.commons.lang3.StringUtils;
 import org.threeten.bp.OffsetDateTime;
 
 import com.elsevier.pure.api.sample.stubs.api.OrganizationApi;
@@ -36,8 +37,12 @@ public class TestUserApi extends TestCase {
     private Collection<UUID> organizationUuids;
 
     public TestUserApi() {
-        System.setProperty("pure-api-base-path", "https://api.elsevierpure.com/ws/api");
-        System.setProperty("pure-api-key", "622d9790-65f1-4769-a81b-b8d2967ef063");
+        if (StringUtils.isEmpty(System.getProperty("pure-api-base-path"))) {
+            System.setProperty("pure-api-base-path", "https://api.elsevierpure.com/ws/api");
+        }
+        if (StringUtils.isEmpty(System.getProperty("pure-api-key"))) {
+            System.setProperty("pure-api-key", "622d9790-65f1-4769-a81b-b8d2967ef063");
+        }
     }
 
     /**
