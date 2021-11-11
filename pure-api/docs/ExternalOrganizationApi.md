@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**getAllowedAddressSubdivisions**](ExternalOrganizationApi.md#getAllowedAddressSubdivisions) | **GET** /external-organizations/allowed-address-subdivision | A list of allowed address subdivisions
 [**getAllowedClassifiedIdentifierTypes**](ExternalOrganizationApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /external-organizations/allowed-classified-identifier-types | A list of allowed classified identifier types
 [**getAllowedClassifiedImageTypes**](ExternalOrganizationApi.md#getAllowedClassifiedImageTypes) | **GET** /external-organizations/allowed-classified-file-types | A list of allowed classified identifier types
+[**getAllowedDisciplineSchemes**](ExternalOrganizationApi.md#getAllowedDisciplineSchemes) | **GET** /external-organizations/disciplines/allowed-discipline-schemes | A list of allowed discipline schemes
+[**getAllowedDisciplines**](ExternalOrganizationApi.md#getAllowedDisciplines) | **GET** /external-organizations/disciplines/{discipline-scheme}/allowed-disciplines | A list of allowed disciplines for a specific discipline scheme
 [**getAllowedDocumentLicenses**](ExternalOrganizationApi.md#getAllowedDocumentLicenses) | **GET** /external-organizations/allowed-document-licenses | A list of allowed document licenses
 [**getAllowedDocumentTypes**](ExternalOrganizationApi.md#getAllowedDocumentTypes) | **GET** /external-organizations/allowed-document-types | A list of allowed document types
 [**getAllowedKeywordGroupConfigurationClassifications**](ExternalOrganizationApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /external-organizations/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
@@ -23,12 +25,15 @@ Method | HTTP request | Description
 [**getAllowedNatureTypes**](ExternalOrganizationApi.md#getAllowedNatureTypes) | **GET** /external-organizations/allowed-nature-types | A list of allowed nature types
 [**getAllowedTypes**](ExternalOrganizationApi.md#getAllowedTypes) | **GET** /external-organizations/allowed-types | A list of allowed external organization types
 [**getAllowedWorkflowSteps**](ExternalOrganizationApi.md#getAllowedWorkflowSteps) | **GET** /external-organizations/allowed-workflow-steps | A list of allowed workflow steps
+[**getDisciplineAssociation**](ExternalOrganizationApi.md#getDisciplineAssociation) | **GET** /external-organizations/{uuid}/disciplines/{discipline-scheme} | Get disciplines from the discipline scheme associated with the external organization
 [**getFile**](ExternalOrganizationApi.md#getFile) | **GET** /external-organizations/{uuid}/files/{fileId} | Get file from the external organization
 [**getOrderings**](ExternalOrganizationApi.md#getOrderings) | **GET** /external-organizations/orderings | Lists available orderings
 [**list**](ExternalOrganizationApi.md#list) | **GET** /external-organizations | Lists all external organizations
+[**listDisciplineAssociations**](ExternalOrganizationApi.md#listDisciplineAssociations) | **POST** /external-organizations/disciplines/{discipline-scheme}/search | Query operation for disciplines associated with external organizations
 [**listNotes**](ExternalOrganizationApi.md#listNotes) | **GET** /external-organizations/{uuid}/notes | Lists notes
 [**merge**](ExternalOrganizationApi.md#merge) | **POST** /external-organizations/merge | Merge external organizations
 [**previewDeduplication**](ExternalOrganizationApi.md#previewDeduplication) | **POST** /external-organizations/preview-deduplication | Preview deduplication of external organizations
+[**putDisciplineAssociation**](ExternalOrganizationApi.md#putDisciplineAssociation) | **PUT** /external-organizations/{uuid}/disciplines/{discipline-scheme} | Update disciplines from the discipline scheme associated with the external organization
 [**query**](ExternalOrganizationApi.md#query) | **POST** /external-organizations/search | Query operation for external organizations
 [**update**](ExternalOrganizationApi.md#update) | **PUT** /external-organizations/{uuid} | Update external organization
 
@@ -717,6 +722,144 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 
+<a name="getAllowedDisciplineSchemes"></a>
+# **getAllowedDisciplineSchemes**
+> DisciplinesDisciplineSchemeListResult getAllowedDisciplineSchemes()
+
+A list of allowed discipline schemes
+
+Get a list fo a allowed discipline schemes for external organizations
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    try {
+      DisciplinesDisciplineSchemeListResult result = apiInstance.getAllowedDisciplineSchemes();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#getAllowedDisciplineSchemes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DisciplinesDisciplineSchemeListResult**](DisciplinesDisciplineSchemeListResult.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
+<a name="getAllowedDisciplines"></a>
+# **getAllowedDisciplines**
+> DisciplinesDisciplineListResult getAllowedDisciplines(disciplineScheme, size, offset)
+
+A list of allowed disciplines for a specific discipline scheme
+
+Get a list of a allowed disciplines for specific discipline scheme for external organizations
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    String disciplineScheme = "disciplineScheme_example"; // String | Identifier for the discipline scheme for external organizations
+    Integer size = 10; // Integer | Number of returned disciplines per request
+    Integer offset = 0; // Integer | The offset for the returned list. 0 or null value is from the start
+    try {
+      DisciplinesDisciplineListResult result = apiInstance.getAllowedDisciplines(disciplineScheme, size, offset);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#getAllowedDisciplines");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **disciplineScheme** | **String**| Identifier for the discipline scheme for external organizations |
+ **size** | **Integer**| Number of returned disciplines per request | [optional] [default to 10]
+ **offset** | **Integer**| The offset for the returned list. 0 or null value is from the start | [optional] [default to 0]
+
+### Return type
+
+[**DisciplinesDisciplineListResult**](DisciplinesDisciplineListResult.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
 <a name="getAllowedDocumentLicenses"></a>
 # **getAllowedDocumentLicenses**
 > ClassificationRefList getAllowedDocumentLicenses()
@@ -1306,6 +1449,78 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 
+<a name="getDisciplineAssociation"></a>
+# **getDisciplineAssociation**
+> DisciplinesAssociation getDisciplineAssociation(uuid, disciplineScheme)
+
+Get disciplines from the discipline scheme associated with the external organization
+
+Get disciplines from the discipline scheme associated with the external organization with specific UUID.
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    UUID uuid = new UUID(); // UUID | UUID of the desired external organization
+    String disciplineScheme = "disciplineScheme_example"; // String | Identifier for the discipline scheme
+    try {
+      DisciplinesAssociation result = apiInstance.getDisciplineAssociation(uuid, disciplineScheme);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#getDisciplineAssociation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | [**UUID**](.md)| UUID of the desired external organization |
+ **disciplineScheme** | **String**| Identifier for the discipline scheme |
+
+### Return type
+
+[**DisciplinesAssociation**](DisciplinesAssociation.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**404** | Resource not found |  -  |
+
 <a name="getFile"></a>
 # **getFile**
 > File getFile(uuid, fileId)
@@ -1514,6 +1729,78 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
+
+<a name="listDisciplineAssociations"></a>
+# **listDisciplineAssociations**
+> DisciplinesAssociationListResult listDisciplineAssociations(disciplineScheme, disciplinesAssociationsQuery)
+
+Query operation for disciplines associated with external organizations
+
+Lists disciplines from the discipline scheme associated with external organizations in the Pure instance that matches the provided query.
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    String disciplineScheme = "disciplineScheme_example"; // String | Identifier for the discipline scheme
+    DisciplinesAssociationsQuery disciplinesAssociationsQuery = new DisciplinesAssociationsQuery(); // DisciplinesAssociationsQuery | The query to perform
+    try {
+      DisciplinesAssociationListResult result = apiInstance.listDisciplineAssociations(disciplineScheme, disciplinesAssociationsQuery);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#listDisciplineAssociations");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **disciplineScheme** | **String**| Identifier for the discipline scheme |
+ **disciplinesAssociationsQuery** | [**DisciplinesAssociationsQuery**](DisciplinesAssociationsQuery.md)| The query to perform |
+
+### Return type
+
+[**DisciplinesAssociationListResult**](DisciplinesAssociationListResult.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**400** | Bad request |  -  |
 
 <a name="listNotes"></a>
 # **listNotes**
@@ -1728,6 +2015,81 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
+
+<a name="putDisciplineAssociation"></a>
+# **putDisciplineAssociation**
+> DisciplinesAssociation putDisciplineAssociation(uuid, disciplineScheme, disciplinesAssociation)
+
+Update disciplines from the discipline scheme associated with the external organization
+
+Update disciplines from the discipline scheme associated with the external organization with specific UUID.
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalOrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalOrganizationApi apiInstance = new ExternalOrganizationApi(defaultClient);
+    UUID uuid = new UUID(); // UUID | UUID of the external organization to update
+    String disciplineScheme = "disciplineScheme_example"; // String | Identifier for the discipline scheme
+    DisciplinesAssociation disciplinesAssociation = new DisciplinesAssociation(); // DisciplinesAssociation | The disciplines association to create
+    try {
+      DisciplinesAssociation result = apiInstance.putDisciplineAssociation(uuid, disciplineScheme, disciplinesAssociation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalOrganizationApi#putDisciplineAssociation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | [**UUID**](.md)| UUID of the external organization to update |
+ **disciplineScheme** | **String**| Identifier for the discipline scheme |
+ **disciplinesAssociation** | [**DisciplinesAssociation**](DisciplinesAssociation.md)| The disciplines association to create |
+
+### Return type
+
+[**DisciplinesAssociation**](DisciplinesAssociation.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
+**404** | Resource not found |  -  |
 
 <a name="query"></a>
 # **query**

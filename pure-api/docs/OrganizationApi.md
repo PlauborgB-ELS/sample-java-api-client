@@ -16,6 +16,8 @@ Method | HTTP request | Description
 [**getAllowedClassifiedIdentifierTypes**](OrganizationApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /organizations/allowed-classified-identifier-types | A list of allowed classified identifier types
 [**getAllowedClassifiedImageTypes**](OrganizationApi.md#getAllowedClassifiedImageTypes) | **GET** /organizations/allowed-classified-file-types | A list of allowed classified identifier types
 [**getAllowedCostCenters**](OrganizationApi.md#getAllowedCostCenters) | **GET** /organizations/allowed-cost-centers | A list of allowed cost centers
+[**getAllowedDisciplineSchemes**](OrganizationApi.md#getAllowedDisciplineSchemes) | **GET** /organizations/disciplines/allowed-discipline-schemes | A list of allowed discipline schemes
+[**getAllowedDisciplines**](OrganizationApi.md#getAllowedDisciplines) | **GET** /organizations/disciplines/{discipline-scheme}/allowed-disciplines | A list of allowed disciplines for a specific discipline scheme
 [**getAllowedEmailTypes**](OrganizationApi.md#getAllowedEmailTypes) | **GET** /organizations/allowed-email-types | A list of allowed e-mail types
 [**getAllowedKeywordGroupConfigurationClassifications**](OrganizationApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /organizations/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
 [**getAllowedKeywordGroupConfigurations**](OrganizationApi.md#getAllowedKeywordGroupConfigurations) | **GET** /organizations/allowed-keyword-group-configurations | A list of keyword group configurations
@@ -26,10 +28,13 @@ Method | HTTP request | Description
 [**getAllowedProfileInformationTypes**](OrganizationApi.md#getAllowedProfileInformationTypes) | **GET** /organizations/allowed-profile-information-types | A list of allowed profile information types
 [**getAllowedTypes**](OrganizationApi.md#getAllowedTypes) | **GET** /organizations/allowed-types | A list of allowed organization types
 [**getAllowedWebAddressTypes**](OrganizationApi.md#getAllowedWebAddressTypes) | **GET** /organizations/allowed-web-address-types | A list of allowed web address types
+[**getDisciplineAssociation**](OrganizationApi.md#getDisciplineAssociation) | **GET** /organizations/{uuid}/disciplines/{discipline-scheme} | Get disciplines from the discipline scheme associated with the organization
 [**getFile**](OrganizationApi.md#getFile) | **GET** /organizations/{uuid}/files/{fileId} | Get file from the organization
 [**getOrderings**](OrganizationApi.md#getOrderings) | **GET** /organizations/orderings | Lists available orderings
 [**list**](OrganizationApi.md#list) | **GET** /organizations | Lists all organizations
+[**listDisciplineAssociations**](OrganizationApi.md#listDisciplineAssociations) | **POST** /organizations/disciplines/{discipline-scheme}/search | Query operation for disciplines associated with organizations
 [**listNotes**](OrganizationApi.md#listNotes) | **GET** /organizations/{uuid}/notes | Lists notes
+[**putDisciplineAssociation**](OrganizationApi.md#putDisciplineAssociation) | **PUT** /organizations/{uuid}/disciplines/{discipline-scheme} | Update disciplines from the discipline scheme associated with the organization
 [**query**](OrganizationApi.md#query) | **POST** /organizations/search | Query operation for organizations
 [**update**](OrganizationApi.md#update) | **PUT** /organizations/{uuid} | Update organization
 
@@ -848,6 +853,144 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 
+<a name="getAllowedDisciplineSchemes"></a>
+# **getAllowedDisciplineSchemes**
+> DisciplinesDisciplineSchemeListResult getAllowedDisciplineSchemes()
+
+A list of allowed discipline schemes
+
+Get a list fo a allowed discipline schemes for organizations
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.OrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    OrganizationApi apiInstance = new OrganizationApi(defaultClient);
+    try {
+      DisciplinesDisciplineSchemeListResult result = apiInstance.getAllowedDisciplineSchemes();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrganizationApi#getAllowedDisciplineSchemes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DisciplinesDisciplineSchemeListResult**](DisciplinesDisciplineSchemeListResult.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
+<a name="getAllowedDisciplines"></a>
+# **getAllowedDisciplines**
+> DisciplinesDisciplineListResult getAllowedDisciplines(disciplineScheme, size, offset)
+
+A list of allowed disciplines for a specific discipline scheme
+
+Get a list of a allowed disciplines for specific discipline scheme for organizations
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.OrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    OrganizationApi apiInstance = new OrganizationApi(defaultClient);
+    String disciplineScheme = "disciplineScheme_example"; // String | Identifier for the discipline scheme for organizations
+    Integer size = 10; // Integer | Number of returned disciplines per request
+    Integer offset = 0; // Integer | The offset for the returned list. 0 or null value is from the start
+    try {
+      DisciplinesDisciplineListResult result = apiInstance.getAllowedDisciplines(disciplineScheme, size, offset);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrganizationApi#getAllowedDisciplines");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **disciplineScheme** | **String**| Identifier for the discipline scheme for organizations |
+ **size** | **Integer**| Number of returned disciplines per request | [optional] [default to 10]
+ **offset** | **Integer**| The offset for the returned list. 0 or null value is from the start | [optional] [default to 0]
+
+### Return type
+
+[**DisciplinesDisciplineListResult**](DisciplinesDisciplineListResult.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
 <a name="getAllowedEmailTypes"></a>
 # **getAllowedEmailTypes**
 > ClassificationRefList getAllowedEmailTypes()
@@ -1502,6 +1645,78 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 
+<a name="getDisciplineAssociation"></a>
+# **getDisciplineAssociation**
+> DisciplinesAssociation getDisciplineAssociation(uuid, disciplineScheme)
+
+Get disciplines from the discipline scheme associated with the organization
+
+Get disciplines from the discipline scheme associated with the organization with specific UUID.
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.OrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    OrganizationApi apiInstance = new OrganizationApi(defaultClient);
+    UUID uuid = new UUID(); // UUID | UUID of the desired organization
+    String disciplineScheme = "disciplineScheme_example"; // String | Identifier for the discipline scheme
+    try {
+      DisciplinesAssociation result = apiInstance.getDisciplineAssociation(uuid, disciplineScheme);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrganizationApi#getDisciplineAssociation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | [**UUID**](.md)| UUID of the desired organization |
+ **disciplineScheme** | **String**| Identifier for the discipline scheme |
+
+### Return type
+
+[**DisciplinesAssociation**](DisciplinesAssociation.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**404** | Resource not found |  -  |
+
 <a name="getFile"></a>
 # **getFile**
 > File getFile(uuid, fileId)
@@ -1711,6 +1926,78 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 
+<a name="listDisciplineAssociations"></a>
+# **listDisciplineAssociations**
+> DisciplinesAssociationListResult listDisciplineAssociations(disciplineScheme, disciplinesAssociationsQuery)
+
+Query operation for disciplines associated with organizations
+
+Lists disciplines from the discipline scheme associated with organizations in the Pure instance that matches the provided query.
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.OrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    OrganizationApi apiInstance = new OrganizationApi(defaultClient);
+    String disciplineScheme = "disciplineScheme_example"; // String | Identifier for the discipline scheme
+    DisciplinesAssociationsQuery disciplinesAssociationsQuery = new DisciplinesAssociationsQuery(); // DisciplinesAssociationsQuery | The query to perform
+    try {
+      DisciplinesAssociationListResult result = apiInstance.listDisciplineAssociations(disciplineScheme, disciplinesAssociationsQuery);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrganizationApi#listDisciplineAssociations");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **disciplineScheme** | **String**| Identifier for the discipline scheme |
+ **disciplinesAssociationsQuery** | [**DisciplinesAssociationsQuery**](DisciplinesAssociationsQuery.md)| The query to perform |
+
+### Return type
+
+[**DisciplinesAssociationListResult**](DisciplinesAssociationListResult.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**400** | Bad request |  -  |
+
 <a name="listNotes"></a>
 # **listNotes**
 > NoteListResult listNotes(uuid, size, offset)
@@ -1784,6 +2071,81 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 **404** | Organization not found |  -  |
+
+<a name="putDisciplineAssociation"></a>
+# **putDisciplineAssociation**
+> DisciplinesAssociation putDisciplineAssociation(uuid, disciplineScheme, disciplinesAssociation)
+
+Update disciplines from the discipline scheme associated with the organization
+
+Update disciplines from the discipline scheme associated with the organization with specific UUID.
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.OrganizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    OrganizationApi apiInstance = new OrganizationApi(defaultClient);
+    UUID uuid = new UUID(); // UUID | UUID of the organization to update
+    String disciplineScheme = "disciplineScheme_example"; // String | Identifier for the discipline scheme
+    DisciplinesAssociation disciplinesAssociation = new DisciplinesAssociation(); // DisciplinesAssociation | The disciplines association to create
+    try {
+      DisciplinesAssociation result = apiInstance.putDisciplineAssociation(uuid, disciplineScheme, disciplinesAssociation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrganizationApi#putDisciplineAssociation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | [**UUID**](.md)| UUID of the organization to update |
+ **disciplineScheme** | **String**| Identifier for the discipline scheme |
+ **disciplinesAssociation** | [**DisciplinesAssociation**](DisciplinesAssociation.md)| The disciplines association to create |
+
+### Return type
+
+[**DisciplinesAssociation**](DisciplinesAssociation.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
+**404** | Resource not found |  -  |
 
 <a name="query"></a>
 # **query**

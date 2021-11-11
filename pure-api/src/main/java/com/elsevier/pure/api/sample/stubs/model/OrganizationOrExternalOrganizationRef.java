@@ -30,7 +30,7 @@ import java.io.IOException;
  * A reference to an organization in the institution or an external organization
  */
 @ApiModel(description = "A reference to an organization in the institution or an external organization")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-11T16:14:00.558+01:00[Europe/Copenhagen]")
 public class OrganizationOrExternalOrganizationRef {
   public static final String SERIALIZED_NAME_ORGANIZATION_REF = "organizationRef";
   @SerializedName(SERIALIZED_NAME_ORGANIZATION_REF)

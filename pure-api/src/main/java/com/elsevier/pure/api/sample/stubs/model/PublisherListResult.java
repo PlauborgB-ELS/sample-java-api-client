@@ -32,7 +32,7 @@ import java.util.List;
  * List of publishers. Can contain a subset of all items along with the full count
  */
 @ApiModel(description = "List of publishers. Can contain a subset of all items along with the full count")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-11T16:14:00.558+01:00[Europe/Copenhagen]")
 public class PublisherListResult {
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)

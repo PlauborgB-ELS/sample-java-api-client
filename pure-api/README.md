@@ -2,7 +2,7 @@
 
 Pure API
 - API version: 0.1 Early Access
-  - Build date: 2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]
+  - Build date: 2021-11-11T16:14:00.558+01:00[Europe/Copenhagen]
 
 This is an early access version of the new Pure write API.
 
@@ -78,7 +78,7 @@ import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
 import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
 import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
 import com.elsevier.pure.api.sample.stubs.invoker.models.*;
-import com.elsevier.pure.api.sample.stubs.api.AccessDefinitionApi;
+import com.elsevier.pure.api.sample.stubs.api.EventApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -91,13 +91,13 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //api-key.setApiKeyPrefix("Token");
 
-    AccessDefinitionApi apiInstance = new AccessDefinitionApi(defaultClient);
-    AccessDefinition accessDefinition = new AccessDefinition(); // AccessDefinition | The content to create
+    EventApi apiInstance = new EventApi(defaultClient);
+    Event event = new Event(); // Event | The content to create
     try {
-      AccessDefinition result = apiInstance.create(accessDefinition);
+      Event result = apiInstance.create(event);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccessDefinitionApi#create");
+      System.err.println("Exception when calling EventApi#create");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -114,17 +114,6 @@ All URIs are relative to *http://localhost:8080/ws/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccessDefinitionApi* | [**create**](docs/AccessDefinitionApi.md#create) | **PUT** /access-definitions | Create access definition
-*AccessDefinitionApi* | [**delete**](docs/AccessDefinitionApi.md#delete) | **DELETE** /access-definitions/{uuid} | Delete access definition
-*AccessDefinitionApi* | [**get**](docs/AccessDefinitionApi.md#get) | **GET** /access-definitions/{uuid} | Get access definition
-*AccessDefinitionApi* | [**list**](docs/AccessDefinitionApi.md#list) | **GET** /access-definitions | Lists all access definitions
-*AccessDefinitionApi* | [**update**](docs/AccessDefinitionApi.md#update) | **PUT** /access-definitions/{uuid} | Update access definition
-*ApiKeyApi* | [**create**](docs/ApiKeyApi.md#create) | **PUT** /api-key | Create api key
-*ApiKeyApi* | [**delete**](docs/ApiKeyApi.md#delete) | **DELETE** /api-key/{uuid} | Delete api key
-*ApiKeyApi* | [**get**](docs/ApiKeyApi.md#get) | **GET** /api-key/{uuid} | Get api key
-*ApiKeyApi* | [**list**](docs/ApiKeyApi.md#list) | **GET** /api-key | Lists all api keys
-*ApiKeyApi* | [**update**](docs/ApiKeyApi.md#update) | **PUT** /api-key/{uuid} | Update api key
-*AuditEntryApi* | [**query**](docs/AuditEntryApi.md#query) | **POST** /audit-entries/search | Query operation for audit entries
 *EventApi* | [**create**](docs/EventApi.md#create) | **PUT** /events | Create event
 *EventApi* | [**createNote**](docs/EventApi.md#createNote) | **PUT** /events/{uuid}/notes | Create note
 *EventApi* | [**delete**](docs/EventApi.md#delete) | **DELETE** /events/{uuid} | Delete event
@@ -132,6 +121,8 @@ Class | Method | HTTP request | Description
 *EventApi* | [**getAllowedClassifiedIdentifierTypes**](docs/EventApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /events/allowed-classified-identifier-types | A list of allowed classified identifier types
 *EventApi* | [**getAllowedCountries**](docs/EventApi.md#getAllowedCountries) | **GET** /events/allowed-countries | A list of allowed countries
 *EventApi* | [**getAllowedDegreeOfRecognitions**](docs/EventApi.md#getAllowedDegreeOfRecognitions) | **GET** /events/allowed-degree-of-recognition | A list of allowed degree of recognitions
+*EventApi* | [**getAllowedDisciplineSchemes**](docs/EventApi.md#getAllowedDisciplineSchemes) | **GET** /events/disciplines/allowed-discipline-schemes | A list of allowed discipline schemes
+*EventApi* | [**getAllowedDisciplines**](docs/EventApi.md#getAllowedDisciplines) | **GET** /events/disciplines/{discipline-scheme}/allowed-disciplines | A list of allowed disciplines for a specific discipline scheme
 *EventApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/EventApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /events/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
 *EventApi* | [**getAllowedKeywordGroupConfigurations**](docs/EventApi.md#getAllowedKeywordGroupConfigurations) | **GET** /events/allowed-keyword-group-configurations | A list of keyword group configurations
 *EventApi* | [**getAllowedLinkTypes**](docs/EventApi.md#getAllowedLinkTypes) | **GET** /events/allowed-link-types | A list of allowed link types
@@ -139,9 +130,12 @@ Class | Method | HTTP request | Description
 *EventApi* | [**getAllowedSubdivisions**](docs/EventApi.md#getAllowedSubdivisions) | **GET** /events/allowed-subdivision | A list of allowed subdivisions
 *EventApi* | [**getAllowedTypes**](docs/EventApi.md#getAllowedTypes) | **GET** /events/allowed-types | A list of allowed event types
 *EventApi* | [**getAllowedWorkflowSteps**](docs/EventApi.md#getAllowedWorkflowSteps) | **GET** /events/allowed-workflow-steps | A list of allowed workflow steps
+*EventApi* | [**getDisciplineAssociation**](docs/EventApi.md#getDisciplineAssociation) | **GET** /events/{uuid}/disciplines/{discipline-scheme} | Get disciplines from the discipline scheme associated with the event
 *EventApi* | [**getOrderings**](docs/EventApi.md#getOrderings) | **GET** /events/orderings | Lists available orderings
 *EventApi* | [**list**](docs/EventApi.md#list) | **GET** /events | Lists all events
+*EventApi* | [**listDisciplineAssociations**](docs/EventApi.md#listDisciplineAssociations) | **POST** /events/disciplines/{discipline-scheme}/search | Query operation for disciplines associated with events
 *EventApi* | [**listNotes**](docs/EventApi.md#listNotes) | **GET** /events/{uuid}/notes | Lists notes
+*EventApi* | [**putDisciplineAssociation**](docs/EventApi.md#putDisciplineAssociation) | **PUT** /events/{uuid}/disciplines/{discipline-scheme} | Update disciplines from the discipline scheme associated with the event
 *EventApi* | [**query**](docs/EventApi.md#query) | **POST** /events/search | Query operation for events
 *EventApi* | [**update**](docs/EventApi.md#update) | **PUT** /events/{uuid} | Update event
 *ExternalOrganizationApi* | [**create**](docs/ExternalOrganizationApi.md#create) | **PUT** /external-organizations | Create external organization
@@ -154,6 +148,8 @@ Class | Method | HTTP request | Description
 *ExternalOrganizationApi* | [**getAllowedAddressSubdivisions**](docs/ExternalOrganizationApi.md#getAllowedAddressSubdivisions) | **GET** /external-organizations/allowed-address-subdivision | A list of allowed address subdivisions
 *ExternalOrganizationApi* | [**getAllowedClassifiedIdentifierTypes**](docs/ExternalOrganizationApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /external-organizations/allowed-classified-identifier-types | A list of allowed classified identifier types
 *ExternalOrganizationApi* | [**getAllowedClassifiedImageTypes**](docs/ExternalOrganizationApi.md#getAllowedClassifiedImageTypes) | **GET** /external-organizations/allowed-classified-file-types | A list of allowed classified identifier types
+*ExternalOrganizationApi* | [**getAllowedDisciplineSchemes**](docs/ExternalOrganizationApi.md#getAllowedDisciplineSchemes) | **GET** /external-organizations/disciplines/allowed-discipline-schemes | A list of allowed discipline schemes
+*ExternalOrganizationApi* | [**getAllowedDisciplines**](docs/ExternalOrganizationApi.md#getAllowedDisciplines) | **GET** /external-organizations/disciplines/{discipline-scheme}/allowed-disciplines | A list of allowed disciplines for a specific discipline scheme
 *ExternalOrganizationApi* | [**getAllowedDocumentLicenses**](docs/ExternalOrganizationApi.md#getAllowedDocumentLicenses) | **GET** /external-organizations/allowed-document-licenses | A list of allowed document licenses
 *ExternalOrganizationApi* | [**getAllowedDocumentTypes**](docs/ExternalOrganizationApi.md#getAllowedDocumentTypes) | **GET** /external-organizations/allowed-document-types | A list of allowed document types
 *ExternalOrganizationApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/ExternalOrganizationApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /external-organizations/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
@@ -163,12 +159,15 @@ Class | Method | HTTP request | Description
 *ExternalOrganizationApi* | [**getAllowedNatureTypes**](docs/ExternalOrganizationApi.md#getAllowedNatureTypes) | **GET** /external-organizations/allowed-nature-types | A list of allowed nature types
 *ExternalOrganizationApi* | [**getAllowedTypes**](docs/ExternalOrganizationApi.md#getAllowedTypes) | **GET** /external-organizations/allowed-types | A list of allowed external organization types
 *ExternalOrganizationApi* | [**getAllowedWorkflowSteps**](docs/ExternalOrganizationApi.md#getAllowedWorkflowSteps) | **GET** /external-organizations/allowed-workflow-steps | A list of allowed workflow steps
+*ExternalOrganizationApi* | [**getDisciplineAssociation**](docs/ExternalOrganizationApi.md#getDisciplineAssociation) | **GET** /external-organizations/{uuid}/disciplines/{discipline-scheme} | Get disciplines from the discipline scheme associated with the external organization
 *ExternalOrganizationApi* | [**getFile**](docs/ExternalOrganizationApi.md#getFile) | **GET** /external-organizations/{uuid}/files/{fileId} | Get file from the external organization
 *ExternalOrganizationApi* | [**getOrderings**](docs/ExternalOrganizationApi.md#getOrderings) | **GET** /external-organizations/orderings | Lists available orderings
 *ExternalOrganizationApi* | [**list**](docs/ExternalOrganizationApi.md#list) | **GET** /external-organizations | Lists all external organizations
+*ExternalOrganizationApi* | [**listDisciplineAssociations**](docs/ExternalOrganizationApi.md#listDisciplineAssociations) | **POST** /external-organizations/disciplines/{discipline-scheme}/search | Query operation for disciplines associated with external organizations
 *ExternalOrganizationApi* | [**listNotes**](docs/ExternalOrganizationApi.md#listNotes) | **GET** /external-organizations/{uuid}/notes | Lists notes
 *ExternalOrganizationApi* | [**merge**](docs/ExternalOrganizationApi.md#merge) | **POST** /external-organizations/merge | Merge external organizations
 *ExternalOrganizationApi* | [**previewDeduplication**](docs/ExternalOrganizationApi.md#previewDeduplication) | **POST** /external-organizations/preview-deduplication | Preview deduplication of external organizations
+*ExternalOrganizationApi* | [**putDisciplineAssociation**](docs/ExternalOrganizationApi.md#putDisciplineAssociation) | **PUT** /external-organizations/{uuid}/disciplines/{discipline-scheme} | Update disciplines from the discipline scheme associated with the external organization
 *ExternalOrganizationApi* | [**query**](docs/ExternalOrganizationApi.md#query) | **POST** /external-organizations/search | Query operation for external organizations
 *ExternalOrganizationApi* | [**update**](docs/ExternalOrganizationApi.md#update) | **PUT** /external-organizations/{uuid} | Update external organization
 *ExternalPersonApi* | [**create**](docs/ExternalPersonApi.md#create) | **PUT** /external-persons | Create external person
@@ -178,14 +177,19 @@ Class | Method | HTTP request | Description
 *ExternalPersonApi* | [**get**](docs/ExternalPersonApi.md#get) | **GET** /external-persons/{uuid} | Get external person
 *ExternalPersonApi* | [**getAllowedClassifiedIdentifierTypes**](docs/ExternalPersonApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /external-persons/allowed-classified-identifier-types | A list of allowed classified identifier types
 *ExternalPersonApi* | [**getAllowedCountries**](docs/ExternalPersonApi.md#getAllowedCountries) | **GET** /external-persons/allowed-countries | A list of allowed countries
+*ExternalPersonApi* | [**getAllowedDisciplineSchemes**](docs/ExternalPersonApi.md#getAllowedDisciplineSchemes) | **GET** /external-persons/disciplines/allowed-discipline-schemes | A list of allowed discipline schemes
+*ExternalPersonApi* | [**getAllowedDisciplines**](docs/ExternalPersonApi.md#getAllowedDisciplines) | **GET** /external-persons/disciplines/{discipline-scheme}/allowed-disciplines | A list of allowed disciplines for a specific discipline scheme
 *ExternalPersonApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/ExternalPersonApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /external-persons/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
 *ExternalPersonApi* | [**getAllowedKeywordGroupConfigurations**](docs/ExternalPersonApi.md#getAllowedKeywordGroupConfigurations) | **GET** /external-persons/allowed-keyword-group-configurations | A list of keyword group configurations
 *ExternalPersonApi* | [**getAllowedLocales**](docs/ExternalPersonApi.md#getAllowedLocales) | **GET** /external-persons/allowed-locales | A list of allowed locales in localized strings
 *ExternalPersonApi* | [**getAllowedTypes**](docs/ExternalPersonApi.md#getAllowedTypes) | **GET** /external-persons/allowed-types | A list of allowed external person types
 *ExternalPersonApi* | [**getAllowedWorkflowSteps**](docs/ExternalPersonApi.md#getAllowedWorkflowSteps) | **GET** /external-persons/allowed-workflow-steps | A list of allowed workflow steps
+*ExternalPersonApi* | [**getDisciplineAssociation**](docs/ExternalPersonApi.md#getDisciplineAssociation) | **GET** /external-persons/{uuid}/disciplines/{discipline-scheme} | Get disciplines from the discipline scheme associated with the external person
 *ExternalPersonApi* | [**getOrderings**](docs/ExternalPersonApi.md#getOrderings) | **GET** /external-persons/orderings | Lists available orderings
 *ExternalPersonApi* | [**list**](docs/ExternalPersonApi.md#list) | **GET** /external-persons | Lists all external persons
+*ExternalPersonApi* | [**listDisciplineAssociations**](docs/ExternalPersonApi.md#listDisciplineAssociations) | **POST** /external-persons/disciplines/{discipline-scheme}/search | Query operation for disciplines associated with external persons
 *ExternalPersonApi* | [**listNotes**](docs/ExternalPersonApi.md#listNotes) | **GET** /external-persons/{uuid}/notes | Lists notes
+*ExternalPersonApi* | [**putDisciplineAssociation**](docs/ExternalPersonApi.md#putDisciplineAssociation) | **PUT** /external-persons/{uuid}/disciplines/{discipline-scheme} | Update disciplines from the discipline scheme associated with the external person
 *ExternalPersonApi* | [**query**](docs/ExternalPersonApi.md#query) | **POST** /external-persons/search | Query operation for external persons
 *ExternalPersonApi* | [**update**](docs/ExternalPersonApi.md#update) | **PUT** /external-persons/{uuid} | Update external persons
 *JournalApi* | [**create**](docs/JournalApi.md#create) | **PUT** /journals | Create journal
@@ -195,15 +199,20 @@ Class | Method | HTTP request | Description
 *JournalApi* | [**get**](docs/JournalApi.md#get) | **GET** /journals/{uuid} | Get journal
 *JournalApi* | [**getAllowedClassifiedIdentifierTypes**](docs/JournalApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /journals/allowed-classified-identifier-types | A list of allowed classified identifier types
 *JournalApi* | [**getAllowedCountries**](docs/JournalApi.md#getAllowedCountries) | **GET** /journals/allowed-countries | A list of allowed countries
+*JournalApi* | [**getAllowedDisciplineSchemes**](docs/JournalApi.md#getAllowedDisciplineSchemes) | **GET** /journals/disciplines/allowed-discipline-schemes | A list of allowed discipline schemes
+*JournalApi* | [**getAllowedDisciplines**](docs/JournalApi.md#getAllowedDisciplines) | **GET** /journals/disciplines/{discipline-scheme}/allowed-disciplines | A list of allowed disciplines for a specific discipline scheme
 *JournalApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/JournalApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /journals/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
 *JournalApi* | [**getAllowedKeywordGroupConfigurations**](docs/JournalApi.md#getAllowedKeywordGroupConfigurations) | **GET** /journals/allowed-keyword-group-configurations | A list of keyword group configurations
 *JournalApi* | [**getAllowedLinkTypes**](docs/JournalApi.md#getAllowedLinkTypes) | **GET** /journals/allowed-link-types | A list of allowed link types
 *JournalApi* | [**getAllowedLocales**](docs/JournalApi.md#getAllowedLocales) | **GET** /journals/allowed-locales | A list of allowed locales in localized strings
 *JournalApi* | [**getAllowedTypes**](docs/JournalApi.md#getAllowedTypes) | **GET** /journals/allowed-types | A list of allowed journal types
 *JournalApi* | [**getAllowedWorkflowSteps**](docs/JournalApi.md#getAllowedWorkflowSteps) | **GET** /journals/allowed-workflow-steps | A list of allowed workflow steps
+*JournalApi* | [**getDisciplineAssociation**](docs/JournalApi.md#getDisciplineAssociation) | **GET** /journals/{uuid}/disciplines/{discipline-scheme} | Get disciplines from the discipline scheme associated with the journal
 *JournalApi* | [**getOrderings**](docs/JournalApi.md#getOrderings) | **GET** /journals/orderings | Lists available orderings
 *JournalApi* | [**list**](docs/JournalApi.md#list) | **GET** /journals | Lists all journals
+*JournalApi* | [**listDisciplineAssociations**](docs/JournalApi.md#listDisciplineAssociations) | **POST** /journals/disciplines/{discipline-scheme}/search | Query operation for disciplines associated with journals
 *JournalApi* | [**listNotes**](docs/JournalApi.md#listNotes) | **GET** /journals/{uuid}/notes | Lists notes
+*JournalApi* | [**putDisciplineAssociation**](docs/JournalApi.md#putDisciplineAssociation) | **PUT** /journals/{uuid}/disciplines/{discipline-scheme} | Update disciplines from the discipline scheme associated with the journal
 *JournalApi* | [**query**](docs/JournalApi.md#query) | **POST** /journals/search | Query operation for journals
 *JournalApi* | [**update**](docs/JournalApi.md#update) | **PUT** /journals/{uuid} | Update journal
 *OrganizationApi* | [**create**](docs/OrganizationApi.md#create) | **PUT** /organizations | Create organization
@@ -218,6 +227,8 @@ Class | Method | HTTP request | Description
 *OrganizationApi* | [**getAllowedClassifiedIdentifierTypes**](docs/OrganizationApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /organizations/allowed-classified-identifier-types | A list of allowed classified identifier types
 *OrganizationApi* | [**getAllowedClassifiedImageTypes**](docs/OrganizationApi.md#getAllowedClassifiedImageTypes) | **GET** /organizations/allowed-classified-file-types | A list of allowed classified identifier types
 *OrganizationApi* | [**getAllowedCostCenters**](docs/OrganizationApi.md#getAllowedCostCenters) | **GET** /organizations/allowed-cost-centers | A list of allowed cost centers
+*OrganizationApi* | [**getAllowedDisciplineSchemes**](docs/OrganizationApi.md#getAllowedDisciplineSchemes) | **GET** /organizations/disciplines/allowed-discipline-schemes | A list of allowed discipline schemes
+*OrganizationApi* | [**getAllowedDisciplines**](docs/OrganizationApi.md#getAllowedDisciplines) | **GET** /organizations/disciplines/{discipline-scheme}/allowed-disciplines | A list of allowed disciplines for a specific discipline scheme
 *OrganizationApi* | [**getAllowedEmailTypes**](docs/OrganizationApi.md#getAllowedEmailTypes) | **GET** /organizations/allowed-email-types | A list of allowed e-mail types
 *OrganizationApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/OrganizationApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /organizations/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
 *OrganizationApi* | [**getAllowedKeywordGroupConfigurations**](docs/OrganizationApi.md#getAllowedKeywordGroupConfigurations) | **GET** /organizations/allowed-keyword-group-configurations | A list of keyword group configurations
@@ -228,10 +239,13 @@ Class | Method | HTTP request | Description
 *OrganizationApi* | [**getAllowedProfileInformationTypes**](docs/OrganizationApi.md#getAllowedProfileInformationTypes) | **GET** /organizations/allowed-profile-information-types | A list of allowed profile information types
 *OrganizationApi* | [**getAllowedTypes**](docs/OrganizationApi.md#getAllowedTypes) | **GET** /organizations/allowed-types | A list of allowed organization types
 *OrganizationApi* | [**getAllowedWebAddressTypes**](docs/OrganizationApi.md#getAllowedWebAddressTypes) | **GET** /organizations/allowed-web-address-types | A list of allowed web address types
+*OrganizationApi* | [**getDisciplineAssociation**](docs/OrganizationApi.md#getDisciplineAssociation) | **GET** /organizations/{uuid}/disciplines/{discipline-scheme} | Get disciplines from the discipline scheme associated with the organization
 *OrganizationApi* | [**getFile**](docs/OrganizationApi.md#getFile) | **GET** /organizations/{uuid}/files/{fileId} | Get file from the organization
 *OrganizationApi* | [**getOrderings**](docs/OrganizationApi.md#getOrderings) | **GET** /organizations/orderings | Lists available orderings
 *OrganizationApi* | [**list**](docs/OrganizationApi.md#list) | **GET** /organizations | Lists all organizations
+*OrganizationApi* | [**listDisciplineAssociations**](docs/OrganizationApi.md#listDisciplineAssociations) | **POST** /organizations/disciplines/{discipline-scheme}/search | Query operation for disciplines associated with organizations
 *OrganizationApi* | [**listNotes**](docs/OrganizationApi.md#listNotes) | **GET** /organizations/{uuid}/notes | Lists notes
+*OrganizationApi* | [**putDisciplineAssociation**](docs/OrganizationApi.md#putDisciplineAssociation) | **PUT** /organizations/{uuid}/disciplines/{discipline-scheme} | Update disciplines from the discipline scheme associated with the organization
 *OrganizationApi* | [**query**](docs/OrganizationApi.md#query) | **POST** /organizations/search | Query operation for organizations
 *OrganizationApi* | [**update**](docs/OrganizationApi.md#update) | **PUT** /organizations/{uuid} | Update organization
 *PersonApi* | [**create**](docs/PersonApi.md#create) | **PUT** /persons | Create person
@@ -245,6 +259,8 @@ Class | Method | HTTP request | Description
 *PersonApi* | [**getAllowedAddressSubdivisions**](docs/PersonApi.md#getAllowedAddressSubdivisions) | **GET** /persons/allowed-address-subdivisions | A list of allowed subdivisions
 *PersonApi* | [**getAllowedAddressTypes**](docs/PersonApi.md#getAllowedAddressTypes) | **GET** /persons/allowed-address-types | A list of allowed address types
 *PersonApi* | [**getAllowedClassifiedIdentifierTypes**](docs/PersonApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /persons/allowed-classified-identifier-types | A list of allowed classified identifier types
+*PersonApi* | [**getAllowedDisciplineSchemes**](docs/PersonApi.md#getAllowedDisciplineSchemes) | **GET** /persons/disciplines/allowed-discipline-schemes | A list of allowed discipline schemes
+*PersonApi* | [**getAllowedDisciplines**](docs/PersonApi.md#getAllowedDisciplines) | **GET** /persons/disciplines/{discipline-scheme}/allowed-disciplines | A list of allowed disciplines for a specific discipline scheme
 *PersonApi* | [**getAllowedExternalPositionsAppointments**](docs/PersonApi.md#getAllowedExternalPositionsAppointments) | **GET** /persons/allowed-external-positions-appointments | A list of the allowed values for appointments
 *PersonApi* | [**getAllowedGenders**](docs/PersonApi.md#getAllowedGenders) | **GET** /persons/allowed-genders | A list of allowed classifications for the gender property
 *PersonApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/PersonApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /persons/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
@@ -269,11 +285,14 @@ Class | Method | HTTP request | Description
 *PersonApi* | [**getAllowedStudentAssociationsEmploymentTypes**](docs/PersonApi.md#getAllowedStudentAssociationsEmploymentTypes) | **GET** /persons/allowed-student-organization-associations-employment-types | A list of allowed employment types
 *PersonApi* | [**getAllowedTitlesTypes**](docs/PersonApi.md#getAllowedTitlesTypes) | **GET** /persons/allowed-titles-types | A list of allowed classifications for the titles property
 *PersonApi* | [**getAllowedVisitingScholarAssociationsEmploymentTypes**](docs/PersonApi.md#getAllowedVisitingScholarAssociationsEmploymentTypes) | **GET** /persons/allowed-visiting-scholar-organization-associations-employment-types | A list of allowed employment types
+*PersonApi* | [**getDisciplineAssociation**](docs/PersonApi.md#getDisciplineAssociation) | **GET** /persons/{uuid}/disciplines/{discipline-scheme} | Get disciplines from the discipline scheme associated with the person
 *PersonApi* | [**getFile**](docs/PersonApi.md#getFile) | **GET** /persons/{uuid}/files/{fileId} | Get file from the person
 *PersonApi* | [**getHighlightedContent**](docs/PersonApi.md#getHighlightedContent) | **GET** /persons/{uuid}/highlighted-content | Get highlighted content
 *PersonApi* | [**getOrderings**](docs/PersonApi.md#getOrderings) | **GET** /persons/orderings | Lists available orderings
 *PersonApi* | [**list**](docs/PersonApi.md#list) | **GET** /persons | Lists all persons
+*PersonApi* | [**listDisciplineAssociations**](docs/PersonApi.md#listDisciplineAssociations) | **POST** /persons/disciplines/{discipline-scheme}/search | Query operation for disciplines associated with persons
 *PersonApi* | [**listNotes**](docs/PersonApi.md#listNotes) | **GET** /persons/{uuid}/notes | Lists notes
+*PersonApi* | [**putDisciplineAssociation**](docs/PersonApi.md#putDisciplineAssociation) | **PUT** /persons/{uuid}/disciplines/{discipline-scheme} | Update disciplines from the discipline scheme associated with the person
 *PersonApi* | [**query**](docs/PersonApi.md#query) | **POST** /persons/search | Query operation for persons
 *PersonApi* | [**supervisee**](docs/PersonApi.md#supervisee) | **GET** /persons/{uuid}/supervisee | person supervisees
 *PersonApi* | [**update**](docs/PersonApi.md#update) | **PUT** /persons/{uuid} | Update person
@@ -284,14 +303,19 @@ Class | Method | HTTP request | Description
 *PublisherApi* | [**dependents**](docs/PublisherApi.md#dependents) | **GET** /publishers/{uuid}/dependents | Lists all dependents to a publisher
 *PublisherApi* | [**get**](docs/PublisherApi.md#get) | **GET** /publishers/{uuid} | Get publisher
 *PublisherApi* | [**getAllowedCountries**](docs/PublisherApi.md#getAllowedCountries) | **GET** /publishers/allowed-countries | A list of allowed countries
+*PublisherApi* | [**getAllowedDisciplineSchemes**](docs/PublisherApi.md#getAllowedDisciplineSchemes) | **GET** /publishers/disciplines/allowed-discipline-schemes | A list of allowed discipline schemes
+*PublisherApi* | [**getAllowedDisciplines**](docs/PublisherApi.md#getAllowedDisciplines) | **GET** /publishers/disciplines/{discipline-scheme}/allowed-disciplines | A list of allowed disciplines for a specific discipline scheme
 *PublisherApi* | [**getAllowedKeywordGroupConfigurationClassifications**](docs/PublisherApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /publishers/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
 *PublisherApi* | [**getAllowedKeywordGroupConfigurations**](docs/PublisherApi.md#getAllowedKeywordGroupConfigurations) | **GET** /publishers/allowed-keyword-group-configurations | A list of keyword group configurations
 *PublisherApi* | [**getAllowedLocales**](docs/PublisherApi.md#getAllowedLocales) | **GET** /publishers/allowed-locales | A list of allowed locales in localized strings
 *PublisherApi* | [**getAllowedTypes**](docs/PublisherApi.md#getAllowedTypes) | **GET** /publishers/allowed-types | A list of allowed publisher types
 *PublisherApi* | [**getAllowedWorkflowSteps**](docs/PublisherApi.md#getAllowedWorkflowSteps) | **GET** /publishers/allowed-workflow-steps | A list of allowed workflow steps
+*PublisherApi* | [**getDisciplineAssociation**](docs/PublisherApi.md#getDisciplineAssociation) | **GET** /publishers/{uuid}/disciplines/{discipline-scheme} | Get disciplines from the discipline scheme associated with the publisher
 *PublisherApi* | [**getOrderings**](docs/PublisherApi.md#getOrderings) | **GET** /publishers/orderings | Lists available orderings
 *PublisherApi* | [**list**](docs/PublisherApi.md#list) | **GET** /publishers | Lists all publishers
+*PublisherApi* | [**listDisciplineAssociations**](docs/PublisherApi.md#listDisciplineAssociations) | **POST** /publishers/disciplines/{discipline-scheme}/search | Query operation for disciplines associated with publishers
 *PublisherApi* | [**listNotes**](docs/PublisherApi.md#listNotes) | **GET** /publishers/{uuid}/notes | Lists notes
+*PublisherApi* | [**putDisciplineAssociation**](docs/PublisherApi.md#putDisciplineAssociation) | **PUT** /publishers/{uuid}/disciplines/{discipline-scheme} | Update disciplines from the discipline scheme associated with the publisher
 *PublisherApi* | [**query**](docs/PublisherApi.md#query) | **POST** /publishers/search | Query operation for publishers
 *PublisherApi* | [**update**](docs/PublisherApi.md#update) | **PUT** /publishers/{uuid} | Update publishers
 *ResearchOutputApi* | [**create**](docs/ResearchOutputApi.md#create) | **PUT** /research-outputs | Create research output
@@ -319,6 +343,8 @@ Class | Method | HTTP request | Description
 *ResearchOutputApi* | [**getAllowedContributionToPeriodicalDescriptionTypes**](docs/ResearchOutputApi.md#getAllowedContributionToPeriodicalDescriptionTypes) | **GET** /research-outputs/allowed-contribution-to-periodical-description-types | A list of allowed description types for the contribution to periodical subtype
 *ResearchOutputApi* | [**getAllowedContributorCountries**](docs/ResearchOutputApi.md#getAllowedContributorCountries) | **GET** /research-outputs/allowed-contributor-countries | A list of allowed contributor countries
 *ResearchOutputApi* | [**getAllowedCountries**](docs/ResearchOutputApi.md#getAllowedCountries) | **GET** /research-outputs/allowed-countries | A list of allowed countries
+*ResearchOutputApi* | [**getAllowedDisciplineSchemes**](docs/ResearchOutputApi.md#getAllowedDisciplineSchemes) | **GET** /research-outputs/disciplines/allowed-discipline-schemes | A list of allowed discipline schemes
+*ResearchOutputApi* | [**getAllowedDisciplines**](docs/ResearchOutputApi.md#getAllowedDisciplines) | **GET** /research-outputs/disciplines/{discipline-scheme}/allowed-disciplines | A list of allowed disciplines for a specific discipline scheme
 *ResearchOutputApi* | [**getAllowedElectronicVersionAccessTypes**](docs/ResearchOutputApi.md#getAllowedElectronicVersionAccessTypes) | **GET** /research-outputs/allowed-electronic-version-access-types | A list of allowed access types
 *ResearchOutputApi* | [**getAllowedElectronicVersionLicenseTypes**](docs/ResearchOutputApi.md#getAllowedElectronicVersionLicenseTypes) | **GET** /research-outputs/allowed-electronic-version-license-types | A list of allowed license types
 *ResearchOutputApi* | [**getAllowedElectronicVersionVersionTypes**](docs/ResearchOutputApi.md#getAllowedElectronicVersionVersionTypes) | **GET** /research-outputs/allowed-electronic-version-version-types | A list of allowed version types
@@ -348,13 +374,15 @@ Class | Method | HTTP request | Description
 *ResearchOutputApi* | [**getAllowedWorkflowSteps**](docs/ResearchOutputApi.md#getAllowedWorkflowSteps) | **GET** /research-outputs/allowed-workflow-steps | A list of allowed workflow steps
 *ResearchOutputApi* | [**getAllowedWorkingPaperContributorRoles**](docs/ResearchOutputApi.md#getAllowedWorkingPaperContributorRoles) | **GET** /research-outputs/allowed-working-paper-contributor-roles | A list of allowed contributor roles for the working paper subtype
 *ResearchOutputApi* | [**getAllowedWorkingPaperDescriptionTypes**](docs/ResearchOutputApi.md#getAllowedWorkingPaperDescriptionTypes) | **GET** /research-outputs/allowed-working-paper-description-types | A list of allowed description types for the working paper subtype
+*ResearchOutputApi* | [**getDisciplineAssociation**](docs/ResearchOutputApi.md#getDisciplineAssociation) | **GET** /research-outputs/{uuid}/disciplines/{discipline-scheme} | Get disciplinesfrom the discipline scheme associated with the research output
 *ResearchOutputApi* | [**getFile**](docs/ResearchOutputApi.md#getFile) | **GET** /research-outputs/{uuid}/files/{fileId} | Get file from the research output
 *ResearchOutputApi* | [**getOrderings**](docs/ResearchOutputApi.md#getOrderings) | **GET** /research-outputs/orderings | Lists available orderings
 *ResearchOutputApi* | [**list**](docs/ResearchOutputApi.md#list) | **GET** /research-outputs | Lists all  research outputs
+*ResearchOutputApi* | [**listDisciplineAssociations**](docs/ResearchOutputApi.md#listDisciplineAssociations) | **POST** /research-outputs/disciplines/{discipline-scheme}/search | Query operation for disciplines associated with research outputs
 *ResearchOutputApi* | [**listNotes**](docs/ResearchOutputApi.md#listNotes) | **GET** /research-outputs/{uuid}/notes | Lists notes
+*ResearchOutputApi* | [**putDisciplineAssociation**](docs/ResearchOutputApi.md#putDisciplineAssociation) | **PUT** /research-outputs/{uuid}/disciplines/{discipline-scheme} | Update disciplines from the discipline scheme associated with the research output
 *ResearchOutputApi* | [**query**](docs/ResearchOutputApi.md#query) | **POST** /research-outputs/search | Query operation for research outputs
 *ResearchOutputApi* | [**update**](docs/ResearchOutputApi.md#update) | **PUT** /research-outputs/{uuid} | Update research outputs
-*RoleApi* | [**addRoles**](docs/RoleApi.md#addRoles) | **PUT** /roles/{uuid} | Add roles to user
 *UserApi* | [**create**](docs/UserApi.md#create) | **PUT** /users | Create user
 *UserApi* | [**delete**](docs/UserApi.md#delete) | **DELETE** /users/{uuid} | Delete user
 *UserApi* | [**get**](docs/UserApi.md#get) | **GET** /users/{uuid} | Get user
@@ -365,24 +393,14 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [AcademicQualification](docs/AcademicQualification.md)
- - [AccessDefinition](docs/AccessDefinition.md)
- - [AccessDefinitionAllowedField](docs/AccessDefinitionAllowedField.md)
- - [AccessDefinitionContentServiceFilter](docs/AccessDefinitionContentServiceFilter.md)
- - [AccessDefinitionListResult](docs/AccessDefinitionListResult.md)
  - [AccessDefinitionRef](docs/AccessDefinitionRef.md)
- - [AccessDefinitionSystemNameFieldFilter](docs/AccessDefinitionSystemNameFieldFilter.md)
  - [ActivityRef](docs/ActivityRef.md)
  - [AdditionalFileElectronicVersion](docs/AdditionalFileElectronicVersion.md)
  - [AdditionalISSN](docs/AdditionalISSN.md)
  - [Address](docs/Address.md)
  - [AlternativeISSN](docs/AlternativeISSN.md)
- - [ApiKey](docs/ApiKey.md)
- - [ApiKeyListResult](docs/ApiKeyListResult.md)
  - [ApplicationRef](docs/ApplicationRef.md)
  - [ArticleProcessingCharge](docs/ArticleProcessingCharge.md)
- - [AuditEntriesQuery](docs/AuditEntriesQuery.md)
- - [AuditEntry](docs/AuditEntry.md)
- - [AuditEntryListResult](docs/AuditEntryListResult.md)
  - [AuthorCollaborationRef](docs/AuthorCollaborationRef.md)
  - [AwardRef](docs/AwardRef.md)
  - [BookAnthology](docs/BookAnthology.md)
@@ -424,6 +442,14 @@ Class | Method | HTTP request | Description
  - [DateRange](docs/DateRange.md)
  - [DependencyViolationProblemDetails](docs/DependencyViolationProblemDetails.md)
  - [DependencyViolationProblemDetailsAllOf](docs/DependencyViolationProblemDetailsAllOf.md)
+ - [DisciplinesAssociation](docs/DisciplinesAssociation.md)
+ - [DisciplinesAssociationListResult](docs/DisciplinesAssociationListResult.md)
+ - [DisciplinesAssociationsQuery](docs/DisciplinesAssociationsQuery.md)
+ - [DisciplinesDiscipline](docs/DisciplinesDiscipline.md)
+ - [DisciplinesDisciplineAssignment](docs/DisciplinesDisciplineAssignment.md)
+ - [DisciplinesDisciplineListResult](docs/DisciplinesDisciplineListResult.md)
+ - [DisciplinesDisciplineScheme](docs/DisciplinesDisciplineScheme.md)
+ - [DisciplinesDisciplineSchemeListResult](docs/DisciplinesDisciplineSchemeListResult.md)
  - [Document](docs/Document.md)
  - [DoiElectronicVersion](docs/DoiElectronicVersion.md)
  - [DoiElectronicVersionAllOf](docs/DoiElectronicVersionAllOf.md)
@@ -529,7 +555,6 @@ Class | Method | HTTP request | Description
  - [ResearchOutputPeerReviewConfigurationListResult](docs/ResearchOutputPeerReviewConfigurationListResult.md)
  - [ResearchOutputRef](docs/ResearchOutputRef.md)
  - [ResearchOutputsQuery](docs/ResearchOutputsQuery.md)
- - [Roles](docs/Roles.md)
  - [StaffOrganizationAssociation](docs/StaffOrganizationAssociation.md)
  - [StaffOrganizationAssociationAllOf](docs/StaffOrganizationAssociationAllOf.md)
  - [StudentOrganizationAssociation](docs/StudentOrganizationAssociation.md)

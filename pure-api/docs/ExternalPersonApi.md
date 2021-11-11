@@ -11,14 +11,19 @@ Method | HTTP request | Description
 [**get**](ExternalPersonApi.md#get) | **GET** /external-persons/{uuid} | Get external person
 [**getAllowedClassifiedIdentifierTypes**](ExternalPersonApi.md#getAllowedClassifiedIdentifierTypes) | **GET** /external-persons/allowed-classified-identifier-types | A list of allowed classified identifier types
 [**getAllowedCountries**](ExternalPersonApi.md#getAllowedCountries) | **GET** /external-persons/allowed-countries | A list of allowed countries
+[**getAllowedDisciplineSchemes**](ExternalPersonApi.md#getAllowedDisciplineSchemes) | **GET** /external-persons/disciplines/allowed-discipline-schemes | A list of allowed discipline schemes
+[**getAllowedDisciplines**](ExternalPersonApi.md#getAllowedDisciplines) | **GET** /external-persons/disciplines/{discipline-scheme}/allowed-disciplines | A list of allowed disciplines for a specific discipline scheme
 [**getAllowedKeywordGroupConfigurationClassifications**](ExternalPersonApi.md#getAllowedKeywordGroupConfigurationClassifications) | **GET** /external-persons/allowed-keyword-group-configurations/{id}/classifications | A list of allowed classifications for the specified keyword group
 [**getAllowedKeywordGroupConfigurations**](ExternalPersonApi.md#getAllowedKeywordGroupConfigurations) | **GET** /external-persons/allowed-keyword-group-configurations | A list of keyword group configurations
 [**getAllowedLocales**](ExternalPersonApi.md#getAllowedLocales) | **GET** /external-persons/allowed-locales | A list of allowed locales in localized strings
 [**getAllowedTypes**](ExternalPersonApi.md#getAllowedTypes) | **GET** /external-persons/allowed-types | A list of allowed external person types
 [**getAllowedWorkflowSteps**](ExternalPersonApi.md#getAllowedWorkflowSteps) | **GET** /external-persons/allowed-workflow-steps | A list of allowed workflow steps
+[**getDisciplineAssociation**](ExternalPersonApi.md#getDisciplineAssociation) | **GET** /external-persons/{uuid}/disciplines/{discipline-scheme} | Get disciplines from the discipline scheme associated with the external person
 [**getOrderings**](ExternalPersonApi.md#getOrderings) | **GET** /external-persons/orderings | Lists available orderings
 [**list**](ExternalPersonApi.md#list) | **GET** /external-persons | Lists all external persons
+[**listDisciplineAssociations**](ExternalPersonApi.md#listDisciplineAssociations) | **POST** /external-persons/disciplines/{discipline-scheme}/search | Query operation for disciplines associated with external persons
 [**listNotes**](ExternalPersonApi.md#listNotes) | **GET** /external-persons/{uuid}/notes | Lists notes
+[**putDisciplineAssociation**](ExternalPersonApi.md#putDisciplineAssociation) | **PUT** /external-persons/{uuid}/disciplines/{discipline-scheme} | Update disciplines from the discipline scheme associated with the external person
 [**query**](ExternalPersonApi.md#query) | **POST** /external-persons/search | Query operation for external persons
 [**update**](ExternalPersonApi.md#update) | **PUT** /external-persons/{uuid} | Update external persons
 
@@ -506,6 +511,144 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 
+<a name="getAllowedDisciplineSchemes"></a>
+# **getAllowedDisciplineSchemes**
+> DisciplinesDisciplineSchemeListResult getAllowedDisciplineSchemes()
+
+A list of allowed discipline schemes
+
+Get a list fo a allowed discipline schemes for external persons
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalPersonApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalPersonApi apiInstance = new ExternalPersonApi(defaultClient);
+    try {
+      DisciplinesDisciplineSchemeListResult result = apiInstance.getAllowedDisciplineSchemes();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalPersonApi#getAllowedDisciplineSchemes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DisciplinesDisciplineSchemeListResult**](DisciplinesDisciplineSchemeListResult.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
+<a name="getAllowedDisciplines"></a>
+# **getAllowedDisciplines**
+> DisciplinesDisciplineListResult getAllowedDisciplines(disciplineScheme, size, offset)
+
+A list of allowed disciplines for a specific discipline scheme
+
+Get a list of a allowed disciplines for specific discipline scheme for external persons
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalPersonApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalPersonApi apiInstance = new ExternalPersonApi(defaultClient);
+    String disciplineScheme = "disciplineScheme_example"; // String | Identifier for the discipline scheme for external persons
+    Integer size = 10; // Integer | Number of returned disciplines per request
+    Integer offset = 0; // Integer | The offset for the returned list. 0 or null value is from the start
+    try {
+      DisciplinesDisciplineListResult result = apiInstance.getAllowedDisciplines(disciplineScheme, size, offset);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalPersonApi#getAllowedDisciplines");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **disciplineScheme** | **String**| Identifier for the discipline scheme for external persons |
+ **size** | **Integer**| Number of returned disciplines per request | [optional] [default to 10]
+ **offset** | **Integer**| The offset for the returned list. 0 or null value is from the start | [optional] [default to 0]
+
+### Return type
+
+[**DisciplinesDisciplineListResult**](DisciplinesDisciplineListResult.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
 <a name="getAllowedKeywordGroupConfigurationClassifications"></a>
 # **getAllowedKeywordGroupConfigurationClassifications**
 > ClassificationRefList getAllowedKeywordGroupConfigurationClassifications(id)
@@ -835,6 +978,78 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 
+<a name="getDisciplineAssociation"></a>
+# **getDisciplineAssociation**
+> DisciplinesAssociation getDisciplineAssociation(uuid, disciplineScheme)
+
+Get disciplines from the discipline scheme associated with the external person
+
+Get disciplines from the discipline scheme associated with the external person with specific UUID.
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalPersonApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalPersonApi apiInstance = new ExternalPersonApi(defaultClient);
+    UUID uuid = new UUID(); // UUID | UUID of the desired external person
+    String disciplineScheme = "disciplineScheme_example"; // String | Identifier for the discipline scheme
+    try {
+      DisciplinesAssociation result = apiInstance.getDisciplineAssociation(uuid, disciplineScheme);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalPersonApi#getDisciplineAssociation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | [**UUID**](.md)| UUID of the desired external person |
+ **disciplineScheme** | **String**| Identifier for the discipline scheme |
+
+### Return type
+
+[**DisciplinesAssociation**](DisciplinesAssociation.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**404** | Resource not found |  -  |
+
 <a name="getOrderings"></a>
 # **getOrderings**
 > OrderingsList getOrderings()
@@ -973,6 +1188,78 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 
+<a name="listDisciplineAssociations"></a>
+# **listDisciplineAssociations**
+> DisciplinesAssociationListResult listDisciplineAssociations(disciplineScheme, disciplinesAssociationsQuery)
+
+Query operation for disciplines associated with external persons
+
+Lists disciplines from the discipline scheme associated with external persons in the Pure instance that matches the provided query.
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalPersonApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalPersonApi apiInstance = new ExternalPersonApi(defaultClient);
+    String disciplineScheme = "disciplineScheme_example"; // String | Identifier for the discipline scheme
+    DisciplinesAssociationsQuery disciplinesAssociationsQuery = new DisciplinesAssociationsQuery(); // DisciplinesAssociationsQuery | The query to perform
+    try {
+      DisciplinesAssociationListResult result = apiInstance.listDisciplineAssociations(disciplineScheme, disciplinesAssociationsQuery);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalPersonApi#listDisciplineAssociations");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **disciplineScheme** | **String**| Identifier for the discipline scheme |
+ **disciplinesAssociationsQuery** | [**DisciplinesAssociationsQuery**](DisciplinesAssociationsQuery.md)| The query to perform |
+
+### Return type
+
+[**DisciplinesAssociationListResult**](DisciplinesAssociationListResult.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**400** | Bad request |  -  |
+
 <a name="listNotes"></a>
 # **listNotes**
 > NoteListResult listNotes(uuid, size, offset)
@@ -1046,6 +1333,81 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 **404** | External person not found |  -  |
+
+<a name="putDisciplineAssociation"></a>
+# **putDisciplineAssociation**
+> DisciplinesAssociation putDisciplineAssociation(uuid, disciplineScheme, disciplinesAssociation)
+
+Update disciplines from the discipline scheme associated with the external person
+
+Update disciplines from the discipline scheme associated with the external person with specific UUID.
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ExternalPersonApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ExternalPersonApi apiInstance = new ExternalPersonApi(defaultClient);
+    UUID uuid = new UUID(); // UUID | UUID of the external person to update
+    String disciplineScheme = "disciplineScheme_example"; // String | Identifier for the discipline scheme
+    DisciplinesAssociation disciplinesAssociation = new DisciplinesAssociation(); // DisciplinesAssociation | The disciplines association to create
+    try {
+      DisciplinesAssociation result = apiInstance.putDisciplineAssociation(uuid, disciplineScheme, disciplinesAssociation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExternalPersonApi#putDisciplineAssociation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | [**UUID**](.md)| UUID of the external person to update |
+ **disciplineScheme** | **String**| Identifier for the discipline scheme |
+ **disciplinesAssociation** | [**DisciplinesAssociation**](DisciplinesAssociation.md)| The disciplines association to create |
+
+### Return type
+
+[**DisciplinesAssociation**](DisciplinesAssociation.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
+**404** | Resource not found |  -  |
 
 <a name="query"></a>
 # **query**

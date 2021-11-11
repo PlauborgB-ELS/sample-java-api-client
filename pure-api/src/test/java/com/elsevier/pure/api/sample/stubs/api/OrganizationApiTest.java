@@ -16,6 +16,11 @@ package com.elsevier.pure.api.sample.stubs.api;
 import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRefList;
 import com.elsevier.pure.api.sample.stubs.model.ContentRefListResult;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesAssociation;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesAssociationListResult;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesAssociationsQuery;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesDisciplineListResult;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesDisciplineSchemeListResult;
 import java.io.File;
 import com.elsevier.pure.api.sample.stubs.model.KeywordGroupConfigurationList;
 import com.elsevier.pure.api.sample.stubs.model.LocalesList;
@@ -235,6 +240,39 @@ public class OrganizationApiTest {
     }
     
     /**
+     * A list of allowed discipline schemes
+     *
+     * Get a list fo a allowed discipline schemes for organizations
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllowedDisciplineSchemesTest() throws ApiException {
+        DisciplinesDisciplineSchemeListResult response = api.getAllowedDisciplineSchemes();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * A list of allowed disciplines for a specific discipline scheme
+     *
+     * Get a list of a allowed disciplines for specific discipline scheme for organizations
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllowedDisciplinesTest() throws ApiException {
+        String disciplineScheme = null;
+        Integer size = null;
+        Integer offset = null;
+        DisciplinesDisciplineListResult response = api.getAllowedDisciplines(disciplineScheme, size, offset);
+
+        // TODO: test validations
+    }
+    
+    /**
      * A list of allowed e-mail types
      *
      * Get a list of allowed e-mail types that can be used for the &#39;emails.type&#39; attribute of organizations
@@ -386,6 +424,23 @@ public class OrganizationApiTest {
     }
     
     /**
+     * Get disciplines from the discipline scheme associated with the organization
+     *
+     * Get disciplines from the discipline scheme associated with the organization with specific UUID.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDisciplineAssociationTest() throws ApiException {
+        UUID uuid = null;
+        String disciplineScheme = null;
+        DisciplinesAssociation response = api.getDisciplineAssociation(uuid, disciplineScheme);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get file from the organization
      *
      * Get file from the organization
@@ -436,6 +491,23 @@ public class OrganizationApiTest {
     }
     
     /**
+     * Query operation for disciplines associated with organizations
+     *
+     * Lists disciplines from the discipline scheme associated with organizations in the Pure instance that matches the provided query.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listDisciplineAssociationsTest() throws ApiException {
+        String disciplineScheme = null;
+        DisciplinesAssociationsQuery disciplinesAssociationsQuery = null;
+        DisciplinesAssociationListResult response = api.listDisciplineAssociations(disciplineScheme, disciplinesAssociationsQuery);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Lists notes
      *
      * Lists notes associated with an organization ordered by date (nulls last)
@@ -449,6 +521,24 @@ public class OrganizationApiTest {
         Integer size = null;
         Integer offset = null;
         NoteListResult response = api.listNotes(uuid, size, offset);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update disciplines from the discipline scheme associated with the organization
+     *
+     * Update disciplines from the discipline scheme associated with the organization with specific UUID.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putDisciplineAssociationTest() throws ApiException {
+        UUID uuid = null;
+        String disciplineScheme = null;
+        DisciplinesAssociation disciplinesAssociation = null;
+        DisciplinesAssociation response = api.putDisciplineAssociation(uuid, disciplineScheme, disciplinesAssociation);
 
         // TODO: test validations
     }

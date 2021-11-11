@@ -23,7 +23,7 @@ import java.util.UUID;
  * A reference to a press/media
  */
 @ApiModel(description = "A reference to a press/media")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-11T16:14:00.558+01:00[Europe/Copenhagen]")
 public class PressMediaRef extends ContentRef {
 
   @Override

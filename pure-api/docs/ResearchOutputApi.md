@@ -29,6 +29,8 @@ Method | HTTP request | Description
 [**getAllowedContributionToPeriodicalDescriptionTypes**](ResearchOutputApi.md#getAllowedContributionToPeriodicalDescriptionTypes) | **GET** /research-outputs/allowed-contribution-to-periodical-description-types | A list of allowed description types for the contribution to periodical subtype
 [**getAllowedContributorCountries**](ResearchOutputApi.md#getAllowedContributorCountries) | **GET** /research-outputs/allowed-contributor-countries | A list of allowed contributor countries
 [**getAllowedCountries**](ResearchOutputApi.md#getAllowedCountries) | **GET** /research-outputs/allowed-countries | A list of allowed countries
+[**getAllowedDisciplineSchemes**](ResearchOutputApi.md#getAllowedDisciplineSchemes) | **GET** /research-outputs/disciplines/allowed-discipline-schemes | A list of allowed discipline schemes
+[**getAllowedDisciplines**](ResearchOutputApi.md#getAllowedDisciplines) | **GET** /research-outputs/disciplines/{discipline-scheme}/allowed-disciplines | A list of allowed disciplines for a specific discipline scheme
 [**getAllowedElectronicVersionAccessTypes**](ResearchOutputApi.md#getAllowedElectronicVersionAccessTypes) | **GET** /research-outputs/allowed-electronic-version-access-types | A list of allowed access types
 [**getAllowedElectronicVersionLicenseTypes**](ResearchOutputApi.md#getAllowedElectronicVersionLicenseTypes) | **GET** /research-outputs/allowed-electronic-version-license-types | A list of allowed license types
 [**getAllowedElectronicVersionVersionTypes**](ResearchOutputApi.md#getAllowedElectronicVersionVersionTypes) | **GET** /research-outputs/allowed-electronic-version-version-types | A list of allowed version types
@@ -58,10 +60,13 @@ Method | HTTP request | Description
 [**getAllowedWorkflowSteps**](ResearchOutputApi.md#getAllowedWorkflowSteps) | **GET** /research-outputs/allowed-workflow-steps | A list of allowed workflow steps
 [**getAllowedWorkingPaperContributorRoles**](ResearchOutputApi.md#getAllowedWorkingPaperContributorRoles) | **GET** /research-outputs/allowed-working-paper-contributor-roles | A list of allowed contributor roles for the working paper subtype
 [**getAllowedWorkingPaperDescriptionTypes**](ResearchOutputApi.md#getAllowedWorkingPaperDescriptionTypes) | **GET** /research-outputs/allowed-working-paper-description-types | A list of allowed description types for the working paper subtype
+[**getDisciplineAssociation**](ResearchOutputApi.md#getDisciplineAssociation) | **GET** /research-outputs/{uuid}/disciplines/{discipline-scheme} | Get disciplinesfrom the discipline scheme associated with the research output
 [**getFile**](ResearchOutputApi.md#getFile) | **GET** /research-outputs/{uuid}/files/{fileId} | Get file from the research output
 [**getOrderings**](ResearchOutputApi.md#getOrderings) | **GET** /research-outputs/orderings | Lists available orderings
 [**list**](ResearchOutputApi.md#list) | **GET** /research-outputs | Lists all  research outputs
+[**listDisciplineAssociations**](ResearchOutputApi.md#listDisciplineAssociations) | **POST** /research-outputs/disciplines/{discipline-scheme}/search | Query operation for disciplines associated with research outputs
 [**listNotes**](ResearchOutputApi.md#listNotes) | **GET** /research-outputs/{uuid}/notes | Lists notes
+[**putDisciplineAssociation**](ResearchOutputApi.md#putDisciplineAssociation) | **PUT** /research-outputs/{uuid}/disciplines/{discipline-scheme} | Update disciplines from the discipline scheme associated with the research output
 [**query**](ResearchOutputApi.md#query) | **POST** /research-outputs/search | Query operation for research outputs
 [**update**](ResearchOutputApi.md#update) | **PUT** /research-outputs/{uuid} | Update research outputs
 
@@ -1710,6 +1715,144 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ClassificationRefList**](ClassificationRefList.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
+<a name="getAllowedDisciplineSchemes"></a>
+# **getAllowedDisciplineSchemes**
+> DisciplinesDisciplineSchemeListResult getAllowedDisciplineSchemes()
+
+A list of allowed discipline schemes
+
+Get a list fo a allowed discipline schemes for research outputs
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ResearchOutputApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ResearchOutputApi apiInstance = new ResearchOutputApi(defaultClient);
+    try {
+      DisciplinesDisciplineSchemeListResult result = apiInstance.getAllowedDisciplineSchemes();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ResearchOutputApi#getAllowedDisciplineSchemes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DisciplinesDisciplineSchemeListResult**](DisciplinesDisciplineSchemeListResult.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+
+<a name="getAllowedDisciplines"></a>
+# **getAllowedDisciplines**
+> DisciplinesDisciplineListResult getAllowedDisciplines(disciplineScheme, size, offset)
+
+A list of allowed disciplines for a specific discipline scheme
+
+Get a list of a allowed disciplines for specific discipline scheme for research outputs
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ResearchOutputApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ResearchOutputApi apiInstance = new ResearchOutputApi(defaultClient);
+    String disciplineScheme = "disciplineScheme_example"; // String | Identifier for the discipline scheme for research output
+    Integer size = 10; // Integer | Number of returned disciplines per request
+    Integer offset = 0; // Integer | The offset for the returned list. 0 or null value is from the start
+    try {
+      DisciplinesDisciplineListResult result = apiInstance.getAllowedDisciplines(disciplineScheme, size, offset);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ResearchOutputApi#getAllowedDisciplines");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **disciplineScheme** | **String**| Identifier for the discipline scheme for research output |
+ **size** | **Integer**| Number of returned disciplines per request | [optional] [default to 10]
+ **offset** | **Integer**| The offset for the returned list. 0 or null value is from the start | [optional] [default to 0]
+
+### Return type
+
+[**DisciplinesDisciplineListResult**](DisciplinesDisciplineListResult.md)
 
 ### Authorization
 
@@ -3614,6 +3757,78 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 
+<a name="getDisciplineAssociation"></a>
+# **getDisciplineAssociation**
+> DisciplinesAssociation getDisciplineAssociation(uuid, disciplineScheme)
+
+Get disciplinesfrom the discipline scheme associated with the research output
+
+Get disciplines from the discipline scheme associated with the research output with specific UUID.
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ResearchOutputApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ResearchOutputApi apiInstance = new ResearchOutputApi(defaultClient);
+    UUID uuid = new UUID(); // UUID | UUID of the desired research output
+    String disciplineScheme = "disciplineScheme_example"; // String | Identifier for the discipline scheme
+    try {
+      DisciplinesAssociation result = apiInstance.getDisciplineAssociation(uuid, disciplineScheme);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ResearchOutputApi#getDisciplineAssociation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | [**UUID**](.md)| UUID of the desired research output |
+ **disciplineScheme** | **String**| Identifier for the discipline scheme |
+
+### Return type
+
+[**DisciplinesAssociation**](DisciplinesAssociation.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**404** | Resource not found |  -  |
+
 <a name="getFile"></a>
 # **getFile**
 > File getFile(uuid, fileId)
@@ -3823,6 +4038,78 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 
+<a name="listDisciplineAssociations"></a>
+# **listDisciplineAssociations**
+> DisciplinesAssociationListResult listDisciplineAssociations(disciplineScheme, disciplinesAssociationsQuery)
+
+Query operation for disciplines associated with research outputs
+
+Lists disciplines from the discipline scheme associated with research outputs in the Pure instance that matches the provided query.
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ResearchOutputApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ResearchOutputApi apiInstance = new ResearchOutputApi(defaultClient);
+    String disciplineScheme = "disciplineScheme_example"; // String | Identifier for the discipline scheme
+    DisciplinesAssociationsQuery disciplinesAssociationsQuery = new DisciplinesAssociationsQuery(); // DisciplinesAssociationsQuery | The query to perform
+    try {
+      DisciplinesAssociationListResult result = apiInstance.listDisciplineAssociations(disciplineScheme, disciplinesAssociationsQuery);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ResearchOutputApi#listDisciplineAssociations");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **disciplineScheme** | **String**| Identifier for the discipline scheme |
+ **disciplinesAssociationsQuery** | [**DisciplinesAssociationsQuery**](DisciplinesAssociationsQuery.md)| The query to perform |
+
+### Return type
+
+[**DisciplinesAssociationListResult**](DisciplinesAssociationListResult.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**400** | Bad request |  -  |
+
 <a name="listNotes"></a>
 # **listNotes**
 > NoteListResult listNotes(uuid, size, offset)
@@ -3896,6 +4183,81 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 **404** | Research output not found |  -  |
+
+<a name="putDisciplineAssociation"></a>
+# **putDisciplineAssociation**
+> DisciplinesAssociation putDisciplineAssociation(uuid, disciplineScheme, disciplinesAssociation)
+
+Update disciplines from the discipline scheme associated with the research output
+
+Update disciplines from the discipline scheme associated with the research output with specific UUID.
+
+### Example
+```java
+// Import classes:
+import com.elsevier.pure.api.sample.stubs.invoker.ApiClient;
+import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
+import com.elsevier.pure.api.sample.stubs.invoker.Configuration;
+import com.elsevier.pure.api.sample.stubs.invoker.auth.*;
+import com.elsevier.pure.api.sample.stubs.invoker.models.*;
+import com.elsevier.pure.api.sample.stubs.api.ResearchOutputApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/ws/api");
+    
+    // Configure API key authorization: api-key
+    ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+    api-key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api-key.setApiKeyPrefix("Token");
+
+    ResearchOutputApi apiInstance = new ResearchOutputApi(defaultClient);
+    UUID uuid = new UUID(); // UUID | UUID of the research output to update
+    String disciplineScheme = "disciplineScheme_example"; // String | Identifier for the discipline scheme
+    DisciplinesAssociation disciplinesAssociation = new DisciplinesAssociation(); // DisciplinesAssociation | The disciplines association to create
+    try {
+      DisciplinesAssociation result = apiInstance.putDisciplineAssociation(uuid, disciplineScheme, disciplinesAssociation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ResearchOutputApi#putDisciplineAssociation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | [**UUID**](.md)| UUID of the research output to update |
+ **disciplineScheme** | **String**| Identifier for the discipline scheme |
+ **disciplinesAssociation** | [**DisciplinesAssociation**](DisciplinesAssociation.md)| The disciplines association to create |
+
+### Return type
+
+[**DisciplinesAssociation**](DisciplinesAssociation.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
+**404** | Resource not found |  -  |
 
 <a name="query"></a>
 # **query**

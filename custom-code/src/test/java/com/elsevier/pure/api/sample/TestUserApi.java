@@ -155,6 +155,58 @@ public class TestUserApi extends TestCase {
     }
 
     /**
+     * Test case that creates a new user, then deletes same user, in the configured Pure instance
+     */
+    public void testCreateAndDeleteUserThatIsntExternallyAuthenticated() throws ApiException {
+        User user = new User();
+        user.setUsername("user-" + UUID.randomUUID());
+        user.setEmail(UUID.randomUUID() + "@somebogusdomain.com");
+        user.setLocked(false);
+        user.setPureSystemUser(false);
+        user.setExternallyAuthenticated(false);
+
+        System.out.println("\nCREATE user: ");
+        final User userCreateResponse = userApi.create(user);
+
+        if (userCreateResponse != null) {
+            System.out.println("User '" + userCreateResponse.getUsername() + "' was successfully created");
+        } else {
+            fail("User was not created!");
+        }
+
+        try {
+            User getUser = userApi.get(userCreateResponse.getUuid());
+
+            assertFalse(getUser.getExternallyAuthenticated());
+        } catch (ApiException ex) {
+            if (ex.getCode() == 404 && ex.getResponseBody().contains("Content not found")) {
+                System.out.println("User not found!");
+            } else {
+                fail("Something went wrong when fetching the user after delete!");
+            }
+        }
+
+        System.out.println("\nDELETE user: ");
+        try {
+            userApi.delete(userCreateResponse.getUuid());
+            System.out.println("user with UUID '" + userCreateResponse.getUuid() + "' was deleted");
+        } catch (ApiException ex) {
+            fail("Exception occurred when trying to delete user with UUID '" + userCreateResponse.getUuid() + "'");
+        }
+
+        try {
+            userApi.get(userCreateResponse.getUuid());
+            fail("This should not be reached unless the user wasn't deleted as intended!");
+        } catch (ApiException ex) {
+            if (ex.getCode() == 404 && ex.getResponseBody().contains("Content not found")) {
+                System.out.println("User not found!");
+            } else {
+                fail("Something went wrong when fetching the user after delete!");
+            }
+        }
+    }
+
+    /**
      * Test case that creates a new user, then creates a person with user attached, in the configured Pure instance
      */
     public void testCreateUserAndAttachToPerson() throws ApiException {

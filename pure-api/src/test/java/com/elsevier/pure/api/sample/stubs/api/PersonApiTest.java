@@ -15,6 +15,11 @@ package com.elsevier.pure.api.sample.stubs.api;
 
 import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRefList;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesAssociation;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesAssociationListResult;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesAssociationsQuery;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesDisciplineListResult;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesDisciplineSchemeListResult;
 import java.io.File;
 import com.elsevier.pure.api.sample.stubs.model.HighlightedContent;
 import com.elsevier.pure.api.sample.stubs.model.KeywordGroupConfigurationList;
@@ -214,6 +219,39 @@ public class PersonApiTest {
     @Test
     public void getAllowedClassifiedIdentifierTypesTest() throws ApiException {
         ClassificationRefList response = api.getAllowedClassifiedIdentifierTypes();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * A list of allowed discipline schemes
+     *
+     * Get a list fo a allowed discipline schemes for persons
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllowedDisciplineSchemesTest() throws ApiException {
+        DisciplinesDisciplineSchemeListResult response = api.getAllowedDisciplineSchemes();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * A list of allowed disciplines for a specific discipline scheme
+     *
+     * Get a list of a allowed disciplines for specific discipline scheme for persons
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllowedDisciplinesTest() throws ApiException {
+        String disciplineScheme = null;
+        Integer size = null;
+        Integer offset = null;
+        DisciplinesDisciplineListResult response = api.getAllowedDisciplines(disciplineScheme, size, offset);
 
         // TODO: test validations
     }
@@ -580,6 +618,23 @@ public class PersonApiTest {
     }
     
     /**
+     * Get disciplines from the discipline scheme associated with the person
+     *
+     * Get disciplines from the discipline scheme associated with the person with specific UUID.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDisciplineAssociationTest() throws ApiException {
+        UUID uuid = null;
+        String disciplineScheme = null;
+        DisciplinesAssociation response = api.getDisciplineAssociation(uuid, disciplineScheme);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get file from the person
      *
      * Get file from the person
@@ -646,6 +701,23 @@ public class PersonApiTest {
     }
     
     /**
+     * Query operation for disciplines associated with persons
+     *
+     * Lists disciplines from the discipline scheme associated with persons in the Pure instance that matches the provided query.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listDisciplineAssociationsTest() throws ApiException {
+        String disciplineScheme = null;
+        DisciplinesAssociationsQuery disciplinesAssociationsQuery = null;
+        DisciplinesAssociationListResult response = api.listDisciplineAssociations(disciplineScheme, disciplinesAssociationsQuery);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Lists notes
      *
      * Lists notes associated with an person ordered by date (nulls last)
@@ -659,6 +731,24 @@ public class PersonApiTest {
         Integer size = null;
         Integer offset = null;
         NoteListResult response = api.listNotes(uuid, size, offset);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update disciplines from the discipline scheme associated with the person
+     *
+     * Update disciplines from the discipline scheme associated with the person with specific UUID.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putDisciplineAssociationTest() throws ApiException {
+        UUID uuid = null;
+        String disciplineScheme = null;
+        DisciplinesAssociation disciplinesAssociation = null;
+        DisciplinesAssociation response = api.putDisciplineAssociation(uuid, disciplineScheme, disciplinesAssociation);
 
         // TODO: test validations
     }

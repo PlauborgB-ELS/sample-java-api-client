@@ -33,7 +33,7 @@ import org.threeten.bp.OffsetDateTime;
  * A user that can be attached to a person in Pure
  */
 @ApiModel(description = "A user that can be attached to a person in Pure")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-11T16:14:00.558+01:00[Europe/Copenhagen]")
 public class User {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";
   @SerializedName(SERIALIZED_NAME_PURE_ID)
@@ -93,11 +93,11 @@ public class User {
 
   public static final String SERIALIZED_NAME_PURE_SYSTEM_USER = "pureSystemUser";
   @SerializedName(SERIALIZED_NAME_PURE_SYSTEM_USER)
-  private Boolean pureSystemUser;
+  private Boolean pureSystemUser = false;
 
   public static final String SERIALIZED_NAME_LOCKED = "locked";
   @SerializedName(SERIALIZED_NAME_LOCKED)
-  private Boolean locked;
+  private Boolean locked = false;
 
   public static final String SERIALIZED_NAME_SYSTEM_NAME = "systemName";
   @SerializedName(SERIALIZED_NAME_SYSTEM_NAME)
@@ -320,18 +320,27 @@ public class User {
   }
 
 
+  public User externallyAuthenticated(Boolean externallyAuthenticated) {
+    
+    this.externallyAuthenticated = externallyAuthenticated;
+    return this;
+  }
+
    /**
-   * Is the user externally authenticated. Currently automatically set to &#39;true&#39;.
+   * Is the user externally authenticated.
    * @return externallyAuthenticated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Is the user externally authenticated. Currently automatically set to 'true'.")
+  @ApiModelProperty(value = "Is the user externally authenticated.")
 
   public Boolean getExternallyAuthenticated() {
     return externallyAuthenticated;
   }
 
 
+  public void setExternallyAuthenticated(Boolean externallyAuthenticated) {
+    this.externallyAuthenticated = externallyAuthenticated;
+  }
 
 
   public User pureSystemUser(Boolean pureSystemUser) {

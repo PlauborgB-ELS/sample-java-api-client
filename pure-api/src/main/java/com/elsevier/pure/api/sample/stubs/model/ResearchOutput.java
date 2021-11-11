@@ -49,7 +49,7 @@ import org.threeten.bp.OffsetDateTime;
  * Research output exists in many variations, from written to non-textual form. Templates are available for a range of these variations.
  */
 @ApiModel(description = "Research output exists in many variations, from written to non-textual form. Templates are available for a range of these variations.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-11T16:14:00.558+01:00[Europe/Copenhagen]")
 
 public class ResearchOutput {
   public static final String SERIALIZED_NAME_PURE_ID = "pureId";

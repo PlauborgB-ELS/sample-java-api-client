@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **username** | **String** | Username | 
 **name** | [**Name**](Name.md) |  |  [optional]
 **email** | **String** | The user&#39;s email address | 
-**externallyAuthenticated** | **Boolean** | Is the user externally authenticated. Currently automatically set to &#39;true&#39;. |  [optional] [readonly]
+**externallyAuthenticated** | **Boolean** | Is the user externally authenticated. |  [optional]
 **pureSystemUser** | **Boolean** | Is the user a Pure system user. Set to false when creating normal Pure users. |  [optional]
 **locked** | **Boolean** | Is the user locked. A locked user cannot log into Pure. |  [optional]
 **systemName** | **String** | The content system name |  [optional] [readonly]

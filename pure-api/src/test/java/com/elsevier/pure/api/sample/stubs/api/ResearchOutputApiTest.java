@@ -16,6 +16,11 @@ package com.elsevier.pure.api.sample.stubs.api;
 import com.elsevier.pure.api.sample.stubs.invoker.ApiException;
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRefList;
 import com.elsevier.pure.api.sample.stubs.model.ContentRefListResult;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesAssociation;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesAssociationListResult;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesAssociationsQuery;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesDisciplineListResult;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesDisciplineSchemeListResult;
 import java.io.File;
 import com.elsevier.pure.api.sample.stubs.model.KeywordGroupConfigurationList;
 import com.elsevier.pure.api.sample.stubs.model.LocalesList;
@@ -427,6 +432,39 @@ public class ResearchOutputApiTest {
     @Test
     public void getAllowedCountriesTest() throws ApiException {
         ClassificationRefList response = api.getAllowedCountries();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * A list of allowed discipline schemes
+     *
+     * Get a list fo a allowed discipline schemes for research outputs
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllowedDisciplineSchemesTest() throws ApiException {
+        DisciplinesDisciplineSchemeListResult response = api.getAllowedDisciplineSchemes();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * A list of allowed disciplines for a specific discipline scheme
+     *
+     * Get a list of a allowed disciplines for specific discipline scheme for research outputs
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAllowedDisciplinesTest() throws ApiException {
+        String disciplineScheme = null;
+        Integer size = null;
+        Integer offset = null;
+        DisciplinesDisciplineListResult response = api.getAllowedDisciplines(disciplineScheme, size, offset);
 
         // TODO: test validations
     }
@@ -868,6 +906,23 @@ public class ResearchOutputApiTest {
     }
     
     /**
+     * Get disciplinesfrom the discipline scheme associated with the research output
+     *
+     * Get disciplines from the discipline scheme associated with the research output with specific UUID.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDisciplineAssociationTest() throws ApiException {
+        UUID uuid = null;
+        String disciplineScheme = null;
+        DisciplinesAssociation response = api.getDisciplineAssociation(uuid, disciplineScheme);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get file from the research output
      *
      * Get file from the research output
@@ -918,6 +973,23 @@ public class ResearchOutputApiTest {
     }
     
     /**
+     * Query operation for disciplines associated with research outputs
+     *
+     * Lists disciplines from the discipline scheme associated with research outputs in the Pure instance that matches the provided query.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listDisciplineAssociationsTest() throws ApiException {
+        String disciplineScheme = null;
+        DisciplinesAssociationsQuery disciplinesAssociationsQuery = null;
+        DisciplinesAssociationListResult response = api.listDisciplineAssociations(disciplineScheme, disciplinesAssociationsQuery);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Lists notes
      *
      * Lists notes associated with a research output ordered by date (nulls last)
@@ -931,6 +1003,24 @@ public class ResearchOutputApiTest {
         Integer size = null;
         Integer offset = null;
         NoteListResult response = api.listNotes(uuid, size, offset);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update disciplines from the discipline scheme associated with the research output
+     *
+     * Update disciplines from the discipline scheme associated with the research output with specific UUID.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putDisciplineAssociationTest() throws ApiException {
+        UUID uuid = null;
+        String disciplineScheme = null;
+        DisciplinesAssociation disciplinesAssociation = null;
+        DisciplinesAssociation response = api.putDisciplineAssociation(uuid, disciplineScheme, disciplinesAssociation);
 
         // TODO: test validations
     }

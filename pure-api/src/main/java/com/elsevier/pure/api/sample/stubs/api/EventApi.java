@@ -28,6 +28,11 @@ import java.io.IOException;
 
 
 import com.elsevier.pure.api.sample.stubs.model.ClassificationRefList;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesAssociation;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesAssociationListResult;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesAssociationsQuery;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesDisciplineListResult;
+import com.elsevier.pure.api.sample.stubs.model.DisciplinesDisciplineSchemeListResult;
 import com.elsevier.pure.api.sample.stubs.model.Event;
 import com.elsevier.pure.api.sample.stubs.model.EventListResult;
 import com.elsevier.pure.api.sample.stubs.model.EventsQuery;
@@ -837,6 +842,234 @@ public class EventApi {
         return localVarCall;
     }
     /**
+     * Build call for getAllowedDisciplineSchemes
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedDisciplineSchemesCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/events/disciplines/allowed-discipline-schemes";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAllowedDisciplineSchemesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = getAllowedDisciplineSchemesCall(_callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * A list of allowed discipline schemes
+     * Get a list fo a allowed discipline schemes for events
+     * @return DisciplinesDisciplineSchemeListResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public DisciplinesDisciplineSchemeListResult getAllowedDisciplineSchemes() throws ApiException {
+        ApiResponse<DisciplinesDisciplineSchemeListResult> localVarResp = getAllowedDisciplineSchemesWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * A list of allowed discipline schemes
+     * Get a list fo a allowed discipline schemes for events
+     * @return ApiResponse&lt;DisciplinesDisciplineSchemeListResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DisciplinesDisciplineSchemeListResult> getAllowedDisciplineSchemesWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getAllowedDisciplineSchemesValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<DisciplinesDisciplineSchemeListResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * A list of allowed discipline schemes (asynchronously)
+     * Get a list fo a allowed discipline schemes for events
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedDisciplineSchemesAsync(final ApiCallback<DisciplinesDisciplineSchemeListResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAllowedDisciplineSchemesValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<DisciplinesDisciplineSchemeListResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getAllowedDisciplines
+     * @param disciplineScheme Identifier for the discipline scheme for events (required)
+     * @param size Number of returned disciplines per request (optional, default to 10)
+     * @param offset The offset for the returned list. 0 or null value is from the start (optional, default to 0)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedDisciplinesCall(String disciplineScheme, Integer size, Integer offset, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/events/disciplines/{discipline-scheme}/allowed-disciplines"
+            .replaceAll("\\{" + "discipline-scheme" + "\\}", localVarApiClient.escapeString(disciplineScheme.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (size != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAllowedDisciplinesValidateBeforeCall(String disciplineScheme, Integer size, Integer offset, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'disciplineScheme' is set
+        if (disciplineScheme == null) {
+            throw new ApiException("Missing the required parameter 'disciplineScheme' when calling getAllowedDisciplines(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getAllowedDisciplinesCall(disciplineScheme, size, offset, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * A list of allowed disciplines for a specific discipline scheme
+     * Get a list of a allowed disciplines for specific discipline scheme for events
+     * @param disciplineScheme Identifier for the discipline scheme for events (required)
+     * @param size Number of returned disciplines per request (optional, default to 10)
+     * @param offset The offset for the returned list. 0 or null value is from the start (optional, default to 0)
+     * @return DisciplinesDisciplineListResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public DisciplinesDisciplineListResult getAllowedDisciplines(String disciplineScheme, Integer size, Integer offset) throws ApiException {
+        ApiResponse<DisciplinesDisciplineListResult> localVarResp = getAllowedDisciplinesWithHttpInfo(disciplineScheme, size, offset);
+        return localVarResp.getData();
+    }
+
+    /**
+     * A list of allowed disciplines for a specific discipline scheme
+     * Get a list of a allowed disciplines for specific discipline scheme for events
+     * @param disciplineScheme Identifier for the discipline scheme for events (required)
+     * @param size Number of returned disciplines per request (optional, default to 10)
+     * @param offset The offset for the returned list. 0 or null value is from the start (optional, default to 0)
+     * @return ApiResponse&lt;DisciplinesDisciplineListResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DisciplinesDisciplineListResult> getAllowedDisciplinesWithHttpInfo(String disciplineScheme, Integer size, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = getAllowedDisciplinesValidateBeforeCall(disciplineScheme, size, offset, null);
+        Type localVarReturnType = new TypeToken<DisciplinesDisciplineListResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * A list of allowed disciplines for a specific discipline scheme (asynchronously)
+     * Get a list of a allowed disciplines for specific discipline scheme for events
+     * @param disciplineScheme Identifier for the discipline scheme for events (required)
+     * @param size Number of returned disciplines per request (optional, default to 10)
+     * @param offset The offset for the returned list. 0 or null value is from the start (optional, default to 0)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllowedDisciplinesAsync(String disciplineScheme, Integer size, Integer offset, final ApiCallback<DisciplinesDisciplineListResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAllowedDisciplinesValidateBeforeCall(disciplineScheme, size, offset, _callback);
+        Type localVarReturnType = new TypeToken<DisciplinesDisciplineListResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getAllowedKeywordGroupConfigurationClassifications
      * @param id Pure id of the keyword group configuration (required)
      * @param _callback Callback for upload/download progress
@@ -1554,6 +1787,131 @@ public class EventApi {
         return localVarCall;
     }
     /**
+     * Build call for getDisciplineAssociation
+     * @param uuid UUID of the desired event (required)
+     * @param disciplineScheme Identifier for the discipline scheme (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getDisciplineAssociationCall(UUID uuid, String disciplineScheme, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/events/{uuid}/disciplines/{discipline-scheme}"
+            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()))
+            .replaceAll("\\{" + "discipline-scheme" + "\\}", localVarApiClient.escapeString(disciplineScheme.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getDisciplineAssociationValidateBeforeCall(UUID uuid, String disciplineScheme, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'uuid' is set
+        if (uuid == null) {
+            throw new ApiException("Missing the required parameter 'uuid' when calling getDisciplineAssociation(Async)");
+        }
+        
+        // verify the required parameter 'disciplineScheme' is set
+        if (disciplineScheme == null) {
+            throw new ApiException("Missing the required parameter 'disciplineScheme' when calling getDisciplineAssociation(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getDisciplineAssociationCall(uuid, disciplineScheme, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get disciplines from the discipline scheme associated with the event
+     * Get disciplines from the discipline scheme  associated with the event with specific UUID.
+     * @param uuid UUID of the desired event (required)
+     * @param disciplineScheme Identifier for the discipline scheme (required)
+     * @return DisciplinesAssociation
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public DisciplinesAssociation getDisciplineAssociation(UUID uuid, String disciplineScheme) throws ApiException {
+        ApiResponse<DisciplinesAssociation> localVarResp = getDisciplineAssociationWithHttpInfo(uuid, disciplineScheme);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get disciplines from the discipline scheme associated with the event
+     * Get disciplines from the discipline scheme  associated with the event with specific UUID.
+     * @param uuid UUID of the desired event (required)
+     * @param disciplineScheme Identifier for the discipline scheme (required)
+     * @return ApiResponse&lt;DisciplinesAssociation&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DisciplinesAssociation> getDisciplineAssociationWithHttpInfo(UUID uuid, String disciplineScheme) throws ApiException {
+        okhttp3.Call localVarCall = getDisciplineAssociationValidateBeforeCall(uuid, disciplineScheme, null);
+        Type localVarReturnType = new TypeToken<DisciplinesAssociation>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get disciplines from the discipline scheme associated with the event (asynchronously)
+     * Get disciplines from the discipline scheme  associated with the event with specific UUID.
+     * @param uuid UUID of the desired event (required)
+     * @param disciplineScheme Identifier for the discipline scheme (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getDisciplineAssociationAsync(UUID uuid, String disciplineScheme, final ApiCallback<DisciplinesAssociation> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getDisciplineAssociationValidateBeforeCall(uuid, disciplineScheme, _callback);
+        Type localVarReturnType = new TypeToken<DisciplinesAssociation>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getOrderings
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1780,6 +2138,130 @@ public class EventApi {
         return localVarCall;
     }
     /**
+     * Build call for listDisciplineAssociations
+     * @param disciplineScheme Identifier for the discipline scheme (required)
+     * @param disciplinesAssociationsQuery The query to perform (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listDisciplineAssociationsCall(String disciplineScheme, DisciplinesAssociationsQuery disciplinesAssociationsQuery, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = disciplinesAssociationsQuery;
+
+        // create path and map variables
+        String localVarPath = "/events/disciplines/{discipline-scheme}/search"
+            .replaceAll("\\{" + "discipline-scheme" + "\\}", localVarApiClient.escapeString(disciplineScheme.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json", "application/problem+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listDisciplineAssociationsValidateBeforeCall(String disciplineScheme, DisciplinesAssociationsQuery disciplinesAssociationsQuery, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'disciplineScheme' is set
+        if (disciplineScheme == null) {
+            throw new ApiException("Missing the required parameter 'disciplineScheme' when calling listDisciplineAssociations(Async)");
+        }
+        
+        // verify the required parameter 'disciplinesAssociationsQuery' is set
+        if (disciplinesAssociationsQuery == null) {
+            throw new ApiException("Missing the required parameter 'disciplinesAssociationsQuery' when calling listDisciplineAssociations(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listDisciplineAssociationsCall(disciplineScheme, disciplinesAssociationsQuery, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Query operation for disciplines associated with events
+     * Lists disciplines from the discipline scheme associated with events in the Pure instance that matches the provided query.
+     * @param disciplineScheme Identifier for the discipline scheme (required)
+     * @param disciplinesAssociationsQuery The query to perform (required)
+     * @return DisciplinesAssociationListResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
+     */
+    public DisciplinesAssociationListResult listDisciplineAssociations(String disciplineScheme, DisciplinesAssociationsQuery disciplinesAssociationsQuery) throws ApiException {
+        ApiResponse<DisciplinesAssociationListResult> localVarResp = listDisciplineAssociationsWithHttpInfo(disciplineScheme, disciplinesAssociationsQuery);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Query operation for disciplines associated with events
+     * Lists disciplines from the discipline scheme associated with events in the Pure instance that matches the provided query.
+     * @param disciplineScheme Identifier for the discipline scheme (required)
+     * @param disciplinesAssociationsQuery The query to perform (required)
+     * @return ApiResponse&lt;DisciplinesAssociationListResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DisciplinesAssociationListResult> listDisciplineAssociationsWithHttpInfo(String disciplineScheme, DisciplinesAssociationsQuery disciplinesAssociationsQuery) throws ApiException {
+        okhttp3.Call localVarCall = listDisciplineAssociationsValidateBeforeCall(disciplineScheme, disciplinesAssociationsQuery, null);
+        Type localVarReturnType = new TypeToken<DisciplinesAssociationListResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Query operation for disciplines associated with events (asynchronously)
+     * Lists disciplines from the discipline scheme associated with events in the Pure instance that matches the provided query.
+     * @param disciplineScheme Identifier for the discipline scheme (required)
+     * @param disciplinesAssociationsQuery The query to perform (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listDisciplineAssociationsAsync(String disciplineScheme, DisciplinesAssociationsQuery disciplinesAssociationsQuery, final ApiCallback<DisciplinesAssociationListResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listDisciplineAssociationsValidateBeforeCall(disciplineScheme, disciplinesAssociationsQuery, _callback);
+        Type localVarReturnType = new TypeToken<DisciplinesAssociationListResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listNotes
      * @param uuid UUID of the event to get notes for (required)
      * @param size Number of returned notes per request (optional, default to 10)
@@ -1907,6 +2389,144 @@ public class EventApi {
 
         okhttp3.Call localVarCall = listNotesValidateBeforeCall(uuid, size, offset, _callback);
         Type localVarReturnType = new TypeToken<NoteListResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for putDisciplineAssociation
+     * @param uuid UUID of the event to update (required)
+     * @param disciplineScheme Identifier for the discipline scheme (required)
+     * @param disciplinesAssociation The disciplines association to create (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call putDisciplineAssociationCall(UUID uuid, String disciplineScheme, DisciplinesAssociation disciplinesAssociation, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = disciplinesAssociation;
+
+        // create path and map variables
+        String localVarPath = "/events/{uuid}/disciplines/{discipline-scheme}"
+            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()))
+            .replaceAll("\\{" + "discipline-scheme" + "\\}", localVarApiClient.escapeString(disciplineScheme.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json", "application/problem+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "api-key" };
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call putDisciplineAssociationValidateBeforeCall(UUID uuid, String disciplineScheme, DisciplinesAssociation disciplinesAssociation, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'uuid' is set
+        if (uuid == null) {
+            throw new ApiException("Missing the required parameter 'uuid' when calling putDisciplineAssociation(Async)");
+        }
+        
+        // verify the required parameter 'disciplineScheme' is set
+        if (disciplineScheme == null) {
+            throw new ApiException("Missing the required parameter 'disciplineScheme' when calling putDisciplineAssociation(Async)");
+        }
+        
+        // verify the required parameter 'disciplinesAssociation' is set
+        if (disciplinesAssociation == null) {
+            throw new ApiException("Missing the required parameter 'disciplinesAssociation' when calling putDisciplineAssociation(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = putDisciplineAssociationCall(uuid, disciplineScheme, disciplinesAssociation, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update disciplines from the discipline scheme associated with the event
+     * Update disciplines from the discipline scheme associated with the event with specific UUID.
+     * @param uuid UUID of the event to update (required)
+     * @param disciplineScheme Identifier for the discipline scheme (required)
+     * @param disciplinesAssociation The disciplines association to create (required)
+     * @return DisciplinesAssociation
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public DisciplinesAssociation putDisciplineAssociation(UUID uuid, String disciplineScheme, DisciplinesAssociation disciplinesAssociation) throws ApiException {
+        ApiResponse<DisciplinesAssociation> localVarResp = putDisciplineAssociationWithHttpInfo(uuid, disciplineScheme, disciplinesAssociation);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update disciplines from the discipline scheme associated with the event
+     * Update disciplines from the discipline scheme associated with the event with specific UUID.
+     * @param uuid UUID of the event to update (required)
+     * @param disciplineScheme Identifier for the discipline scheme (required)
+     * @param disciplinesAssociation The disciplines association to create (required)
+     * @return ApiResponse&lt;DisciplinesAssociation&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DisciplinesAssociation> putDisciplineAssociationWithHttpInfo(UUID uuid, String disciplineScheme, DisciplinesAssociation disciplinesAssociation) throws ApiException {
+        okhttp3.Call localVarCall = putDisciplineAssociationValidateBeforeCall(uuid, disciplineScheme, disciplinesAssociation, null);
+        Type localVarReturnType = new TypeToken<DisciplinesAssociation>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update disciplines from the discipline scheme associated with the event (asynchronously)
+     * Update disciplines from the discipline scheme associated with the event with specific UUID.
+     * @param uuid UUID of the event to update (required)
+     * @param disciplineScheme Identifier for the discipline scheme (required)
+     * @param disciplinesAssociation The disciplines association to create (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call putDisciplineAssociationAsync(UUID uuid, String disciplineScheme, DisciplinesAssociation disciplinesAssociation, final ApiCallback<DisciplinesAssociation> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = putDisciplineAssociationValidateBeforeCall(uuid, disciplineScheme, disciplinesAssociation, _callback);
+        Type localVarReturnType = new TypeToken<DisciplinesAssociation>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

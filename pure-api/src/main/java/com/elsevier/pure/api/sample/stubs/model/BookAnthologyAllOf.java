@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * BookAnthologyAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-11T16:14:00.558+01:00[Europe/Copenhagen]")
 public class BookAnthologyAllOf {
   public static final String SERIALIZED_NAME_COMMISSIONING_BODY = "commissioningBody";
   @SerializedName(SERIALIZED_NAME_COMMISSIONING_BODY)

@@ -31,7 +31,7 @@ import java.util.List;
  * List of research output peer review configurations
  */
 @ApiModel(description = "List of research output peer review configurations")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-28T22:49:29.739+02:00[Europe/Copenhagen]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-11T16:14:00.558+01:00[Europe/Copenhagen]")
 public class ResearchOutputPeerReviewConfigurationListResult {
   public static final String SERIALIZED_NAME_RESEARCH_OUTPUT_PEER_REVIEW_CONFIGURATIONS = "researchOutputPeerReviewConfigurations";
   @SerializedName(SERIALIZED_NAME_RESEARCH_OUTPUT_PEER_REVIEW_CONFIGURATIONS)
